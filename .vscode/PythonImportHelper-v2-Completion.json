@@ -1,0 +1,480 @@
+[
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "FileStream",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "CommonTokenStream",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "FileStream",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "CommonTokenStream",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "StringIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "StringIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "StringIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "StringIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "CobolParser",
+        "importPath": "CobolParser",
+        "description": "CobolParser",
+        "isExtraImport": true,
+        "detail": "CobolParser",
+        "documentation": {}
+    },
+    {
+        "label": "CobolVisitor",
+        "importPath": "CobolVisitor",
+        "description": "CobolVisitor",
+        "isExtraImport": true,
+        "detail": "CobolVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "CobolVisitor",
+        "importPath": "CobolVisitor",
+        "description": "CobolVisitor",
+        "isExtraImport": true,
+        "detail": "CobolVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "FlowAnalyzer",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "FlowAnalyzer",
+        "description": "FlowAnalyzer",
+        "detail": "FlowAnalyzer",
+        "documentation": {}
+    },
+    {
+        "label": "FlowAnalyzer",
+        "importPath": "FlowAnalyzer",
+        "description": "FlowAnalyzer",
+        "isExtraImport": true,
+        "detail": "FlowAnalyzer",
+        "documentation": {}
+    },
+    {
+        "label": "Trees",
+        "importPath": "antlr4.tree.Trees",
+        "description": "antlr4.tree.Trees",
+        "isExtraImport": true,
+        "detail": "antlr4.tree.Trees",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPreprocessorVisitor",
+        "importPath": "PreprocessorVisitor",
+        "description": "PreprocessorVisitor",
+        "isExtraImport": true,
+        "detail": "PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPreprocessorVisitor",
+        "importPath": "PreprocessorVisitor",
+        "description": "PreprocessorVisitor",
+        "isExtraImport": true,
+        "detail": "PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Lexer",
+        "importPath": "grammars.Cobol85Lexer",
+        "description": "grammars.Cobol85Lexer",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Lexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorLexer",
+        "importPath": "grammars.Cobol85PreprocessorLexer",
+        "description": "grammars.Cobol85PreprocessorLexer",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorLexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorLexer",
+        "importPath": "grammars.Cobol85PreprocessorLexer",
+        "description": "grammars.Cobol85PreprocessorLexer",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorLexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorParser",
+        "importPath": "grammars.Cobol85PreprocessorParser",
+        "description": "grammars.Cobol85PreprocessorParser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorParser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorParser",
+        "importPath": "grammars.Cobol85PreprocessorParser",
+        "description": "grammars.Cobol85PreprocessorParser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorParser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorParser",
+        "importPath": "grammars.Cobol85PreprocessorParser",
+        "description": "grammars.Cobol85PreprocessorParser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorParser",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Visitor",
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Visitor",
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorVisitor",
+        "importPath": "grammars.Cobol85PreprocessorVisitor",
+        "description": "grammars.Cobol85PreprocessorVisitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Lexer",
+        "kind": 6,
+        "importPath": "grammars.Cobol85Lexer",
+        "description": "grammars.Cobol85Lexer",
+        "peekOfCode": "class Cobol85Lexer(Lexer):\n    atn = ATNDeserializer().deserialize(serializedATN())\n    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]\n    IDENTIFICATIONLINE = 1\n    AUTHORLINE = 2\n    INSTALLATIONLINE = 3\n    DATE_WRITTENLINE = 4\n    DATE_COMPILEDLINE = 5\n    SECURITYLINE = 6\n    REMARKSLINE = 7",
+        "detail": "grammars.Cobol85Lexer",
+        "documentation": {}
+    },
+    {
+        "label": "serializedATN",
+        "kind": 2,
+        "importPath": "grammars.Cobol85Lexer",
+        "description": "grammars.Cobol85Lexer",
+        "peekOfCode": "def serializedATN():\n    return [\n        4,0,573,6029,6,-1,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,\n        5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,\n        2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,\n        7,19,2,20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,\n        2,26,7,26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,\n        7,32,2,33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,\n        2,39,7,39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,\n        7,45,2,46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,",
+        "detail": "grammars.Cobol85Lexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parse",
+        "kind": 6,
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "peekOfCode": "class Cobol85Parser ( Parser ):\n    grammarFileName = \"Cobol85.g4\"\n    atn = ATNDeserializer().deserialize(serializedATN())\n    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]\n    sharedContextCache = PredictionContextCache()\n    literalNames = [ \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", ",
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "serializedATN",
+        "kind": 2,
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "peekOfCode": "def serializedATN():\n    return [\n        4,1,573,6270,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,\n        7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,\n        13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,\n        20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,\n        26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,\n        33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,\n        39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,7,45,2,\n        46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,2,52,7,",
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Listener",
+        "kind": 6,
+        "importPath": "grammars.Cobol85Listener",
+        "description": "grammars.Cobol85Listener",
+        "peekOfCode": "class Cobol85Listener(ParseTreeListener):\n    # Enter a parse tree produced by Cobol85Parser#startRule.\n    def enterStartRule(self, ctx:Cobol85Parser.StartRuleContext):\n        pass\n    # Exit a parse tree produced by Cobol85Parser#startRule.\n    def exitStartRule(self, ctx:Cobol85Parser.StartRuleContext):\n        pass\n    # Enter a parse tree produced by Cobol85Parser#compilationUnit.\n    def enterCompilationUnit(self, ctx:Cobol85Parser.CompilationUnitContext):\n        pass",
+        "detail": "grammars.Cobol85Listener",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Visitor",
+        "kind": 6,
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "peekOfCode": "class Cobol85Visitor(ParseTreeVisitor):\n    # Visit a parse tree produced by Cobol85Parser#startRule.\n    def visitStartRule(self, ctx:Cobol85Parser.StartRuleContext):\n        return self.visitChildren(ctx)\n    # Visit a parse tree produced by Cobol85Parser#compilationUnit.\n    def visitCompilationUnit(self, ctx:Cobol85Parser.CompilationUnitContext):\n        return self.visitChildren(ctx)\n    # Visit a parse tree produced by Cobol85Parser#programUnit.\n    def visitProgramUnit(self, ctx:Cobol85Parser.ProgramUnitContext):\n        return self.visitChildren(ctx)",
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorLexer",
+        "kind": 6,
+        "importPath": "grammars.Cobol85PreprocessorLexer",
+        "description": "grammars.Cobol85PreprocessorLexer",
+        "peekOfCode": "class Cobol85PreprocessorLexer(Lexer):\n    atn = ATNDeserializer().deserialize(serializedATN())\n    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]\n    ADATA = 1\n    ADV = 2\n    ALIAS = 3\n    ANSI = 4\n    ANY = 5\n    APOST = 6\n    AR = 7",
+        "detail": "grammars.Cobol85PreprocessorLexer",
+        "documentation": {}
+    },
+    {
+        "label": "serializedATN",
+        "kind": 2,
+        "importPath": "grammars.Cobol85PreprocessorLexer",
+        "description": "grammars.Cobol85PreprocessorLexer",
+        "peekOfCode": "def serializedATN():\n    return [\n        4,0,292,2516,6,-1,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,\n        5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,\n        2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,\n        7,19,2,20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,\n        2,26,7,26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,\n        7,32,2,33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,\n        2,39,7,39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,\n        7,45,2,46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,",
+        "detail": "grammars.Cobol85PreprocessorLexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorParse",
+        "kind": 6,
+        "importPath": "grammars.Cobol85PreprocessorParser",
+        "description": "grammars.Cobol85PreprocessorParser",
+        "peekOfCode": "class Cobol85PreprocessorParser ( Parser ):\n    grammarFileName = \"Cobol85Preprocessor.g4\"\n    atn = ATNDeserializer().deserialize(serializedATN())\n    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]\n    sharedContextCache = PredictionContextCache()\n    literalNames = [ \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", ",
+        "detail": "grammars.Cobol85PreprocessorParser",
+        "documentation": {}
+    },
+    {
+        "label": "serializedATN",
+        "kind": 2,
+        "importPath": "grammars.Cobol85PreprocessorParser",
+        "description": "grammars.Cobol85PreprocessorParser",
+        "peekOfCode": "def serializedATN():\n    return [\n        4,1,292,678,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,\n        7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,\n        13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,\n        20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,\n        26,2,27,7,27,2,28,7,28,2,29,7,29,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,\n        1,0,1,0,1,0,1,0,5,0,73,8,0,10,0,12,0,76,9,0,1,0,1,0,1,1,1,1,3,1,\n        82,8,1,1,1,1,1,4,1,86,8,1,11,1,12,1,87,1,2,1,2,1,2,1,2,3,2,94,8,\n        2,1,2,5,2,97,8,2,10,2,12,2,100,9,2,1,2,1,2,1,3,1,3,1,3,1,3,1,3,1,",
+        "detail": "grammars.Cobol85PreprocessorParser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorListener",
+        "kind": 6,
+        "importPath": "grammars.Cobol85PreprocessorListener",
+        "description": "grammars.Cobol85PreprocessorListener",
+        "peekOfCode": "class Cobol85PreprocessorListener(ParseTreeListener):\n    # Enter a parse tree produced by Cobol85PreprocessorParser#startRule.\n    def enterStartRule(self, ctx:Cobol85PreprocessorParser.StartRuleContext):\n        pass\n    # Exit a parse tree produced by Cobol85PreprocessorParser#startRule.\n    def exitStartRule(self, ctx:Cobol85PreprocessorParser.StartRuleContext):\n        pass\n    # Enter a parse tree produced by Cobol85PreprocessorParser#compilerOptions.\n    def enterCompilerOptions(self, ctx:Cobol85PreprocessorParser.CompilerOptionsContext):\n        pass",
+        "detail": "grammars.Cobol85PreprocessorListener",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorVisitor",
+        "kind": 6,
+        "importPath": "grammars.Cobol85PreprocessorVisitor",
+        "description": "grammars.Cobol85PreprocessorVisitor",
+        "peekOfCode": "class Cobol85PreprocessorVisitor(ParseTreeVisitor):\n    # Visit a parse tree produced by Cobol85PreprocessorParser#startRule.\n    def visitStartRule(self, ctx:Cobol85PreprocessorParser.StartRuleContext):\n        return self.visitChildren(ctx)\n    # Visit a parse tree produced by Cobol85PreprocessorParser#compilerOptions.\n    def visitCompilerOptions(self, ctx:Cobol85PreprocessorParser.CompilerOptionsContext):\n        return self.visitChildren(ctx)\n    # Visit a parse tree produced by Cobol85PreprocessorParser#compilerXOpts.\n    def visitCompilerXOpts(self, ctx:Cobol85PreprocessorParser.CompilerXOptsContext):\n        return self.visitChildren(ctx)",
+        "detail": "grammars.Cobol85PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "parser",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "parser = CobolParser()\n# Ανάλυση ενός αρχείου COBOL\n# parser.parse_file(\"./Samples/send.cbl\")\n#parser.parse_file(\"./Samples/Checkers.cbl\")\n# parser.parse_file(\"./Samples/RepWriteFull.cbl\")\n# parser.parse_file(\"./Samples/Fibonacci Sequence.cbl\")\nparser.parse_file(\"./Samples/Fibonacci Sequence.cbl\")\n# parser.preprocess_and_parse_cobol(\"./Samples/DOGEMAIN.cbl\")\n# parser.analyze()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CobolParser",
+        "kind": 6,
+        "importPath": "CobolParser",
+        "description": "CobolParser",
+        "peekOfCode": "class CobolParser:\n    def __init__(self):\n        self.tree = None\n        self.visitor = CobolVisitor()\n        self.flow_analyzer = FlowAnalyzer()\n    def parse_file(self, file_path):\n        input_stream = FileStream(file_path, encoding=\"utf-8\")\n        lexer = Cobol85Lexer(input_stream)\n        token_stream = CommonTokenStream(lexer)\n        parser = Cobol85Parser(token_stream)",
+        "detail": "CobolParser",
+        "documentation": {}
+    },
+    {
+        "label": "CobolVisitor",
+        "kind": 6,
+        "importPath": "CobolVisitor",
+        "description": "CobolVisitor",
+        "peekOfCode": "class CobolVisitor(Cobol85Visitor):\n    def __init__(self):\n        self.programs = []\n        self.entry_points = []\n        self.entry_inputs = {}\n        self.calls = []\n        self.variables = []\n        self.current_entry = None\n    def visitProgramIdParagraph(self, ctx):\n        \"\"\"",
+        "detail": "CobolVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "FlowAnalyzer",
+        "kind": 6,
+        "importPath": "FlowAnalyzer",
+        "description": "FlowAnalyzer",
+        "peekOfCode": "class FlowAnalyzer(Cobol85Visitor):\n    def __init__(self):\n        super().__init__()\n        # Χρησιμοποιούμε defaultdict για να αποφύγουμε ελέγχους ύπαρξης κλειδιών\n        self.flow_graph: defaultdict[str, list[str]] = defaultdict(list)  # {entry_point: [next_steps]}\n        self.outputs: defaultdict[str, list[str]] = defaultdict(list)       # {entry_point: [displayed_outputs]}\n        self.current_entry: str | None = None\n    def add_edge(self, source: str, target: str) -> None:\n        \"\"\"Προσθέτει ένα edge στο flow graph από το source στο target.\"\"\"\n        self.flow_graph[source].append(target)",
+        "detail": "FlowAnalyzer",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_cobol",
+        "kind": 2,
+        "importPath": "preprocess_cobol",
+        "description": "preprocess_cobol",
+        "peekOfCode": "def preprocess_cobol(file_path):\n    input_stream = FileStream(file_path, encoding=\"utf-8\")\n    lexer = Cobol85PreprocessorLexer(input_stream)\n    token_stream = CommonTokenStream(lexer)\n    parser = Cobol85PreprocessorParser(token_stream)\n    tree = parser.startRule()\n    visitor = CustomPreprocessorVisitor()\n    visitor.visit(tree)\nif __name__ == \"__main__\":\n    preprocess_cobol(\"./Samples/DOGEMAIN.cbl\")",
+        "detail": "preprocess_cobol",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPreprocessorVisitor",
+        "kind": 6,
+        "importPath": "PreprocessorVisitor",
+        "description": "PreprocessorVisitor",
+        "peekOfCode": "class CustomPreprocessorVisitor(Cobol85PreprocessorVisitor):\n    def visitCopyStatement(self, ctx: Cobol85PreprocessorParser.CopyStatementContext):\n        print(\"Βρέθηκε COPY statement:\", ctx.getText())\n        return self.visitChildren(ctx)\n    def visitReplaceStatement(self, ctx: Cobol85PreprocessorParser.ReplaceByStatementContext):\n        print(\"Βρέθηκε REPLACE statement:\", ctx.getText())\n        return self.visitChildren(ctx)",
+        "detail": "PreprocessorVisitor",
+        "documentation": {}
+    }
+]

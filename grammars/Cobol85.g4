@@ -61,40 +61,67 @@ programIdParagraph
     )? DOT_FS? commentEntry?
     ;
 
+IDENTIFICATIONLINE
+    : (AUTHOR | INSTALLATION | DATE_WRITTEN | DATE_COMPILED | SECURITY | REMARKS) DOT_FS ( (~[\r\n.])+ DOT_FS )?
+    ;
+
+AUTHORLINE
+    : AUTHOR DOT_FS ( (~[\r\n.])+ DOT_FS )?
+    ;
+
+INSTALLATIONLINE
+    : INSTALLATION DOT_FS ( (~[\r\n.])+ DOT_FS )?
+    ;    
+
+DATE_WRITTENLINE
+    : DATE_WRITTEN DOT_FS ( (~[\r\n.])+ DOT_FS )?
+    ;
+
+DATE_COMPILEDLINE
+    : DATE_COMPILED DOT_FS ( (~[\r\n.])+ DOT_FS )?    
+    ;        
+
+SECURITYLINE
+    : SECURITY DOT_FS ( (~[\r\n.])+ DOT_FS )?    
+    ;            
+
+REMARKSLINE
+    : REMARKS DOT_FS ( (~[\r\n.])+ DOT_FS )?    
+    ;      
 // - author paragraph ----------------------------------
 
 authorParagraph
-    : AUTHOR DOT_FS commentEntry?
+    : IDENTIFICATIONLINE
     ;
 
 // - installation paragraph ----------------------------------
 
 installationParagraph
-    : INSTALLATION DOT_FS commentEntry?
+    : IDENTIFICATIONLINE
     ;
 
 // - date written paragraph ----------------------------------
 
 dateWrittenParagraph
-    : DATE_WRITTEN DOT_FS commentEntry?
+    : IDENTIFICATIONLINE
     ;
 
 // - date compiled paragraph ----------------------------------
 
 dateCompiledParagraph
-    : DATE_COMPILED DOT_FS commentEntry?
+    : IDENTIFICATIONLINE
     ;
 
 // - security paragraph ----------------------------------
 
 securityParagraph
-    : SECURITY DOT_FS commentEntry?
+    : IDENTIFICATIONLINE
     ;
 
 // - remarks paragraph ----------------------------------
 
 remarksParagraph
-    : REMARKS DOT_FS commentEntry?
+    : IDENTIFICATIONLINE
     ;
 
 // --- environment division --------------------------------------------------------------------
@@ -5360,6 +5387,20 @@ AMPCHAR
     : '&'
     ;
 
+FIXED_COMMENT
+    : { self.column == 6 }? '*' ~('\n'|'\r')* -> channel(HIDDEN)
+    ;
+
+fragment NonNewlineChar : ~[\r\n];
+
+COMMENTENTRYLINE
+    : COMMENTENTRYTAG WS ~('\n' | '\r')*
+    ;
+
+COMMENTLINE
+    : WS* ASTERISKCHAR WS ~('\n' | '\r')* -> channel(HIDDEN)
+    ;
+
 ASTERISKCHAR
     : '*'
     ;
@@ -5533,13 +5574,6 @@ EXECSQLLINE
     : EXECSQLTAG WS ~('\n' | '\r' | '}')* ('\n' | '\r' | '}')
     ;
 
-COMMENTENTRYLINE
-    : COMMENTENTRYTAG WS ~('\n' | '\r')*
-    ;
-
-COMMENTLINE
-    : COMMENTTAG WS ~('\n' | '\r')* -> channel(HIDDEN)
-    ;
 
 WS
     : [ \t\f;]+ -> channel(HIDDEN)

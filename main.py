@@ -9,7 +9,9 @@ parser = CobolParser()
 # parser.parse_file("./Samples/send.cbl")
 #parser.parse_file("./Samples/Checkers.cbl")
 # parser.parse_file("./Samples/RepWriteFull.cbl")
+# parser.parse_file("./Samples/Fibonacci Sequence.cbl")
 parser.parse_file("./Samples/Fibonacci Sequence.cbl")
 
-parser.analyze()
+# parser.preprocess_and_parse_cobol("./Samples/DOGEMAIN.cbl")
+# parser.analyze()
 
