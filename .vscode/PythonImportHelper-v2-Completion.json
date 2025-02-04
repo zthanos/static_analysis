@@ -300,14 +300,6 @@
         "documentation": {}
     },
     {
-        "label": "defaultdict",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
         "label": "Cobol85PreprocessorVisitor",
         "importPath": "grammars.Cobol85PreprocessorVisitor",
         "description": "grammars.Cobol85PreprocessorVisitor",
@@ -455,7 +447,7 @@
         "kind": 6,
         "importPath": "FlowAnalyzer",
         "description": "FlowAnalyzer",
-        "peekOfCode": "class FlowAnalyzer(Cobol85Visitor):\n    def __init__(self):\n        super().__init__()\n        # Χρησιμοποιούμε defaultdict για να αποφύγουμε ελέγχους ύπαρξης κλειδιών\n        self.flow_graph: defaultdict[str, list[str]] = defaultdict(list)  # {entry_point: [next_steps]}\n        self.outputs: defaultdict[str, list[str]] = defaultdict(list)       # {entry_point: [displayed_outputs]}\n        self.current_entry: str | None = None\n    def add_edge(self, source: str, target: str) -> None:\n        \"\"\"Προσθέτει ένα edge στο flow graph από το source στο target.\"\"\"\n        self.flow_graph[source].append(target)",
+        "peekOfCode": "class FlowAnalyzer(Cobol85Visitor):\n    def __init__(self):\n        super().__init__()\n        self.flow_graph = {}  # {entry_point: [next_steps]}\n        self.outputs = {}     # {entry_point: [displayed_outputs]}\n        self.current_entry = None\n    def add_edge(self, source, target):\n        \"\"\"Προσθέτει ένα edge στο flow graph.\"\"\"\n        if source in self.flow_graph:\n            self.flow_graph[source].append(target)",
         "detail": "FlowAnalyzer",
         "documentation": {}
     },
