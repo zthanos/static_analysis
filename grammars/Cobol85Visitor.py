@@ -1689,8 +1689,23 @@ class Cobol85Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by Cobol85Parser#execCommandListItem.
+    def visitExecCommandListItem(self, ctx:Cobol85Parser.ExecCommandListItemContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by Cobol85Parser#execCicsStatement.
     def visitExecCicsStatement(self, ctx:Cobol85Parser.ExecCicsStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by Cobol85Parser#execCicsCommand.
+    def visitExecCicsCommand(self, ctx:Cobol85Parser.ExecCicsCommandContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by Cobol85Parser#cicsParameter.
+    def visitCicsParameter(self, ctx:Cobol85Parser.CicsParameterContext):
         return self.visitChildren(ctx)
 
 
@@ -2181,6 +2196,11 @@ class Cobol85Visitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by Cobol85Parser#sendStatement.
     def visitSendStatement(self, ctx:Cobol85Parser.SendStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by Cobol85Parser#sendMapPhrase.
+    def visitSendMapPhrase(self, ctx:Cobol85Parser.SendMapPhraseContext):
         return self.visitChildren(ctx)
 
 

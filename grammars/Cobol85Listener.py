@@ -3032,12 +3032,39 @@ class Cobol85Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by Cobol85Parser#execCommandListItem.
+    def enterExecCommandListItem(self, ctx:Cobol85Parser.ExecCommandListItemContext):
+        pass
+
+    # Exit a parse tree produced by Cobol85Parser#execCommandListItem.
+    def exitExecCommandListItem(self, ctx:Cobol85Parser.ExecCommandListItemContext):
+        pass
+
+
     # Enter a parse tree produced by Cobol85Parser#execCicsStatement.
     def enterExecCicsStatement(self, ctx:Cobol85Parser.ExecCicsStatementContext):
         pass
 
     # Exit a parse tree produced by Cobol85Parser#execCicsStatement.
     def exitExecCicsStatement(self, ctx:Cobol85Parser.ExecCicsStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by Cobol85Parser#execCicsCommand.
+    def enterExecCicsCommand(self, ctx:Cobol85Parser.ExecCicsCommandContext):
+        pass
+
+    # Exit a parse tree produced by Cobol85Parser#execCicsCommand.
+    def exitExecCicsCommand(self, ctx:Cobol85Parser.ExecCicsCommandContext):
+        pass
+
+
+    # Enter a parse tree produced by Cobol85Parser#cicsParameter.
+    def enterCicsParameter(self, ctx:Cobol85Parser.CicsParameterContext):
+        pass
+
+    # Exit a parse tree produced by Cobol85Parser#cicsParameter.
+    def exitCicsParameter(self, ctx:Cobol85Parser.CicsParameterContext):
         pass
 
 
@@ -3920,6 +3947,15 @@ class Cobol85Listener(ParseTreeListener):
 
     # Exit a parse tree produced by Cobol85Parser#sendStatement.
     def exitSendStatement(self, ctx:Cobol85Parser.SendStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by Cobol85Parser#sendMapPhrase.
+    def enterSendMapPhrase(self, ctx:Cobol85Parser.SendMapPhraseContext):
+        pass
+
+    # Exit a parse tree produced by Cobol85Parser#sendMapPhrase.
+    def exitSendMapPhrase(self, ctx:Cobol85Parser.SendMapPhraseContext):
         pass
 
 

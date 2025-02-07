@@ -34,9 +34,9 @@
            05 TEXT-MESSAGE     PIC X(7)B VALUE 'SENDING'.
            05 TEXT-AMOUNT      PIC X(17)B VALUE '00000000.00000000'.
            05 TEXT-CURRENCY    PIC X(4) VALUE 'DOGE'.
-       COPY DOGESN.
-       COPY DFHAID.
-       COPY DFHBMSCA.
+      * COPY DOGESN.
+      * COPY DFHAID.
+      * COPY DFHBMSCA.
        LINKAGE SECTION.
       *
        01  DFHCOMMAREA                       PIC X(10).

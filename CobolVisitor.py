@@ -1,261 +1,277 @@
+import json
+import re
+from logger import logger
 from grammars.Cobol85Visitor import Cobol85Visitor
 from grammars.Cobol85Parser import Cobol85Parser
-import re
 
 class CobolVisitor(Cobol85Visitor):
     def __init__(self):
-        self.programs = []
-        self.entry_points = []
-        self.entry_inputs = {}
-        self.calls = []
-        self.variables = []
+        # Δομές για τα entry points και τις πληροφορίες τους
+        self.entry_points = []           # Ονόματα entry points
+        self.entry_inputs = {}           # { entry: [input1, input2, ...] }
+        self.entry_outputs = {}          # { entry: [output1, output2, ...] }
+        self.calls = {}                  # { entry: [call_obj, ...] } (προαιρετικά)
+        # Δομή για το Flow (πλέον θα το εμφανίζουμε ως "Calls" στο τελικό JSON)
+        self.flow_calls = {}             # { entry: [call_obj, ...] }
         self.current_entry = None
+        # Ιδιότητες από το Identification Division
+        self.identification_properties = {}
+
+    def clean_text(self, text):
+        """Αφαιρεί περιττούς χαρακτήρες."""
+        return text.replace("(", "").replace(")", "").replace("'", "").strip()
+
+    def get_recursive_text(self, ctx):
+        """Αναδρομικά συλλέγει το κείμενο από τον κόμβο και όλους τους απογόνους του."""
+        if ctx.getChildCount() == 0:
+            return ctx.getText()
+        else:
+            parts = []
+            for i in range(ctx.getChildCount()):
+                parts.append(self.get_recursive_text(ctx.getChild(i)))
+                logger.info("=======================>", ctx.getChild(i).getText())
+            return " ".join(parts)
+
+    def _init_entry(self, entry):
+        """Αρχικοποιεί τις δομές για ένα entry point."""
+        if entry not in self.entry_points:
+            self.entry_points.append(entry)
+        self.entry_inputs.setdefault(entry, [])
+        self.entry_outputs.setdefault(entry, [])
+        self.calls.setdefault(entry, [])
+        self.flow_calls.setdefault(entry, [])
+
+    # --- Εξαγωγή πληροφοριών από το Identification Division ---
+    def visitIdentificationDivision(self, ctx):
+        """
+        Συλλέγει τις πληροφορίες από το Identification Division.  
+        Αν το κείμενο είναι κάτι σαν:
+        
+            IDENTIFICATION DIVISION .
+                PROGRAM-ID .    DOGECOIN .
+                AUTHOR. SOLDIER OF FORTRAN.
+                INSTALLATION. DOGE BANK.
+                DATE-WRITTEN. 08/30/20.
+                SECURITY. CONFIDENTIAL.
+        
+        τότε εξάγει τα πεδία: ProgramID, AUTHOR, INSTALLATION, DATE-WRITTEN, SECURITY.
+        """
+        full_text = self.get_recursive_text(ctx)
+        lines = full_text.split("\n")
+        properties = {}
+        # Χρησιμοποιούμε regex για να εξάγουμε τα πεδία που μας ενδιαφέρουν
+        pattern = re.compile(r"^(PROGRAM-ID|AUTHOR|INSTALLATION|DATE-WRITTEN|SECURITY)\s*\.\s*(.*?)\s*\.", re.IGNORECASE)
+        for line in lines:
+            line = line.strip()
+            match = pattern.search(line)
+            if match:
+                key = match.group(1).strip()
+                value = match.group(2).strip()
+                if key.upper() == "PROGRAM-ID":
+                    properties["ProgramID"] = value
+                elif key.upper() == "AUTHOR":
+                    properties["AUTHOR"] = value
+                elif key.upper() == "INSTALLATION":
+                    properties["INSTALLATION"] = value
+                elif key.upper() == "DATE-WRITTEN":
+                    properties["DATE-WRITTEN"] = value
+                elif key.upper() == "SECURITY":
+                    properties["SECURITY"] = value
+        self.identification_properties = properties
+        logger.info(f"[IDENTIFICATION] {self.identification_properties}")
+        return self.visitChildren(ctx)
 
     def visitProgramIdParagraph(self, ctx):
-        """
-        Εντοπισμός του κύριου προγράμματος COBOL, ακόμα και αν προηγούνται σχόλια.
-        """
-        found_program_id = False
-        program_name = None
-        # print(ctx.getText())
-        for i in range(ctx.getChildCount()):
-            # a = ctx.getChild(i).getText()
-            # print(a)
-            if ctx.getChild(i).getText().upper() == "PROGRAM-ID":
-                if i + 1 < ctx.getChildCount():
-                    program_name = ctx.getChild(i + 1).getText()
-                    found_program_id = True
-                break
-
-        if found_program_id and program_name:
-            self.programs.append(program_name)
-            self.entry_points.append(program_name)
-            self.entry_inputs[program_name] = []
+        program_name_ctx = ctx.getTypedRuleContext(Cobol85Parser.ProgramNameContext, 0)
+        if program_name_ctx is not None:
+            program_name = self.clean_text(program_name_ctx.getText())
             self.current_entry = program_name
-            # print(f"[ENTRY POINT] Program Name: {program_name}")
+            self._init_entry(program_name)
+            # logger.info(f"[ENTRY POINT] Program Name: {program_name}")
         else:
-            print("[ERROR] Program-ID not found!")
-
+            logger.info("[ERROR] Program name not found in ProgramIdParagraph!")
         return self.visitChildren(ctx)
-
-
-    def visitCallStatement(self, ctx):
-        """
-        Ανάλυση CALL USING: Εντοπισμός μεταβλητών που χρησιμοποιούνται ως input.
-        """
-        if ctx.getChildCount() > 2:
-            called_program = ctx.getChild(2).getText()
-            inputs = []
-
-            found_using = False
-            for child in ctx.children:
-                if child.getText().upper() == "USING":
-                    found_using = True
-                elif found_using and hasattr(child, 'getText') and child.getText().isidentifier():
-                    inputs.append(child.getText())
-
-            if self.current_entry:
-                if self.current_entry in self.entry_inputs:
-                    self.entry_inputs[self.current_entry].extend(inputs)
-                else:
-                    self.entry_inputs[self.current_entry] = inputs
-
-            # print(f"[CALL DETECTED] {self.current_entry} calls {called_program} USING {inputs}")
-
-        return self.visitChildren(ctx)
-
 
     def visitParagraph(self, ctx):
-        """
-        Εντοπισμός παραγράφων στη PROCEDURE DIVISION ως τοπικά entry points.
-        """
         if ctx.getChildCount() > 0:
-            paragraph_name = ctx.getChild(0).getText()
-            self.entry_points.append(paragraph_name)
-            self.entry_inputs[paragraph_name] = []
+            paragraph_name = ctx.getChild(0).getText().strip()
             self.current_entry = paragraph_name
-            # print(f"[LOCAL ENTRY] Paragraph: {paragraph_name}")
+            self._init_entry(paragraph_name)
+            logger.info(f"[ENTRY] {paragraph_name}")
         return self.visitChildren(ctx)
 
+    # --- Καταγραφή των κλήσεων / statements στο Flow (Calls) ---
+    def visitCallStatement(self, ctx):
+        children_texts = [child.getText().upper() for child in ctx.getChildren()]
+        if "CALL" in children_texts or "XCTL" in children_texts:
+            idx = (children_texts.index("CALL") + 1) if "CALL" in children_texts else (children_texts.index("XCTL") + 1)
+            if idx < len(children_texts):
+                call_text = self.clean_text(self.get_recursive_text(ctx.getChild(idx)))
+                call_obj = { "description": call_text, "type": "execution", "comments": "" }
+                if self.current_entry:
+                    self.calls[self.current_entry].append(call_obj)
+                    self.flow_calls[self.current_entry].append(call_obj)
+                    # logger.info(f"[FLOW] {self.current_entry} → {call_obj}")
+        return self.visitChildren(ctx)
+
+    def visitExecCicsStatement(self, ctx):
+        children_texts = [child.getText().upper() for child in ctx.children]
+        if "XCTL" in children_texts and "PROGRAM" in children_texts:
+            idx = children_texts.index("PROGRAM") + 1
+            if idx < len(children_texts):
+                call_text = self.clean_text(self.get_recursive_text(ctx.getChild(idx)))
+                call_obj = { "description": call_text, "type": "execution", "comments": "" }
+                if self.current_entry:
+                    self.calls[self.current_entry].append(call_obj)
+                    self.flow_calls[self.current_entry].append(call_obj)
+                    # logger.info(f"[FLOW] {self.current_entry} → {call_obj}")
+        if "RECEIVE" in children_texts and "INTO" in children_texts:
+            idx = children_texts.index("INTO") + 1
+            if idx < len(children_texts):
+                input_text = self.clean_text(self.get_recursive_text(ctx.getChild(idx)))
+                if self.current_entry:
+                    self.entry_inputs[self.current_entry].append(input_text)
+                    # logger.info(f"[INPUT] {self.current_entry} → {input_text}")
+        if "SEND" in children_texts and "MAP" in children_texts:
+            idx = children_texts.index("MAP") + 1
+            if idx < len(children_texts):
+                output_text = self.clean_text(self.get_recursive_text(ctx.getChild(idx)))
+                if self.current_entry:
+                    self.entry_outputs[self.current_entry].append(output_text)
+                    # logger.info(f"[OUTPUT] {self.current_entry} → {output_text}")
+        return self.visitChildren(ctx)
 
     def visitMoveStatement(self, ctx):
-        """
-        Ανάλυση MOVE statement: Προσθήκη μεταβλητών που χρησιμοποιούνται ως inputs.
-        """
-        move_source = None
-        move_target = None
-
-        tokens = [child.getText() for child in ctx.children]
-
-        # Διόρθωση προβλήματος συγχωνευμένων tokens με regex
-        for token in tokens:
-            match = re.match(r"(.+?)TO(.+)", token, re.IGNORECASE)
-            if match:
-                move_source, move_target = match.groups()
-
-        if move_source and move_target and self.current_entry:
-            if self.current_entry in self.entry_inputs:
-                self.entry_inputs[self.current_entry].append(move_source)
-            else:
-                self.entry_inputs[self.current_entry] = [move_source]
-
-            # print(f"[MOVE INPUT] {self.current_entry} moves {move_source} into {move_target}")
-
+        if ctx.getChildCount() > 2:
+            source = self.clean_text(self.get_recursive_text(ctx.getChild(1)))
+            target = self.clean_text(self.get_recursive_text(ctx.getChild(3)))
+            if self.current_entry and target.upper() == "WTO-MESSAGE":
+                self.entry_outputs[self.current_entry].append(source)
+                # logger.info(f"[OUTPUT] {self.current_entry} → {source}")
         return self.visitChildren(ctx)
 
-
-
-
-
-
-    def visitDataDescriptionEntry(self, ctx):
-        """
-        Εντοπισμός μεταβλητών από τη DATA DIVISION.
-        """
-        variable_name = None
-
-        # Ελέγχουμε αν υπάρχει `dataDescriptionEntryFormat1`
-        if ctx.dataDescriptionEntryFormat1():
-            format1 = ctx.dataDescriptionEntryFormat1()
-            a = format1.dataPictureClause()
-            # print(">>>>>>>>>>>>>>>>>>> format1 >>>>>>>>>>>>>>>>>>>>>>>>")
-            # print(format1)
-            # print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-            if format1.dataTypeClause():
-                picture_clause = format1.dataTypeClause()
-                # print("==================picture_clause=")
-                # print(picture_clause)
-            if format1.dataName():
-                variable_name = format1.dataName().getText()
-
-        # Ελέγχουμε αν υπάρχει `dataDescriptionEntryFormat2` (RENAME)
-        elif ctx.dataDescriptionEntryFormat2():
-            format2 = ctx.dataDescriptionEntryFormat2()
-            if format2.dataName():
-                variable_name = format2.dataName().getText()
-
-        # Ελέγχουμε αν υπάρχει `dataDescriptionEntryFormat3` (LEVEL 88)
-        elif ctx.dataDescriptionEntryFormat3():
-            format3 = ctx.dataDescriptionEntryFormat3()
-            if format3.conditionName():
-                variable_name = format3.conditionName().getText()
-
-        if variable_name:
-            self.variables.append(variable_name)
-            # print(f"[VARIABLE] Found: {variable_name}")
-        else:
-            print(f"[ERROR] Could not determine variable name. Context: {ctx.toStringTree()}")
-
-        return self.visitChildren(ctx)
-
-    # def visitDataDescriptionEntry(self, ctx):
-    #     """
-    #     Εντοπισμός μεταβλητών από τη DATA DIVISION.
-    #     """
-    #     variable_name = None
-    #     data_type = None
-    #     size = None
-    #     initial_value = None
-
-    #     # Ελέγχουμε αν υπάρχει `dataDescriptionEntryFormat1`
-    #     if ctx.dataDescriptionEntryFormat1():
-    #         format1 = ctx.dataDescriptionEntryFormat1()
-
-    #         # Όνομα μεταβλητής
-    #         if format1.dataName():
-    #             variable_name = format1.dataName().getText()
-
-    #         # Έλεγχος για τύπο δεδομένων (PICTURE)
-    #         if format1.dataPictureClause():
-    #             picture_clause = format1.dataPictureClause()
-    #             print("==================picture_clause=")
-    #             print(picture_clause)
-    #             data_type = picture_clause.getText()
-
-    #         # Έλεγχος για μέγεθος μεταβλητής (PICTURE Χαρακτήρες)
-    #         if format1.dataPictureClause() and format1.dataPictureClause().pictureString():
-    #             size = format1.dataPictureClause().pictureString().getText()
-
-    #         # Έλεγχος για αρχική τιμή (VALUE)
-    #         if format1.dataValueClause():
-    #             value_clause = format1.dataValueClause()
-    #             initial_value = value_clause.getText()
-
-    #     # Εκτύπωση αποτελεσμάτων
-    #     if variable_name:
-    #         print(f"[VARIABLE] Found: {variable_name}")
-    #         if data_type:
-    #             print(f"  ├── Type: {data_type}")
-    #         if size:
-    #             print(f"  ├── Size: {size}")
-    #         if initial_value:
-    #             print(f"  ├── Initial Value: {initial_value}")
-    #     else:
-    #         print(f"[ERROR] Could not determine variable name. Context: {ctx.toStringTree()}")
-
-    #     return self.visitChildren(ctx)
-
-
-
-
-    def visitLinkageSection(self, ctx):
-        """
-        Εντοπισμός παραμέτρων που δηλώνονται στο LINKAGE SECTION.
-        """
-        linkage_vars = [child.getText() for child in ctx.children if child.getText().isidentifier()]
-        if self.current_entry:
-            if self.current_entry in self.entry_inputs:
-                self.entry_inputs[self.current_entry].extend(linkage_vars)
-            else:
-                self.entry_inputs[self.current_entry] = linkage_vars
-            # print(f"[ENTRY INPUTS] {self.current_entry} expects {linkage_vars}")
-        return self.visitChildren(ctx)
-
-    def print_results(self):
-        """
-        Εκτυπώνει τα αποτελέσματα της ανάλυσης.
-        """
-        print("===========================================================")
-        print("Programs found:", self.programs)
-        print("Entry Points found:", self.entry_points)
-        print("Calls found:", self.calls)
-        print("Variables found:", self.variables)
-        print("Inputs per Entry Point:")
-        for entry, inputs in self.entry_inputs.items():
-            print(f"  {entry}: {inputs}")
-        print("-----------------------------------------------------------")
-        
-            
     def visitReadStatement(self, ctx):
-        """
-        Ανάλυση READ INTO: Εντοπισμός μεταβλητής που χρησιμοποιείται ως input.
-        """
-        if "INTO" in [child.getText().upper() for child in ctx.children]:
-            idx = [child.getText().upper() for child in ctx.children].index("INTO") + 1
+        children_texts = [child.getText().upper() for child in ctx.children]
+        if "INTO" in children_texts:
+            idx = children_texts.index("INTO") + 1
             if idx < len(ctx.children):
-                input_variable = ctx.getChild(idx).getText()
+                input_text = self.clean_text(self.get_recursive_text(ctx.getChild(idx)))
                 if self.current_entry:
-                    if self.current_entry in self.entry_inputs:
-                        self.entry_inputs[self.current_entry].append(input_variable)
-                    else:
-                        self.entry_inputs[self.current_entry] = [input_variable]
-
-                    print(f"[READ INPUT] {self.current_entry} reads into {input_variable}")
-
+                    self.entry_inputs[self.current_entry].append(input_text)
+                    # logger.info(f"[INPUT] {self.current_entry} → {input_text}")
         return self.visitChildren(ctx)
 
-    def visitAcceptStatement(self, ctx):
+    # --- Αναδρομική ανάλυση condition statements ---
+    def parse_if_statement(self, text):
         """
-        Ανάλυση ACCEPT FROM: Βρίσκουμε μεταβλητές που δέχονται input από το χρήστη.
+        Μία απλή υλοποίηση για την ανάλυση ενός IF statement.
+        Υποθέτουμε το format:
+           IF <condition> MOVE ... [MOVE ...] ELSE MOVE ...
+        όπου:
+          - <condition> είναι το κομμάτι μέχρι το πρώτο " MOVE "
+          - Το Then branch περιέχει τα MOVE statements πριν το " ELSE "
+          - Το Else branch τα MOVE statements μετά το " ELSE "
         """
-        if ctx.getChildCount() > 1:
-            input_variable = ctx.getChild(1).getText()
-            if self.current_entry:
-                if self.current_entry in self.entry_inputs:
-                    self.entry_inputs[self.current_entry].append(input_variable)
-                else:
-                    self.entry_inputs[self.current_entry] = [input_variable]
+        upper_text = text.upper()
+        if not upper_text.startswith("IF "):
+            return None
+        after_if = text[3:].strip()
+        parts = after_if.split(" ELSE ", 1)
+        then_part = parts[0].strip()
+        else_part = parts[1].strip() if len(parts) > 1 else ""
+        tokens = then_part.split(" MOVE ", 1)
+        if len(tokens) < 2:
+            return None
+        condition_expr = tokens[0].strip()
+        assignments_text = tokens[1].strip()
+        then_assignments = []
+        for part in assignments_text.split(" MOVE "):
+            part = part.strip()
+            if part:
+                then_assignments.append("MOVE " + part)
+        else_assignments = []
+        if else_part:
+            for part in else_part.split(" MOVE "):
+                part = part.strip()
+                if part:
+                    else_assignments.append("MOVE " + part)
+        return condition_expr, then_assignments, else_assignments
 
-                # print(f"[ACCEPT INPUT] {self.current_entry} accepts {input_variable}")
+    def parse_statement_recursively(self, text):
+        """
+        Αναδρομικά αναλύει το text ενός statement.  
+        Αν ξεκινάει με IF, καλεί την parse_if_statement και για κάθε assignment
+        στο Then/Else καλεί αναδρομικά την ίδια συνάρτηση ώστε να "ξεδιπλωθεί" το condition.
+        Διαφορετικά επιστρέφει ένα απλό αντικείμενο με type:
+          - "Assingment" αν ξεκινάει με MOVE,
+          - αλλιώς "execution".
+        """
+        text = self.clean_text(text)
+        upper_text = text.upper()
+        if upper_text.startswith("IF"):
+            parsed = self.parse_if_statement(text)
+            if parsed:
+                condition_expr, then_assignments, else_assignments = parsed
+                then_objs = []
+                for assign_text in then_assignments:
+                    then_objs.append(self.parse_statement_recursively(assign_text))
+                else_objs = []
+                for assign_text in else_assignments:
+                    else_objs.append(self.parse_statement_recursively(assign_text))
+                return {
+                    "description": text,
+                    "type": "condition",
+                    "comments": "",
+                    "Then": then_objs,
+                    "Else": else_objs
+                }
+        if upper_text.startswith("MOVE"):
+            st_type = "Assingment"
+        else:
+            st_type = "execution"
+        return {
+            "description": text,
+            "type": st_type,
+            "comments": ""
+        }
 
+    def visitStatement(self, ctx):
+        if self.current_entry is not None:
+            statement_text = self.clean_text(self.get_recursive_text(ctx))
+            upper_text = statement_text.upper()
+            if upper_text.startswith("IF") or upper_text.startswith("EVALUATE"):
+                call_obj = self.parse_statement_recursively(statement_text)
+            elif upper_text.startswith("MOVE"):
+                call_obj = { "description": statement_text, "type": "ανάθεση", "comments": "" }
+            elif "WHILE" in upper_text:
+                call_obj = { "description": statement_text, "type": "loop", "comments": "" }
+            else:
+                call_obj = { "description": statement_text, "type": "execution", "comments": "" }
+            self.flow_calls[self.current_entry].append(call_obj)
+            # logger.info(f"[FLOW-CALL] {self.current_entry} → {call_obj}")
         return self.visitChildren(ctx)
+
+    def generate_json_output(self):
+        # Δημιουργούμε το αντικείμενο του προγράμματος και ενσωματώνουμε τις ιδιότητες από το Identification Division.
+        program_obj = {}
+        # Εισάγουμε κάθε property ξεχωριστά, αν υπάρχει
+        for key in ["ProgramID", "AUTHOR", "INSTALLATION", "DATE-WRITTEN", "SECURITY"]:
+            if key in self.identification_properties:
+                program_obj[key] = self.identification_properties[key]
+        program_obj["EntryPoints"] = []
+        for entry in self.entry_points:
+            entry_data = {
+                "Name": entry,
+                "Input": self.entry_inputs.get(entry, []),
+                "Output": self.entry_outputs.get(entry, []),
+                "Calls": self.flow_calls.get(entry, [])
+            }
+            program_obj["EntryPoints"].append(entry_data)
+        json_output = {"Program": program_obj}
+        json_str = json.dumps(json_output, indent=4)
+        logger.info("==== GENERATED JSON ====")
+        logger.info(json_str)
+        return json_str
+
+    def print_json_output(self):
+        return self.generate_json_output()

@@ -1,0 +1,1328 @@
+{
+    "ProgramId": "DOGECOIN",
+    "Author": "SOLDIER OF FORTRAN",
+    "Installation": "DOGE BANK",
+    "DateWritten": "08/30/20",
+    "Compiled": null,
+    "Security": null,
+    "Flow": [
+        {
+            "Name": "00000-MAIN",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DFHCOMMAREA",
+                            "AssignTo": "DOGECOMMS-AREA"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'STARTING DOGE CICS.'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'DISPLAYING DOGE.'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.CICS",
+                            "MethodName": "SEND",
+                            "Statements": [
+                                {
+                                    "type": "MAP('DOGECN1')"
+                                },
+                                {
+                                    "type": "MAPSET('DOGECN')"
+                                },
+                                {
+                                    "type": "ERASE"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.CONDITION",
+                            "conditionClauses": [],
+                            "TrueStatements": [
+                                {
+                                    "type": "StatementType.CICS",
+                                    "MethodName": "XCTL",
+                                    "Statements": [
+                                        {
+                                            "type": "PROGRAM('DOGEQUIT')"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "type": "StatementType.CONDITION",
+                                    "conditionClauses": [],
+                                    "TrueStatements": [
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "DOGE-MAIN-SCREEN",
+                                            "Internal": true,
+                                            "Statements": []
+                                        }
+                                    ],
+                                    "FalseStatements": [
+                                        {
+                                            "type": "StatementType.CONDITION",
+                                            "conditionClauses": [],
+                                            "TrueStatements": [
+                                                {
+                                                    "type": "StatementType.ASSIGN",
+                                                    "AssignFrom": "'T'",
+                                                    "AssignTo": "DOGECOMMS-AREA"
+                                                },
+                                                {
+                                                    "type": "StatementType.CALL",
+                                                    "MethodName": "DOGE-MAIN-SCREEN",
+                                                    "Internal": true,
+                                                    "Statements": []
+                                                }
+                                            ],
+                                            "FalseStatements": [
+                                                {
+                                                    "type": "StatementType.CONDITION",
+                                                    "conditionClauses": [],
+                                                    "TrueStatements": [
+                                                        {
+                                                            "type": "StatementType.CALL",
+                                                            "MethodName": "RECEIVE-OPTION",
+                                                            "Internal": true,
+                                                            "Statements": []
+                                                        },
+                                                        {
+                                                            "type": "StatementType.CALL",
+                                                            "MethodName": "PARSE-OPTION",
+                                                            "Internal": true,
+                                                            "Statements": []
+                                                        }
+                                                    ],
+                                                    "FalseStatements": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RETURN",
+                    "Statements": [
+                        {
+                            "type": "TRANSID('DOGE')"
+                        },
+                        {
+                            "type": "COMMAREA(DOGECOMMS-AREA)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-EXIT",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "GOBACK",
+                    "Internal": true,
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "RECEIVE-OPTION",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "'Getting Input from User.'",
+                    "AssignTo": "WTO-MESSAGE"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "DOGE-WTO",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RECEIVE",
+                    "Statements": [
+                        {
+                            "type": "MAP('DOGEMN1')"
+                        },
+                        {
+                            "type": "MAPSET('DOGEMN')"
+                        },
+                        {
+                            "type": "INTO(DOGEMN1I)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "PARSE-OPTION",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'Opening Transaction History'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.CICS",
+                            "MethodName": "XCTL",
+                            "Statements": [
+                                {
+                                    "type": "PROGRAM('DOGETRAN')"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.CONDITION",
+                            "conditionClauses": [],
+                            "TrueStatements": [
+                                {
+                                    "type": "StatementType.ASSIGN",
+                                    "AssignFrom": "'Opening Main Menu'",
+                                    "AssignTo": "WTO-MESSAGE"
+                                },
+                                {
+                                    "type": "StatementType.CALL",
+                                    "MethodName": "DOGE-WTO",
+                                    "Internal": true,
+                                    "Statements": []
+                                },
+                                {
+                                    "type": "StatementType.CICS",
+                                    "MethodName": "XCTL",
+                                    "Statements": [
+                                        {
+                                            "type": "PROGRAM('DOGECOIN')"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "type": "StatementType.CONDITION",
+                                    "conditionClauses": [],
+                                    "TrueStatements": [
+                                        {
+                                            "type": "StatementType.ASSIGN",
+                                            "AssignFrom": "'Opening Transaction Details'",
+                                            "AssignTo": "WTO-MESSAGE"
+                                        },
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "DOGE-WTO",
+                                            "Internal": true,
+                                            "Statements": []
+                                        },
+                                        {
+                                            "type": "StatementType.CICS",
+                                            "MethodName": "XCTL",
+                                            "Statements": [
+                                                {
+                                                    "type": "PROGRAM('DOGEDEET')"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "FalseStatements": [
+                                        {
+                                            "type": "StatementType.CONDITION",
+                                            "conditionClauses": [],
+                                            "TrueStatements": [
+                                                {
+                                                    "type": "StatementType.ASSIGN",
+                                                    "AssignFrom": "'Opening Such Send'",
+                                                    "AssignTo": "WTO-MESSAGE"
+                                                },
+                                                {
+                                                    "type": "StatementType.CALL",
+                                                    "MethodName": "DOGE-WTO",
+                                                    "Internal": true,
+                                                    "Statements": []
+                                                },
+                                                {
+                                                    "type": "StatementType.CICS",
+                                                    "MethodName": "XCTL",
+                                                    "Statements": [
+                                                        {
+                                                            "type": "PROGRAM('DOGESEND')"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "FalseStatements": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-MAIN-SCREEN",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "'Sending Doge CICS Main Screen.'",
+                    "AssignTo": "WTO-MESSAGE"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "DOGE-WTO",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "STARTBR",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READPREV",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READPREV",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-DATE",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TLABEL",
+                    "AssignTo": "DLABEL"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "RECENT-COLOR",
+                    "AssignTo": "RECNT2C"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "DISPLAY-TRAN",
+                    "AssignTo": "RECNT2O"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READPREV",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-DATE",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TLABEL",
+                    "AssignTo": "DLABEL"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "RECENT-COLOR",
+                    "AssignTo": "RECNT1C"
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "RECNT2O",
+                            "AssignTo": "RECNT1O"
+                        },
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "SPACES",
+                            "AssignTo": "RECNT1O"
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DISPLAY-TRAN",
+                            "AssignTo": "RECNT1O"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "0000000001",
+                    "AssignTo": "START-RECORD-ID"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RESETBR",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READNEXT",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "AVAILABLE-AMOUNT"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "AVAILO"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READNEXT",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "PENDNGO"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "TOTALO"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "ENDBR",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "SEND",
+                    "Statements": [
+                        {
+                            "type": "MAP('DOGEMN1')"
+                        },
+                        {
+                            "type": "MAPSET('DOGEMN')"
+                        },
+                        {
+                            "type": "ERASE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "CONVERT-AMOUNT-TO-DISPLAY",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "DFHGREEN",
+                    "AssignTo": "RECENT-COLOR"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TAMT-INTEGER-PART",
+                    "AssignTo": "THE-AMOUNT-INTEGER"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TAMT-DECIMAL-PART",
+                    "AssignTo": "THE-AMOUNT-DECIMAL"
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DFHRED",
+                            "AssignTo": "RECENT-COLOR"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "DAMOUNT"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TAMT-SIGN",
+                    "AssignTo": "DSIGN"
+                }
+            ]
+        },
+        {
+            "Name": "CONVERT-DATE",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "NUM-DATE",
+                    "AssignTo": "TEMP-DATE"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "FORMATTIME",
+                    "Statements": [
+                        {
+                            "type": "ABSTIME(TEMP-DATE)"
+                        },
+                        {
+                            "type": "DATESEP('/')"
+                        },
+                        {
+                            "type": "MMDDYYYY(DDATE)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-WTO",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "WRITE",
+                    "Statements": [
+                        {
+                            "type": "OPERATOR"
+                        },
+                        {
+                            "type": "TEXT(WTO-MESSAGE)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        },
+        {
+            "Name": "00000-MAIN",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DFHCOMMAREA",
+                            "AssignTo": "DOGECOMMS-AREA"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'STARTING DOGE CICS.'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'DISPLAYING DOGE.'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.CICS",
+                            "MethodName": "SEND",
+                            "Statements": [
+                                {
+                                    "type": "MAP('DOGECN1')"
+                                },
+                                {
+                                    "type": "MAPSET('DOGECN')"
+                                },
+                                {
+                                    "type": "ERASE"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.CONDITION",
+                            "conditionClauses": [],
+                            "TrueStatements": [
+                                {
+                                    "type": "StatementType.CICS",
+                                    "MethodName": "XCTL",
+                                    "Statements": [
+                                        {
+                                            "type": "PROGRAM('DOGEQUIT')"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "type": "StatementType.CONDITION",
+                                    "conditionClauses": [],
+                                    "TrueStatements": [
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "DOGE-MAIN-SCREEN",
+                                            "Internal": true,
+                                            "Statements": []
+                                        }
+                                    ],
+                                    "FalseStatements": [
+                                        {
+                                            "type": "StatementType.CONDITION",
+                                            "conditionClauses": [],
+                                            "TrueStatements": [
+                                                {
+                                                    "type": "StatementType.ASSIGN",
+                                                    "AssignFrom": "'T'",
+                                                    "AssignTo": "DOGECOMMS-AREA"
+                                                },
+                                                {
+                                                    "type": "StatementType.CALL",
+                                                    "MethodName": "DOGE-MAIN-SCREEN",
+                                                    "Internal": true,
+                                                    "Statements": []
+                                                }
+                                            ],
+                                            "FalseStatements": [
+                                                {
+                                                    "type": "StatementType.CONDITION",
+                                                    "conditionClauses": [],
+                                                    "TrueStatements": [
+                                                        {
+                                                            "type": "StatementType.CALL",
+                                                            "MethodName": "RECEIVE-OPTION",
+                                                            "Internal": true,
+                                                            "Statements": []
+                                                        },
+                                                        {
+                                                            "type": "StatementType.CALL",
+                                                            "MethodName": "PARSE-OPTION",
+                                                            "Internal": true,
+                                                            "Statements": []
+                                                        }
+                                                    ],
+                                                    "FalseStatements": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RETURN",
+                    "Statements": [
+                        {
+                            "type": "TRANSID('DOGE')"
+                        },
+                        {
+                            "type": "COMMAREA(DOGECOMMS-AREA)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-EXIT",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "GOBACK",
+                    "Internal": true,
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "RECEIVE-OPTION",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "'Getting Input from User.'",
+                    "AssignTo": "WTO-MESSAGE"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "DOGE-WTO",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RECEIVE",
+                    "Statements": [
+                        {
+                            "type": "MAP('DOGEMN1')"
+                        },
+                        {
+                            "type": "MAPSET('DOGEMN')"
+                        },
+                        {
+                            "type": "INTO(DOGEMN1I)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "PARSE-OPTION",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'Opening Transaction History'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.CICS",
+                            "MethodName": "XCTL",
+                            "Statements": [
+                                {
+                                    "type": "PROGRAM('DOGETRAN')"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.CONDITION",
+                            "conditionClauses": [],
+                            "TrueStatements": [
+                                {
+                                    "type": "StatementType.ASSIGN",
+                                    "AssignFrom": "'Opening Main Menu'",
+                                    "AssignTo": "WTO-MESSAGE"
+                                },
+                                {
+                                    "type": "StatementType.CALL",
+                                    "MethodName": "DOGE-WTO",
+                                    "Internal": true,
+                                    "Statements": []
+                                },
+                                {
+                                    "type": "StatementType.CICS",
+                                    "MethodName": "XCTL",
+                                    "Statements": [
+                                        {
+                                            "type": "PROGRAM('DOGECOIN')"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "type": "StatementType.CONDITION",
+                                    "conditionClauses": [],
+                                    "TrueStatements": [
+                                        {
+                                            "type": "StatementType.ASSIGN",
+                                            "AssignFrom": "'Opening Transaction Details'",
+                                            "AssignTo": "WTO-MESSAGE"
+                                        },
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "DOGE-WTO",
+                                            "Internal": true,
+                                            "Statements": []
+                                        },
+                                        {
+                                            "type": "StatementType.CICS",
+                                            "MethodName": "XCTL",
+                                            "Statements": [
+                                                {
+                                                    "type": "PROGRAM('DOGEDEET')"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "FalseStatements": [
+                                        {
+                                            "type": "StatementType.CONDITION",
+                                            "conditionClauses": [],
+                                            "TrueStatements": [
+                                                {
+                                                    "type": "StatementType.ASSIGN",
+                                                    "AssignFrom": "'Opening Such Send'",
+                                                    "AssignTo": "WTO-MESSAGE"
+                                                },
+                                                {
+                                                    "type": "StatementType.CALL",
+                                                    "MethodName": "DOGE-WTO",
+                                                    "Internal": true,
+                                                    "Statements": []
+                                                },
+                                                {
+                                                    "type": "StatementType.CICS",
+                                                    "MethodName": "XCTL",
+                                                    "Statements": [
+                                                        {
+                                                            "type": "PROGRAM('DOGESEND')"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "FalseStatements": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-MAIN-SCREEN",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "'Sending Doge CICS Main Screen.'",
+                    "AssignTo": "WTO-MESSAGE"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "DOGE-WTO",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "STARTBR",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READPREV",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READPREV",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-DATE",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TLABEL",
+                    "AssignTo": "DLABEL"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "RECENT-COLOR",
+                    "AssignTo": "RECNT2C"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "DISPLAY-TRAN",
+                    "AssignTo": "RECNT2O"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READPREV",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-DATE",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TLABEL",
+                    "AssignTo": "DLABEL"
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "RECENT-COLOR",
+                    "AssignTo": "RECNT1C"
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "RECNT2O",
+                            "AssignTo": "RECNT1O"
+                        },
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "SPACES",
+                            "AssignTo": "RECNT1O"
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DISPLAY-TRAN",
+                            "AssignTo": "RECNT1O"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "0000000001",
+                    "AssignTo": "START-RECORD-ID"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RESETBR",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READNEXT",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "AVAILABLE-AMOUNT"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "AVAILO"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "READNEXT",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        },
+                        {
+                            "type": "RIDFLD(START-RECORD-ID)"
+                        },
+                        {
+                            "type": "INTO(TRANSACTION)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CALL",
+                    "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
+                    "Internal": true,
+                    "Statements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "PENDNGO"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "TOTALO"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "ENDBR",
+                    "Statements": [
+                        {
+                            "type": "FILE('DOGEVSAM')"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "SEND",
+                    "Statements": [
+                        {
+                            "type": "MAP('DOGEMN1')"
+                        },
+                        {
+                            "type": "MAPSET('DOGEMN')"
+                        },
+                        {
+                            "type": "ERASE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "CONVERT-AMOUNT-TO-DISPLAY",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "DFHGREEN",
+                    "AssignTo": "RECENT-COLOR"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TAMT-INTEGER-PART",
+                    "AssignTo": "THE-AMOUNT-INTEGER"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TAMT-DECIMAL-PART",
+                    "AssignTo": "THE-AMOUNT-DECIMAL"
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DFHRED",
+                            "AssignTo": "RECENT-COLOR"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "DAMOUNT"
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "TAMT-SIGN",
+                    "AssignTo": "DSIGN"
+                }
+            ]
+        },
+        {
+            "Name": "CONVERT-DATE",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "NUM-DATE",
+                    "AssignTo": "TEMP-DATE"
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "FORMATTIME",
+                    "Statements": [
+                        {
+                            "type": "ABSTIME(TEMP-DATE)"
+                        },
+                        {
+                            "type": "DATESEP('/')"
+                        },
+                        {
+                            "type": "MMDDYYYY(DDATE)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-WTO",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "WRITE",
+                    "Statements": [
+                        {
+                            "type": "OPERATOR"
+                        },
+                        {
+                            "type": "TEXT(WTO-MESSAGE)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        }
+    ]
+}

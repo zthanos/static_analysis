@@ -70,10 +70,10 @@
            05  KEY-ID   PIC X(10)B.
            05  KEY-MSG2 PIC X(15) VALUE 'DOES NOT EXIST.'.
       *
-       COPY DOGEDT.
-       COPY DFHAID.
-       COPY DFHBMSCA.
-       COPY ERRPARM.
+      *COPY DOGEDT.
+      *COPY DFHAID.
+      *COPY DFHBMSCA.
+      *COPY ERRPARM.
       *
        LINKAGE SECTION.
        01  DFHCOMMAREA                       PIC X(10).
@@ -258,7 +258,7 @@
        PARSE-KEY.
       *    Do we want to leave this screen? 
            IF OPTIONI EQUAL TO 'T' OR OPTIONI EQUAL TO 't'
-      -       OR OPTIONI EQUAL TO 'M' OR OPTIONI EQUAL TO 'm'
+      *       OR OPTIONI EQUAL TO 'M' OR OPTIONI EQUAL TO 'm'
                MOVE 'Opening Transaction History' TO WTO-MESSAGE
                PERFORM DOGE-WTO
                EXEC CICS XCTL 

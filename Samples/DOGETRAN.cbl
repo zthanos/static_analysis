@@ -55,9 +55,9 @@
        01  WTO-MESSAGE PIC X(38) VALUE SPACES.
        01  DONE-RECORDS PIC XXXX VALUE 'NOPE'.
       *
-       COPY DOGETR.
-       COPY DFHAID.
-       COPY DFHBMSCA.
+      * COPY DOGETR.
+      * COPY DFHAID.
+      * COPY DFHBMSCA.
        LINKAGE SECTION.
       *
        01  DFHCOMMAREA                       PIC X(10).

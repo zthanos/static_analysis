@@ -137,132 +137,179 @@
         "documentation": {}
     },
     {
-        "label": "CobolParser",
-        "importPath": "CobolParser",
-        "description": "CobolParser",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "CobolParser",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "CobolVisitor",
-        "importPath": "CobolVisitor",
-        "description": "CobolVisitor",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "CobolVisitor",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "CobolVisitor",
-        "importPath": "CobolVisitor",
-        "description": "CobolVisitor",
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "CobolVisitor",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "FlowAnalyzer",
-        "kind": 6,
+        "label": "asdict",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "importPath": "FlowAnalyzer",
-        "description": "FlowAnalyzer",
-        "detail": "FlowAnalyzer",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "FlowAnalyzer",
-        "importPath": "FlowAnalyzer",
-        "description": "FlowAnalyzer",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "FlowAnalyzer",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "Trees",
-        "importPath": "antlr4.tree.Trees",
-        "description": "antlr4.tree.Trees",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "antlr4.tree.Trees",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "CustomPreprocessorVisitor",
-        "importPath": "PreprocessorVisitor",
-        "description": "PreprocessorVisitor",
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "PreprocessorVisitor",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "CustomPreprocessorVisitor",
-        "importPath": "PreprocessorVisitor",
-        "description": "PreprocessorVisitor",
+        "label": "asdict",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "PreprocessorVisitor",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "Cobol85Lexer",
-        "importPath": "grammars.Cobol85Lexer",
-        "description": "grammars.Cobol85Lexer",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85Lexer",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "Cobol85PreprocessorLexer",
-        "importPath": "grammars.Cobol85PreprocessorLexer",
-        "description": "grammars.Cobol85PreprocessorLexer",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85PreprocessorLexer",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "Cobol85PreprocessorLexer",
-        "importPath": "grammars.Cobol85PreprocessorLexer",
-        "description": "grammars.Cobol85PreprocessorLexer",
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85PreprocessorLexer",
+        "detail": "dataclasses",
         "documentation": {}
     },
     {
-        "label": "Cobol85PreprocessorParser",
-        "importPath": "grammars.Cobol85PreprocessorParser",
-        "description": "grammars.Cobol85PreprocessorParser",
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85PreprocessorParser",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "Cobol85PreprocessorParser",
-        "importPath": "grammars.Cobol85PreprocessorParser",
-        "description": "grammars.Cobol85PreprocessorParser",
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85PreprocessorParser",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "Cobol85PreprocessorParser",
-        "importPath": "grammars.Cobol85PreprocessorParser",
-        "description": "grammars.Cobol85PreprocessorParser",
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85PreprocessorParser",
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TYPE_CHECKING",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
         "documentation": {}
     },
     {
@@ -275,19 +322,495 @@
         "documentation": {}
     },
     {
-        "label": "Cobol85Visitor",
-        "importPath": "grammars.Cobol85Visitor",
-        "description": "grammars.Cobol85Visitor",
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85Visitor",
+        "detail": "models.Statement",
         "documentation": {}
     },
     {
-        "label": "Cobol85Visitor",
-        "importPath": "grammars.Cobol85Visitor",
-        "description": "grammars.Cobol85Visitor",
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
         "isExtraImport": true,
-        "detail": "grammars.Cobol85Visitor",
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Flow",
+        "importPath": "models.Flow",
+        "description": "models.Flow",
+        "isExtraImport": true,
+        "detail": "models.Flow",
+        "documentation": {}
+    },
+    {
+        "label": "Flow",
+        "importPath": "models.Flow",
+        "description": "models.Flow",
+        "isExtraImport": true,
+        "detail": "models.Flow",
+        "documentation": {}
+    },
+    {
+        "label": "Flow",
+        "importPath": "models.Flow",
+        "description": "models.Flow",
+        "isExtraImport": true,
+        "detail": "models.Flow",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionClause",
+        "importPath": "models.ConditionClause",
+        "description": "models.ConditionClause",
+        "isExtraImport": true,
+        "detail": "models.ConditionClause",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionClause",
+        "importPath": "models.ConditionClause",
+        "description": "models.ConditionClause",
+        "isExtraImport": true,
+        "detail": "models.ConditionClause",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "AssignStatement",
+        "importPath": "models.AssignStatement",
+        "description": "models.AssignStatement",
+        "isExtraImport": true,
+        "detail": "models.AssignStatement",
+        "documentation": {}
+    },
+    {
+        "label": "AssignStatement",
+        "importPath": "models.AssignStatement",
+        "description": "models.AssignStatement",
+        "isExtraImport": true,
+        "detail": "models.AssignStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ContextInfoHelper",
+        "importPath": "helpers.ContextInfoHelper",
+        "description": "helpers.ContextInfoHelper",
+        "isExtraImport": true,
+        "detail": "helpers.ContextInfoHelper",
+        "documentation": {}
+    },
+    {
+        "label": "ContextInfoHelper",
+        "importPath": "helpers.ContextInfoHelper",
+        "description": "helpers.ContextInfoHelper",
+        "isExtraImport": true,
+        "detail": "helpers.ContextInfoHelper",
+        "documentation": {}
+    },
+    {
+        "label": "ContextInfoHelper",
+        "importPath": "helpers.ContextInfoHelper",
+        "description": "helpers.ContextInfoHelper",
+        "isExtraImport": true,
+        "detail": "helpers.ContextInfoHelper",
+        "documentation": {}
+    },
+    {
+        "label": "ContextInfoHelper",
+        "importPath": "helpers.ContextInfoHelper",
+        "description": "helpers.ContextInfoHelper",
+        "isExtraImport": true,
+        "detail": "helpers.ContextInfoHelper",
+        "documentation": {}
+    },
+    {
+        "label": "ContextInfoHelper",
+        "importPath": "helpers.ContextInfoHelper",
+        "description": "helpers.ContextInfoHelper",
+        "isExtraImport": true,
+        "detail": "helpers.ContextInfoHelper",
+        "documentation": {}
+    },
+    {
+        "label": "ContextInfoHelper",
+        "importPath": "helpers.ContextInfoHelper",
+        "description": "helpers.ContextInfoHelper",
+        "isExtraImport": true,
+        "detail": "helpers.ContextInfoHelper",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "CallStatement",
+        "importPath": "models.CallStatement",
+        "description": "models.CallStatement",
+        "isExtraImport": true,
+        "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "CallCicsStatement",
+        "importPath": "models.CallStatement",
+        "description": "models.CallStatement",
+        "isExtraImport": true,
+        "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "CallStatement",
+        "importPath": "models.CallStatement",
+        "description": "models.CallStatement",
+        "isExtraImport": true,
+        "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionalStatement",
+        "importPath": "models.ConditionalStatement",
+        "description": "models.ConditionalStatement",
+        "isExtraImport": true,
+        "detail": "models.ConditionalStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionClause",
+        "importPath": "models.ConditionalStatement",
+        "description": "models.ConditionalStatement",
+        "isExtraImport": true,
+        "detail": "models.ConditionalStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionalStatement",
+        "importPath": "models.ConditionalStatement",
+        "description": "models.ConditionalStatement",
+        "isExtraImport": true,
+        "detail": "models.ConditionalStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ParseCallStatements",
+        "importPath": "parsers.ParseCallStatements",
+        "description": "parsers.ParseCallStatements",
+        "isExtraImport": true,
+        "detail": "parsers.ParseCallStatements",
+        "documentation": {}
+    },
+    {
+        "label": "ParseAssignStatements",
+        "importPath": "parsers.ParseAssignStatements",
+        "description": "parsers.ParseAssignStatements",
+        "isExtraImport": true,
+        "detail": "parsers.ParseAssignStatements",
+        "documentation": {}
+    },
+    {
+        "label": "ParseConditionalStatements",
+        "importPath": "parsers.ParseConditionalStatements",
+        "description": "parsers.ParseConditionalStatements",
+        "isExtraImport": true,
+        "detail": "parsers.ParseConditionalStatements",
+        "documentation": {}
+    },
+    {
+        "label": "ParseConditionalStatements",
+        "importPath": "parsers.ParseConditionalStatements",
+        "description": "parsers.ParseConditionalStatements",
+        "isExtraImport": true,
+        "detail": "parsers.ParseConditionalStatements",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "CobolParser",
+        "importPath": "CobolParser",
+        "description": "CobolParser",
+        "isExtraImport": true,
+        "detail": "CobolParser",
+        "documentation": {}
+    },
+    {
+        "label": "FlowAnalyzer",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "FlowAnalyzer",
+        "description": "FlowAnalyzer",
+        "detail": "FlowAnalyzer",
+        "documentation": {}
+    },
+    {
+        "label": "FlowAnalyzer",
+        "importPath": "FlowAnalyzer",
+        "description": "FlowAnalyzer",
+        "isExtraImport": true,
+        "detail": "FlowAnalyzer",
+        "documentation": {}
+    },
+    {
+        "label": "ParseIdentificationDivision",
+        "importPath": "IdentificationDivision",
+        "description": "IdentificationDivision",
+        "isExtraImport": true,
+        "detail": "IdentificationDivision",
+        "documentation": {}
+    },
+    {
+        "label": "CobolVisitor",
+        "importPath": "CobolVisitor",
+        "description": "CobolVisitor",
+        "isExtraImport": true,
+        "detail": "CobolVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Lexer",
+        "importPath": "grammars.Cobol85Lexer",
+        "description": "grammars.Cobol85Lexer",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Lexer",
+        "documentation": {}
+    },
+    {
+        "label": "ParseProcedureDivision",
+        "importPath": "ParseProcedureDivision",
+        "description": "ParseProcedureDivision",
+        "isExtraImport": true,
+        "detail": "ParseProcedureDivision",
         "documentation": {}
     },
     {
@@ -300,11 +823,124 @@
         "documentation": {}
     },
     {
+        "label": "Cobol85Visitor",
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Visitor",
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Visitor",
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Visitor",
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Visitor",
+        "importPath": "grammars.Cobol85Visitor",
+        "description": "grammars.Cobol85Visitor",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Visitor",
+        "documentation": {}
+    },
+    {
+        "label": "CustomPreprocessorVisitor",
+        "importPath": "PreprocessorVisitor",
+        "description": "PreprocessorVisitor",
+        "isExtraImport": true,
+        "detail": "PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorLexer",
+        "importPath": "grammars.Cobol85PreprocessorLexer",
+        "description": "grammars.Cobol85PreprocessorLexer",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorLexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorParser",
+        "importPath": "grammars.Cobol85PreprocessorParser",
+        "description": "grammars.Cobol85PreprocessorParser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorParser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85PreprocessorParser",
+        "importPath": "grammars.Cobol85PreprocessorParser",
+        "description": "grammars.Cobol85PreprocessorParser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85PreprocessorParser",
+        "documentation": {}
+    },
+    {
         "label": "Cobol85PreprocessorVisitor",
         "importPath": "grammars.Cobol85PreprocessorVisitor",
         "description": "grammars.Cobol85PreprocessorVisitor",
         "isExtraImport": true,
         "detail": "grammars.Cobol85PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "StaticAnalysis",
+        "importPath": "models.StaticAnalysis",
+        "description": "models.StaticAnalysis",
+        "isExtraImport": true,
+        "detail": "models.StaticAnalysis",
+        "documentation": {}
+    },
+    {
+        "label": "StaticAnalysis",
+        "importPath": "models.StaticAnalysis",
+        "description": "models.StaticAnalysis",
+        "isExtraImport": true,
+        "detail": "models.StaticAnalysis",
+        "documentation": {}
+    },
+    {
+        "label": "StaticAnalysis",
+        "importPath": "models.StaticAnalysis",
+        "description": "models.StaticAnalysis",
+        "isExtraImport": true,
+        "detail": "models.StaticAnalysis",
+        "documentation": {}
+    },
+    {
+        "label": "ParseStatements",
+        "importPath": "parsers.ParseStatements",
+        "description": "parsers.ParseStatements",
+        "isExtraImport": true,
+        "detail": "parsers.ParseStatements",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
         "documentation": {}
     },
     {
@@ -321,7 +957,7 @@
         "kind": 2,
         "importPath": "grammars.Cobol85Lexer",
         "description": "grammars.Cobol85Lexer",
-        "peekOfCode": "def serializedATN():\n    return [\n        4,0,573,6029,6,-1,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,\n        5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,\n        2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,\n        7,19,2,20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,\n        2,26,7,26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,\n        7,32,2,33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,\n        2,39,7,39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,\n        7,45,2,46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,",
+        "peekOfCode": "def serializedATN():\n    return [\n        4,0,580,6089,6,-1,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,\n        5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,\n        2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,\n        7,19,2,20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,\n        2,26,7,26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,\n        7,32,2,33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,\n        2,39,7,39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,\n        7,45,2,46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,",
         "detail": "grammars.Cobol85Lexer",
         "documentation": {}
     },
@@ -330,7 +966,7 @@
         "kind": 6,
         "importPath": "grammars.Cobol85Parser",
         "description": "grammars.Cobol85Parser",
-        "peekOfCode": "class Cobol85Parser ( Parser ):\n    grammarFileName = \"Cobol85.g4\"\n    atn = ATNDeserializer().deserialize(serializedATN())\n    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]\n    sharedContextCache = PredictionContextCache()\n    literalNames = [ \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", ",
+        "peekOfCode": "class Cobol85Parser ( Parser ):\n    grammarFileName = \"Cobol85.g4\"\n    atn = ATNDeserializer().deserialize(serializedATN())\n    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]\n    sharedContextCache = PredictionContextCache()\n    literalNames = [ \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"'MAP'\", \"'MAPSET'\", \"'XCTL'\", \"'FORMATTIME'\", \"'EXEC'\", \n                     \"'CICS'\", \"'END-EXEC'\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \n                     \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", \"<INVALID>\", ",
         "detail": "grammars.Cobol85Parser",
         "documentation": {}
     },
@@ -339,7 +975,7 @@
         "kind": 2,
         "importPath": "grammars.Cobol85Parser",
         "description": "grammars.Cobol85Parser",
-        "peekOfCode": "def serializedATN():\n    return [\n        4,1,573,6270,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,\n        7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,\n        13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,\n        20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,\n        26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,\n        33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,\n        39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,7,45,2,\n        46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,2,52,7,",
+        "peekOfCode": "def serializedATN():\n    return [\n        4,1,580,6354,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,\n        7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,\n        13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,\n        20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,\n        26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,\n        33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,\n        39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,7,45,2,\n        46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,2,52,7,",
         "detail": "grammars.Cobol85Parser",
         "documentation": {}
     },
@@ -416,11 +1052,146 @@
         "documentation": {}
     },
     {
-        "label": "parser",
-        "kind": 5,
+        "label": "ConditionClause",
+        "kind": 6,
+        "importPath": "models.ConditionClause",
+        "description": "models.ConditionClause",
+        "peekOfCode": "class ConditionClause:\n    \"\"\"Represents a single condition clause inside a ConditionalStatement.\"\"\"\n    Left: str = \"\"\n    Operator: str = \"\"\n    Right: str = \"\"\n    @property\n    def Clause(self) -> str:\n        \"\"\"Dynamically generates the clause as 'Left Operator Right'.\"\"\"\n        return f\"{self.Left} {self.Operator} {self.Right}\".strip()",
+        "detail": "models.ConditionClause",
+        "documentation": {}
+    },
+    {
+        "label": "Flow",
+        "kind": 6,
+        "importPath": "models.Flow",
+        "description": "models.Flow",
+        "peekOfCode": "class Flow:\n    \"\"\"\n    Represents a COBOL PROCEDURE DIVISION flow.\n    Contains a list of executed statements.\n    \"\"\"\n    Name: str = \"\"\n    Input: Dict = field(default_factory=dict)\n    Output: Dict = field(default_factory=dict)\n    Sentences: List[\"Statement\"] = field(default_factory=list)\n    def addSentence(self, sentence: \"Statement\"):",
+        "detail": "models.Flow",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "kind": 6,
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "peekOfCode": "class Statement:\n    \"\"\"Base class for all COBOL statements.\"\"\"\n    type: StatementType = StatementType.OTHER\n    def to_json(self):\n        return {\n            \"type\": self.type.name  # 👈 Μετατρέπουμε το Enum σε string\n        }",
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "kind": 6,
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "peekOfCode": "class StatementType(Enum):\n    ASSIGN = \"ASSIGN\"\n    CALL = \"CALL\"\n    CONDITION = \"CONDITION\"\n    CICS = \"CICS\"\n    OTHER = \"OTHER\"",
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StaticAnalysis",
+        "kind": 6,
+        "importPath": "models.StaticAnalysis",
+        "description": "models.StaticAnalysis",
+        "peekOfCode": "class StaticAnalysis:\n    ProgramId: str = \"\"\n    Author: str = \"\"\n    Installation: str = \"\"\n    DateWritten: str = None\n    Compiled: str = None\n    Security: str = None\n    Flow: List[\"Flow\"] = field(default_factory=list) \n    def addFlow(self, flow: \"Flow\"):\n        \"\"\"Adds a Flow object to the Flow list.\"\"\"",
+        "detail": "models.StaticAnalysis",
+        "documentation": {}
+    },
+    {
+        "label": "AssignStatement",
+        "kind": 6,
+        "importPath": "models.AssignStatement",
+        "description": "models.AssignStatement",
+        "peekOfCode": "class AssignStatement(Statement):\n    \"\"\"Represents a COBOL MOVE statement.\"\"\"\n    AssignFrom: str = \"\"\n    AssignTo: str = \"\"\n    def __post_init__(self):\n        self.type = StatementType.ASSIGN\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the assignment operation in string format.\"\"\"\n        return f\"{self.AssignFrom} = {self.AssignTo}\"",
+        "detail": "models.AssignStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionalStatement",
+        "kind": 6,
+        "importPath": "models.ConditionalStatement",
+        "description": "models.ConditionalStatement",
+        "peekOfCode": "class ConditionalStatement(Statement):\n    \"\"\"Represents a conditional statement (IF condition) in COBOL code.\"\"\"\n    conditionClauses: List[\"ConditionClause\"] = field(default_factory=list)\n    TrueStatements: List[\"Statement\"] = field(default_factory=list)\n    FalseStatements: List[\"Statement\"] = field(default_factory=list)\n    def __post_init__(self):\n        self.type = StatementType.CONDITION\n    def addClause(self, clause):\n        \"\"\"Adds a condition clause to the statement.\"\"\"\n        if isinstance(clause, ConditionClause):",
+        "detail": "models.ConditionalStatement",
+        "documentation": {}
+    },
+    {
+        "label": "CallStatement",
+        "kind": 6,
+        "importPath": "models.CallStatement",
+        "description": "models.CallStatement",
+        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    MethodName: str = \"\"\n    Internal: bool = True  # True = PERFORM, False = CALL\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CALL\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"",
+        "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "CallCicsStatement",
+        "kind": 6,
+        "importPath": "models.CallStatement",
+        "description": "models.CallStatement",
+        "peekOfCode": "class CallCicsStatement(Statement):\n    \"\"\"Represents a COBOL EXEC CICS statement.\"\"\"\n    MethodName: str = \"\"  # Π.χ. READ, WRITE, DELETE\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CICS\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the full EXEC CICS command.\"\"\"\n        params = \" \".join(statement.raw for statement in self.Statements)",
+        "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ContextInfoHelper",
+        "kind": 6,
+        "importPath": "helpers.ContextInfoHelper",
+        "description": "helpers.ContextInfoHelper",
+        "peekOfCode": "class ContextInfoHelper:\n    \"\"\"\n    Helper class for working with context objects.\n    Provides utility methods to extract and manipulate child nodes.\n    \"\"\"\n    @staticmethod\n    def get_children(ctx) -> List:\n        \"\"\"\n        Returns a list of all child nodes of the given context.\n        :param ctx: The context object.",
+        "detail": "helpers.ContextInfoHelper",
+        "documentation": {}
+    },
+    {
+        "label": "ParseAssignStatements",
+        "kind": 6,
+        "importPath": "parsers.ParseAssignStatements",
+        "description": "parsers.ParseAssignStatements",
+        "peekOfCode": "class ParseAssignStatements:\n    \"\"\"\n    Parses MOVE statements inside PROCEDURE DIVISION.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initializes the assignment statement parser.\"\"\"\n        pass\n    def visitMoveStatementContext(self, ctx):\n        \"\"\"Parses a MOVE statement and returns an AssignStatement.\"\"\"\n        logger.info(\"-------visitMoveStatementContext-----------\")",
+        "detail": "parsers.ParseAssignStatements",
+        "documentation": {}
+    },
+    {
+        "label": "ParseCallStatements",
+        "kind": 6,
+        "importPath": "parsers.ParseCallStatements",
+        "description": "parsers.ParseCallStatements",
+        "peekOfCode": "class ParseCallStatements:\n    \"\"\"\n    Parses CALL and PERFORM statements inside PROCEDURE DIVISION.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initializes the call statement parser.\"\"\"\n        pass\n    def visitPerformStatementContext(self, ctx):\n        \"\"\"Parses a PERFORM statement and returns a CallStatement.\"\"\"\n        logger.info(\"-------visitPerformStatementContext-----------\")",
+        "detail": "parsers.ParseCallStatements",
+        "documentation": {}
+    },
+    {
+        "label": "ParseConditionalStatements",
+        "kind": 6,
+        "importPath": "parsers.ParseConditionalStatements",
+        "description": "parsers.ParseConditionalStatements",
+        "peekOfCode": "class ParseConditionalStatements:\n    \"\"\"\n    Responsible for parsing conditional (IF) statements inside COBOL PROCEDURE DIVISION.\n    \"\"\"\n    def visitIfStatementContext(self, ctx):\n        \"\"\"\n        Parses an IF statement, extracting the condition and its associated statements.\n        :param ctx: The parse tree context for IfStatement.\n        :return: A fully constructed ConditionalStatement object.\n        \"\"\"",
+        "detail": "parsers.ParseConditionalStatements",
+        "documentation": {}
+    },
+    {
+        "label": "ParseStatements",
+        "kind": 6,
+        "importPath": "parsers.ParseStatements",
+        "description": "parsers.ParseStatements",
+        "peekOfCode": "class ParseStatements:\n    \"\"\"\n    Parses individual statements (MOVE, PERFORM, IF, etc.) inside PROCEDURE DIVISION.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initializes the statement parser.\"\"\"\n        self.call_parser = ParseCallStatements()\n        self.assign_parser = ParseAssignStatements()\n        self.conditional_parser = ParseConditionalStatements()\n    def visitStatementContext(self, ctx):",
+        "detail": "parsers.ParseStatements",
+        "documentation": {}
+    },
+    {
+        "label": "process_files",
+        "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "parser = CobolParser()\n# Ανάλυση ενός αρχείου COBOL\n# parser.parse_file(\"./Samples/send.cbl\")\n#parser.parse_file(\"./Samples/Checkers.cbl\")\n# parser.parse_file(\"./Samples/RepWriteFull.cbl\")\n# parser.parse_file(\"./Samples/Fibonacci Sequence.cbl\")\nparser.parse_file(\"./Samples/Fibonacci Sequence.cbl\")\n# parser.preprocess_and_parse_cobol(\"./Samples/DOGEMAIN.cbl\")\n# parser.analyze()",
+        "peekOfCode": "def process_files(file_pattern):\n    \"\"\"\n    Βρίσκει και επεξεργάζεται αρχεία COBOL με βάση το file_pattern.\n    :param file_pattern: Το όνομα αρχείου ή wildcard (π.χ. \"*.cbl\").\n    \"\"\"\n    # Αναζήτηση αρχείων που ταιριάζουν με το pattern\n    files = glob.glob(file_pattern)\n    if not files:\n        print(f\"Δεν βρέθηκαν αρχεία που να ταιριάζουν με το μοτίβο: {file_pattern}\")\n        return",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    \"\"\"\n    Ο κεντρικός έλεγχος για την εκτέλεση του parser, λαμβάνοντας input από το χρήστη.\n    \"\"\"\n    parser = argparse.ArgumentParser(description=\"COBOL Static Analysis Parser\")\n    # Ορισμός argument για το όνομα αρχείου ή wildcard pattern\n    parser.add_argument(\"file_pattern\", help=\"Όνομα αρχείου COBOL ή wildcard pattern (π.χ. '*.cbl')\")\n    # Ανάγνωση παραμέτρων από το CLI\n    args = parser.parse_args()\n    # Αν είναι πλήρες path ή απλά όνομα αρχείου",
         "detail": "main",
         "documentation": {}
     },
@@ -429,7 +1200,7 @@
         "kind": 6,
         "importPath": "CobolParser",
         "description": "CobolParser",
-        "peekOfCode": "class CobolParser:\n    def __init__(self):\n        self.tree = None\n        self.visitor = CobolVisitor()\n        self.flow_analyzer = FlowAnalyzer()\n    def parse_file(self, file_path):\n        input_stream = FileStream(file_path, encoding=\"utf-8\")\n        lexer = Cobol85Lexer(input_stream)\n        token_stream = CommonTokenStream(lexer)\n        parser = Cobol85Parser(token_stream)",
+        "peekOfCode": "class CobolParser:\n    def __init__(self, output_dir=\"output\"):\n        self.tree = None\n        self.visitor = CobolVisitor()\n        self.flow_analyzer = FlowAnalyzer()\n        self.output_dir = output_dir  # Καθορισμός φακέλου εξόδου\n        # Δημιουργία του output directory αν δεν υπάρχει\n        os.makedirs(self.output_dir, exist_ok=True)\n    def parse_file(self, file_path):\n        input_stream = FileStream(file_path, encoding=\"utf-8\")",
         "detail": "CobolParser",
         "documentation": {}
     },
@@ -438,7 +1209,7 @@
         "kind": 6,
         "importPath": "CobolVisitor",
         "description": "CobolVisitor",
-        "peekOfCode": "class CobolVisitor(Cobol85Visitor):\n    def __init__(self):\n        self.programs = []\n        self.entry_points = []\n        self.entry_inputs = {}\n        self.calls = []\n        self.variables = []\n        self.current_entry = None\n    def visitProgramIdParagraph(self, ctx):\n        \"\"\"",
+        "peekOfCode": "class CobolVisitor(Cobol85Visitor):\n    def __init__(self):\n        # Δομές για τα entry points και τις πληροφορίες τους\n        self.entry_points = []           # Ονόματα entry points\n        self.entry_inputs = {}           # { entry: [input1, input2, ...] }\n        self.entry_outputs = {}          # { entry: [output1, output2, ...] }\n        self.calls = {}                  # { entry: [call_obj, ...] } (προαιρετικά)\n        # Δομή για το Flow (πλέον θα το εμφανίζουμε ως \"Calls\" στο τελικό JSON)\n        self.flow_calls = {}             # { entry: [call_obj, ...] }\n        self.current_entry = None",
         "detail": "CobolVisitor",
         "documentation": {}
     },
@@ -467,6 +1238,87 @@
         "description": "PreprocessorVisitor",
         "peekOfCode": "class CustomPreprocessorVisitor(Cobol85PreprocessorVisitor):\n    def visitCopyStatement(self, ctx: Cobol85PreprocessorParser.CopyStatementContext):\n        print(\"Βρέθηκε COPY statement:\", ctx.getText())\n        return self.visitChildren(ctx)\n    def visitReplaceStatement(self, ctx: Cobol85PreprocessorParser.ReplaceByStatementContext):\n        print(\"Βρέθηκε REPLACE statement:\", ctx.getText())\n        return self.visitChildren(ctx)",
         "detail": "PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "ParseIdentificationDivision",
+        "kind": 6,
+        "importPath": "IdentificationDivision",
+        "description": "IdentificationDivision",
+        "peekOfCode": "class ParseIdentificationDivision(Cobol85Visitor):\n    def __init__(self):\n        self.staticAnalysis = StaticAnalysis()\n    # --- Identification Division analysis ---\n    def visitIdentificationDivision(self, ctx):\n        # Δημιουργία αντικειμένου ανάλυσης\n        static_analysis = StaticAnalysis()\n        # Καλούμε τις `visit` μεθόδους και αποθηκεύουμε τις τιμές τους\n        for child in ctx.children:\n            if isinstance(child, Cobol85Parser.ProgramIdParagraphContext):",
+        "detail": "IdentificationDivision",
+        "documentation": {}
+    },
+    {
+        "label": "ParseProcedureDivision",
+        "kind": 6,
+        "importPath": "ParseProcedureDivision",
+        "description": "ParseProcedureDivision",
+        "peekOfCode": "class ParseProcedureDivision(Cobol85Visitor):\n    \"\"\"\n    Visitor class for parsing the PROCEDURE DIVISION of a COBOL program.\n    Extracts flows, statements, and method calls.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initializes the visitor with an empty StaticAnalysis object.\"\"\"\n        self.staticAnalysis = StaticAnalysis()\n    def visitProcedureDivision(self, ctx):\n        \"\"\"",
+        "detail": "ParseProcedureDivision",
+        "documentation": {}
+    },
+    {
+        "label": "ParseProcedureDivision",
+        "kind": 6,
+        "importPath": "ParseProcedureDivision copy",
+        "description": "ParseProcedureDivision copy",
+        "peekOfCode": "class ParseProcedureDivision(Cobol85Visitor):\n    \"\"\"\n    Visitor class for parsing the PROCEDURE DIVISION of a COBOL program.\n    Extracts flows, statements, and method calls.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initializes the visitor with an empty StaticAnalysis object.\"\"\"\n        self.staticAnalysis = StaticAnalysis()\n    def visitProcedureDivision(self, ctx):\n        \"\"\"",
+        "detail": "ParseProcedureDivision copy",
+        "documentation": {}
+    },
+    {
+        "label": "logger.info",
+        "kind": 2,
+        "importPath": "ParseProcedureDivision copy",
+        "description": "ParseProcedureDivision copy",
+        "peekOfCode": "def logger.info(message):\n    if DEBUG_MODE:\n        print(message)\nclass ParseProcedureDivision(Cobol85Visitor):\n    \"\"\"\n    Visitor class for parsing the PROCEDURE DIVISION of a COBOL program.\n    Extracts flows, statements, and method calls.\n    \"\"\"\n    def __init__(self):\n        \"\"\"Initializes the visitor with an empty StaticAnalysis object.\"\"\"",
+        "detail": "ParseProcedureDivision copy",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG_MODE",
+        "kind": 5,
+        "importPath": "ParseProcedureDivision copy",
+        "description": "ParseProcedureDivision copy",
+        "peekOfCode": "DEBUG_MODE = False  \ndef logger.info(message):\n    if DEBUG_MODE:\n        print(message)\nclass ParseProcedureDivision(Cobol85Visitor):\n    \"\"\"\n    Visitor class for parsing the PROCEDURE DIVISION of a COBOL program.\n    Extracts flows, statements, and method calls.\n    \"\"\"\n    def __init__(self):",
+        "detail": "ParseProcedureDivision copy",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "logger",
+        "description": "logger",
+        "peekOfCode": "logger = logging.getLogger(\"StaticAnalysisLogger\")\nlogger.setLevel(logging.DEBUG) \n# Δημιουργία Handler (καταγραφή σε αρχείο και κονσόλα)\nconsole_handler = logging.StreamHandler()\nfile_handler = logging.FileHandler(\"static_analysis.log\")\n# Ρύθμιση του format για την καταγραφή\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nconsole_handler.setFormatter(formatter)\nfile_handler.setFormatter(formatter)\n# Προσθήκη handlers στον logger",
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "console_handler",
+        "kind": 5,
+        "importPath": "logger",
+        "description": "logger",
+        "peekOfCode": "console_handler = logging.StreamHandler()\nfile_handler = logging.FileHandler(\"static_analysis.log\")\n# Ρύθμιση του format για την καταγραφή\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nconsole_handler.setFormatter(formatter)\nfile_handler.setFormatter(formatter)\n# Προσθήκη handlers στον logger\n#logger.addHandler(console_handler)\nlogger.addHandler(file_handler)",
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "file_handler",
+        "kind": 5,
+        "importPath": "logger",
+        "description": "logger",
+        "peekOfCode": "file_handler = logging.FileHandler(\"static_analysis.log\")\n# Ρύθμιση του format για την καταγραφή\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nconsole_handler.setFormatter(formatter)\nfile_handler.setFormatter(formatter)\n# Προσθήκη handlers στον logger\n#logger.addHandler(console_handler)\nlogger.addHandler(file_handler)",
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "formatter",
+        "kind": 5,
+        "importPath": "logger",
+        "description": "logger",
+        "peekOfCode": "formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nconsole_handler.setFormatter(formatter)\nfile_handler.setFormatter(formatter)\n# Προσθήκη handlers στον logger\n#logger.addHandler(console_handler)\nlogger.addHandler(file_handler)",
+        "detail": "logger",
         "documentation": {}
     }
 ]

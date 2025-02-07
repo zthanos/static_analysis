@@ -45,14 +45,13 @@ identificationDivision
     ;
 
 identificationDivisionBody
-    : authorParagraph
-    | installationParagraph
-    | dateWrittenParagraph
-    | dateCompiledParagraph
-    | securityParagraph
-    | remarksParagraph
+    : (authorParagraph
+       installationParagraph?
+       dateWrittenParagraph?
+       dateCompiledParagraph?
+       securityParagraph?
+       remarksParagraph?)+
     ;
-
 // - program id paragraph ----------------------------------
 
 programIdParagraph
@@ -1864,10 +1863,101 @@ evaluateValue
     ;
 
 // exec cics statement
+MAP : 'MAP' ;
+MAPSET : 'MAPSET' ;
+XCTL : 'XCTL' ;
+FORMATTIME : 'FORMATTIME' ;
+
+
+execCommandListItem
+    :  (IDENTIFIER | FILE | INTO | SEND | RECEIVE | ERASE | MAP | MAPSET | RETURN | XCTL | PROGRAM | WRITE | TEXT | FORMATTIME | MMDDYYYY | EQUAL | TIME | FROM)
+    ;
 
 execCicsStatement
-    : EXECCICSLINE+
+    : EXEC CICS execCicsCommand+ END_EXEC
     ;
+execCicsCommand
+    : execCommandListItem (execCommandListItem | cicsParameter)*
+    ;
+
+cicsParameter
+    : execCommandListItem LPARENCHAR (execCommandListItem | literal) (COMMA (execCommandListItem | literal))* RPARENCHAR
+    ;
+
+// cicsOptions
+//     : (cicsOptionParam)+
+//     ;
+
+// cicsOptionParam
+//     : IDENTIFIER LPARENCHAR (identifier | literal) RPARENCHAR
+//     | literal // Περιλαμβάνει περιπτώσεις όπως UPDATE χωρίς τιμή
+//     ;
+
+// sendCicsOptions
+//     : cicsOptions
+//     ;
+
+// receiveCicsOptions
+//     : cicsOptions
+//     ;
+
+// otherCicsOptions
+//     : identifier LPARENCHAR identifier RPARENCHAR
+//     ;
+        
+// execCicsOptions
+//     : cicsCommand cicsParameters?
+//     ;
+    // : WRITE OPERATOR TEXT LPARENCHAR identifier RPARENCHAR
+    // | RECEIVE receiveCicsOptions
+    // | SEND MAP LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR 
+    //     (MAPSET LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR)? 
+    //     (ERASE)? 
+    // | XCTL PROGRAM LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR
+    // | RETURN TRANSID LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR 
+    //     (COMMAREA LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR)?
+    // | STARTBR FILE LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR 
+    //     (RIDFLD LPARENCHAR ((identifier | NONNUMERICLITERAL) | NONNUMERICLITERAL) RPARENCHAR)? 
+    // | READPREV FILE LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR
+    //     (RIDFLD LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR)?
+    //     (INTO LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR)?                
+    // | otherCicsOptions
+    // ;
+
+// cicsCommand
+//     : WRITE 
+//     | RECEIVE
+//     | SEND
+//     | XCTL
+//     | RETURN
+//     | STARTBR
+//     | READPREV
+//     | INTO
+//     | otherCicsCommand
+//     ;
+
+// otherCicsCommand
+//     : IDENTIFIER // Επιτρέπει οποιαδήποτε άλλη εντολή που δεν έχουμε ορίσει ρητά
+//     ;
+
+// cicsParameters
+//     : (cicsParamOption)+
+//     ;
+
+// cicsParamOption
+//     : identifier LPARENCHAR (identifier | NONNUMERICLITERAL) RPARENCHAR
+//     ;
+
+
+// Γενικός κανόνας που καλύπτει όλες τις δυνατές εντολές CICS
+// cicsCommand
+//     : identifier (LPARENCHAR literal RPARENCHAR)? 
+//     | identifier                            
+//     ;
+
+EXEC        : 'EXEC' ;
+CICS        : 'CICS' ;
+END_EXEC    : 'END-EXEC' ;
 
 // exec sql statement
 
@@ -2080,23 +2170,33 @@ mergeGiving
 
 // move statement
 
+// move statement
 moveStatement
     : MOVE ALL? (moveToStatement | moveCorrespondingToStatement)
     ;
 
+// move to statement, now supports multiple targets
 moveToStatement
-    : moveToSendingArea TO identifier+
+    : moveToSendingArea TO identifier (COMMA? identifier)*
     ;
 
+// move to sending area supports both identifiers and literals (including strings)
 moveToSendingArea
     : identifier
-    | literal
+    | literal  
+    | figurativeConstant
+    | numericLiteral
+    | booleanLiteral
+    | cicsDfhRespLiteral
+    | cicsDfhValueLiteral
     ;
 
+// move corresponding statement
 moveCorrespondingToStatement
-    : (CORRESPONDING | CORR) moveCorrespondingToSendingArea TO identifier+
+    : (CORRESPONDING | CORR) moveCorrespondingToSendingArea TO identifier (COMMA? identifier)*
     ;
 
+// move corresponding sending area
 moveCorrespondingToSendingArea
     : identifier
     ;
@@ -2240,6 +2340,22 @@ readKey
     ;
 
 // receive statement
+//  MAP : 'MAP' ;
+//  MAPSET : 'MAPSET' ;
+// DATASET : 'DATASET' ;
+// RIDFLD : 'RIDFLD' ;
+//  READPREV : 'READPREV' ;
+//  STARTBR : 'STARTBR' ;
+// UPDATE : 'UPDATE' ;
+// RESP : 'RESP' ;
+// RESP2 : 'RESP2' ;
+// OPERATOR : 'OPERATOR' ;
+//  XCTL : 'XCTL' ;
+// TRANSID : 'TRANSID' ;
+// COMMAREA : 'COMMAREA' ;
+
+
+
 
 receiveStatement
     : RECEIVE (receiveFromStatement | receiveIntoStatement) onExceptionClause? notOnExceptionClause? END_RECEIVE?
@@ -2254,6 +2370,18 @@ receiveFromStatement
         | receiveStatus
     )*
     ;
+
+// receiveCicsOptions
+//     : (MAP LPARENCHAR (identifier | literal) RPARENCHAR)?
+//       (MAPSET LPARENCHAR (identifier | literal) RPARENCHAR)?
+//       (INTO LPARENCHAR (identifier | literal) RPARENCHAR)?
+//       (LENGTH LPARENCHAR (identifier | literal) RPARENCHAR)?
+//       (DATASET LPARENCHAR (identifier | literal) RPARENCHAR)?
+//       (RIDFLD LPARENCHAR (identifier | literal) RPARENCHAR)?
+//       (UPDATE)?
+//       (RESP LPARENCHAR (identifier | literal) RPARENCHAR)?
+//       (RESP2 LPARENCHAR (identifier | literal) RPARENCHAR)?
+//     ;
 
 receiveFrom
     : THREAD dataName
@@ -2336,7 +2464,13 @@ searchWhen
 // send statement
 
 sendStatement
-    : SEND (sendStatementSync | sendStatementAsync) onExceptionClause? notOnExceptionClause?
+    : SEND sendMapPhrase onExceptionClause? notOnExceptionClause?
+    ;
+
+sendMapPhrase
+    : 'MAP' LPARENCHAR (identifier | literal) RPARENCHAR 
+      ('MAPSET' LPARENCHAR (identifier | literal) RPARENCHAR)?
+      ERASE?
     ;
 
 sendStatementSync
@@ -2374,6 +2508,7 @@ sendAdvancingLines
 sendAdvancingMnemonic
     : mnemonicName
     ;
+
 
 // set statement
 

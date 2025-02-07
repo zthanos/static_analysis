@@ -1,0 +1,336 @@
+{
+    "ProgramId": "DOGESEND",
+    "Author": "SOLDIER OF FORTRAN",
+    "Installation": "DOGE BANK",
+    "DateWritten": "08/30/20",
+    "Compiled": null,
+    "Security": null,
+    "Flow": [
+        {
+            "Name": "DOGE-MAIN",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DFHCOMMAREA",
+                            "AssignTo": "DOGECOMMS-AREA"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'Displaying Send Menu'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.CICS",
+                            "MethodName": "SEND",
+                            "Statements": [
+                                {
+                                    "type": "MAP('DOGESN1')"
+                                },
+                                {
+                                    "type": "MAPSET('DOGESN')"
+                                },
+                                {
+                                    "type": "ERASE"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.CONDITION",
+                            "conditionClauses": [],
+                            "TrueStatements": [
+                                {
+                                    "type": "StatementType.CICS",
+                                    "MethodName": "XCTL",
+                                    "Statements": [
+                                        {
+                                            "type": "PROGRAM('DOGEQUIT')"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "type": "StatementType.CONDITION",
+                                    "conditionClauses": [],
+                                    "TrueStatements": [
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "RECEIVE-INPUT",
+                                            "Internal": true,
+                                            "Statements": []
+                                        },
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "PARSE-INPUT",
+                                            "Internal": true,
+                                            "Statements": []
+                                        }
+                                    ],
+                                    "FalseStatements": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RETURN",
+                    "Statements": [
+                        {
+                            "type": "TRANSID('DSND')"
+                        },
+                        {
+                            "type": "COMMAREA(DOGECOMMS-AREA)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-WTO",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "WRITE",
+                    "Statements": [
+                        {
+                            "type": "OPERATOR"
+                        },
+                        {
+                            "type": "TEXT(WTO-MESSAGE)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        },
+        {
+            "Name": "RECEIVE-INPUT",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RECEIVE",
+                    "Statements": [
+                        {
+                            "type": "MAP('DOGESN1')"
+                        },
+                        {
+                            "type": "MAPSET('DOGESN')"
+                        },
+                        {
+                            "type": "INTO(DOGESN1I)"
+                        },
+                        {
+                            "type": "ASIS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "PARSE-INPUT",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [],
+                    "FalseStatements": []
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-MAIN",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "DFHCOMMAREA",
+                            "AssignTo": "DOGECOMMS-AREA"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [
+                        {
+                            "type": "StatementType.ASSIGN",
+                            "AssignFrom": "'Displaying Send Menu'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "type": "StatementType.CALL",
+                            "MethodName": "DOGE-WTO",
+                            "Internal": true,
+                            "Statements": []
+                        },
+                        {
+                            "type": "StatementType.CICS",
+                            "MethodName": "SEND",
+                            "Statements": [
+                                {
+                                    "type": "MAP('DOGESN1')"
+                                },
+                                {
+                                    "type": "MAPSET('DOGESN')"
+                                },
+                                {
+                                    "type": "ERASE"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "type": "StatementType.CONDITION",
+                            "conditionClauses": [],
+                            "TrueStatements": [
+                                {
+                                    "type": "StatementType.CICS",
+                                    "MethodName": "XCTL",
+                                    "Statements": [
+                                        {
+                                            "type": "PROGRAM('DOGEQUIT')"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "type": "StatementType.CONDITION",
+                                    "conditionClauses": [],
+                                    "TrueStatements": [
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "RECEIVE-INPUT",
+                                            "Internal": true,
+                                            "Statements": []
+                                        },
+                                        {
+                                            "type": "StatementType.CALL",
+                                            "MethodName": "PARSE-INPUT",
+                                            "Internal": true,
+                                            "Statements": []
+                                        }
+                                    ],
+                                    "FalseStatements": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RETURN",
+                    "Statements": [
+                        {
+                            "type": "TRANSID('DSND')"
+                        },
+                        {
+                            "type": "COMMAREA(DOGECOMMS-AREA)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-WTO",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "WRITE",
+                    "Statements": [
+                        {
+                            "type": "OPERATOR"
+                        },
+                        {
+                            "type": "TEXT(WTO-MESSAGE)"
+                        }
+                    ]
+                },
+                {
+                    "type": "StatementType.ASSIGN",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        },
+        {
+            "Name": "RECEIVE-INPUT",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CICS",
+                    "MethodName": "RECEIVE",
+                    "Statements": [
+                        {
+                            "type": "MAP('DOGESN1')"
+                        },
+                        {
+                            "type": "MAPSET('DOGESN')"
+                        },
+                        {
+                            "type": "INTO(DOGESN1I)"
+                        },
+                        {
+                            "type": "ASIS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "PARSE-INPUT",
+            "Input": {},
+            "Output": {},
+            "Sentences": [
+                {
+                    "type": "StatementType.CONDITION",
+                    "conditionClauses": [],
+                    "TrueStatements": [],
+                    "FalseStatements": []
+                }
+            ]
+        }
+    ]
+}

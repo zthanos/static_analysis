@@ -1,131 +1,72 @@
+import os
+import json
 import FlowAnalyzer
 from antlr4 import FileStream, CommonTokenStream
-from antlr4.tree.Trees import Trees
+from IdentificationDivision import ParseIdentificationDivision
 from CobolVisitor import CobolVisitor
 from FlowAnalyzer import FlowAnalyzer
-from PreprocessorVisitor import CustomPreprocessorVisitor
 from grammars.Cobol85Lexer import Cobol85Lexer
 from grammars.Cobol85Parser import Cobol85Parser
-from grammars.Cobol85PreprocessorLexer import Cobol85PreprocessorLexer
-from grammars.Cobol85PreprocessorParser import Cobol85PreprocessorParser
 
-import json
+from ParseProcedureDivision import ParseProcedureDivision
 
 class CobolParser:
-    def __init__(self):
+    def __init__(self, output_dir="output"):
         self.tree = None
         self.visitor = CobolVisitor()
         self.flow_analyzer = FlowAnalyzer()
-        
+        self.output_dir = output_dir  # Καθορισμός φακέλου εξόδου
+
+        # Δημιουργία του output directory αν δεν υπάρχει
+        os.makedirs(self.output_dir, exist_ok=True)
+
     def parse_file(self, file_path):
         input_stream = FileStream(file_path, encoding="utf-8")
         lexer = Cobol85Lexer(input_stream)
         token_stream = CommonTokenStream(lexer)
         parser = Cobol85Parser(token_stream)
-
         tree = parser.startRule()
-        self.analyze(tree)
-        # Εξαγωγή του tree σε DOT format
-        # with open("parse_tree.dot", "w") as f:
-        #     f.write(Trees.toStringTree(tree, recog=parser))
-        
-            
-    def preprocess_and_parse_cobol(self, file_path):
-        # Preprocessing
-        input_stream = FileStream(file_path, encoding="utf-8")
-        pre_lexer = Cobol85PreprocessorLexer(input_stream)
-        pre_token_stream = CommonTokenStream(pre_lexer)
-        pre_parser = Cobol85PreprocessorParser(pre_token_stream)
-        pre_tree = pre_parser.startRule()
-
-        visitor = CustomPreprocessorVisitor()
-        visitor.visit(pre_tree)
-
-        # Parsing
-        lexer = Cobol85Lexer(FileStream(file_path, encoding="utf-8"))
-        token_stream = CommonTokenStream(lexer)
-        parser = Cobol85Parser(token_stream)
-        tree = parser.startRule()
-        self.analyze(tree)
-        print("Parse Tree του COBOL Parser:")
-        print(tree.toStringTree(recog=parser))
-
+        static_analysis = self.analyze(tree)
+        # print(static_analysis)
+        if static_analysis:
+            self.save_analysis_to_file(static_analysis, file_path)
 
     def analyze(self, tree):
         """
-        Εφαρμόζει τον visitor στο συντακτικό δέντρο και εκτυπώνει τα αποτελέσματα.
+        Εφαρμόζει τον visitor στο συντακτικό δέντρο και επιστρέφει τα αποτελέσματα της ανάλυσης.
         """
         if tree:
-            self.visitor.visit(tree)
-            self.flow_analyzer.visitChildren(tree)
-            self.print_results()
+            pid = ParseIdentificationDivision()
+            pd = ParseProcedureDivision()
+            pid.visit(tree)
+            
+            # Εξαγωγή δεδομένων από τα visitors
+            static_analysis = pd.visit(tree)
+            pd.visit(tree)  # Ανάλυση Procedure Division
+            
+            pid.staticAnalysis.Flow = pd.staticAnalysis.Flow
+            return pid.staticAnalysis  # Επιστροφή των αποτελεσμάτων για αποθήκευση
         else:
             print("Error: No parse tree available. Run parse_file() first.")
+            return None
 
-    def print_results(self):
+    def save_analysis_to_file(self, static_analysis, file_path):
         """
-        Εκτυπώνει τα αποτελέσματα της ανάλυσης.
+        Αποθηκεύει τα αποτελέσματα της ανάλυσης σε JSON αρχείο μέσα στον output folder.
+
+        :param static_analysis: Το αντικείμενο ανάλυσης που περιέχει τα δεδομένα.
+        :param file_path: Το αρχικό COBOL αρχείο από το οποίο προήλθαν τα δεδομένα.
         """
-        self.visitor.print_results()
-        # Εκτύπωση του Flow Graph
-        # self.flow_analyzer.print_flow()
-        # print("Programs found:", self.visitor.programs)
-        # print("Entry Points found:", self.visitor.entry_points)
-        # print("Calls found:", self.visitor.calls)
-        # print("Variables found:", self.visitor.variables)
-        # print("Inputs per Entry Point:")
-        # for entry, inputs in self.visitor.entry_inputs.items():
-        #     print(f"  {entry}: {inputs}")                
+        # Εξαγωγή του ονόματος του αρχείου από το file_path
+        file_name = os.path.basename(file_path)
+        file_name_without_ext = os.path.splitext(file_name)[0]
+        output_file = os.path.join(self.output_dir, f"{file_name_without_ext}.json")
 
-# class CobolParserOld:
-#     def __init__(self):
-#         self.tree = None
-#         self.visitor = CobolVisitor()
-#         self.flow_analyzer = FlowAnalyzer()
-        
+        # Μετατροπή των δεδομένων σε JSON
+        json_output = static_analysis.to_json()
 
-#     def parse_file(self, file_path):
-#         """
-#         Διαβάζει και αναλύει ένα αρχείο COBOL.
-#         """
-#         try:
-#             input_stream = FileStream(file_path, encoding='utf-8')
-#             lexer = Cobol85Lexer(input_stream)
-#             token_stream = CommonTokenStream(lexer)
-#             parser = Cobol85Parser(token_stream)
+        # Αποθήκευση στο αρχείο
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(json_output)
 
-#             # Ανίχνευση του σωστού root rule
-#             self.tree = parser.startRule()  # Αν το σωστό root rule είναι διαφορετικό, άλλαξέ το!
-#             # print(json.dumps(tree_str, indent=2))
-#             print("Parsing completed successfully.")
-#         except Exception as e:
-#             print(f"Error while parsing: {e}")
-            
-
-    # def analyze(self):
-    #     """
-    #     Εφαρμόζει τον visitor στο συντακτικό δέντρο και εκτυπώνει τα αποτελέσματα.
-    #     """
-    #     if self.tree:
-    #         self.visitor.visit(self.tree)
-    #         self.flow_analyzer.visitChildren(self.tree)
-    #         self.print_results()
-    #     else:
-    #         print("Error: No parse tree available. Run parse_file() first.")
-
-    # def print_results(self):
-    #     """
-    #     Εκτυπώνει τα αποτελέσματα της ανάλυσης.
-    #     """
-    #     self.visitor.print_results()
-    #     # Εκτύπωση του Flow Graph
-    #     self.flow_analyzer.print_flow()
-    #     # print("Programs found:", self.visitor.programs)
-    #     # print("Entry Points found:", self.visitor.entry_points)
-    #     # print("Calls found:", self.visitor.calls)
-    #     # print("Variables found:", self.visitor.variables)
-    #     # print("Inputs per Entry Point:")
-    #     # for entry, inputs in self.visitor.entry_inputs.items():
-    #     #     print(f"  {entry}: {inputs}")
-
-
+        print(f"Ανάλυση αποθηκεύτηκε στο: {output_file}")
