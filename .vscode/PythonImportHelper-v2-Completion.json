@@ -806,6 +806,14 @@
         "documentation": {}
     },
     {
+        "label": "FlowChartGenerator",
+        "importPath": "FlowChartGenerator",
+        "description": "FlowChartGenerator",
+        "isExtraImport": true,
+        "detail": "FlowChartGenerator",
+        "documentation": {}
+    },
+    {
         "label": "ParseProcedureDivision",
         "importPath": "ParseProcedureDivision",
         "description": "ParseProcedureDivision",
@@ -1319,6 +1327,15 @@
         "description": "logger",
         "peekOfCode": "formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nconsole_handler.setFormatter(formatter)\nfile_handler.setFormatter(formatter)\n# Προσθήκη handlers στον logger\n#logger.addHandler(console_handler)\nlogger.addHandler(file_handler)",
         "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "FlowChartGenerator",
+        "kind": 6,
+        "importPath": "FlowChartGenerator",
+        "description": "FlowChartGenerator",
+        "peekOfCode": "class FlowChartGenerator:\n    def __init__(self):\n        pass\n    def process_sentence(self, sentence, indent=0):\n        \"\"\"\n        Επεξεργάζεται μια \"Sentence\" και επιστρέφει μια λίστα με τις γραμμές PlantUML.\n        \"\"\"\n        lines = []\n        prefix = \"  \" * indent\n        stype = sentence.get(\"type\", \"\")",
+        "detail": "FlowChartGenerator",
         "documentation": {}
     }
 ]

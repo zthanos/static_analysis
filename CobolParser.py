@@ -7,7 +7,7 @@ from CobolVisitor import CobolVisitor
 from FlowAnalyzer import FlowAnalyzer
 from grammars.Cobol85Lexer import Cobol85Lexer
 from grammars.Cobol85Parser import Cobol85Parser
-
+from FlowChartGenerator import FlowChartGenerator
 from ParseProcedureDivision import ParseProcedureDivision
 
 class CobolParser:
@@ -27,6 +27,8 @@ class CobolParser:
         parser = Cobol85Parser(token_stream)
         tree = parser.startRule()
         static_analysis = self.analyze(tree)
+        diagram = FlowChartGenerator()
+        diagram.genrateDiagram(static_analysis, "RECEIVE-OPTION")
         # print(static_analysis)
         if static_analysis:
             self.save_analysis_to_file(static_analysis, file_path)
