@@ -15,7 +15,7 @@ class StaticAnalysis:
     Compiled: str = None
     Security: str = None
     Flow: List["Flow"] = field(default_factory=list) 
-
+    DataStructures: List[dict] = field(default_factory=list)
     def addFlow(self, flow: "Flow"):
         """Adds a Flow object to the Flow list."""
         if isinstance(flow, Flow):

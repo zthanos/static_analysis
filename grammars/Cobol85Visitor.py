@@ -399,6 +399,11 @@ class Cobol85Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by Cobol85Parser#dataDivisionBody.
+    def visitDataDivisionBody(self, ctx:Cobol85Parser.DataDivisionBodyContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by Cobol85Parser#dataDivisionSection.
     def visitDataDivisionSection(self, ctx:Cobol85Parser.DataDivisionSectionContext):
         return self.visitChildren(ctx)

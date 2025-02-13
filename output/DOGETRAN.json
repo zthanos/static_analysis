@@ -5,2082 +5,306 @@
     "DateWritten": "08/30/20",
     "Compiled": null,
     "Security": null,
-    "Flow": [
+    "Flow": [],
+    "DataStructures": [
         {
-            "Name": "DOGE-MAIN",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
+            "Level": "01",
+            "Name": "TRANSACTION",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TDATE",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "NUM-DATE",
+            "PIC": "9(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": "TDATE",
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TADDRSS",
+            "PIC": "X(34)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TLABEL",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TAMOUNT",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "TAMT-SIGN",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": [
                 {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DFHCOMMAREA",
-                            "AssignTo": "DOGECOMMS-AREA"
-                        }
-                    ],
-                    "FalseStatements": []
+                    "Level": "88",
+                    "Name": "TAMT-SIGN-POSITIVE",
+                    "VALUE": "'+'"
                 },
                 {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'Displaying first 7 Transactions'",
-                            "AssignTo": "WTO-MESSAGE"
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "DOGE-WTO",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "LET-ER-RIP",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "DOGE-LIST-TRANSACTIONS",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CICS",
-                            "MethodName": "SEND",
-                            "Statements": [
-                                {
-                                    "type": "MAP('DOGETR1')"
-                                },
-                                {
-                                    "type": "MAPSET('DOGETR')"
-                                },
-                                {
-                                    "type": "ERASE"
-                                }
-                            ]
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CONDITION",
-                            "conditionClauses": [],
-                            "TrueStatements": [
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'Showing next screen'",
-                                    "AssignTo": "WTO-MESSAGE"
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "DOGE-WTO",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "LET-ER-RIP",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "DOGE-LIST-TRANSACTIONS",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'PF7 PREV -'",
-                                    "AssignTo": "PREVO"
-                                },
-                                {
-                                    "type": "StatementType.CICS",
-                                    "MethodName": "SEND",
-                                    "Statements": [
-                                        {
-                                            "type": "MAP('DOGETR1')"
-                                        },
-                                        {
-                                            "type": "MAPSET('DOGETR')"
-                                        },
-                                        {
-                                            "type": "ERASE"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "FalseStatements": [
-                                {
-                                    "type": "StatementType.CONDITION",
-                                    "conditionClauses": [],
-                                    "TrueStatements": [
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "'Showing prev screen'",
-                                            "AssignTo": "WTO-MESSAGE"
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "DOGE-WTO",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "LET-ER-RIP",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "BACK-IT-UP15TIMES",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "DOGE-LIST-TRANSACTIONS",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CICS",
-                                            "MethodName": "SEND",
-                                            "Statements": [
-                                                {
-                                                    "type": "MAP('DOGETR1')"
-                                                },
-                                                {
-                                                    "type": "MAPSET('DOGETR')"
-                                                },
-                                                {
-                                                    "type": "ERASE"
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    "FalseStatements": [
-                                        {
-                                            "type": "StatementType.CONDITION",
-                                            "conditionClauses": [],
-                                            "TrueStatements": [
-                                                {
-                                                    "type": "StatementType.CICS",
-                                                    "MethodName": "XCTL",
-                                                    "Statements": [
-                                                        {
-                                                            "type": "PROGRAM('DOGEQUIT')"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "FalseStatements": [
-                                                {
-                                                    "type": "StatementType.CONDITION",
-                                                    "conditionClauses": [],
-                                                    "TrueStatements": [
-                                                        {
-                                                            "type": "StatementType.CALL",
-                                                            "MethodName": "RECEIVE-OPTION",
-                                                            "Internal": true,
-                                                            "Statements": []
-                                                        },
-                                                        {
-                                                            "type": "StatementType.CALL",
-                                                            "MethodName": "PARSE-OPTION",
-                                                            "Internal": true,
-                                                            "Statements": []
-                                                        }
-                                                    ],
-                                                    "FalseStatements": []
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "RETURN",
-                    "Statements": [
-                        {
-                            "type": "TRANSID('DTRN')"
-                        },
-                        {
-                            "type": "COMMAREA(DOGECOMMS-AREA)"
-                        }
-                    ]
+                    "Level": "88",
+                    "Name": "TAMT-SIGN-NEGATIVE",
+                    "VALUE": "'-'"
                 }
             ]
         },
         {
-            "Name": "DOGE-EXIT",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "GOBACK",
-                    "Internal": true,
-                    "Statements": []
-                }
-            ]
+            "Level": "10",
+            "Name": "TAMT-INTEGER-PART",
+            "PIC": "X(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "LET-ER-RIP",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "STARTBR",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        },
-                        {
-                            "type": "RIDFLD(START-RECORD-ID)"
-                        }
-                    ]
-                }
-            ]
+            "Level": "10",
+            "Name": "TAMT-DEC-POINT",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "BACK-IT-UP",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "'PF7 PREV -'",
-                    "AssignTo": "PREVO"
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.CICS",
-                            "MethodName": "READPREV",
-                            "Statements": [
-                                {
-                                    "type": "FILE('DOGEVSAM')"
-                                },
-                                {
-                                    "type": "RIDFLD(START-RECORD-ID)"
-                                },
-                                {
-                                    "type": "INTO(TRANSACTION)"
-                                }
-                            ]
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "SPACES",
-                            "AssignTo": "PREVO"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "10",
+            "Name": "TAMT-DECIMAL-PART",
+            "PIC": "X(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-LIST-TRANSACTIONS",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "READNEXT",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        },
-                        {
-                            "type": "RIDFLD(START-RECORD-ID)"
-                        },
-                        {
-                            "type": "INTO(TRANSACTION)"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "DISPLAY-TRANSVARYINGLINE-NUMBERFROM1BY1UNTILLINE-NUMBERISEQUALTO8ORDONE-RECORDSISEQUALTO'DONE'",
-                    "Internal": true,
-                    "Statements": []
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'PF8 NEXT'",
-                            "AssignTo": "NEXTO"
-                        }
-                    ],
-                    "FalseStatements": []
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "ENDBR",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "01",
+            "Name": "THE-AMOUNT",
+            "PIC": "S9(8)V9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "CONVERT-AMOUNT-TO-DISPLAY",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "DFHGREEN",
-                    "AssignTo": "RECENT-COLOR"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "TAMT-INTEGER-PART",
-                    "AssignTo": "THE-AMOUNT-INTEGER"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "TAMT-DECIMAL-PART",
-                    "AssignTo": "THE-AMOUNT-DECIMAL"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "'RECV FROM'",
-                    "AssignTo": "DTYPE"
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DFHRED",
-                            "AssignTo": "RECENT-COLOR"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'SENT TO  '",
-                            "AssignTo": "DTYPE"
-                        }
-                    ],
-                    "FalseStatements": []
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "THE-AMOUNT",
-                    "AssignTo": "DAMOUNT"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "TAMT-SIGN",
-                    "AssignTo": "DSIGN"
-                }
-            ]
+            "Level": "01",
+            "Name": "FILLER",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": "THE-AMOUNT",
+            "CONDITIONS": []
         },
         {
-            "Name": "CONVERT-DATE",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "NUM-DATE",
-                    "AssignTo": "TEMP-DATE"
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "FORMATTIME",
-                    "Statements": [
-                        {
-                            "type": "ABSTIME(TEMP-DATE)"
-                        },
-                        {
-                            "type": "DATESEP('/')"
-                        },
-                        {
-                            "type": "MMDDYYYY(DDATE)"
-                        }
-                    ]
-                }
-            ]
+            "Level": "05",
+            "Name": "THE-AMOUNT-INTEGER",
+            "PIC": "X(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-WTO",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "WRITE",
-                    "Statements": [
-                        {
-                            "type": "OPERATOR"
-                        },
-                        {
-                            "type": "TEXT(WTO-MESSAGE)"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "SPACES",
-                    "AssignTo": "WTO-MESSAGE"
-                }
-            ]
+            "Level": "05",
+            "Name": "THE-AMOUNT-DECIMAL",
+            "PIC": "S9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DISPLAY-TRANS",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "READNEXT",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        },
-                        {
-                            "type": "RIDFLD(START-RECORD-ID)"
-                        },
-                        {
-                            "type": "INTO(TRANSACTION)"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'DONE'",
-                            "AssignTo": "DONE-RECORDS"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "SPACES",
-                            "AssignTo": "NEXTO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'PF7 PREV'",
-                            "AssignTo": "PREVO"
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "CONVERT-DATE",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "TLABEL",
-                            "AssignTo": "DLABEL"
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "FILL-ROWS-WITH-DATA",
-                            "Internal": true,
-                            "Statements": []
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "01",
+            "Name": "RECENT-COLOR",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "FILL-ROWS-WITH-DATA",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "TDATE",
-                            "AssignTo": "TRAN1KO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DDATE",
-                            "AssignTo": "TRAN1DO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "RECENT-COLOR",
-                            "AssignTo": "TRAN1TC"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DTYPE",
-                            "AssignTo": "TRAN1TO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DLABEL",
-                            "AssignTo": "TRAN1LO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "RECENT-COLOR",
-                            "AssignTo": "TRAN1SC"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DSIGN",
-                            "AssignTo": "TRAN1SO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "THE-AMOUNT",
-                            "AssignTo": "TRAN1AO"
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CONDITION",
-                            "conditionClauses": [],
-                            "TrueStatements": [
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "TDATE",
-                                    "AssignTo": "TRAN2KO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DDATE",
-                                    "AssignTo": "TRAN2DO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "RECENT-COLOR",
-                                    "AssignTo": "TRAN2TC"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DTYPE",
-                                    "AssignTo": "TRAN2TO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DLABEL",
-                                    "AssignTo": "TRAN2LO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "RECENT-COLOR",
-                                    "AssignTo": "TRAN2SC"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DSIGN",
-                                    "AssignTo": "TRAN2SO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "THE-AMOUNT",
-                                    "AssignTo": "TRAN2AO"
-                                }
-                            ],
-                            "FalseStatements": [
-                                {
-                                    "type": "StatementType.CONDITION",
-                                    "conditionClauses": [],
-                                    "TrueStatements": [
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "TDATE",
-                                            "AssignTo": "TRAN3KO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DDATE",
-                                            "AssignTo": "TRAN3DO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "RECENT-COLOR",
-                                            "AssignTo": "TRAN3TC"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DTYPE",
-                                            "AssignTo": "TRAN3TO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DLABEL",
-                                            "AssignTo": "TRAN3LO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "RECENT-COLOR",
-                                            "AssignTo": "TRAN3SC"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DSIGN",
-                                            "AssignTo": "TRAN3SO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "THE-AMOUNT",
-                                            "AssignTo": "TRAN3AO"
-                                        }
-                                    ],
-                                    "FalseStatements": [
-                                        {
-                                            "type": "StatementType.CONDITION",
-                                            "conditionClauses": [],
-                                            "TrueStatements": [
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "TDATE",
-                                                    "AssignTo": "TRAN4KO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DDATE",
-                                                    "AssignTo": "TRAN4DO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "RECENT-COLOR",
-                                                    "AssignTo": "TRAN4TC"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DTYPE",
-                                                    "AssignTo": "TRAN4TO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DLABEL",
-                                                    "AssignTo": "TRAN4LO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "RECENT-COLOR",
-                                                    "AssignTo": "TRAN4SC"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DSIGN",
-                                                    "AssignTo": "TRAN4SO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "THE-AMOUNT",
-                                                    "AssignTo": "TRAN4AO"
-                                                }
-                                            ],
-                                            "FalseStatements": [
-                                                {
-                                                    "type": "StatementType.CONDITION",
-                                                    "conditionClauses": [],
-                                                    "TrueStatements": [
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "TDATE",
-                                                            "AssignTo": "TRAN5KO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DDATE",
-                                                            "AssignTo": "TRAN5DO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "RECENT-COLOR",
-                                                            "AssignTo": "TRAN5TC"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DTYPE",
-                                                            "AssignTo": "TRAN5TO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DLABEL",
-                                                            "AssignTo": "TRAN5LO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "RECENT-COLOR",
-                                                            "AssignTo": "TRAN5SC"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DSIGN",
-                                                            "AssignTo": "TRAN5SO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "THE-AMOUNT",
-                                                            "AssignTo": "TRAN5AO"
-                                                        }
-                                                    ],
-                                                    "FalseStatements": [
-                                                        {
-                                                            "type": "StatementType.CONDITION",
-                                                            "conditionClauses": [],
-                                                            "TrueStatements": [
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "TDATE",
-                                                                    "AssignTo": "TRAN6KO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DDATE",
-                                                                    "AssignTo": "TRAN6DO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "RECENT-COLOR",
-                                                                    "AssignTo": "TRAN6TC"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DTYPE",
-                                                                    "AssignTo": "TRAN6TO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DLABEL",
-                                                                    "AssignTo": "TRAN6LO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "RECENT-COLOR",
-                                                                    "AssignTo": "TRAN6SC"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DSIGN",
-                                                                    "AssignTo": "TRAN6SO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "THE-AMOUNT",
-                                                                    "AssignTo": "TRAN6AO"
-                                                                }
-                                                            ],
-                                                            "FalseStatements": [
-                                                                {
-                                                                    "type": "StatementType.CONDITION",
-                                                                    "conditionClauses": [],
-                                                                    "TrueStatements": [
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "TDATE",
-                                                                            "AssignTo": "TRAN7KO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DDATE",
-                                                                            "AssignTo": "TRAN7DO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "RECENT-COLOR",
-                                                                            "AssignTo": "TRAN7TC"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DTYPE",
-                                                                            "AssignTo": "TRAN7TO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DLABEL",
-                                                                            "AssignTo": "TRAN7LO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "RECENT-COLOR",
-                                                                            "AssignTo": "TRAN7SC"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DSIGN",
-                                                                            "AssignTo": "TRAN7SO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "THE-AMOUNT",
-                                                                            "AssignTo": "TRAN7AO"
-                                                                        }
-                                                                    ],
-                                                                    "FalseStatements": []
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "01",
+            "Name": "DISPLAY-TRAN",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "RECEIVE-OPTION",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "'DTRN - Getting Input from User.'",
-                    "AssignTo": "WTO-MESSAGE"
-                },
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "DOGE-WTO",
-                    "Internal": true,
-                    "Statements": []
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "RECEIVE",
-                    "Statements": [
-                        {
-                            "type": "MAP('DOGETR1')"
-                        },
-                        {
-                            "type": "MAPSET('DOGETR')"
-                        },
-                        {
-                            "type": "INTO(DOGETR1I)"
-                        }
-                    ]
-                }
-            ]
+            "Level": "05",
+            "Name": "DDATE",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "PARSE-OPTION",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "OPTIONI",
-                    "AssignTo": "WTO-MESSAGE"
-                },
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "DOGE-WTO",
-                    "Internal": true,
-                    "Statements": []
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'Opening Transaction History'",
-                            "AssignTo": "WTO-MESSAGE"
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "DOGE-WTO",
-                            "Internal": true,
-                            "Statements": []
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CONDITION",
-                            "conditionClauses": [],
-                            "TrueStatements": [
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'DTRN - Opening Main Menu'",
-                                    "AssignTo": "WTO-MESSAGE"
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "DOGE-WTO",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'W'",
-                                    "AssignTo": "DOGECOMMS-AREA"
-                                },
-                                {
-                                    "type": "StatementType.CICS",
-                                    "MethodName": "XCTL",
-                                    "Statements": [
-                                        {
-                                            "type": "PROGRAM('DOGECOIN')"
-                                        },
-                                        {
-                                            "type": "COMMAREA(DOGECOMMS-AREA)"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "FalseStatements": [
-                                {
-                                    "type": "StatementType.CONDITION",
-                                    "conditionClauses": [],
-                                    "TrueStatements": [
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "'Opening Transaction Details'",
-                                            "AssignTo": "WTO-MESSAGE"
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "DOGE-WTO",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CICS",
-                                            "MethodName": "XCTL",
-                                            "Statements": [
-                                                {
-                                                    "type": "PROGRAM('DOGEDEET')"
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    "FalseStatements": [
-                                        {
-                                            "type": "StatementType.CONDITION",
-                                            "conditionClauses": [],
-                                            "TrueStatements": [
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "'Opening Such Send'",
-                                                    "AssignTo": "WTO-MESSAGE"
-                                                },
-                                                {
-                                                    "type": "StatementType.CALL",
-                                                    "MethodName": "DOGE-WTO",
-                                                    "Internal": true,
-                                                    "Statements": []
-                                                },
-                                                {
-                                                    "type": "StatementType.CICS",
-                                                    "MethodName": "XCTL",
-                                                    "Statements": [
-                                                        {
-                                                            "type": "PROGRAM('DOGESEND')"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "FalseStatements": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "SPACES",
-                    "AssignTo": "WTO-MESSAGE"
-                }
-            ]
+            "Level": "05",
+            "Name": "DTYPE",
+            "PIC": "X(10)",
+            "VALUE": "'RECV FROM'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-MAIN",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DFHCOMMAREA",
-                            "AssignTo": "DOGECOMMS-AREA"
-                        }
-                    ],
-                    "FalseStatements": []
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'Displaying first 7 Transactions'",
-                            "AssignTo": "WTO-MESSAGE"
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "DOGE-WTO",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "LET-ER-RIP",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "DOGE-LIST-TRANSACTIONS",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CICS",
-                            "MethodName": "SEND",
-                            "Statements": [
-                                {
-                                    "type": "MAP('DOGETR1')"
-                                },
-                                {
-                                    "type": "MAPSET('DOGETR')"
-                                },
-                                {
-                                    "type": "ERASE"
-                                }
-                            ]
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CONDITION",
-                            "conditionClauses": [],
-                            "TrueStatements": [
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'Showing next screen'",
-                                    "AssignTo": "WTO-MESSAGE"
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "DOGE-WTO",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "LET-ER-RIP",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "DOGE-LIST-TRANSACTIONS",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'PF7 PREV -'",
-                                    "AssignTo": "PREVO"
-                                },
-                                {
-                                    "type": "StatementType.CICS",
-                                    "MethodName": "SEND",
-                                    "Statements": [
-                                        {
-                                            "type": "MAP('DOGETR1')"
-                                        },
-                                        {
-                                            "type": "MAPSET('DOGETR')"
-                                        },
-                                        {
-                                            "type": "ERASE"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "FalseStatements": [
-                                {
-                                    "type": "StatementType.CONDITION",
-                                    "conditionClauses": [],
-                                    "TrueStatements": [
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "'Showing prev screen'",
-                                            "AssignTo": "WTO-MESSAGE"
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "DOGE-WTO",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "LET-ER-RIP",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "BACK-IT-UP15TIMES",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "DOGE-LIST-TRANSACTIONS",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CICS",
-                                            "MethodName": "SEND",
-                                            "Statements": [
-                                                {
-                                                    "type": "MAP('DOGETR1')"
-                                                },
-                                                {
-                                                    "type": "MAPSET('DOGETR')"
-                                                },
-                                                {
-                                                    "type": "ERASE"
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    "FalseStatements": [
-                                        {
-                                            "type": "StatementType.CONDITION",
-                                            "conditionClauses": [],
-                                            "TrueStatements": [
-                                                {
-                                                    "type": "StatementType.CICS",
-                                                    "MethodName": "XCTL",
-                                                    "Statements": [
-                                                        {
-                                                            "type": "PROGRAM('DOGEQUIT')"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "FalseStatements": [
-                                                {
-                                                    "type": "StatementType.CONDITION",
-                                                    "conditionClauses": [],
-                                                    "TrueStatements": [
-                                                        {
-                                                            "type": "StatementType.CALL",
-                                                            "MethodName": "RECEIVE-OPTION",
-                                                            "Internal": true,
-                                                            "Statements": []
-                                                        },
-                                                        {
-                                                            "type": "StatementType.CALL",
-                                                            "MethodName": "PARSE-OPTION",
-                                                            "Internal": true,
-                                                            "Statements": []
-                                                        }
-                                                    ],
-                                                    "FalseStatements": []
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "RETURN",
-                    "Statements": [
-                        {
-                            "type": "TRANSID('DTRN')"
-                        },
-                        {
-                            "type": "COMMAREA(DOGECOMMS-AREA)"
-                        }
-                    ]
-                }
-            ]
+            "Level": "05",
+            "Name": "DLABEL",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-EXIT",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "GOBACK",
-                    "Internal": true,
-                    "Statements": []
-                }
-            ]
+            "Level": "05",
+            "Name": "DSIGN",
+            "PIC": "X",
+            "VALUE": "'+'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "LET-ER-RIP",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "STARTBR",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        },
-                        {
-                            "type": "RIDFLD(START-RECORD-ID)"
-                        }
-                    ]
-                }
-            ]
+            "Level": "05",
+            "Name": "DAMOUNT",
+            "PIC": "Z(02),Z(03),Z(02)9.9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "BACK-IT-UP",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "'PF7 PREV -'",
-                    "AssignTo": "PREVO"
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.CICS",
-                            "MethodName": "READPREV",
-                            "Statements": [
-                                {
-                                    "type": "FILE('DOGEVSAM')"
-                                },
-                                {
-                                    "type": "RIDFLD(START-RECORD-ID)"
-                                },
-                                {
-                                    "type": "INTO(TRANSACTION)"
-                                }
-                            ]
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "SPACES",
-                            "AssignTo": "PREVO"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "01",
+            "Name": "TEMP-DATE",
+            "PIC": "9(15)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-LIST-TRANSACTIONS",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "READNEXT",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        },
-                        {
-                            "type": "RIDFLD(START-RECORD-ID)"
-                        },
-                        {
-                            "type": "INTO(TRANSACTION)"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "DISPLAY-TRANSVARYINGLINE-NUMBERFROM1BY1UNTILLINE-NUMBERISEQUALTO8ORDONE-RECORDSISEQUALTO'DONE'",
-                    "Internal": true,
-                    "Statements": []
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'PF8 NEXT'",
-                            "AssignTo": "NEXTO"
-                        }
-                    ],
-                    "FalseStatements": []
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "ENDBR",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "01",
+            "Name": "SINCE-EPOCH",
+            "PIC": "S9(15)",
+            "VALUE": "+2208988800000",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "CONVERT-AMOUNT-TO-DISPLAY",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "DFHGREEN",
-                    "AssignTo": "RECENT-COLOR"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "TAMT-INTEGER-PART",
-                    "AssignTo": "THE-AMOUNT-INTEGER"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "TAMT-DECIMAL-PART",
-                    "AssignTo": "THE-AMOUNT-DECIMAL"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "'RECV FROM'",
-                    "AssignTo": "DTYPE"
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DFHRED",
-                            "AssignTo": "RECENT-COLOR"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'SENT TO  '",
-                            "AssignTo": "DTYPE"
-                        }
-                    ],
-                    "FalseStatements": []
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "THE-AMOUNT",
-                    "AssignTo": "DAMOUNT"
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "TAMT-SIGN",
-                    "AssignTo": "DSIGN"
-                }
-            ]
+            "Level": "01",
+            "Name": "RESPONSE-CODE",
+            "PIC": "S9(4)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "CONVERT-DATE",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "NUM-DATE",
-                    "AssignTo": "TEMP-DATE"
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "FORMATTIME",
-                    "Statements": [
-                        {
-                            "type": "ABSTIME(TEMP-DATE)"
-                        },
-                        {
-                            "type": "DATESEP('/')"
-                        },
-                        {
-                            "type": "MMDDYYYY(DDATE)"
-                        }
-                    ]
-                }
-            ]
+            "Level": "01",
+            "Name": "DOGECOMMS-AREA",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-WTO",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "WRITE",
-                    "Statements": [
-                        {
-                            "type": "OPERATOR"
-                        },
-                        {
-                            "type": "TEXT(WTO-MESSAGE)"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "SPACES",
-                    "AssignTo": "WTO-MESSAGE"
-                }
-            ]
+            "Level": "05",
+            "Name": "START-RECORD-ID",
+            "PIC": "9(10)",
+            "VALUE": "0000000002",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DISPLAY-TRANS",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "READNEXT",
-                    "Statements": [
-                        {
-                            "type": "FILE('DOGEVSAM')"
-                        },
-                        {
-                            "type": "RIDFLD(START-RECORD-ID)"
-                        },
-                        {
-                            "type": "INTO(TRANSACTION)"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'DONE'",
-                            "AssignTo": "DONE-RECORDS"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "SPACES",
-                            "AssignTo": "NEXTO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'PF7 PREV'",
-                            "AssignTo": "PREVO"
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "CONVERT-DATE",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "CONVERT-AMOUNT-TO-DISPLAY",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "TLABEL",
-                            "AssignTo": "DLABEL"
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "FILL-ROWS-WITH-DATA",
-                            "Internal": true,
-                            "Statements": []
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "01",
+            "Name": "LINE-NUMBER",
+            "PIC": "9",
+            "VALUE": "0",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "FILL-ROWS-WITH-DATA",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "TDATE",
-                            "AssignTo": "TRAN1KO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DDATE",
-                            "AssignTo": "TRAN1DO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "RECENT-COLOR",
-                            "AssignTo": "TRAN1TC"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DTYPE",
-                            "AssignTo": "TRAN1TO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DLABEL",
-                            "AssignTo": "TRAN1LO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "RECENT-COLOR",
-                            "AssignTo": "TRAN1SC"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DSIGN",
-                            "AssignTo": "TRAN1SO"
-                        },
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "THE-AMOUNT",
-                            "AssignTo": "TRAN1AO"
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CONDITION",
-                            "conditionClauses": [],
-                            "TrueStatements": [
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "TDATE",
-                                    "AssignTo": "TRAN2KO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DDATE",
-                                    "AssignTo": "TRAN2DO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "RECENT-COLOR",
-                                    "AssignTo": "TRAN2TC"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DTYPE",
-                                    "AssignTo": "TRAN2TO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DLABEL",
-                                    "AssignTo": "TRAN2LO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "RECENT-COLOR",
-                                    "AssignTo": "TRAN2SC"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "DSIGN",
-                                    "AssignTo": "TRAN2SO"
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "THE-AMOUNT",
-                                    "AssignTo": "TRAN2AO"
-                                }
-                            ],
-                            "FalseStatements": [
-                                {
-                                    "type": "StatementType.CONDITION",
-                                    "conditionClauses": [],
-                                    "TrueStatements": [
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "TDATE",
-                                            "AssignTo": "TRAN3KO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DDATE",
-                                            "AssignTo": "TRAN3DO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "RECENT-COLOR",
-                                            "AssignTo": "TRAN3TC"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DTYPE",
-                                            "AssignTo": "TRAN3TO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DLABEL",
-                                            "AssignTo": "TRAN3LO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "RECENT-COLOR",
-                                            "AssignTo": "TRAN3SC"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "DSIGN",
-                                            "AssignTo": "TRAN3SO"
-                                        },
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "THE-AMOUNT",
-                                            "AssignTo": "TRAN3AO"
-                                        }
-                                    ],
-                                    "FalseStatements": [
-                                        {
-                                            "type": "StatementType.CONDITION",
-                                            "conditionClauses": [],
-                                            "TrueStatements": [
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "TDATE",
-                                                    "AssignTo": "TRAN4KO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DDATE",
-                                                    "AssignTo": "TRAN4DO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "RECENT-COLOR",
-                                                    "AssignTo": "TRAN4TC"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DTYPE",
-                                                    "AssignTo": "TRAN4TO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DLABEL",
-                                                    "AssignTo": "TRAN4LO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "RECENT-COLOR",
-                                                    "AssignTo": "TRAN4SC"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "DSIGN",
-                                                    "AssignTo": "TRAN4SO"
-                                                },
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "THE-AMOUNT",
-                                                    "AssignTo": "TRAN4AO"
-                                                }
-                                            ],
-                                            "FalseStatements": [
-                                                {
-                                                    "type": "StatementType.CONDITION",
-                                                    "conditionClauses": [],
-                                                    "TrueStatements": [
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "TDATE",
-                                                            "AssignTo": "TRAN5KO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DDATE",
-                                                            "AssignTo": "TRAN5DO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "RECENT-COLOR",
-                                                            "AssignTo": "TRAN5TC"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DTYPE",
-                                                            "AssignTo": "TRAN5TO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DLABEL",
-                                                            "AssignTo": "TRAN5LO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "RECENT-COLOR",
-                                                            "AssignTo": "TRAN5SC"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "DSIGN",
-                                                            "AssignTo": "TRAN5SO"
-                                                        },
-                                                        {
-                                                            "type": "StatementType.ASSIGN",
-                                                            "AssignFrom": "THE-AMOUNT",
-                                                            "AssignTo": "TRAN5AO"
-                                                        }
-                                                    ],
-                                                    "FalseStatements": [
-                                                        {
-                                                            "type": "StatementType.CONDITION",
-                                                            "conditionClauses": [],
-                                                            "TrueStatements": [
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "TDATE",
-                                                                    "AssignTo": "TRAN6KO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DDATE",
-                                                                    "AssignTo": "TRAN6DO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "RECENT-COLOR",
-                                                                    "AssignTo": "TRAN6TC"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DTYPE",
-                                                                    "AssignTo": "TRAN6TO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DLABEL",
-                                                                    "AssignTo": "TRAN6LO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "RECENT-COLOR",
-                                                                    "AssignTo": "TRAN6SC"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "DSIGN",
-                                                                    "AssignTo": "TRAN6SO"
-                                                                },
-                                                                {
-                                                                    "type": "StatementType.ASSIGN",
-                                                                    "AssignFrom": "THE-AMOUNT",
-                                                                    "AssignTo": "TRAN6AO"
-                                                                }
-                                                            ],
-                                                            "FalseStatements": [
-                                                                {
-                                                                    "type": "StatementType.CONDITION",
-                                                                    "conditionClauses": [],
-                                                                    "TrueStatements": [
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "TDATE",
-                                                                            "AssignTo": "TRAN7KO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DDATE",
-                                                                            "AssignTo": "TRAN7DO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "RECENT-COLOR",
-                                                                            "AssignTo": "TRAN7TC"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DTYPE",
-                                                                            "AssignTo": "TRAN7TO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DLABEL",
-                                                                            "AssignTo": "TRAN7LO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "RECENT-COLOR",
-                                                                            "AssignTo": "TRAN7SC"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "DSIGN",
-                                                                            "AssignTo": "TRAN7SO"
-                                                                        },
-                                                                        {
-                                                                            "type": "StatementType.ASSIGN",
-                                                                            "AssignFrom": "THE-AMOUNT",
-                                                                            "AssignTo": "TRAN7AO"
-                                                                        }
-                                                                    ],
-                                                                    "FalseStatements": []
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "0",
-                    "AssignTo": "RESPONSE-CODE"
-                }
-            ]
+            "Level": "01",
+            "Name": "WTO-MESSAGE",
+            "PIC": "X(38)",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "RECEIVE-OPTION",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "'DTRN - Getting Input from User.'",
-                    "AssignTo": "WTO-MESSAGE"
-                },
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "DOGE-WTO",
-                    "Internal": true,
-                    "Statements": []
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "RECEIVE",
-                    "Statements": [
-                        {
-                            "type": "MAP('DOGETR1')"
-                        },
-                        {
-                            "type": "MAPSET('DOGETR')"
-                        },
-                        {
-                            "type": "INTO(DOGETR1I)"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "Name": "PARSE-OPTION",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "OPTIONI",
-                    "AssignTo": "WTO-MESSAGE"
-                },
-                {
-                    "type": "StatementType.CALL",
-                    "MethodName": "DOGE-WTO",
-                    "Internal": true,
-                    "Statements": []
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'Opening Transaction History'",
-                            "AssignTo": "WTO-MESSAGE"
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "DOGE-WTO",
-                            "Internal": true,
-                            "Statements": []
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CONDITION",
-                            "conditionClauses": [],
-                            "TrueStatements": [
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'DTRN - Opening Main Menu'",
-                                    "AssignTo": "WTO-MESSAGE"
-                                },
-                                {
-                                    "type": "StatementType.CALL",
-                                    "MethodName": "DOGE-WTO",
-                                    "Internal": true,
-                                    "Statements": []
-                                },
-                                {
-                                    "type": "StatementType.ASSIGN",
-                                    "AssignFrom": "'W'",
-                                    "AssignTo": "DOGECOMMS-AREA"
-                                },
-                                {
-                                    "type": "StatementType.CICS",
-                                    "MethodName": "XCTL",
-                                    "Statements": [
-                                        {
-                                            "type": "PROGRAM('DOGECOIN')"
-                                        },
-                                        {
-                                            "type": "COMMAREA(DOGECOMMS-AREA)"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "FalseStatements": [
-                                {
-                                    "type": "StatementType.CONDITION",
-                                    "conditionClauses": [],
-                                    "TrueStatements": [
-                                        {
-                                            "type": "StatementType.ASSIGN",
-                                            "AssignFrom": "'Opening Transaction Details'",
-                                            "AssignTo": "WTO-MESSAGE"
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "DOGE-WTO",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CICS",
-                                            "MethodName": "XCTL",
-                                            "Statements": [
-                                                {
-                                                    "type": "PROGRAM('DOGEDEET')"
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    "FalseStatements": [
-                                        {
-                                            "type": "StatementType.CONDITION",
-                                            "conditionClauses": [],
-                                            "TrueStatements": [
-                                                {
-                                                    "type": "StatementType.ASSIGN",
-                                                    "AssignFrom": "'Opening Such Send'",
-                                                    "AssignTo": "WTO-MESSAGE"
-                                                },
-                                                {
-                                                    "type": "StatementType.CALL",
-                                                    "MethodName": "DOGE-WTO",
-                                                    "Internal": true,
-                                                    "Statements": []
-                                                },
-                                                {
-                                                    "type": "StatementType.CICS",
-                                                    "MethodName": "XCTL",
-                                                    "Statements": [
-                                                        {
-                                                            "type": "PROGRAM('DOGESEND')"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "FalseStatements": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "SPACES",
-                    "AssignTo": "WTO-MESSAGE"
-                }
-            ]
+            "Level": "01",
+            "Name": "DONE-RECORDS",
+            "PIC": "XXXX",
+            "VALUE": "'NOPE'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         }
     ]
 }

@@ -168,169 +168,125 @@
                     "FalseStatements": []
                 }
             ]
+        }
+    ],
+    "DataStructures": [
+        {
+            "Level": "77",
+            "Name": "SYSOUT-TOKEN",
+            "PIC": "X(8)",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-MAIN",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "DFHCOMMAREA",
-                            "AssignTo": "DOGECOMMS-AREA"
-                        }
-                    ],
-                    "FalseStatements": []
-                },
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [
-                        {
-                            "type": "StatementType.ASSIGN",
-                            "AssignFrom": "'Displaying Send Menu'",
-                            "AssignTo": "WTO-MESSAGE"
-                        },
-                        {
-                            "type": "StatementType.CALL",
-                            "MethodName": "DOGE-WTO",
-                            "Internal": true,
-                            "Statements": []
-                        },
-                        {
-                            "type": "StatementType.CICS",
-                            "MethodName": "SEND",
-                            "Statements": [
-                                {
-                                    "type": "MAP('DOGESN1')"
-                                },
-                                {
-                                    "type": "MAPSET('DOGESN')"
-                                },
-                                {
-                                    "type": "ERASE"
-                                }
-                            ]
-                        }
-                    ],
-                    "FalseStatements": [
-                        {
-                            "type": "StatementType.CONDITION",
-                            "conditionClauses": [],
-                            "TrueStatements": [
-                                {
-                                    "type": "StatementType.CICS",
-                                    "MethodName": "XCTL",
-                                    "Statements": [
-                                        {
-                                            "type": "PROGRAM('DOGEQUIT')"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "FalseStatements": [
-                                {
-                                    "type": "StatementType.CONDITION",
-                                    "conditionClauses": [],
-                                    "TrueStatements": [
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "RECEIVE-INPUT",
-                                            "Internal": true,
-                                            "Statements": []
-                                        },
-                                        {
-                                            "type": "StatementType.CALL",
-                                            "MethodName": "PARSE-INPUT",
-                                            "Internal": true,
-                                            "Statements": []
-                                        }
-                                    ],
-                                    "FalseStatements": []
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "RETURN",
-                    "Statements": [
-                        {
-                            "type": "TRANSID('DSND')"
-                        },
-                        {
-                            "type": "COMMAREA(DOGECOMMS-AREA)"
-                        }
-                    ]
-                }
-            ]
+            "Level": "01",
+            "Name": "DOGECOMMS-AREA",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "DOGE-WTO",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "WRITE",
-                    "Statements": [
-                        {
-                            "type": "OPERATOR"
-                        },
-                        {
-                            "type": "TEXT(WTO-MESSAGE)"
-                        }
-                    ]
-                },
-                {
-                    "type": "StatementType.ASSIGN",
-                    "AssignFrom": "SPACES",
-                    "AssignTo": "WTO-MESSAGE"
-                }
-            ]
+            "Level": "05",
+            "Name": "START-RECORD-ID",
+            "PIC": "9(10)",
+            "VALUE": "0000000002",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "RECEIVE-INPUT",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CICS",
-                    "MethodName": "RECEIVE",
-                    "Statements": [
-                        {
-                            "type": "MAP('DOGESN1')"
-                        },
-                        {
-                            "type": "MAPSET('DOGESN')"
-                        },
-                        {
-                            "type": "INTO(DOGESN1I)"
-                        },
-                        {
-                            "type": "ASIS"
-                        }
-                    ]
-                }
-            ]
+            "Level": "01",
+            "Name": "WTO-MESSAGE",
+            "PIC": "X(38)",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         },
         {
-            "Name": "PARSE-INPUT",
-            "Input": {},
-            "Output": {},
-            "Sentences": [
-                {
-                    "type": "StatementType.CONDITION",
-                    "conditionClauses": [],
-                    "TrueStatements": [],
-                    "FalseStatements": []
-                }
-            ]
+            "Level": "01",
+            "Name": "TO-SEND",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DOGEID",
+            "PIC": "X(10)B",
+            "VALUE": "'DOGECICS99'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TO-ADDRESS",
+            "PIC": "X(34)B",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "SEND-AMOUNT",
+            "PIC": "X(17)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "TO-SEND-LEN",
+            "PIC": "99",
+            "VALUE": "63",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "TOP-MESSAGE",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TEXT-MESSAGE",
+            "PIC": "X(7)B",
+            "VALUE": "'SENDING'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TEXT-AMOUNT",
+            "PIC": "X(17)B",
+            "VALUE": "'00000000.00000000'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TEXT-CURRENCY",
+            "PIC": "X(4)",
+            "VALUE": "'DOGE'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
         }
     ]
 }

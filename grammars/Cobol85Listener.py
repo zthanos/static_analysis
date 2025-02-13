@@ -710,6 +710,15 @@ class Cobol85Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by Cobol85Parser#dataDivisionBody.
+    def enterDataDivisionBody(self, ctx:Cobol85Parser.DataDivisionBodyContext):
+        pass
+
+    # Exit a parse tree produced by Cobol85Parser#dataDivisionBody.
+    def exitDataDivisionBody(self, ctx:Cobol85Parser.DataDivisionBodyContext):
+        pass
+
+
     # Enter a parse tree produced by Cobol85Parser#dataDivisionSection.
     def enterDataDivisionSection(self, ctx:Cobol85Parser.DataDivisionSectionContext):
         pass
