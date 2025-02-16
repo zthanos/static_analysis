@@ -35,3 +35,5 @@ class ConditionalStatement(Statement):
             self.FalseStatements.append(statement)
         else:
             raise TypeError(f"Expected Statement, got {type(statement).__name__}.")
+    
+ 

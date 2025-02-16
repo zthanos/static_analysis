@@ -472,7 +472,7 @@ dataDivision
     ;
 
 dataDivisionBody
-    : DATA DIVISION DOT_FS dataDivisionSection*
+    : dataDivisionSection
     ;    
 
 dataDivisionSection

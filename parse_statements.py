@@ -37,7 +37,7 @@ def parse_statement(ctx):
 def visit_if_statement_context(ctx):
     """ Επεξεργάζεται ένα IF statement. """
     # logger.info("-------visitIfStatementContext-----------")
-    conditional_statement = ConditionalStatement()
+    conditional_statement = ConditionalStatement(methodName=f"IF {context_info.get_child_concatenated_text(ctx, 1)}")
 
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.IfThenContext):
@@ -92,7 +92,7 @@ def visit_combinable_condition_context(ctx):
 def visit_simple_condition_context(ctx):
     """ Επεξεργάζεται μία απλή συνθήκη (π.χ. X > 5). """
     # logger.info("-------visitSimpleConditionContext-----------")
-    conditional_statement = ConditionalStatement()
+    conditional_statement = ConditionalStatement(methodName="IF")
 
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.RelationConditionContext):
@@ -130,28 +130,31 @@ def visit_relation_arithmetic_comparison_context(ctx):
 def visit_move_statement_context(ctx):
     """ Επεξεργάζεται ένα MOVE statement και επιστρέφει ένα AssignStatement. """
     # logger.info("-------visitMoveStatementContext-----------")
-    sentence = AssignStatement()
 
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.MoveToStatementContext):
             move_sentence = visit_move_to_statement_context(child)
-            sentence.AssignFrom = move_sentence.AssignFrom
-            sentence.AssignTo = move_sentence.AssignTo
+            assignFrom = move_sentence.AssignFrom
+            assignTo = move_sentence.AssignTo
+            return AssignStatement(methodName=f"Assign value to {assignTo}", AssignFrom=assignFrom, AssignTo=assignTo)
 
-    return sentence
+    return None
 
 
 def visit_move_to_statement_context(ctx):
     """ Επεξεργάζεται το MOVE TO μέρος ενός statement. """
-    sentence = AssignStatement()
-
+    assignFrom = None
+    assignTo = None
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.IdentifierContext):
-            sentence.AssignTo = visit_identifier_context(child)
+            assignTo = visit_identifier_context(child)
         elif isinstance(child, Cobol85Parser.MoveToSendingAreaContext):
-            sentence.AssignFrom = visit_move_to_sending_area_context(child)
+            assignFrom = visit_move_to_sending_area_context(child)
 
-    return sentence
+    if assignFrom and assignTo:
+        return AssignStatement(methodName=f"Assign value to {assignTo}", AssignFrom=assignFrom, AssignTo=assignTo)
+    return None
+
 
 
 def visit_identifier_context(ctx):
@@ -181,7 +184,7 @@ def visit_perform_statement_context(ctx):
 
 def visit_perform_procedure_statement_context(ctx):
     """ Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. """
-    return CallStatement(MethodName=ctx.getText())
+    return CallStatement(methodName=ctx.getText())
 
 
 # ----------------------------------------------------
@@ -195,7 +198,7 @@ def visit_exec_cics_statement_context(ctx):
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.ExecCicsCommandContext):
             command_name, params = visit_exec_cics_command_context(child)
-            call_statement.MethodName = command_name
+            call_statement.methodName = command_name
             call_statement.Statements.extend(params)
 
     return call_statement
@@ -221,4 +224,4 @@ def visit_exec_cics_command_context(ctx):
 
 def visit_goback_statement_context(ctx):
     """ Επεξεργάζεται ένα GOBACK statement. """
-    return CallStatement(MethodName="GOBACK")
+    return CallStatement(methodName="GOBACK")

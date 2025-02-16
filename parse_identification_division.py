@@ -10,8 +10,10 @@ def parse_identification_division(ctx):
     """
     logger.info("Processing IDENTIFICATION DIVISION...")
     static_analysis = StaticAnalysis()
-
+    logger.info(f"\t{ctx.__class__.__name__}")
     for child in ctx.children:
+        logger.info(f"\t{child.__class__.__name__}")
+        
         if isinstance(child, Cobol85Parser.ProgramIdParagraphContext):
             static_analysis.ProgramId = visit_program_id_paragraph(child)
         if isinstance(child, Cobol85Parser.IdentificationDivisionBodyContext):

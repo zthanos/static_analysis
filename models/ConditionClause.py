@@ -13,3 +13,6 @@ class ConditionClause:
     def Clause(self) -> str:
         """Dynamically generates the clause as 'Left Operator Right'."""
         return f"{self.Left} {self.Operator} {self.Right}".strip()
+    @property
+    def methodName(self) -> str:
+        return f"{self.Left} {self.Operator} {self.Right}".strip()

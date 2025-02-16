@@ -12,6 +12,7 @@ class AssignStatement(Statement):
     def __post_init__(self):
         self.type = StatementType.ASSIGN
 
+
     @property
     def raw(self) -> str:
         """Returns the assignment operation in string format."""

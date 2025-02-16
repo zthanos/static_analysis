@@ -186,6 +186,87 @@
         "documentation": {}
     },
     {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "sysconfig",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sysconfig",
+        "description": "sysconfig",
+        "detail": "sysconfig",
+        "documentation": {}
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "winreg",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "winreg",
+        "description": "winreg",
+        "detail": "winreg",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
         "label": "networkx",
         "kind": 6,
         "isExtraImport": true,
@@ -593,6 +674,14 @@
         "documentation": {}
     },
     {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
         "label": "dataclass",
         "importPath": "dataclasses",
         "description": "dataclasses",
@@ -815,6 +904,15 @@
         "description": "models.Statement",
         "isExtraImport": true,
         "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
         "documentation": {}
     },
     {
@@ -1402,15 +1500,6 @@
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
         "label": "ParseIdentificationDivision",
         "importPath": "IdentificationDivision",
         "description": "IdentificationDivision",
@@ -1692,24 +1781,6 @@
         "documentation": {}
     },
     {
-        "label": "argparse",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "glob",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "glob",
-        "description": "glob",
-        "detail": "glob",
-        "documentation": {}
-    },
-    {
         "label": "process_cobol_file",
         "importPath": "parsers.CobolParser",
         "description": "parsers.CobolParser",
@@ -1775,20 +1846,19 @@
         "documentation": {}
     },
     {
+        "label": "CustomErrorListener",
+        "importPath": "custom_error_listener",
+        "description": "custom_error_listener",
+        "isExtraImport": true,
+        "detail": "custom_error_listener",
+        "documentation": {}
+    },
+    {
         "label": "parse_identification_division",
         "importPath": "parse_identification_division",
         "description": "parse_identification_division",
         "isExtraImport": true,
         "detail": "parse_identification_division",
-        "documentation": {}
-    },
-    {
-        "label": "parse_linkage_section",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "parse_linkage_section",
-        "description": "parse_linkage_section",
-        "detail": "parse_linkage_section",
         "documentation": {}
     },
     {
@@ -1808,6 +1878,14 @@
         "documentation": {}
     },
     {
+        "label": "parse_linkage_section",
+        "importPath": "parse_linkage_section",
+        "description": "parse_linkage_section",
+        "isExtraImport": true,
+        "detail": "parse_linkage_section",
+        "documentation": {}
+    },
+    {
         "label": "context_info",
         "kind": 6,
         "isExtraImport": true,
@@ -1823,6 +1901,14 @@
         "importPath": "parse_statements",
         "description": "parse_statements",
         "detail": "parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "ErrorListener",
+        "importPath": "antlr4.error.ErrorListener",
+        "description": "antlr4.error.ErrorListener",
+        "isExtraImport": true,
+        "detail": "antlr4.error.ErrorListener",
         "documentation": {}
     },
     {
@@ -1857,7 +1943,7 @@
         "kind": 2,
         "importPath": "grammars.Cobol85Parser",
         "description": "grammars.Cobol85Parser",
-        "peekOfCode": "def serializedATN():\n    return [\n        4,1,580,6365,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,\n        7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,\n        13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,\n        20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,\n        26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,\n        33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,\n        39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,7,45,2,\n        46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,2,52,7,",
+        "peekOfCode": "def serializedATN():\n    return [\n        4,1,580,6358,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,\n        7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,\n        13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,\n        20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,\n        26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,\n        33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,\n        39,2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,7,45,2,\n        46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,2,50,7,50,2,51,7,51,2,52,7,",
         "detail": "grammars.Cobol85Parser",
         "documentation": {}
     },
@@ -1931,6 +2017,258 @@
         "description": "grammars.Cobol85PreprocessorVisitor",
         "peekOfCode": "class Cobol85PreprocessorVisitor(ParseTreeVisitor):\n    # Visit a parse tree produced by Cobol85PreprocessorParser#startRule.\n    def visitStartRule(self, ctx:Cobol85PreprocessorParser.StartRuleContext):\n        return self.visitChildren(ctx)\n    # Visit a parse tree produced by Cobol85PreprocessorParser#compilerOptions.\n    def visitCompilerOptions(self, ctx:Cobol85PreprocessorParser.CompilerOptionsContext):\n        return self.visitChildren(ctx)\n    # Visit a parse tree produced by Cobol85PreprocessorParser#compilerXOpts.\n    def visitCompilerXOpts(self, ctx:Cobol85PreprocessorParser.CompilerXOptsContext):\n        return self.visitChildren(ctx)",
         "detail": "grammars.Cobol85PreprocessorVisitor",
+        "documentation": {}
+    },
+    {
+        "label": "Tee",
+        "kind": 6,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "class Tee:\n    def __init__(self, file):\n        self.f = file\n    def write(self, what):\n        if self.f is not None:\n            try:\n                self.f.write(what.replace(\"\\n\", \"\\r\\n\"))\n            except OSError:\n                pass\n        tee_f.write(what)",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "CopyTo",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def CopyTo(desc, src, dest):\n    import win32api\n    import win32con\n    while 1:\n        try:\n            win32api.CopyFile(src, dest, 0)\n            return\n        except win32api.error as details:\n            if details.winerror == 5:  # access denied - user not admin.\n                raise",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "LoadSystemModule",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def LoadSystemModule(lib_dir, modname):\n    # See if this is a debug build.\n    import importlib.machinery\n    import importlib.util\n    suffix = \"_d\" if \"_d.pyd\" in importlib.machinery.EXTENSION_SUFFIXES else \"\"\n    filename = \"%s%d%d%s.dll\" % (\n        modname,\n        sys.version_info.major,\n        sys.version_info.minor,\n        suffix,",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "SetPyKeyVal",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def SetPyKeyVal(key_name, value_name, value):\n    root_hkey = get_root_hkey()\n    root_key = winreg.OpenKey(root_hkey, root_key_name)\n    try:\n        my_key = winreg.CreateKey(root_key, key_name)\n        try:\n            winreg.SetValueEx(my_key, value_name, 0, winreg.REG_SZ, value)\n            if verbose:\n                print(f\"-> {root_key_name}\\\\{key_name}[{value_name}]={value!r}\")\n        finally:",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "UnsetPyKeyVal",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def UnsetPyKeyVal(key_name, value_name, delete_key=False):\n    root_hkey = get_root_hkey()\n    root_key = winreg.OpenKey(root_hkey, root_key_name)\n    try:\n        my_key = winreg.OpenKey(root_key, key_name, 0, winreg.KEY_SET_VALUE)\n        try:\n            winreg.DeleteValue(my_key, value_name)\n            if verbose:\n                print(f\"-> DELETE {root_key_name}\\\\{key_name}[{value_name}]\")\n        finally:",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterCOMObjects",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterCOMObjects(register=True):\n    import win32com.server.register\n    if register:\n        func = win32com.server.register.RegisterClasses\n    else:\n        func = win32com.server.register.UnregisterClasses\n    flags = {}\n    if not verbose:\n        flags[\"quiet\"] = 1\n    for module, klass_name in com_modules:",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterHelpFile",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterHelpFile(register=True, lib_dir=None):\n    if lib_dir is None:\n        lib_dir = sysconfig.get_paths()[\"platlib\"]\n    if register:\n        # Register the .chm help file.\n        chm_file = os.path.join(lib_dir, \"PyWin32.chm\")\n        if os.path.isfile(chm_file):\n            # This isn't recursive, so if 'Help' doesn't exist, we croak\n            SetPyKeyVal(\"Help\", None, None)\n            SetPyKeyVal(\"Help\\\\Pythonwin Reference\", None, chm_file)",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterPythonwin",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def RegisterPythonwin(register=True, lib_dir=None):\n    \"\"\"Add (or remove) Pythonwin to context menu for python scripts.\n    ??? Should probably also add Edit command for pys files also.\n    Also need to remove these keys on uninstall, but there's no function\n        like file_created to add registry entries to uninstall log ???\n    \"\"\"\n    import os\n    if lib_dir is None:\n        lib_dir = sysconfig.get_paths()[\"platlib\"]\n    classes_root = get_root_hkey()",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_shortcuts_folder",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_shortcuts_folder():\n    if get_root_hkey() == winreg.HKEY_LOCAL_MACHINE:\n        try:\n            fldr = get_special_folder_path(\"CSIDL_COMMON_PROGRAMS\")\n        except OSError:\n            # No CSIDL_COMMON_PROGRAMS on this platform\n            fldr = get_special_folder_path(\"CSIDL_PROGRAMS\")\n    else:\n        # non-admin install - always goes in this user's start menu.\n        fldr = get_special_folder_path(\"CSIDL_PROGRAMS\")",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "get_system_dir",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def get_system_dir():\n    import win32api  # we assume this exists.\n    try:\n        import pythoncom\n        import win32process\n        from win32com.shell import shell, shellcon\n        try:\n            if win32process.IsWow64Process():\n                return shell.SHGetSpecialFolderPath(0, shellcon.CSIDL_SYSTEMX86)\n            return shell.SHGetSpecialFolderPath(0, shellcon.CSIDL_SYSTEM)",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "fixup_dbi",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def fixup_dbi():\n    # We used to have a dbi.pyd with our .pyd files, but now have a .py file.\n    # If the user didn't uninstall, they will find the .pyd which will cause\n    # problems - so handle that.\n    import win32api\n    import win32con\n    pyd_name = os.path.join(os.path.dirname(win32api.__file__), \"dbi.pyd\")\n    pyd_d_name = os.path.join(os.path.dirname(win32api.__file__), \"dbi_d.pyd\")\n    py_name = os.path.join(os.path.dirname(win32con.__file__), \"dbi.py\")\n    for this_pyd in (pyd_name, pyd_d_name):",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "install",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def install(lib_dir):\n    import traceback\n    # The .pth file is now installed as a regular file.\n    # Create the .pth file in the site-packages dir, and use only relative paths\n    # We used to write a .pth directly to sys.prefix - clobber it.\n    if os.path.isfile(os.path.join(sys.prefix, \"pywin32.pth\")):\n        os.unlink(os.path.join(sys.prefix, \"pywin32.pth\"))\n    # The .pth may be new and therefore not loaded in this session.\n    # Setup the paths just in case.\n    for name in \"win32 win32\\\\lib Pythonwin\".split():",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "uninstall",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def uninstall(lib_dir):\n    # First ensure our system modules are loaded from pywin32_system, so\n    # we can remove the ones we copied...\n    LoadSystemModule(lib_dir, \"pywintypes\")\n    LoadSystemModule(lib_dir, \"pythoncom\")\n    try:\n        RegisterCOMObjects(False)\n    except Exception as why:\n        print(f\"Failed to unregister COM objects: {why}\")\n    try:",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "verify_destination",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def verify_destination(location):\n    if not os.path.isdir(location):\n        raise argparse.ArgumentTypeError(f'Path \"{location}\" does not exist!')\n    return location\ndef main():\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        description=\"\"\"A post-install script for the pywin32 extensions.\n    * Typical usage:\n    > python pywin32_postinstall.py -install",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser(\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        description=\"\"\"A post-install script for the pywin32 extensions.\n    * Typical usage:\n    > python pywin32_postinstall.py -install\n    If you installed pywin32 via a .exe installer, this should be run\n    automatically after installation, but if it fails you can run it again.\n    If you installed pywin32 via PIP, you almost certainly need to run this to\n    setup the environment correctly.",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "tee_f",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "tee_f = open(os.path.join(tempfile.gettempdir(), \"pywin32_postinstall.log\"), \"w\")\nclass Tee:\n    def __init__(self, file):\n        self.f = file\n    def write(self, what):\n        if self.f is not None:\n            try:\n                self.f.write(what.replace(\"\\n\", \"\\r\\n\"))\n            except OSError:\n                pass",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "sys.stderr",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "sys.stderr = Tee(sys.stderr)\nsys.stdout = Tee(sys.stdout)\ncom_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "sys.stdout",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "sys.stdout = Tee(sys.stdout)\ncom_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'\nsilent = 0",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "com_modules",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "com_modules = [\n    # module_name,                      class_names\n    (\"win32com.servers.interp\", \"Interpreter\"),\n    (\"win32com.servers.dictionary\", \"DictionaryPolicy\"),\n    (\"win32com.axscript.client.pyscript\", \"PyScript\"),\n]\n# Is this a 'silent' install - ie, avoid all dialogs.\n# Different than 'verbose'\nsilent = 0\n# Verbosity of output messages.",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "silent",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "silent = 0\n# Verbosity of output messages.\nverbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to PythonXX\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "verbose",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "verbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to PythonXX\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created  # type: ignore[used-before-def]\n    # 3.10 stopped supporting bdist_wininst, but we can still build them with 3.9.",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "root_key_name",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_postinstall",
+        "description": "dev.Scripts.pywin32_postinstall",
+        "peekOfCode": "root_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to PythonXX\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created  # type: ignore[used-before-def]\n    # 3.10 stopped supporting bdist_wininst, but we can still build them with 3.9.\n    # This can be kept until Python 3.9 or exe installers support is dropped.",
+        "detail": "dev.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "run_test",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_testall",
+        "description": "dev.Scripts.pywin32_testall",
+        "peekOfCode": "def run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()\n    result = subprocess.run(cmd, check=False, cwd=dirname)\n    print(f\"*** Test script '{script}' exited with {result.returncode}\")\n    sys.stdout.flush()\n    if result.returncode:",
+        "detail": "dev.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "find_and_run",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_testall",
+        "description": "dev.Scripts.pywin32_testall",
+        "peekOfCode": "def find_and_run(possible_locations, extras):\n    for maybe in possible_locations:\n        if os.path.isfile(maybe):\n            run_test(maybe, extras)\n            break\n    else:\n        raise RuntimeError(\n            \"Failed to locate a test script in one of %s\" % possible_locations\n        )\ndef main():",
+        "detail": "dev.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "dev.Scripts.pywin32_testall",
+        "description": "dev.Scripts.pywin32_testall",
+        "peekOfCode": "def main():\n    import argparse\n    code_directories = [this_dir] + site_packages\n    parser = argparse.ArgumentParser(\n        description=\"A script to trigger tests in all subprojects of PyWin32.\"\n    )\n    parser.add_argument(\n        \"-no-user-interaction\",\n        default=False,\n        action=\"store_true\",",
+        "detail": "dev.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "this_dir",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_testall",
+        "description": "dev.Scripts.pywin32_testall",
+        "peekOfCode": "this_dir = os.path.dirname(__file__)\nsite_packages = [\n    site.getusersitepackages(),\n] + site.getsitepackages()\nfailures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)",
+        "detail": "dev.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "site_packages",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_testall",
+        "description": "dev.Scripts.pywin32_testall",
+        "peekOfCode": "site_packages = [\n    site.getusersitepackages(),\n] + site.getsitepackages()\nfailures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.",
+        "detail": "dev.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "failures",
+        "kind": 5,
+        "importPath": "dev.Scripts.pywin32_testall",
+        "description": "dev.Scripts.pywin32_testall",
+        "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
+        "detail": "dev.Scripts.pywin32_testall",
         "documentation": {}
     },
     {
@@ -2640,7 +2978,7 @@
         "kind": 6,
         "importPath": "models.ConditionClause",
         "description": "models.ConditionClause",
-        "peekOfCode": "class ConditionClause:\n    \"\"\"Represents a single condition clause inside a ConditionalStatement.\"\"\"\n    Left: str = \"\"\n    Operator: str = \"\"\n    Right: str = \"\"\n    @property\n    def Clause(self) -> str:\n        \"\"\"Dynamically generates the clause as 'Left Operator Right'.\"\"\"\n        return f\"{self.Left} {self.Operator} {self.Right}\".strip()",
+        "peekOfCode": "class ConditionClause:\n    \"\"\"Represents a single condition clause inside a ConditionalStatement.\"\"\"\n    Left: str = \"\"\n    Operator: str = \"\"\n    Right: str = \"\"\n    @property\n    def Clause(self) -> str:\n        \"\"\"Dynamically generates the clause as 'Left Operator Right'.\"\"\"\n        return f\"{self.Left} {self.Operator} {self.Right}\".strip()\n    @property",
         "detail": "models.ConditionClause",
         "documentation": {}
     },
@@ -2649,7 +2987,7 @@
         "kind": 6,
         "importPath": "models.Flow",
         "description": "models.Flow",
-        "peekOfCode": "class Flow:\n    \"\"\"\n    Represents a COBOL PROCEDURE DIVISION flow.\n    Contains a list of executed statements.\n    \"\"\"\n    Name: str = \"\"\n    Input: Dict = field(default_factory=dict)\n    Output: Dict = field(default_factory=dict)\n    Sentences: List[\"Statement\"] = field(default_factory=list)\n    def addSentence(self, sentence: \"Statement\"):",
+        "peekOfCode": "class Flow:\n    \"\"\"\n    Represents a COBOL PROCEDURE DIVISION flow.\n    Contains a list of executed statements.\n    \"\"\"\n    Name: str = \"\"\n    Input: Dict = field(default_factory=dict)\n    Output: Dict = field(default_factory=dict)\n    Statements: List[\"Statement\"] = field(default_factory=list)\n    def addSentence(self, statement: \"Statement\"):",
         "detail": "models.Flow",
         "documentation": {}
     },
@@ -2658,7 +2996,7 @@
         "kind": 6,
         "importPath": "models.Statement",
         "description": "models.Statement",
-        "peekOfCode": "class Statement:\n    \"\"\"Base class for all COBOL statements.\"\"\"\n    type: StatementType = StatementType.OTHER\n    def to_json(self):\n        return {\n            \"type\": self.type.name  # 👈 Μετατρέπουμε το Enum σε string\n        }",
+        "peekOfCode": "class Statement:\n    \"\"\"Base class for all COBOL statements.\"\"\"\n    id: str = field(default_factory=lambda: str(uuid.uuid4()))\n    type: StatementType = StatementType.OTHER\n    methodName: str = \"\"\n    def to_json(self):\n        return {\n            \"id\": self.id,\n            \"type\": self.type.name \n        }",
         "detail": "models.Statement",
         "documentation": {}
     },
@@ -2703,7 +3041,7 @@
         "kind": 6,
         "importPath": "models.CallStatement",
         "description": "models.CallStatement",
-        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    MethodName: str = \"\"\n    Internal: bool = True  # True = PERFORM, False = CALL\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CALL\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"",
+        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Internal: bool = True  # True = PERFORM, False = CALL\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CALL\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.Internal else \"Call\"",
         "detail": "models.CallStatement",
         "documentation": {}
     },
@@ -2712,7 +3050,7 @@
         "kind": 6,
         "importPath": "models.CallStatement",
         "description": "models.CallStatement",
-        "peekOfCode": "class CallCicsStatement(Statement):\n    \"\"\"Represents a COBOL EXEC CICS statement.\"\"\"\n    MethodName: str = \"\"  # Π.χ. READ, WRITE, DELETE\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CICS\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the full EXEC CICS command.\"\"\"\n        params = \" \".join(statement.raw for statement in self.Statements)",
+        "peekOfCode": "class CallCicsStatement(Statement):\n    \"\"\"Represents a COBOL EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CICS\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the full EXEC CICS command.\"\"\"\n        params = \" \".join(statement.raw for statement in self.Statements)\n        return f\"EXEC CICS {self.methodName} {params}\"",
         "detail": "models.CallStatement",
         "documentation": {}
     },
@@ -3216,7 +3554,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    \"\"\"\n    Ο κεντρικός έλεγχος για την εκτέλεση του parser, λαμβάνοντας input από το χρήστη.\n    \"\"\"\n    parser = argparse.ArgumentParser(description=\"COBOL Static Analysis Parser\")\n    # Ορισμός argument για το όνομα αρχείου ή wildcard pattern\n    parser.add_argument(\"file_pattern\", help=\"Όνομα αρχείου COBOL ή wildcard pattern (π.χ. '*.cbl')\")\n    # args = parser.parse_args()\n    # process_files(args.file_pattern)\n    process_files(\".\\Samples\\DOGE*.cbl\")",
+        "peekOfCode": "def main():\n    \"\"\"\n    Ο κεντρικός έλεγχος για την εκτέλεση του parser, λαμβάνοντας input από το χρήστη.\n    \"\"\"\n    parser = argparse.ArgumentParser(description=\"COBOL Static Analysis Parser\")\n    # Ορισμός argument για το όνομα αρχείου ή wildcard pattern\n    parser.add_argument(\"file_pattern\", help=\"Όνομα αρχείου COBOL ή wildcard pattern (π.χ. '*.cbl')\")\n    # args = parser.parse_args()\n    # process_files(args.file_pattern)\n    process_files(\".\\\\Samples\\\\DOGE*.cbl\")",
         "detail": "main",
         "documentation": {}
     },
@@ -3225,16 +3563,7 @@
         "kind": 2,
         "importPath": "parse_cobol",
         "description": "parse_cobol",
-        "peekOfCode": "def create_output_dir(output_dir=\"output\"):\n    \"\"\" Δημιουργεί τον φάκελο εξόδου αν δεν υπάρχει \"\"\"\n    os.makedirs(output_dir, exist_ok=True)\n    return output_dir\ndef parse_cobol_file(file_path):\n    \"\"\" Διαβάζει ένα COBOL αρχείο και δημιουργεί το συντακτικό του δέντρο \"\"\"\n    logger.info(f\"Processing file {file_path}...\")\n    input_stream = FileStream(file_path, encoding=\"utf-8\")\n    lexer = Cobol85Lexer(input_stream)\n    token_stream = CommonTokenStream(lexer)",
-        "detail": "parse_cobol",
-        "documentation": {}
-    },
-    {
-        "label": "parse_cobol_file",
-        "kind": 2,
-        "importPath": "parse_cobol",
-        "description": "parse_cobol",
-        "peekOfCode": "def parse_cobol_file(file_path):\n    \"\"\" Διαβάζει ένα COBOL αρχείο και δημιουργεί το συντακτικό του δέντρο \"\"\"\n    logger.info(f\"Processing file {file_path}...\")\n    input_stream = FileStream(file_path, encoding=\"utf-8\")\n    lexer = Cobol85Lexer(input_stream)\n    token_stream = CommonTokenStream(lexer)\n    parser = Cobol85Parser(token_stream)\n    return parser\n# def analyze_tree(tree):\n#     \"\"\" Εφαρμόζει τους visitors στο δέντρο και επιστρέφει την ανάλυση \"\"\"",
+        "peekOfCode": "def create_output_dir(output_dir=\"output\"):\n    \"\"\" Δημιουργεί τον φάκελο εξόδου αν δεν υπάρχει \"\"\"\n    os.makedirs(output_dir, exist_ok=True)\n    return output_dir\n# def parse_cobol_file(file_path):\n#     \"\"\" Διαβάζει ένα COBOL αρχείο και δημιουργεί το συντακτικό του δέντρο \"\"\"\n#     logger.info(f\"Processing file {file_path}...\")\n#     input_stream = FileStream(file_path, encoding=\"utf-8\")\n#     lexer = Cobol85Lexer(input_stream)\n#     token_stream = CommonTokenStream(lexer)",
         "detail": "parse_cobol",
         "documentation": {}
     },
@@ -3252,7 +3581,7 @@
         "kind": 2,
         "importPath": "parse_cobol",
         "description": "parse_cobol",
-        "peekOfCode": "def generate_diagrams(static_analysis):\n    \"\"\" Δημιουργεί Flowchart και BPMN διαγράμματα \"\"\"\n    pass\n    # if static_analysis:\n        # diagram = FlowChartGenerator()\n        # diagram.genrateDiagram(static_analysis, \"RECEIVE-OPTION\")\ndef process_cobol_file(file_path, output_dir=\"output\"):\n    \"\"\" Κύρια συνάρτηση που εκτελεί όλη τη διαδικασία ανάλυσης \"\"\"\n    try:\n        create_output_dir(output_dir)",
+        "peekOfCode": "def generate_diagrams(static_analysis):\n    \"\"\" Δημιουργεί Flowchart και BPMN διαγράμματα \"\"\"\n    pass\n    # if static_analysis:\n        # diagram = FlowChartGenerator()\n        # diagram.genrateDiagram(static_analysis, \"RECEIVE-OPTION\")\ndef process_cobol_file(file_path, output_dir=\"output\"):\n    \"\"\" Κύρια συνάρτηση που εκτελεί όλη τη διαδικασία ανάλυσης \"\"\"\n    logger.info(f\"Processing file {file_path}...\")\n    input_stream = FileStream(file_path, encoding=\"utf-8\")",
         "detail": "parse_cobol",
         "documentation": {}
     },
@@ -3261,7 +3590,16 @@
         "kind": 2,
         "importPath": "parse_cobol",
         "description": "parse_cobol",
-        "peekOfCode": "def process_cobol_file(file_path, output_dir=\"output\"):\n    \"\"\" Κύρια συνάρτηση που εκτελεί όλη τη διαδικασία ανάλυσης \"\"\"\n    try:\n        create_output_dir(output_dir)\n        parser = parse_cobol_file(file_path)\n        # Retrieve program information from Identification Division\n        tree = parser.identificationDivision()\n        static_analysis = parse_identification_division(tree)\n        # tree = parser.startRule()\n        tree1 = parser.environmentDivision()",
+        "peekOfCode": "def process_cobol_file(file_path, output_dir=\"output\"):\n    \"\"\" Κύρια συνάρτηση που εκτελεί όλη τη διαδικασία ανάλυσης \"\"\"\n    logger.info(f\"Processing file {file_path}...\")\n    input_stream = FileStream(file_path, encoding=\"utf-8\")\n    lexer = Cobol85Lexer(input_stream)\n    token_stream = CommonTokenStream(lexer)\n    parser = Cobol85Parser(token_stream)\n    # error_listener = CustomErrorListener()\n    # parser.removeErrorListeners()  # Αφαιρεί τον default listener\n    # parser.addErrorListener(error_listener)    ",
+        "detail": "parse_cobol",
+        "documentation": {}
+    },
+    {
+        "label": "find_section",
+        "kind": 2,
+        "importPath": "parse_cobol",
+        "description": "parse_cobol",
+        "peekOfCode": "def find_section(section_class, ctx):\n    \"\"\"\n    Αναζητά αναδρομικά το WorkingStorageSection σε ένα υποδέντρο του parse tree.\n    \"\"\"\n    if ctx is None:\n        return None\n    # Αν ο κόμβος είναι ήδη WorkingStorageSection, επιστρέφουμε\n    if isinstance(ctx, section_class):\n        return ctx\n    # Αναζητάμε αναδρομικά σε όλους τους υποκόμβους",
         "detail": "parse_cobol",
         "documentation": {}
     },
@@ -3270,7 +3608,7 @@
         "kind": 2,
         "importPath": "parse_identification_division",
         "description": "parse_identification_division",
-        "peekOfCode": "def parse_identification_division(ctx):\n    \"\"\"\n    Αναλύει το IDENTIFICATION DIVISION και επιστρέφει τα αποτελέσματα.\n    \"\"\"\n    logger.info(\"Processing IDENTIFICATION DIVISION...\")\n    static_analysis = StaticAnalysis()\n    for child in ctx.children:\n        if isinstance(child, Cobol85Parser.ProgramIdParagraphContext):\n            static_analysis.ProgramId = visit_program_id_paragraph(child)\n        if isinstance(child, Cobol85Parser.IdentificationDivisionBodyContext):",
+        "peekOfCode": "def parse_identification_division(ctx):\n    \"\"\"\n    Αναλύει το IDENTIFICATION DIVISION και επιστρέφει τα αποτελέσματα.\n    \"\"\"\n    logger.info(\"Processing IDENTIFICATION DIVISION...\")\n    static_analysis = StaticAnalysis()\n    logger.info(f\"\\t{ctx.__class__.__name__}\")\n    for child in ctx.children:\n        logger.info(f\"\\t{child.__class__.__name__}\")\n        if isinstance(child, Cobol85Parser.ProgramIdParagraphContext):",
         "detail": "parse_identification_division",
         "documentation": {}
     },
@@ -3414,7 +3752,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_if_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα IF statement. \"\"\"\n    # logger.info(\"-------visitIfStatementContext-----------\")\n    conditional_statement = ConditionalStatement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IfThenContext):\n            visit_if_then_context(child, conditional_statement)\n        elif isinstance(child, Cobol85Parser.IfElseContext):\n            visit_if_else_context(child, conditional_statement)\n    return conditional_statement",
+        "peekOfCode": "def visit_if_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα IF statement. \"\"\"\n    # logger.info(\"-------visitIfStatementContext-----------\")\n    conditional_statement = ConditionalStatement(methodName=f\"IF {context_info.get_child_concatenated_text(ctx, 1)}\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IfThenContext):\n            visit_if_then_context(child, conditional_statement)\n        elif isinstance(child, Cobol85Parser.IfElseContext):\n            visit_if_else_context(child, conditional_statement)\n    return conditional_statement",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3450,7 +3788,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_simple_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία απλή συνθήκη (π.χ. X > 5). \"\"\"\n    # logger.info(\"-------visitSimpleConditionContext-----------\")\n    conditional_statement = ConditionalStatement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.RelationConditionContext):\n            clause = visit_relation_condition_context(child)\n            if clause:\n                conditional_statement.addClause(clause)\n    return conditional_statement",
+        "peekOfCode": "def visit_simple_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία απλή συνθήκη (π.χ. X > 5). \"\"\"\n    # logger.info(\"-------visitSimpleConditionContext-----------\")\n    conditional_statement = ConditionalStatement(methodName=\"IF\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.RelationConditionContext):\n            clause = visit_relation_condition_context(child)\n            if clause:\n                conditional_statement.addClause(clause)\n    return conditional_statement",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3477,7 +3815,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_move_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα MOVE statement και επιστρέφει ένα AssignStatement. \"\"\"\n    # logger.info(\"-------visitMoveStatementContext-----------\")\n    sentence = AssignStatement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.MoveToStatementContext):\n            move_sentence = visit_move_to_statement_context(child)\n            sentence.AssignFrom = move_sentence.AssignFrom\n            sentence.AssignTo = move_sentence.AssignTo\n    return sentence",
+        "peekOfCode": "def visit_move_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα MOVE statement και επιστρέφει ένα AssignStatement. \"\"\"\n    # logger.info(\"-------visitMoveStatementContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.MoveToStatementContext):\n            move_sentence = visit_move_to_statement_context(child)\n            assignFrom = move_sentence.AssignFrom\n            assignTo = move_sentence.AssignTo\n            return AssignStatement(methodName=f\"Assign value to {assignTo}\", AssignFrom=assignFrom, AssignTo=assignTo)\n    return None",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3486,7 +3824,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_move_to_statement_context(ctx):\n    \"\"\" Επεξεργάζεται το MOVE TO μέρος ενός statement. \"\"\"\n    sentence = AssignStatement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IdentifierContext):\n            sentence.AssignTo = visit_identifier_context(child)\n        elif isinstance(child, Cobol85Parser.MoveToSendingAreaContext):\n            sentence.AssignFrom = visit_move_to_sending_area_context(child)\n    return sentence\ndef visit_identifier_context(ctx):",
+        "peekOfCode": "def visit_move_to_statement_context(ctx):\n    \"\"\" Επεξεργάζεται το MOVE TO μέρος ενός statement. \"\"\"\n    assignFrom = None\n    assignTo = None\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IdentifierContext):\n            assignTo = visit_identifier_context(child)\n        elif isinstance(child, Cobol85Parser.MoveToSendingAreaContext):\n            assignFrom = visit_move_to_sending_area_context(child)\n    if assignFrom and assignTo:",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3513,7 +3851,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_perform_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα PERFORM statement. \"\"\"\n    # logger.info(\"-------visitPerformStatementContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.PerformProcedureStatementContext):\n            return visit_perform_procedure_statement_context(child)\n    return None\ndef visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(MethodName=ctx.getText())",
+        "peekOfCode": "def visit_perform_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα PERFORM statement. \"\"\"\n    # logger.info(\"-------visitPerformStatementContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.PerformProcedureStatementContext):\n            return visit_perform_procedure_statement_context(child)\n    return None\ndef visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3522,7 +3860,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(MethodName=ctx.getText())\n# ----------------------------------------------------\n# EXEC CICS Statements\n# ----------------------------------------------------\ndef visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement()\n    for child in context_info.get_children(ctx):",
+        "peekOfCode": "def visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())\n# ----------------------------------------------------\n# EXEC CICS Statements\n# ----------------------------------------------------\ndef visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement()\n    for child in context_info.get_children(ctx):",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3531,7 +3869,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            command_name, params = visit_exec_cics_command_context(child)\n            call_statement.MethodName = command_name\n            call_statement.Statements.extend(params)\n    return call_statement\ndef visit_exec_cics_command_context(ctx):",
+        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            command_name, params = visit_exec_cics_command_context(child)\n            call_statement.methodName = command_name\n            call_statement.Statements.extend(params)\n    return call_statement\ndef visit_exec_cics_command_context(ctx):",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3549,7 +3887,7 @@
         "kind": 2,
         "importPath": "parse_statements",
         "description": "parse_statements",
-        "peekOfCode": "def visit_goback_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα GOBACK statement. \"\"\"\n    return CallStatement(MethodName=\"GOBACK\")",
+        "peekOfCode": "def visit_goback_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα GOBACK statement. \"\"\"\n    return CallStatement(methodName=\"GOBACK\")",
         "detail": "parse_statements",
         "documentation": {}
     },
@@ -3558,7 +3896,7 @@
         "kind": 2,
         "importPath": "parse_working_storage_section",
         "description": "parse_working_storage_section",
-        "peekOfCode": "def parse_working_storage(ctx, static_analysis):\n    \"\"\"\n    Αναλύει το WORKING-STORAGE SECTION και εξάγει τις δηλώσεις μεταβλητών.\n    Υποστηρίζει `REDEFINES`, `OCCURS`, και `88 LEVEL` conditions.\n    :param ctx: Το parse tree context του WORKING-STORAGE SECTION.\n    :return: Μια λίστα με μεταβλητές που δηλώθηκαν.\n    \"\"\"\n    variables = []\n    parent_entry = None  # Για να διατηρούμε parent για τα 88 LEVEL conditions\n    for child in context_info.get_children(ctx):",
+        "peekOfCode": "def parse_working_storage(ctx, static_analysis):\n    \"\"\"\n    Αναλύει το WORKING-STORAGE SECTION και εξάγει τις δηλώσεις μεταβλητών.\n    Υποστηρίζει `REDEFINES`, `OCCURS`, και `88 LEVEL` conditions.\n    :param ctx: Το parse tree context του WORKING-STORAGE SECTION.\n    :return: Μια λίστα με μεταβλητές που δηλώθηκαν.\n    \"\"\"\n    # workingStorageTree = find_working_storage_section(ctx)\n    variables = []\n    parent_entry = None  # Για να διατηρούμε parent για τα 88 LEVEL conditions",
         "detail": "parse_working_storage_section",
         "documentation": {}
     },
@@ -3785,6 +4123,15 @@
         "description": "parse_linkage_section",
         "peekOfCode": "def get_linkage_json(variables):\n    \"\"\" Επιστρέφει τις μεταβλητές του LINKAGE SECTION σε JSON. \"\"\"\n    return json.dumps(variables, indent=4)",
         "detail": "parse_linkage_section",
+        "documentation": {}
+    },
+    {
+        "label": "CustomErrorListener",
+        "kind": 6,
+        "importPath": "custom_error_listener",
+        "description": "custom_error_listener",
+        "peekOfCode": "class CustomErrorListener(ErrorListener):\n    def __init__(self):\n        super(CustomErrorListener, self).__init__()\n        self.errors = []\n    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):\n        self.errors.append(f\"Line {line}:{column} - {msg}\")\n    def get_errors(self):\n        return self.errors",
+        "detail": "custom_error_listener",
         "documentation": {}
     }
 ]

@@ -12,6 +12,7 @@ def parse_working_storage(ctx, static_analysis):
     :param ctx: Το parse tree context του WORKING-STORAGE SECTION.
     :return: Μια λίστα με μεταβλητές που δηλώθηκαν.
     """
+    # workingStorageTree = find_working_storage_section(ctx)
     variables = []
     parent_entry = None  # Για να διατηρούμε parent για τα 88 LEVEL conditions
 
@@ -197,3 +198,23 @@ def convert_cobol_to_json(variables):
             record_stack.append(json_entry)  # Προσθήκη στο stack
 
     return json.dumps(json_structure, indent=4)
+
+
+# def find_working_storage_section(ctx):
+#     """
+#     Αναζητά αναδρομικά το WorkingStorageSection σε ένα υποδέντρο του parse tree.
+#     """
+#     if ctx is None:
+#         return None
+
+#     # Αν ο κόμβος είναι ήδη WorkingStorageSection, επιστρέφουμε
+#     if isinstance(ctx, Cobol85Parser.WorkingStorageSectionContext):
+#         return ctx
+
+#     # Αναζητάμε αναδρομικά σε όλους τους υποκόμβους
+#     for i in range(ctx.getChildCount()):
+#         result = find_working_storage_section(ctx.getChild(i))
+#         if result is not None:
+#             return result  # Βρήκαμε το WorkingStorageSection, σταματάμε την αναζήτηση
+
+#     return None  # Αν δεν βρέθηκε τίποτα

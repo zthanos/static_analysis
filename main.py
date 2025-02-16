@@ -32,7 +32,9 @@ def main():
 
     # args = parser.parse_args()
     # process_files(args.file_pattern)
-    process_files(".\Samples\DOGE*.cbl")
+    process_files(".\\Samples\\DOGE*.cbl")
+    # process_files(".\\Samples\\DOGETR*.cbl")
+    # process_files(".\\Samples\\basicfrmt*.cbl")
 
 if __name__ == "__main__":
     main()

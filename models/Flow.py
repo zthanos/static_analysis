@@ -12,14 +12,14 @@ class Flow:
     Name: str = ""
     Input: Dict = field(default_factory=dict)
     Output: Dict = field(default_factory=dict)
-    Sentences: List["Statement"] = field(default_factory=list)
+    Statements: List["Statement"] = field(default_factory=list)
 
-    def addSentence(self, sentence: "Statement"):
+    def addSentence(self, statement: "Statement"):
         """Adds a statement to the flow."""
-        if isinstance(sentence, Statement):
-            self.Sentences.append(sentence)
+        if isinstance(statement, Statement):
+            self.Statements.append(statement)
         else:
-            raise TypeError(f"Invalid sentence type. Must be a Statement, got {type(sentence).__name__}.")
+            raise TypeError(f"Invalid sentence type. Must be a Statement, got {type(statement).__name__}.")
 
     def to_json(self) -> str:
         """Returns the JSON representation of the Flow."""
