@@ -1,0 +1,434 @@
+{
+    "ProgramId": "DOGEQUIT",
+    "Author": "SOLDIER OF FORTRAN",
+    "Installation": "DOGE BANK",
+    "DateWritten": "08/30/20",
+    "Compiled": null,
+    "Security": null,
+    "Flow": [],
+    "DataStructures": [
+        {
+            "Level": "01",
+            "Name": "WTO-MESSAGE",
+            "PIC": "X(38)",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "FACES",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FACES-LIST",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE01",
+            "PIC": "X(5)",
+            "VALUE": "'(-_-)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE02",
+            "PIC": "X(5)",
+            "VALUE": "'(o_O)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE03",
+            "PIC": "X(5)",
+            "VALUE": "'(^_-)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE04",
+            "PIC": "X(5)",
+            "VALUE": "'(T_T)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE05",
+            "PIC": "X(5)",
+            "VALUE": "'(+_+)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE06",
+            "PIC": "X(5)",
+            "VALUE": "'(@_@)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE07",
+            "PIC": "X(5)",
+            "VALUE": "'(>_>)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE08",
+            "PIC": "X(5)",
+            "VALUE": "'(<_<)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE09",
+            "PIC": "X(5)",
+            "VALUE": "'(*_*)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FACE10",
+            "PIC": "X(5)",
+            "VALUE": "'(^-^)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FACE-ARRAY",
+            "PIC": "X(05)",
+            "VALUE": null,
+            "OCCURS": "10",
+            "REDEFINES": "FACES-LIST",
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "EXIT-MSG",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "COMMAND",
+            "PIC": "X",
+            "VALUE": "X'F5'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "WRITE-CONTROL",
+            "PIC": "X",
+            "VALUE": "X'C3'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X(2)",
+            "VALUE": "X'1DF0'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X(3)",
+            "VALUE": "X'284100'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "YELLOW",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F6'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X(17)",
+            "VALUE": "'DOGE HAS EXITED. '",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "DEEP-BLUE",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F9'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "'G'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "BLUE",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F1'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "'O'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "TURQ",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F5'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "'O'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "WHITE",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F7'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "'D'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "TURQ",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F5'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "'B'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "BLUE",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F1'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "'Y'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "DEEP-BLUE",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F9'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X(3)",
+            "VALUE": "'E. '",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "RED",
+            "PIC": "X(3)",
+            "VALUE": "X'2842F2'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "EXIT-FACE",
+            "PIC": "X(5)",
+            "VALUE": "'(-_-)'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "X'13'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "IA",
+            "PIC": "S9(8)",
+            "VALUE": "+31337",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "IM",
+            "PIC": "S9(8)",
+            "VALUE": "+32768",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "IC",
+            "PIC": "S9(8)",
+            "VALUE": "+6925",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "FSEED",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "FIM",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "IRNDM",
+            "PIC": "S9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "ISEED",
+            "PIC": "S9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "FACE",
+            "PIC": "S9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "GARBAGE",
+            "PIC": "S9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        }
+    ]
+}
