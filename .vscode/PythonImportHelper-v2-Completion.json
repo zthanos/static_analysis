@@ -1969,7 +1969,7 @@
         "kind": 6,
         "importPath": "src.static_analysis.process_results.process",
         "description": "src.static_analysis.process_results.process",
-        "peekOfCode": "class StatementPosition(Enum):\n    FIRST = \"first\"\n    MIDDLE = \"middle\"\n    LAST = \"last\"\nlogger = logger.setup_logger('StaticAnalysisLogger', 'static_analysis.log')\ndef process_json_data(json_file):\n    print(BASE_DIR)\n    print(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)",
+        "peekOfCode": "class StatementPosition(Enum):\n    FIRST = \"first\"\n    MIDDLE = \"middle\"\n    LAST = \"last\"\nlogger = logger.setup_logger('StaticAnalysisLogger', 'static_analysis.log')\ndef process_json_data(json_file):\n    \"\"\"\n    Parses a JSON file containing program flow information and inserts it into the Neo4j database.\n    Parameters:\n        json_file (str): Path to the JSON file containing static analysis data.",
         "detail": "src.static_analysis.process_results.process",
         "documentation": {}
     },
@@ -1978,7 +1978,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.process",
         "description": "src.static_analysis.process_results.process",
-        "peekOfCode": "def process_json_data(json_file):\n    print(BASE_DIR)\n    print(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    driver = db_connection.get_neo4j_driver()\n    program_name = data[\"Program\"]\n    system = \"\" #data[\"Program\"].get(\"system\", \"\")\n    security = \"\" #data[\"Program\"].get(\"security\", \"\")\n    relationships = []",
+        "peekOfCode": "def process_json_data(json_file):\n    \"\"\"\n    Parses a JSON file containing program flow information and inserts it into the Neo4j database.\n    Parameters:\n        json_file (str): Path to the JSON file containing static analysis data.\n    \"\"\"    \n    print(BASE_DIR)\n    print(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)",
         "detail": "src.static_analysis.process_results.process",
         "documentation": {}
     },
@@ -1987,7 +1987,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.process",
         "description": "src.static_analysis.process_results.process",
-        "peekOfCode": "def process_paragraph(session, paragraph, flow_statements, flow_idx, true_path=True):\n    relationship = \"TRUE_PATH\" if true_path else \"FALSE_PATH\"\n    for paragraph_statement in paragraph:\n        session.execute_write(db_context.create_statement, paragraph_statement)\n    for idx1, paragraph_statement in enumerate(paragraph):\n        if (idx1 < len(paragraph) - 1):\n            session.execute_write(db_context.create_relationship, paragraph_statement['id'], paragraph[idx1 + 1]['id'], 'EXECUTES')\n        else:\n            session.execute_write(db_context.create_relationship, paragraph_statement['id'], flow_statements[flow_idx + 1]['id'], 'NEXT')\n    if paragraph:                   ",
+        "peekOfCode": "def process_paragraph(session, paragraph, flow_statements, flow_idx, next_statement_id, true_path=True):\n    \"\"\"\n    Processes conditional statements within a flow and ensures that their **true** and **false paths** are correctly recorded in the database.\n    Parameters:\n        session: Neo4j session instance.\n        paragraph (list): The block of statements inside a conditional branch.\n        flow_statements (list): The main list of statements in the flow.\n        flow_idx (int): The index of the current statement in the flow.\n        next_statement_id (str): The ID of the statement to execute next.\n        true_path (bool): Indicates whether this is the `TRUE_PATH` or `FALSE_PATH`.",
         "detail": "src.static_analysis.process_results.process",
         "documentation": {}
     },
@@ -2023,7 +2023,7 @@
         "kind": 5,
         "importPath": "src.static_analysis.process_results.process",
         "description": "src.static_analysis.process_results.process",
-        "peekOfCode": "logger = logger.setup_logger('StaticAnalysisLogger', 'static_analysis.log')\ndef process_json_data(json_file):\n    print(BASE_DIR)\n    print(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    driver = db_connection.get_neo4j_driver()\n    program_name = data[\"Program\"]\n    system = \"\" #data[\"Program\"].get(\"system\", \"\")\n    security = \"\" #data[\"Program\"].get(\"security\", \"\")",
+        "peekOfCode": "logger = logger.setup_logger('StaticAnalysisLogger', 'static_analysis.log')\ndef process_json_data(json_file):\n    \"\"\"\n    Parses a JSON file containing program flow information and inserts it into the Neo4j database.\n    Parameters:\n        json_file (str): Path to the JSON file containing static analysis data.\n    \"\"\"    \n    print(BASE_DIR)\n    print(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:",
         "detail": "src.static_analysis.process_results.process",
         "documentation": {}
     },

@@ -138,6 +138,7 @@ env.bak/
 venv.bak/
 dev/
 to be deleted/
+.vscode/
 
 
 # Spyder project settings
