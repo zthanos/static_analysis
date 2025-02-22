@@ -25,6 +25,12 @@ logger = logger.setup_logger('StaticAnalysisLogger', 'static_analysis.log')
   
     
 def process_json_data(json_file):
+    """
+    Parses a JSON file containing program flow information and inserts it into the Neo4j database.
+    
+    Parameters:
+        json_file (str): Path to the JSON file containing static analysis data.
+    """    
     print(BASE_DIR)
     print("Current Working Directory:", os.getcwd())
     with open(json_file) as f:
@@ -52,27 +58,25 @@ def process_json_data(json_file):
                 if (flow_idx < len(flow_statements) - 1) and not is_condition(statement):
                     session.execute_write(db_context.create_relationship, statement['id'], flow_statements[flow_idx + 1]['id'], 'EXECUTES')                    
                 if is_condition(statement):
-                    process_paragraph(session, statement['TrueStatements'], flow_statements, flow_idx, true_path=True)
-                    process_paragraph(session, statement['FalseStatements'], flow_statements, flow_idx, true_path=False)                
-
-        #     for idx, statement in enumerate(flow["Statements"]):
-        #         next_statement = flow["Statements"][idx + 1] if idx < len(flow["Statements"]) - 1 else None
-        #         previous_statement = flow["Statements"][idx - 1] if idx > 0 else None
-        #         position = StatementPosition.MIDDLE
-        #         if idx == len(flow["Statements"]) - 1:
-        #             position = StatementPosition.LAST
-        #         elif idx == 0:
-        #             position = StatementPosition.FIRST
-        #         # position = StatementPosition.FIRST if idx == 0 else StatementPosition.LAST if idx == len(flow["Statements"]) - 1 else StatementPosition.MIDDLE
-        #         relationships.extend(process_statement(session, flow_name, statement, previous_statement, next_statement, position))
-
-        # for relationship in relationships:
-        #     session.execute_write(db_context.create_relationship, relationship['source_id'], relationship['target_id'], relationship['relation'])
-
+                    next_statement_id = flow_statements[flow_idx + 1]['id'] if flow_idx + 1 < len(flow_statements) else None
+                    process_paragraph(session, statement['TrueStatements'], flow_statements, flow_idx, next_statement_id, true_path=True)
+                    process_paragraph(session, statement['FalseStatements'], flow_statements, flow_idx, next_statement_id, true_path=False)                
+                    
     driver.close()
     print("Δεδομένα στατικής ανάλυσης καταχωρήθηκαν επιτυχώς στη Neo4j!")
 
-def process_paragraph(session, paragraph, flow_statements, flow_idx, true_path=True):
+def process_paragraph(session, paragraph, flow_statements, flow_idx, next_statement_id, true_path=True):
+    """
+    Processes conditional statements within a flow and ensures that their **true** and **false paths** are correctly recorded in the database.
+    
+    Parameters:
+        session: Neo4j session instance.
+        paragraph (list): The block of statements inside a conditional branch.
+        flow_statements (list): The main list of statements in the flow.
+        flow_idx (int): The index of the current statement in the flow.
+        next_statement_id (str): The ID of the statement to execute next.
+        true_path (bool): Indicates whether this is the `TRUE_PATH` or `FALSE_PATH`.
+    """    
     relationship = "TRUE_PATH" if true_path else "FALSE_PATH"
     for paragraph_statement in paragraph:
         session.execute_write(db_context.create_statement, paragraph_statement)
@@ -80,60 +84,20 @@ def process_paragraph(session, paragraph, flow_statements, flow_idx, true_path=T
         if (idx1 < len(paragraph) - 1):
             session.execute_write(db_context.create_relationship, paragraph_statement['id'], paragraph[idx1 + 1]['id'], 'EXECUTES')
         else:
-            session.execute_write(db_context.create_relationship, paragraph_statement['id'], flow_statements[flow_idx + 1]['id'], 'NEXT')
+            if flow_idx > len(flow_statements):
+                print(f"Assosiatiaton {relationship} not created for {paragraph_statement['methodName']}")
+                session.execute_write(db_context.create_relationship, paragraph_statement['id'], flow_statements[flow_idx + 1]['id'], 'NEXT')
+            elif not is_condition(paragraph_statement):
+                session.execute_write(db_context.create_relationship, paragraph_statement['id'], next_statement_id, 'NEXT')
+        if is_condition(paragraph_statement):
+            process_paragraph(session, paragraph_statement['TrueStatements'], paragraph, idx1, next_statement_id, true_path=True)
+            process_paragraph(session, paragraph_statement['FalseStatements'], paragraph, idx1, next_statement_id, true_path=False)  
+                           
     if paragraph:                   
         session.execute_write(db_context.create_relationship, flow_statements[flow_idx]['id'], paragraph[0]['id'], relationship)     
     else:                        
         if flow_idx + 1 < len(flow_statements):
             session.execute_write(db_context.create_relationship, flow_statements[flow_idx]['id'], flow_statements[flow_idx + 1]['id'], "NEXT")            
-
-
-# def process_paragraph(session, flow_name, paragraph, statement, previous_statement, next_statement, true_path=True):
-#     relationships = []
-#     relationship = "TRUE_PATH" if true_path else "FALSE_PATH"
-#     ns = paragraph[0] if paragraph else next_statement
-#     relationships.append(generate_relationship(statement["id"], ns["id"], relationship))     
-#     prev = None        
-#     for idx, st in enumerate(paragraph):
-#         if idx > 0 and idx <= len(paragraph) -1:
-#             relationships.append(generate_relationship(paragraph[idx - 1]["id"], statement["id"], "EXECUTES"))    
-#         # previous_paragraph_statement = paragraph[idx - 1] if idx > 0 else statement
-#         # next_paragraph_statement = paragraph[idx + 1] if idx < len(paragraph) - 1 else next_statement
-#         # position = StatementPosition.MIDDLE
-#         # if idx == len(paragraph) - 1:
-#         #     position = StatementPosition.LAST
-#         # elif idx == 0:
-#         #     position = StatementPosition.FIRST
-#         # prev = st['id']
-#         # relationships.extend(process_statement(session, flow_name, st, previous_statement, next_paragraph_statement, position))
-#     return relationships
-          
-
-
-# def process_statement(session, flow_name, statement, previous_statement, next_statement, statement_position):
-#     relationships = []
-#     session.execute_write(db_context.create_statement, statement)
-#     match statement_position:
-#         case StatementPosition.FIRST:
-#             pass
-#             # session.execute_write(db_context.create_flow_to_statement_relationship, flow_name, statement["id"])
-#         case StatementPosition.LAST:
-#             if next_statement:
-#             #    relationships.append(generate_relationship(statement["id"], next_statement["id"], "NEXT"))    
-#                 pass
-#         case _:
-#             if statement["type"] != "StatementType.CONDITION":
-#                 pass
-#                 # relationships.append(generate_relationship(statement["id"], next_statement["id"], "EXECUTES"))                          
-#     #                 logger.info(f"EXECUTES for {statement["id"]}")
-#     #             # else:
-#     #             #     relationships.append(generate_relationship(previous_statement["id"], statement["id"], "EXECUTES"))  
-#     if statement["type"] == "StatementType.CONDITION":
-#         relationships.extend(process_paragraph(session, flow_name, statement["TrueStatements"], statement, previous_statement, next_statement, True))
-#         relationships.extend(process_paragraph(session, flow_name, statement["FalseStatements"], statement,  previous_statement, next_statement, False))                  
-#     return relationships
-        
-
 
 
 def is_condition(statement):
