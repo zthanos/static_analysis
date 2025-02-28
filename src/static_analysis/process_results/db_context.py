@@ -75,3 +75,15 @@ def create_relationship(tx, source_id, target_id, relationship_type):
         MATCH (a {id: $source_id}), (b {id: $target_id})
         MERGE (a)-[r:%s]->(b)
     """ % relationship_type, source_id=source_id, target_id=target_id)
+    
+    
+# ==================== Queries 
+
+def fetch_program_flow(self, flow_name):
+    query = """
+    MATCH p=(program:Program )-[:CONTAINS]->(f:Flow {name: $flow_name})-[:EXECUTES|TRUE_PATH|FALSE_PATH|NEXT*]->(s)
+    RETURN p
+    """
+    with self.driver.session() as session:
+        result = session.run(query, flow_name=flow_name)
+        return [record["p"] for record in result]

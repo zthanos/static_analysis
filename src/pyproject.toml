@@ -1,0 +1,19 @@
+[project]
+name = "staticanalysis"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "ThanosZikas",email = "147274171+ThanosZikas@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "neo4j (>=5.28.1,<6.0.0)",
+    "antlr4-tools (>=0.2.1,<0.3.0)",
+    "antlr4-python3-runtime (>=4.13.2,<5.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

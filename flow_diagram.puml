@@ -1,0 +1,22 @@
+@startuml
+|Program|
+:Assign value to DOGECOMMS-AREA;
+:RECEIVE-OPTION;
+:Assign value to WTO-MESSAGE;
+:SEND;
+title DOGECOIN
+:RETURN;
+if (IF EIBAIDEQUALTODFHENTER) then (yes)
+if (IF EIBAIDEQUALTODFHPF5) then (yes)
+if (IF WOW-MENU) then (yes)
+if (IF EIBAIDEQUALTODFHPF3) then (yes)
+:DOGE-WTO;
+if (IF EIBCALEN>ZERO) then (yes)
+:DOGE-MAIN-SCREEN;
+|#dee4e8|00000-MAIN|
+:DOGECOIN;
+:PARSE-OPTION;
+if (IF EIBCALENEQUALTOZERO ORSUCH-DOGE) then (yes)
+:XCTL;
+
+@enduml

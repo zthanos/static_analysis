@@ -1,15 +1,17 @@
 import os
-import json
-from antlr4 import FileStream, CommonTokenStream, PredictionMode
-from custom_error_listener import CustomErrorListener
+import sys
+# import json
+from antlr4 import FileStream, CommonTokenStream #, PredictionMode
+# from custom_error_listener import CustomErrorListener
 from grammars.Cobol85Lexer import Cobol85Lexer
 from grammars.Cobol85Parser import Cobol85Parser
 from parse_identification_division import parse_identification_division
 from parse_procedure_division import parse_procedure_division
 from parse_working_storage_section import parse_working_storage
 from parse_linkage_section import parse_linkage_section
-from src.static_analysis.logger import logger
-import time
+sys.path.append('../')
+from logger import logger
+# import time
 
 
 
@@ -201,4 +203,4 @@ def find_section(section_class, ctx):
 
     return None  # Αν δεν βρέθηκε τίποτα
 # test
-process_cobol_file(".\Samples\DOGEMAIN.cbl")
+process_cobol_file(".\\Samples\\DOGEMAIN.cbl")

@@ -2,10 +2,10 @@ import json
 from grammars.Cobol85Parser import Cobol85Parser
 import context_info
 from models.StaticAnalysis import StaticAnalysis  # Functional context helper
-from src.static_analysis.logger import logger
+from logger import logger
 import re
 
-def parse_working_storage(ctx, static_analysis):
+def parse_working_storage_section(ctx, static_analysis):
     """
     Αναλύει το WORKING-STORAGE SECTION και εξάγει τις δηλώσεις μεταβλητών.
     Υποστηρίζει `REDEFINES`, `OCCURS`, και `88 LEVEL` conditions.

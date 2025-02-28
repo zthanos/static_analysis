@@ -1,10 +1,8 @@
-import json
-import re
-from src.static_analysis.logger import logger
 from models.StaticAnalysis import StaticAnalysis
 from grammars.Cobol85Parser import Cobol85Parser
+from logger import logger
 
-def parse_identification_division(ctx):
+def parse_identification_division_section(ctx):
     """
     Αναλύει το IDENTIFICATION DIVISION και επιστρέφει τα αποτελέσματα.
     """

@@ -1,4 +1,4 @@
-from src.static_analysis.logger import logger
+from logger import logger
 from grammars.Cobol85Parser import Cobol85Parser
 import context_info
 from models.Statement import Statement
@@ -198,6 +198,7 @@ def visit_exec_cics_statement_context(ctx):
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.ExecCicsCommandContext):
             command_name, params = visit_exec_cics_command_context(child)
+            print(params)
             call_statement.methodName = command_name
             call_statement.Statements.extend(params)
 
@@ -214,7 +215,10 @@ def visit_exec_cics_command_context(ctx):
 
     command_name = children[0].getText()
     params = [Statement(child.getText()) for child in children[1:]]
-
+    logger.info("----------------------------_________________________________________--------------------")
+    logger.info(params)
+    logger.info("----------------------------_________________________________________--------------------")
+    
     return command_name, params
 
 

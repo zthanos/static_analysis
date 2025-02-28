@@ -1,5 +1,5 @@
 from typing import List, Optional
-from src.static_analysis.logger import logger
+from logger import logger
 
 def get_children(ctx) -> List:
     """

@@ -2,7 +2,7 @@ import json
 from grammars.Cobol85Parser import Cobol85Parser
 import context_info
 from models.StaticAnalysis import StaticAnalysis
-from src.static_analysis.logger import logger
+from logger import logger
 
 def parse_linkage_section(ctx, static_analysis):
     """

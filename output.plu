@@ -1,0 +1,333 @@
+@startuml
+title DOGECOIN
+!theme materia
+|00000-MAIN|
+start
+  if (IF EIBCALEN>ZERO) then (true)
+|00000-MAIN|
+:Assign value to DOGECOMMS-AREA;
+  if (IF EIBCALENEQUALTOZERO ORSUCH-DOGE) then (true)
+|00000-MAIN|
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|SEND|
+:;
+:;
+:;
+else (false)
+|00000-MAIN|
+  if (IF EIBAIDEQUALTODFHPF3) then (true)
+|00000-MAIN|
+|XCTL|
+:;
+else (false)
+|00000-MAIN|
+  if (IF EIBAIDEQUALTODFHPF5) then (true)
+|00000-MAIN|
+|DOGE-MAIN-SCREEN|
+:Assign value to WTO-MESSAGE;
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|STARTBR|
+:;
+:;
+|READPREV|
+:;
+:;
+:;
+|READPREV|
+:;
+:;
+:;
+|CONVERT-DATE|
+:Assign value to TEMP-DATE;
+|FORMATTIME|
+:;
+:;
+:;
+:Assign value to DLABEL;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to RECNT2C;
+:Assign value to RECNT2O;
+|READPREV|
+:;
+:;
+:;
+|CONVERT-DATE|
+:Assign value to TEMP-DATE;
+|FORMATTIME|
+:;
+:;
+:;
+:Assign value to DLABEL;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to RECNT1C;
+  if (IF TDATE=0000000002) then (true)
+|00000-MAIN|
+:Assign value to RECNT1O;
+|00000-MAIN|
+:Assign value to RECNT1O;
+else (false)
+|00000-MAIN|
+:Assign value to RECNT1O;
+:Assign value to START-RECORD-ID;
+|RESETBR|
+:;
+:;
+|READNEXT|
+:;
+:;
+:;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to AVAILABLE-AMOUNT;
+:Assign value to AVAILO;
+|READNEXT|
+:;
+:;
+:;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to PENDNGO;
+:Assign value to TOTALO;
+|ENDBR|
+:;
+|SEND|
+:;
+:;
+:;
+else (false)
+|00000-MAIN|
+  if (IF WOW-MENU) then (true)
+|00000-MAIN|
+:Assign value to DOGECOMMS-AREA;
+|00000-MAIN|
+|DOGE-MAIN-SCREEN|
+:Assign value to WTO-MESSAGE;
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|STARTBR|
+:;
+:;
+|READPREV|
+:;
+:;
+:;
+|READPREV|
+:;
+:;
+:;
+|CONVERT-DATE|
+:Assign value to TEMP-DATE;
+|FORMATTIME|
+:;
+:;
+:;
+:Assign value to DLABEL;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to RECNT2C;
+:Assign value to RECNT2O;
+|READPREV|
+:;
+:;
+:;
+|CONVERT-DATE|
+:Assign value to TEMP-DATE;
+|FORMATTIME|
+:;
+:;
+:;
+:Assign value to DLABEL;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to RECNT1C;
+  if (IF TDATE=0000000002) then (true)
+|00000-MAIN|
+:Assign value to RECNT1O;
+|00000-MAIN|
+:Assign value to RECNT1O;
+else (false)
+|00000-MAIN|
+:Assign value to RECNT1O;
+:Assign value to START-RECORD-ID;
+|RESETBR|
+:;
+:;
+|READNEXT|
+:;
+:;
+:;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to AVAILABLE-AMOUNT;
+:Assign value to AVAILO;
+|READNEXT|
+:;
+:;
+:;
+|CONVERT-AMOUNT-TO-DISPLAY|
+:Assign value to RECENT-COLOR;
+:Assign value to THE-AMOUNT-INTEGER;
+:Assign value to THE-AMOUNT-DECIMAL;
+  if (IF TAMT-SIGN-NEGATIVE) then (true)
+|00000-MAIN|
+:Assign value to RECENT-COLOR;
+:Assign value to DAMOUNT;
+:Assign value to DSIGN;
+:Assign value to PENDNGO;
+:Assign value to TOTALO;
+|ENDBR|
+:;
+|SEND|
+:;
+:;
+:;
+else (false)
+|00000-MAIN|
+  if (IF EIBAIDEQUALTODFHENTER) then (true)
+|00000-MAIN|
+|RECEIVE-OPTION|
+:Assign value to WTO-MESSAGE;
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|RECEIVE|
+:;
+:;
+:;
+|00000-MAIN|
+|PARSE-OPTION|
+  if (IF OPTIONIEQUALTO'T' OROPTIONIEQUALTO'M') then (true)
+|00000-MAIN|
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|XCTL|
+:;
+else (false)
+|00000-MAIN|
+  if (IF OPTIONIEQUALTO'W') then (true)
+|00000-MAIN|
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|XCTL|
+:;
+else (false)
+|00000-MAIN|
+  if (IF OPTIONIEQUALTO'D') then (true)
+|00000-MAIN|
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|XCTL|
+:;
+else (false)
+|00000-MAIN|
+  if (IF OPTIONIEQUALTO'S') then (true)
+|00000-MAIN|
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|DOGE-WTO|
+|WRITE|
+:;
+:;
+:Assign value to WTO-MESSAGE;
+|00000-MAIN|
+|XCTL|
+:;
+:Assign value to WTO-MESSAGE;
+|RETURN|
+:;
+:;
+end
+@enduml

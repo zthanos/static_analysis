@@ -1,4 +1,3 @@
-import logging
 import sys
 import os
 
@@ -19,7 +18,7 @@ class StatementPosition(Enum):
     FIRST = "first"
     MIDDLE = "middle"
     LAST = "last"
-logger = logger.setup_logger('StaticAnalysisLogger', 'static_analysis.log')
+
 
 
   

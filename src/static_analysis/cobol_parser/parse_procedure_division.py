@@ -1,13 +1,11 @@
-import json
 from models.Flow import Flow
-from models.StaticAnalysis import StaticAnalysis
 from grammars.Cobol85Parser import Cobol85Parser
-from src.static_analysis.logger import logger
+from logger import logger
 import context_info
 import parse_statements
 
 
-def parse_procedure_division(ctx, static_analysis):
+def parse_procedure_division_section(ctx, static_analysis):
     """
     Επισκέπτεται το PROCEDURE DIVISION και αναλύει το περιεχόμενο του.
     """
