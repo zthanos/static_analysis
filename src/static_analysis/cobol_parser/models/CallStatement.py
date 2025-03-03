@@ -6,11 +6,11 @@ from typing import List
 @dataclass
 class CallStatement(Statement):
     """Represents a COBOL PERFORM, CALL, or EXEC CICS statement."""
-    Internal: bool = True  # True = PERFORM, False = CALL
     Statements: List["Statement"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS
 
-    def __post_init__(self):
+    def __post_init__(self, is_internal = True):
         self.type = StatementType.CALL
+        self.Internal = is_internal
 
     @property
     def raw(self) -> str:

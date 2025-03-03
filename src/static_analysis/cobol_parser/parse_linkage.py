@@ -13,7 +13,9 @@ def parse_linkage_section(ctx, static_analysis):
     """
     variables = []
     parent_entry = None
-
+    if ctx is None: 
+        logger.info(f"Program {static_analysis.ProgramId} doesn not contain Linkage Section")
+        return static_analysis
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.DataDescriptionEntryContext):
             var_entry = visit_data_description_entry(child)

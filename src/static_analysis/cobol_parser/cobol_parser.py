@@ -18,8 +18,10 @@ def process_files(file_pattern):
     
     :param file_pattern: Το όνομα αρχείου ή wildcard (π.χ. "*.cbl").
     """
-    files = glob.glob(file_pattern) if not os.path.isfile(file_pattern) else [file_pattern]
-
+    # files = glob.glob(file_pattern) if not os.path.isfile(file_pattern) else [file_pattern]
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    pattern = os.path.join(script_dir, file_pattern)
+    files = glob.glob(pattern)
     if not files:
         print(f"Δεν βρέθηκαν αρχεία που να ταιριάζουν με το μοτίβο: {file_pattern}")
         return

@@ -949,7 +949,7 @@
         "kind": 6,
         "importPath": "src.static_analysis.cobol_parser.models.CallStatement",
         "description": "src.static_analysis.cobol_parser.models.CallStatement",
-        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Internal: bool = True  # True = PERFORM, False = CALL\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CALL\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.Internal else \"Call\"",
+        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self, is_internal = True):\n        self.type = StatementType.CALL\n        self.Internal = is_internal\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.Internal else \"Call\"",
         "detail": "src.static_analysis.cobol_parser.models.CallStatement",
         "documentation": {}
     },
@@ -1075,7 +1075,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.cobol_parser",
         "description": "src.static_analysis.cobol_parser.cobol_parser",
-        "peekOfCode": "def process_files(file_pattern):\n    \"\"\"\n    Βρίσκει και επεξεργάζεται αρχεία COBOL με βάση το file_pattern.\n    :param file_pattern: Το όνομα αρχείου ή wildcard (π.χ. \"*.cbl\").\n    \"\"\"\n    files = glob.glob(file_pattern) if not os.path.isfile(file_pattern) else [file_pattern]\n    if not files:\n        print(f\"Δεν βρέθηκαν αρχεία που να ταιριάζουν με το μοτίβο: {file_pattern}\")\n        return\n    for file_path in files:",
+        "peekOfCode": "def process_files(file_pattern):\n    \"\"\"\n    Βρίσκει και επεξεργάζεται αρχεία COBOL με βάση το file_pattern.\n    :param file_pattern: Το όνομα αρχείου ή wildcard (π.χ. \"*.cbl\").\n    \"\"\"\n    # files = glob.glob(file_pattern) if not os.path.isfile(file_pattern) else [file_pattern]\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    pattern = os.path.join(script_dir, file_pattern)\n    files = glob.glob(pattern)\n    if not files:",
         "detail": "src.static_analysis.cobol_parser.cobol_parser",
         "documentation": {}
     },
@@ -1354,7 +1354,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_linkage",
         "description": "src.static_analysis.cobol_parser.parse_linkage",
-        "peekOfCode": "def parse_linkage_section(ctx, static_analysis):\n    \"\"\"\n    Αναλύει το LINKAGE SECTION και εξάγει τις δηλώσεις μεταβλητών.\n    Υποστηρίζει `REDEFINES`, `OCCURS`, `88 LEVEL` conditions.\n    :param ctx: Το parse tree context του LINKAGE SECTION.\n    :return: Μια λίστα με μεταβλητές που δηλώθηκαν.\n    \"\"\"\n    variables = []\n    parent_entry = None\n    for child in context_info.get_children(ctx):",
+        "peekOfCode": "def parse_linkage_section(ctx, static_analysis):\n    \"\"\"\n    Αναλύει το LINKAGE SECTION και εξάγει τις δηλώσεις μεταβλητών.\n    Υποστηρίζει `REDEFINES`, `OCCURS`, `88 LEVEL` conditions.\n    :param ctx: Το parse tree context του LINKAGE SECTION.\n    :return: Μια λίστα με μεταβλητές που δηλώθηκαν.\n    \"\"\"\n    variables = []\n    parent_entry = None\n    if ctx is None: ",
         "detail": "src.static_analysis.cobol_parser.parse_linkage",
         "documentation": {}
     },
@@ -1606,7 +1606,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())\n# ----------------------------------------------------\n# EXEC CICS Statements\n# ----------------------------------------------------\ndef visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement()\n    for child in context_info.get_children(ctx):",
+        "peekOfCode": "def visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())\n# ----------------------------------------------------\n# EXEC CICS Statements\n# ----------------------------------------------------\ndef visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1615,7 +1615,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            command_name, params = visit_exec_cics_command_context(child)\n            print(params)\n            call_statement.methodName = command_name\n            call_statement.Statements.extend(params)\n    return call_statement",
+        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            # command_name, params = visit_exec_cics_command_context(child)\n            # logger.info(f\"----------------------------______{child.getText()}_______--------------------\")\n            # logger.info(params)\n            # logger.info(\"----------------------------_________________________________________--------------------\")            ",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1624,7 +1624,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_exec_cics_command_context(ctx):\n    \"\"\" Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. \"\"\"\n    # context_info.print_class_name(ctx)\n    children = context_info.get_children(ctx)\n    if not children:\n        return \"\", []\n    command_name = children[0].getText()\n    params = [Statement(child.getText()) for child in children[1:]]\n    logger.info(\"----------------------------_________________________________________--------------------\")\n    logger.info(params)",
+        "peekOfCode": "def visit_exec_cics_command_context(ctx):\n    \"\"\" Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. \"\"\"\n    # context_info.print_class_name(ctx)\n    children = context_info.get_children(ctx)\n    if not children:\n        return \"\", []\n    call_statement = CallStatement(False)    \n    command_name = children[0].getText()\n    logger.debug(f\"command Name: {children[0].getText()}\")\n    call_statement.methodName = children[0].getText()",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },

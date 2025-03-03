@@ -193,33 +193,41 @@ def visit_perform_procedure_statement_context(ctx):
 
 def visit_exec_cics_statement_context(ctx):
     """ Επεξεργάζεται ένα EXEC CICS statement. """
-    call_statement = CallCicsStatement()
+    # call_statement = CallStatement(False)
 
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.ExecCicsCommandContext):
-            command_name, params = visit_exec_cics_command_context(child)
-            print(params)
-            call_statement.methodName = command_name
-            call_statement.Statements.extend(params)
+            call_statement = visit_exec_cics_command_context(child)
+            # command_name, params = visit_exec_cics_command_context(child)
+            # logger.info(f"----------------------------______{child.getText()}_______--------------------")
+            # logger.info(params)
+            # logger.info("----------------------------_________________________________________--------------------")            
+            # call_statement.methodName = command_name
+            # call_statement.Statements.extend(params)
 
-    return call_statement
+            return call_statement
 
 
 def visit_exec_cics_command_context(ctx):
     """ Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. """
     # context_info.print_class_name(ctx)
-
     children = context_info.get_children(ctx)
     if not children:
         return "", []
-
+    call_statement = CallStatement(False)    
     command_name = children[0].getText()
+    logger.debug(f"command Name: {children[0].getText()}")
+    call_statement.methodName = children[0].getText()
     params = [Statement(child.getText()) for child in children[1:]]
-    logger.info("----------------------------_________________________________________--------------------")
-    logger.info(params)
-    logger.info("----------------------------_________________________________________--------------------")
-    
-    return command_name, params
+    for child in children[1:]:
+        methodName = child.getText()
+        call_statement.addStatement(CallStatement(False, methodName=methodName))
+        # logger.debug(f"child: {child.getText()}")
+
+    # logger.debug(call_statement)
+
+    return call_statement
+    # return command_name, params
 
 
 # ----------------------------------------------------

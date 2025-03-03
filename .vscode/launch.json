@@ -10,7 +10,7 @@
             "justMyCode": true,            
             "python": "${command:python.interpreterPath}",
             "args": [
-                ".\\Samples\\DOGEMAI*"
+                "Samples\\DOGEQ*"
             ]
         }
     ]

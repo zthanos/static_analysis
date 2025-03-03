@@ -124,4 +124,4 @@ def convert_cobol_to_json(variables):
     return json.dumps(json_structure, indent=4)
 
 
-print(convert_cobol_to_json(variables))
+# print(convert_cobol_to_json(variables))
