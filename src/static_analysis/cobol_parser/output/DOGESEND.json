@@ -12,13 +12,15 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "9970592e-b2d6-42ed-aa6f-1c881ad3bcfc",
+                    "id": "7a13b305-532c-48d7-95d5-f30e48aae223",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF EIBCALEN>ZERO",
                     "conditionClauses": [],
                     "TrueStatements": [
                         {
-                            "id": "0969e710-9b36-49db-9197-4f9c4350b223",
+                            "id": "9324bc81-b0e5-4c20-9309-b73f551337c6",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to DOGECOMMS-AREA",
                             "AssignFrom": "DFHCOMMAREA",
@@ -28,43 +30,50 @@
                     "FalseStatements": []
                 },
                 {
-                    "id": "6bd3b6bb-27dd-43e5-8dbd-e7bbf3159984",
+                    "id": "c88db2ad-8f0d-478f-97f9-fc76757bb182",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF EIBCALENEQUALTOZERO",
                     "conditionClauses": [],
                     "TrueStatements": [
                         {
-                            "id": "e6ee2be0-e629-4dcb-b138-b6e10ead99a9",
+                            "id": "b426abda-fecf-41f3-867c-8e6c9865a746",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to WTO-MESSAGE",
                             "AssignFrom": "'Displaying Send Menu'",
                             "AssignTo": "WTO-MESSAGE"
                         },
                         {
-                            "id": "4cc6cbb1-9e68-42b4-8a0c-f98fb48a0671",
+                            "id": "d960f85e-c978-4d1b-8ccc-7408791183fe",
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "DOGE-WTO",
                             "Statements": []
                         },
                         {
-                            "id": false,
+                            "id": "43dc037c-fa0f-4020-a731-83ee1bf129c7",
+                            "internal": false,
                             "type": "StatementType.CALL",
                             "methodName": "SEND",
                             "Statements": [
                                 {
                                     "id": false,
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "MAP('DOGESN1')",
                                     "Statements": []
                                 },
                                 {
                                     "id": false,
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "MAPSET('DOGESN')",
                                     "Statements": []
                                 },
                                 {
                                     "id": false,
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "ERASE",
                                     "Statements": []
@@ -74,18 +83,21 @@
                     ],
                     "FalseStatements": [
                         {
-                            "id": "17e4b061-5890-4b9e-8f02-a99d713a4416",
+                            "id": "5363e656-9e5f-4f4b-bb84-430cb7c4bd98",
+                            "internal": true,
                             "type": "StatementType.CONDITION",
                             "methodName": "IF EIBAIDEQUALTODFHPF3",
                             "conditionClauses": [],
                             "TrueStatements": [
                                 {
-                                    "id": false,
+                                    "id": "3266e001-92bf-4298-aba2-9c0688bff13a",
+                                    "internal": false,
                                     "type": "StatementType.CALL",
                                     "methodName": "XCTL",
                                     "Statements": [
                                         {
                                             "id": false,
+                                            "internal": true,
                                             "type": "StatementType.CALL",
                                             "methodName": "PROGRAM('DOGEQUIT')",
                                             "Statements": []
@@ -95,19 +107,22 @@
                             ],
                             "FalseStatements": [
                                 {
-                                    "id": "9c77303f-ce90-47bd-8e8a-ee3005fa1bae",
+                                    "id": "a2ea55fd-ee4c-4f47-8ac4-65d5a9d2df1b",
+                                    "internal": true,
                                     "type": "StatementType.CONDITION",
                                     "methodName": "IF EIBAIDEQUALTODFHENTER",
                                     "conditionClauses": [],
                                     "TrueStatements": [
                                         {
-                                            "id": "b9f47389-2a62-4a5f-ae9a-7c407c92625d",
+                                            "id": "b2c8df2d-60dd-4475-b477-43927a30ac22",
+                                            "internal": true,
                                             "type": "StatementType.CALL",
                                             "methodName": "RECEIVE-INPUT",
                                             "Statements": []
                                         },
                                         {
-                                            "id": "89a6d3f3-cbed-44e8-b5b3-e3a187742908",
+                                            "id": "a2453a23-0fc0-4219-9bc5-cf06ffc609b4",
+                                            "internal": true,
                                             "type": "StatementType.CALL",
                                             "methodName": "PARSE-INPUT",
                                             "Statements": []
@@ -120,18 +135,21 @@
                     ]
                 },
                 {
-                    "id": false,
+                    "id": "02fd40a1-259d-40c9-8ff5-e002fc270e8f",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "RETURN",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "TRANSID('DSND')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "COMMAREA(DOGECOMMS-AREA)",
                             "Statements": []
@@ -146,18 +164,21 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": false,
+                    "id": "7e816d3d-52c2-44ea-8edd-b9c31062a27e",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "WRITE",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "OPERATOR",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "TEXT(WTO-MESSAGE)",
                             "Statements": []
@@ -165,7 +186,8 @@
                     ]
                 },
                 {
-                    "id": "e66f12bf-2741-42f9-b7ad-a1b96c004290",
+                    "id": "3daf5ab1-2257-4b64-9386-bc604d1c9881",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to WTO-MESSAGE",
                     "AssignFrom": "SPACES",
@@ -179,30 +201,35 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": false,
+                    "id": "7794b74d-1ca3-4777-b9c1-78022133e0fd",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "RECEIVE",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "MAP('DOGESN1')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "MAPSET('DOGESN')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "INTO(DOGESN1I)",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "ASIS",
                             "Statements": []
@@ -217,7 +244,8 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "3a1665cd-82cc-412a-ac55-cfdb51da21fb",
+                    "id": "0278c4be-51fc-4bc5-b702-30275dac19b6",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF OPTIONIEQUALTO'T' OR",
                     "conditionClauses": [],

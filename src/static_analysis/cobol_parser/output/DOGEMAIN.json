@@ -12,13 +12,15 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "277e8b82-e0ff-430c-a73a-99692e773d20",
+                    "id": "f918953b-8ead-4d1b-b5e2-d1cf19a94ead",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF EIBCALEN>ZERO",
                     "conditionClauses": [],
                     "TrueStatements": [
                         {
-                            "id": "c0e7ee77-1780-4982-bb73-818cfef7a90c",
+                            "id": "280272eb-0361-4d9f-9065-a72e1c1dd686",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to DOGECOMMS-AREA",
                             "AssignFrom": "DFHCOMMAREA",
@@ -28,56 +30,65 @@
                     "FalseStatements": []
                 },
                 {
-                    "id": "4b4fe150-d866-4889-a7c8-12f8255d478d",
+                    "id": "d03208d3-2525-4095-a054-1dfceddd66fc",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF EIBCALENEQUALTOZERO ORSUCH-DOGE",
                     "conditionClauses": [],
                     "TrueStatements": [
                         {
-                            "id": "2e4c4661-d523-41fc-80fb-49d7400164a6",
+                            "id": "81ec2ccb-1f45-48ed-9e3a-dfe1e81de7eb",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to WTO-MESSAGE",
                             "AssignFrom": "'STARTING DOGE CICS.'",
                             "AssignTo": "WTO-MESSAGE"
                         },
                         {
-                            "id": "9eda9ce4-b7b7-43d0-95dd-23c3b2c0bdf5",
+                            "id": "5654cfa0-8b56-411e-ae0d-66a553818c45",
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "DOGE-WTO",
                             "Statements": []
                         },
                         {
-                            "id": "491a1235-84b8-4ea5-87b2-0612c6a96f37",
+                            "id": "51e72978-f0bb-4880-8dcb-601e278cfbc4",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to WTO-MESSAGE",
                             "AssignFrom": "'DISPLAYING DOGE.'",
                             "AssignTo": "WTO-MESSAGE"
                         },
                         {
-                            "id": "3f301a73-9297-4020-9fa4-cc71dec5a74a",
+                            "id": "9fb5122b-9876-4d3b-a4ba-d2c047e69fe8",
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "DOGE-WTO",
                             "Statements": []
                         },
                         {
-                            "id": false,
+                            "id": "7bee543b-4424-4a77-a22d-02e2b6902178",
+                            "internal": false,
                             "type": "StatementType.CALL",
                             "methodName": "SEND",
                             "Statements": [
                                 {
                                     "id": false,
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "MAP('DOGECN1')",
                                     "Statements": []
                                 },
                                 {
                                     "id": false,
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "MAPSET('DOGECN')",
                                     "Statements": []
                                 },
                                 {
                                     "id": false,
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "ERASE",
                                     "Statements": []
@@ -87,18 +98,21 @@
                     ],
                     "FalseStatements": [
                         {
-                            "id": "c426b877-c60a-4e89-b87d-f5a9c181533d",
+                            "id": "17d81056-bf24-4490-b188-deb4aecf93d1",
+                            "internal": true,
                             "type": "StatementType.CONDITION",
                             "methodName": "IF EIBAIDEQUALTODFHPF3",
                             "conditionClauses": [],
                             "TrueStatements": [
                                 {
-                                    "id": false,
+                                    "id": "c00c5a27-025d-480b-b618-45eef3d286f7",
+                                    "internal": false,
                                     "type": "StatementType.CALL",
                                     "methodName": "XCTL",
                                     "Statements": [
                                         {
                                             "id": false,
+                                            "internal": true,
                                             "type": "StatementType.CALL",
                                             "methodName": "PROGRAM('DOGEQUIT')",
                                             "Statements": []
@@ -108,13 +122,15 @@
                             ],
                             "FalseStatements": [
                                 {
-                                    "id": "785cbfb5-6c1f-4cdc-b68c-cb299487390b",
+                                    "id": "77b200f0-4289-45bc-aabb-8ce215cad74a",
+                                    "internal": true,
                                     "type": "StatementType.CONDITION",
                                     "methodName": "IF EIBAIDEQUALTODFHPF5",
                                     "conditionClauses": [],
                                     "TrueStatements": [
                                         {
-                                            "id": "db930753-0cec-4958-b72f-f7c606619a5e",
+                                            "id": "2be263a9-4aa6-428e-ae1e-3af479155913",
+                                            "internal": true,
                                             "type": "StatementType.CALL",
                                             "methodName": "DOGE-MAIN-SCREEN",
                                             "Statements": []
@@ -122,20 +138,23 @@
                                     ],
                                     "FalseStatements": [
                                         {
-                                            "id": "36790dfb-e920-4ba3-bf61-58a5a94fa547",
+                                            "id": "b3972971-eb96-4ded-b5fa-2955e9405db2",
+                                            "internal": true,
                                             "type": "StatementType.CONDITION",
                                             "methodName": "IF WOW-MENU",
                                             "conditionClauses": [],
                                             "TrueStatements": [
                                                 {
-                                                    "id": "27a00880-e100-4868-92c0-0bc8ea634c25",
+                                                    "id": "5608eba2-c62a-4ab8-b2cd-657889a039a0",
+                                                    "internal": true,
                                                     "type": "StatementType.ASSIGN",
                                                     "methodName": "Assign value to DOGECOMMS-AREA",
                                                     "AssignFrom": "'T'",
                                                     "AssignTo": "DOGECOMMS-AREA"
                                                 },
                                                 {
-                                                    "id": "4edf1642-8786-441f-a6d3-66a473bfac8c",
+                                                    "id": "796220a6-50c2-4e94-9d57-b5a18af2198b",
+                                                    "internal": true,
                                                     "type": "StatementType.CALL",
                                                     "methodName": "DOGE-MAIN-SCREEN",
                                                     "Statements": []
@@ -143,19 +162,22 @@
                                             ],
                                             "FalseStatements": [
                                                 {
-                                                    "id": "335e39c8-e877-4e8c-b1aa-fe273d08e5df",
+                                                    "id": "26928d1d-c333-4f07-bac8-4f9c1128410b",
+                                                    "internal": true,
                                                     "type": "StatementType.CONDITION",
                                                     "methodName": "IF EIBAIDEQUALTODFHENTER",
                                                     "conditionClauses": [],
                                                     "TrueStatements": [
                                                         {
-                                                            "id": "fb849ed0-0f35-463b-9a80-090ce974fca1",
+                                                            "id": "60311dec-f1db-4121-bf0d-2f1e109b6425",
+                                                            "internal": true,
                                                             "type": "StatementType.CALL",
                                                             "methodName": "RECEIVE-OPTION",
                                                             "Statements": []
                                                         },
                                                         {
-                                                            "id": "c941b0ea-a574-4cfe-ba3f-ce980d3ac008",
+                                                            "id": "be650cbc-2e5f-49ac-9805-53665c553252",
+                                                            "internal": true,
                                                             "type": "StatementType.CALL",
                                                             "methodName": "PARSE-OPTION",
                                                             "Statements": []
@@ -172,18 +194,21 @@
                     ]
                 },
                 {
-                    "id": false,
+                    "id": "c12a50e6-69ef-471d-8c3f-5c6581868db8",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "RETURN",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "TRANSID('DOGE')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "COMMAREA(DOGECOMMS-AREA)",
                             "Statements": []
@@ -198,7 +223,8 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "75a055cb-7aaf-44b2-93f4-c3b72aceda22",
+                    "id": "d9affa69-049b-4757-8133-c62496ced55a",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "GOBACK",
                     "Statements": []
@@ -211,37 +237,43 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "dff2b6e9-71d6-41d2-b1c1-e0cabc3fbf9c",
+                    "id": "5b1854ce-48e1-4296-b52e-5bfd6d2d318f",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to WTO-MESSAGE",
                     "AssignFrom": "'Getting Input from User.'",
                     "AssignTo": "WTO-MESSAGE"
                 },
                 {
-                    "id": "5f58b8e2-8c8c-4b3e-9f56-8dc82e43f1e7",
+                    "id": "6a94984a-f16e-4ef9-9725-d07bc30450b6",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "DOGE-WTO",
                     "Statements": []
                 },
                 {
-                    "id": false,
+                    "id": "be1eb6a3-1bc7-4438-ac2a-1e2d0cbcbf6e",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "RECEIVE",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "MAP('DOGEMN1')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "MAPSET('DOGEMN')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "INTO(DOGEMN1I)",
                             "Statements": []
@@ -256,31 +288,36 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "644e36df-06c3-4ade-8bba-23c399748801",
+                    "id": "68f48172-1bb5-4817-b5ea-9d51d756d0d2",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF OPTIONIEQUALTO'T' OROPTIONIEQUALTO'M'",
                     "conditionClauses": [],
                     "TrueStatements": [
                         {
-                            "id": "b0cc2a7b-5bfa-452d-b527-3cb3321c866c",
+                            "id": "a4aaf89a-e95a-4e06-85c9-5150f2c921da",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to WTO-MESSAGE",
                             "AssignFrom": "'Opening Transaction History'",
                             "AssignTo": "WTO-MESSAGE"
                         },
                         {
-                            "id": "525fb2b3-aaaf-4498-a8c5-5d9c2715e0c9",
+                            "id": "d3accc04-c9ba-4d4c-8140-84eccf8ba99d",
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "DOGE-WTO",
                             "Statements": []
                         },
                         {
-                            "id": false,
+                            "id": "a667a3ac-fa93-4da1-90fe-29cfcdb2e5ae",
+                            "internal": false,
                             "type": "StatementType.CALL",
                             "methodName": "XCTL",
                             "Statements": [
                                 {
                                     "id": false,
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "PROGRAM('DOGETRAN')",
                                     "Statements": []
@@ -290,31 +327,36 @@
                     ],
                     "FalseStatements": [
                         {
-                            "id": "542b8d4b-e61e-41b9-8790-adbca037fe27",
+                            "id": "d9b8d7c3-50dd-4198-bd96-22c7728cd3c2",
+                            "internal": true,
                             "type": "StatementType.CONDITION",
                             "methodName": "IF OPTIONIEQUALTO'W'",
                             "conditionClauses": [],
                             "TrueStatements": [
                                 {
-                                    "id": "a04043a6-43ca-4422-9e77-cc568677e707",
+                                    "id": "3b438609-e868-4275-9124-e5b984431173",
+                                    "internal": true,
                                     "type": "StatementType.ASSIGN",
                                     "methodName": "Assign value to WTO-MESSAGE",
                                     "AssignFrom": "'Opening Main Menu'",
                                     "AssignTo": "WTO-MESSAGE"
                                 },
                                 {
-                                    "id": "21acabdf-3a9b-45c3-9082-033f57c7e9f3",
+                                    "id": "e3c7d42e-322e-4186-9722-32ebcb0e643c",
+                                    "internal": true,
                                     "type": "StatementType.CALL",
                                     "methodName": "DOGE-WTO",
                                     "Statements": []
                                 },
                                 {
-                                    "id": false,
+                                    "id": "e277ce92-e2ab-4bd6-8342-6ae2bbb2b466",
+                                    "internal": false,
                                     "type": "StatementType.CALL",
                                     "methodName": "XCTL",
                                     "Statements": [
                                         {
                                             "id": false,
+                                            "internal": true,
                                             "type": "StatementType.CALL",
                                             "methodName": "PROGRAM('DOGECOIN')",
                                             "Statements": []
@@ -324,31 +366,36 @@
                             ],
                             "FalseStatements": [
                                 {
-                                    "id": "5742154d-40d3-498e-8f2d-95f578808ffe",
+                                    "id": "72acef60-6b44-43a9-8846-ae9742ca291a",
+                                    "internal": true,
                                     "type": "StatementType.CONDITION",
                                     "methodName": "IF OPTIONIEQUALTO'D'",
                                     "conditionClauses": [],
                                     "TrueStatements": [
                                         {
-                                            "id": "646b5a53-d091-4b60-a926-1aabaf6e7298",
+                                            "id": "8555042d-f2ba-4444-ac8c-6a5b435dc5e0",
+                                            "internal": true,
                                             "type": "StatementType.ASSIGN",
                                             "methodName": "Assign value to WTO-MESSAGE",
                                             "AssignFrom": "'Opening Transaction Details'",
                                             "AssignTo": "WTO-MESSAGE"
                                         },
                                         {
-                                            "id": "f94f8df7-9db4-47f5-81d7-c23eeeaea739",
+                                            "id": "6bfb0354-a868-4c72-bdd9-80e07bc3cdb2",
+                                            "internal": true,
                                             "type": "StatementType.CALL",
                                             "methodName": "DOGE-WTO",
                                             "Statements": []
                                         },
                                         {
-                                            "id": false,
+                                            "id": "8dd3eaf6-003c-49fc-b111-b65a2e3f2981",
+                                            "internal": false,
                                             "type": "StatementType.CALL",
                                             "methodName": "XCTL",
                                             "Statements": [
                                                 {
                                                     "id": false,
+                                                    "internal": true,
                                                     "type": "StatementType.CALL",
                                                     "methodName": "PROGRAM('DOGEDEET')",
                                                     "Statements": []
@@ -358,31 +405,36 @@
                                     ],
                                     "FalseStatements": [
                                         {
-                                            "id": "ef9f71a1-94a8-4727-944a-8ba5885ed56d",
+                                            "id": "24c118f8-5532-4ac3-ab88-4ce32dadafb4",
+                                            "internal": true,
                                             "type": "StatementType.CONDITION",
                                             "methodName": "IF OPTIONIEQUALTO'S'",
                                             "conditionClauses": [],
                                             "TrueStatements": [
                                                 {
-                                                    "id": "ab55c40a-5c65-4bf3-b815-497b7c09f129",
+                                                    "id": "c9cc3cc3-3daa-4b0a-b306-7ecf57951ae5",
+                                                    "internal": true,
                                                     "type": "StatementType.ASSIGN",
                                                     "methodName": "Assign value to WTO-MESSAGE",
                                                     "AssignFrom": "'Opening Such Send'",
                                                     "AssignTo": "WTO-MESSAGE"
                                                 },
                                                 {
-                                                    "id": "dee9ea6d-1110-4a4e-ac0f-39a2981184af",
+                                                    "id": "6ff5b94a-995f-46a6-ac88-f8cbae8a0208",
+                                                    "internal": true,
                                                     "type": "StatementType.CALL",
                                                     "methodName": "DOGE-WTO",
                                                     "Statements": []
                                                 },
                                                 {
-                                                    "id": false,
+                                                    "id": "a0d147a2-ea7f-4a75-b945-b6a6ccb2c43f",
+                                                    "internal": false,
                                                     "type": "StatementType.CALL",
                                                     "methodName": "XCTL",
                                                     "Statements": [
                                                         {
                                                             "id": false,
+                                                            "internal": true,
                                                             "type": "StatementType.CALL",
                                                             "methodName": "PROGRAM('DOGESEND')",
                                                             "Statements": []
@@ -399,7 +451,8 @@
                     ]
                 },
                 {
-                    "id": "409faa6e-5624-4abc-8f9e-2f2d021ab8a7",
+                    "id": "1a24d939-e59c-4859-a43c-b84883042145",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to WTO-MESSAGE",
                     "AssignFrom": "SPACES",
@@ -413,31 +466,36 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "775c0a78-3651-4412-93e3-9d5763be0d9b",
+                    "id": "371a0b7c-f14b-4b11-89cb-fd911a20d483",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to WTO-MESSAGE",
                     "AssignFrom": "'Sending Doge CICS Main Screen.'",
                     "AssignTo": "WTO-MESSAGE"
                 },
                 {
-                    "id": "cbbd8eca-f72b-492d-80e4-b417de2ccead",
+                    "id": "0c8fd34c-f16a-4a1f-be41-dbe9a0fb3947",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "DOGE-WTO",
                     "Statements": []
                 },
                 {
-                    "id": false,
+                    "id": "3360da98-020a-4178-bbde-feb1391aee3b",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "STARTBR",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "RIDFLD(START-RECORD-ID)",
                             "Statements": []
@@ -445,24 +503,28 @@
                     ]
                 },
                 {
-                    "id": false,
+                    "id": "063a7181-5c84-4df9-9ece-bd7eee6eedd9",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "READPREV",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "RIDFLD(START-RECORD-ID)",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "INTO(TRANSACTION)",
                             "Statements": []
@@ -470,24 +532,28 @@
                     ]
                 },
                 {
-                    "id": false,
+                    "id": "6a462db3-c48d-45e5-99b8-5e603f6a301f",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "READPREV",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "RIDFLD(START-RECORD-ID)",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "INTO(TRANSACTION)",
                             "Statements": []
@@ -495,57 +561,66 @@
                     ]
                 },
                 {
-                    "id": "de619c68-0c77-41a0-8ca4-55d006861b4d",
+                    "id": "f09c2665-2c33-4a62-bf5b-4d53eb90e0e9",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "CONVERT-DATE",
                     "Statements": []
                 },
                 {
-                    "id": "27b2405b-c1a0-4197-af3c-885c99a43bb0",
+                    "id": "2f1cc788-0d3e-4c84-b8dd-b359cd83d8c2",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to DLABEL",
                     "AssignFrom": "TLABEL",
                     "AssignTo": "DLABEL"
                 },
                 {
-                    "id": "07b8165c-985f-4fcc-95cb-aacceac909d3",
+                    "id": "d95bd23f-58e1-48fc-a297-c39b14204052",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "CONVERT-AMOUNT-TO-DISPLAY",
                     "Statements": []
                 },
                 {
-                    "id": "e391a5c6-4ff7-4d1d-82ae-e4fef6f63d52",
+                    "id": "fda72e3a-7b0b-4e49-9a61-062467c4654c",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to RECNT2C",
                     "AssignFrom": "RECENT-COLOR",
                     "AssignTo": "RECNT2C"
                 },
                 {
-                    "id": "d6ab63bd-3fa2-4e02-a3e7-9b2b9677af1e",
+                    "id": "a6379173-263d-4ae8-becc-e1b19b8f7d1e",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to RECNT2O",
                     "AssignFrom": "DISPLAY-TRAN",
                     "AssignTo": "RECNT2O"
                 },
                 {
-                    "id": false,
+                    "id": "b6b90fdf-3631-4c10-8b47-9260ea897fd0",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "READPREV",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "RIDFLD(START-RECORD-ID)",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "INTO(TRANSACTION)",
                             "Statements": []
@@ -553,46 +628,53 @@
                     ]
                 },
                 {
-                    "id": "87f9d741-1a07-4f86-8016-996b6b133ec5",
+                    "id": "67466c03-9315-4abd-aee5-20d0a0859fae",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "CONVERT-DATE",
                     "Statements": []
                 },
                 {
-                    "id": "61f3d647-3a86-4a4d-b4fb-05f4af8fc616",
+                    "id": "816dbca8-8f6b-439b-b1c4-36f605a9fc99",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to DLABEL",
                     "AssignFrom": "TLABEL",
                     "AssignTo": "DLABEL"
                 },
                 {
-                    "id": "b4daffed-0c5d-4c8c-9a25-9f85b62ec57d",
+                    "id": "69bb3dbb-c4a1-4603-a757-b083d8303f69",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "CONVERT-AMOUNT-TO-DISPLAY",
                     "Statements": []
                 },
                 {
-                    "id": "51082179-dd1a-4c29-897b-dd16d422d898",
+                    "id": "841d1ae1-4000-4251-a4ff-707ba8b66e6b",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to RECNT1C",
                     "AssignFrom": "RECENT-COLOR",
                     "AssignTo": "RECNT1C"
                 },
                 {
-                    "id": "4967bf94-4c5b-4c6c-9c98-23714c98b8d2",
+                    "id": "4d702803-e781-4a74-82ec-70ae83f13584",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF TDATE=0000000002",
                     "conditionClauses": [],
                     "TrueStatements": [
                         {
-                            "id": "4776d9b2-7378-4649-b898-462f5af35771",
+                            "id": "3fd2ff3b-a189-447e-b286-67aac29fed74",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to RECNT1O",
                             "AssignFrom": "RECNT2O",
                             "AssignTo": "RECNT1O"
                         },
                         {
-                            "id": "2e7c222f-ccb8-4773-bfa4-62202d75f9d3",
+                            "id": "e15ed3e8-0bae-4bd1-b4d9-f4aab1123662",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to RECNT1O",
                             "AssignFrom": "SPACES",
@@ -601,7 +683,8 @@
                     ],
                     "FalseStatements": [
                         {
-                            "id": "b5d98e65-0b19-46b9-bccf-7216b7a53090",
+                            "id": "452f55fe-52df-44bf-aa08-1687427f66d6",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to RECNT1O",
                             "AssignFrom": "DISPLAY-TRAN",
@@ -610,25 +693,29 @@
                     ]
                 },
                 {
-                    "id": "aaacf6ab-2cc9-45f0-9e5e-713c56afad1f",
+                    "id": "f5a308c8-0037-4e97-a2da-da26aae6d8ef",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to START-RECORD-ID",
                     "AssignFrom": "0000000001",
                     "AssignTo": "START-RECORD-ID"
                 },
                 {
-                    "id": false,
+                    "id": "e287285c-8ed7-4d6c-bce5-7d00238d13d7",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "RESETBR",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "RIDFLD(START-RECORD-ID)",
                             "Statements": []
@@ -636,24 +723,28 @@
                     ]
                 },
                 {
-                    "id": false,
+                    "id": "e635b1bb-d42e-4586-9307-93f6235d889a",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "READNEXT",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "RIDFLD(START-RECORD-ID)",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "INTO(TRANSACTION)",
                             "Statements": []
@@ -661,44 +752,51 @@
                     ]
                 },
                 {
-                    "id": "4ef2d720-eea9-4dfb-b6e2-46b5119bb606",
+                    "id": "3eeaefd2-baa2-45b3-b965-952ae7306dde",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "CONVERT-AMOUNT-TO-DISPLAY",
                     "Statements": []
                 },
                 {
-                    "id": "d0d05b6c-fb14-4714-9b41-2649a23ab55c",
+                    "id": "a30b91a9-a864-48fb-b705-1c8982be693f",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to AVAILABLE-AMOUNT",
                     "AssignFrom": "THE-AMOUNT",
                     "AssignTo": "AVAILABLE-AMOUNT"
                 },
                 {
-                    "id": "d363cecc-0210-4bdd-882d-7810f97f9847",
+                    "id": "354b99cf-824b-4779-b50d-50cfa6fc591f",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to AVAILO",
                     "AssignFrom": "THE-AMOUNT",
                     "AssignTo": "AVAILO"
                 },
                 {
-                    "id": false,
+                    "id": "d5b10a4d-d7a4-4040-bf8a-26f7f1ec5db2",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "READNEXT",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "RIDFLD(START-RECORD-ID)",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "INTO(TRANSACTION)",
                             "Statements": []
@@ -706,32 +804,37 @@
                     ]
                 },
                 {
-                    "id": "32f18c17-3b16-42e9-95b3-0e70e51d902a",
+                    "id": "1491b290-0e40-4a2e-bedd-1a48ce4bd206",
+                    "internal": true,
                     "type": "StatementType.CALL",
                     "methodName": "CONVERT-AMOUNT-TO-DISPLAY",
                     "Statements": []
                 },
                 {
-                    "id": "0f70bc4c-b43c-4240-b7f0-30836ed2485d",
+                    "id": "24df3de1-16b4-4b1c-aa87-2d72f030c50e",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to PENDNGO",
                     "AssignFrom": "THE-AMOUNT",
                     "AssignTo": "PENDNGO"
                 },
                 {
-                    "id": "3efff1bd-b1f8-42f6-91d7-f8215459b716",
+                    "id": "af1332f7-e841-43ee-8dc4-f6c0e54397ed",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to TOTALO",
                     "AssignFrom": "THE-AMOUNT",
                     "AssignTo": "TOTALO"
                 },
                 {
-                    "id": false,
+                    "id": "5928a583-4fd3-4878-9793-ba4171f77bc6",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "ENDBR",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "FILE('DOGEVSAM')",
                             "Statements": []
@@ -739,24 +842,28 @@
                     ]
                 },
                 {
-                    "id": false,
+                    "id": "f9cbc45f-5df6-4fc1-b524-bb4a92a99a0d",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "SEND",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "MAP('DOGEMN1')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "MAPSET('DOGEMN')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "ERASE",
                             "Statements": []
@@ -771,34 +878,39 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "c00f727a-8385-4985-9cd9-5f43feede5fd",
+                    "id": "dcd33b3a-b0cd-4d96-a9c2-7e840ecb5f13",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to RECENT-COLOR",
                     "AssignFrom": "DFHGREEN",
                     "AssignTo": "RECENT-COLOR"
                 },
                 {
-                    "id": "f39055cb-5a61-424e-8a94-fcadeda2182c",
+                    "id": "ec84e793-7ad5-4e48-9e56-ad796a47094e",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to THE-AMOUNT-INTEGER",
                     "AssignFrom": "TAMT-INTEGER-PART",
                     "AssignTo": "THE-AMOUNT-INTEGER"
                 },
                 {
-                    "id": "0210cc30-a318-466d-921c-bb74b9c894e3",
+                    "id": "d84f18ff-afa6-42ff-bf45-74f5eaaac10a",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to THE-AMOUNT-DECIMAL",
                     "AssignFrom": "TAMT-DECIMAL-PART",
                     "AssignTo": "THE-AMOUNT-DECIMAL"
                 },
                 {
-                    "id": "71ccc3f1-2184-4292-989d-45d3725218e4",
+                    "id": "67bcc4e3-fb46-485b-90f1-29a054bd9b51",
+                    "internal": true,
                     "type": "StatementType.CONDITION",
                     "methodName": "IF TAMT-SIGN-NEGATIVE",
                     "conditionClauses": [],
                     "TrueStatements": [
                         {
-                            "id": "55e32472-500e-4cd4-8651-8f2d0a92ea45",
+                            "id": "fabb4256-eb8e-4efa-a119-c95f3ab8c2ce",
+                            "internal": true,
                             "type": "StatementType.ASSIGN",
                             "methodName": "Assign value to RECENT-COLOR",
                             "AssignFrom": "DFHRED",
@@ -808,14 +920,16 @@
                     "FalseStatements": []
                 },
                 {
-                    "id": "544d54bc-5bf6-4908-8b17-b1e6d361dd85",
+                    "id": "c64bbd3d-fa6e-4be9-91a9-1537b8bbff34",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to DAMOUNT",
                     "AssignFrom": "THE-AMOUNT",
                     "AssignTo": "DAMOUNT"
                 },
                 {
-                    "id": "91b2d186-a41e-4317-9937-582a0cc03e24",
+                    "id": "96cf764f-339f-4938-835b-6b2d96b67db5",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to DSIGN",
                     "AssignFrom": "TAMT-SIGN",
@@ -829,31 +943,36 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": "89e3ead6-b388-41a7-8942-acc5c474f54a",
+                    "id": "89d99104-0f6b-4ccc-afad-4ac5c862ddd9",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to TEMP-DATE",
                     "AssignFrom": "NUM-DATE",
                     "AssignTo": "TEMP-DATE"
                 },
                 {
-                    "id": false,
+                    "id": "f84058bf-5136-4ac5-a3da-f272cf0863f0",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "FORMATTIME",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "ABSTIME(TEMP-DATE)",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "DATESEP('/')",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "MMDDYYYY(DDATE)",
                             "Statements": []
@@ -868,18 +987,21 @@
             "Output": {},
             "Statements": [
                 {
-                    "id": false,
+                    "id": "7254d02c-a358-45de-a9dd-9156b6f9ace0",
+                    "internal": false,
                     "type": "StatementType.CALL",
                     "methodName": "WRITE",
                     "Statements": [
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "OPERATOR",
                             "Statements": []
                         },
                         {
                             "id": false,
+                            "internal": true,
                             "type": "StatementType.CALL",
                             "methodName": "TEXT(WTO-MESSAGE)",
                             "Statements": []
@@ -887,7 +1009,8 @@
                     ]
                 },
                 {
-                    "id": "e29e8740-d102-4c96-b0cd-7714ef4017f7",
+                    "id": "e8fa74ae-f602-4b98-a00f-248387d21399",
+                    "internal": true,
                     "type": "StatementType.ASSIGN",
                     "methodName": "Assign value to WTO-MESSAGE",
                     "AssignFrom": "SPACES",

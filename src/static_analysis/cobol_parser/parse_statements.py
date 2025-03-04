@@ -214,7 +214,7 @@ def visit_exec_cics_command_context(ctx):
     children = context_info.get_children(ctx)
     if not children:
         return "", []
-    call_statement = CallStatement(False)    
+    call_statement = CallStatement(internal=False)    
     command_name = children[0].getText()
     logger.debug(f"command Name: {children[0].getText()}")
     call_statement.methodName = children[0].getText()

@@ -7,15 +7,15 @@ from typing import List
 class CallStatement(Statement):
     """Represents a COBOL PERFORM, CALL, or EXEC CICS statement."""
     Statements: List["Statement"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS
-
-    def __post_init__(self, is_internal = True):
+    internal: bool = True
+    
+    def __post_init__(self):
         self.type = StatementType.CALL
-        self.Internal = is_internal
 
     @property
     def raw(self) -> str:
         """Returns the raw execution string."""
-        call_type = "Perform" if self.Internal else "Call"
+        call_type = "Perform" if self.internal else "Call"
         return f"{call_type} {self.methodName}"
 
     def addStatement(self, statement: "Statement"):

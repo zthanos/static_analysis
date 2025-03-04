@@ -550,6 +550,46 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
         "label": "Cobol85Lexer",
         "importPath": "grammars.Cobol85Lexer",
         "description": "grammars.Cobol85Lexer",
@@ -882,6 +922,54 @@
         "documentation": {}
     },
     {
+        "label": "get_flow",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_condition",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_assignment",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_internal_call",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_external_call",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "process_json_data",
+        "importPath": "sequence",
+        "description": "sequence",
+        "isExtraImport": true,
+        "detail": "sequence",
+        "documentation": {}
+    },
+    {
         "label": "ConditionClause",
         "kind": 6,
         "importPath": "src.static_analysis.cobol_parser.models.ConditionClause",
@@ -904,7 +992,7 @@
         "kind": 6,
         "importPath": "src.static_analysis.cobol_parser.models.Statement",
         "description": "src.static_analysis.cobol_parser.models.Statement",
-        "peekOfCode": "class Statement:\n    \"\"\"Base class for all COBOL statements.\"\"\"\n    id: str = field(default_factory=lambda: str(uuid.uuid4()))\n    type: StatementType = StatementType.OTHER\n    methodName: str = \"\"\n    def to_json(self):\n        return {\n            \"id\": self.id,\n            \"type\": self.type.name \n        }",
+        "peekOfCode": "class Statement:\n    \"\"\"Base class for all COBOL statements.\"\"\"\n    id: str = field(default_factory=lambda: str(uuid.uuid4()))\n    internal: bool = True\n    type: StatementType = StatementType.OTHER\n    methodName: str = \"\"\n    def to_json(self):\n        return {\n            \"id\": self.id,\n            \"type\": self.type.name,",
         "detail": "src.static_analysis.cobol_parser.models.Statement",
         "documentation": {}
     },
@@ -949,7 +1037,7 @@
         "kind": 6,
         "importPath": "src.static_analysis.cobol_parser.models.CallStatement",
         "description": "src.static_analysis.cobol_parser.models.CallStatement",
-        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self, is_internal = True):\n        self.type = StatementType.CALL\n        self.Internal = is_internal\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.Internal else \"Call\"",
+        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    internal: bool = True\n    def __post_init__(self):\n        self.type = StatementType.CALL\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.internal else \"Call\"",
         "detail": "src.static_analysis.cobol_parser.models.CallStatement",
         "documentation": {}
     },
@@ -1624,7 +1712,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_exec_cics_command_context(ctx):\n    \"\"\" Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. \"\"\"\n    # context_info.print_class_name(ctx)\n    children = context_info.get_children(ctx)\n    if not children:\n        return \"\", []\n    call_statement = CallStatement(False)    \n    command_name = children[0].getText()\n    logger.debug(f\"command Name: {children[0].getText()}\")\n    call_statement.methodName = children[0].getText()",
+        "peekOfCode": "def visit_exec_cics_command_context(ctx):\n    \"\"\" Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. \"\"\"\n    # context_info.print_class_name(ctx)\n    children = context_info.get_children(ctx)\n    if not children:\n        return \"\", []\n    call_statement = CallStatement(internal=False)    \n    command_name = children[0].getText()\n    logger.debug(f\"command Name: {children[0].getText()}\")\n    call_statement.methodName = children[0].getText()",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1975,7 +2063,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    for statement in flow['Statements']:\n        rate=0\n        match statement['type']:",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    rate = evaluate_paragraph(json_data, flow['Statements'])\n    return rate\ndef evaluate_paragraph(json_data, paragraph):",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -1984,7 +2072,34 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    for statement in flow['Statements']:\n        rate=0\n        match statement['type']:\n            case 'StatementType.CONDITION': rate = 30\n            case 'StatementType.CALL': rate = 50\n            case 'StatementType.ASSIGN': rate = 10\n            case 'StatementType.OTHER': rate = 5",
+        "peekOfCode": "def evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    rate = evaluate_paragraph(json_data, flow['Statements'])\n    return rate\ndef evaluate_paragraph(json_data, paragraph):\n    if not paragraph:\n        return 0\n    for statement in paragraph:\n        rate=0",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_paragraph",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def evaluate_paragraph(json_data, paragraph):\n    if not paragraph:\n        return 0\n    for statement in paragraph:\n        rate=0\n        true_path=0\n        false_path=0\n        match statement['type']:\n            case 'StatementType.CONDITION': \n                true_path, false_path = process_condition(json_data, statement)",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "process_call",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def process_call(json_data, statement):\n    is_internal_call = statement['internal']  == True\n    rate = 40 if is_internal_call  == True else 50\n    return rate\ndef process_condition(json_data, statement):\n    true_rate = 0\n    false_rate = 0\n    if statement['TrueStatements']:\n        true_rate = evaluate_paragraph(json_data, statement['TrueStatements'])\n    if statement['FalseStatements']: ",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "process_condition",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def process_condition(json_data, statement):\n    true_rate = 0\n    false_rate = 0\n    if statement['TrueStatements']:\n        true_rate = evaluate_paragraph(json_data, statement['TrueStatements'])\n    if statement['FalseStatements']: \n        false_rate = evaluate_paragraph(json_data, statement['FalseStatements'])\n    print(f\"{statement['methodName']} true_score: {true_rate} false_score: {false_rate}\")\n    return true_rate, false_rate\ndef get_flow(data, flow_name):",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -1993,7 +2108,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flows\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))\n    else:\n        print(\"Node '00000-MAIN' not found.\")\n    return None\nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\process_results\\\\DOGEMAIN.json\")",
+        "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))\n    else:\n        logger.info(f\"Node '{flow_name}' not found.\")\n    return None\nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\cobol_parser\\\\output\\\\DOGEMAIN.json\")",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2002,8 +2117,26 @@
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    for statement in flow['Statements']:\n        rate=0",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    rate = evaluate_paragraph(json_data, flow['Statements'])\n    return rate",
         "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "setup_logger",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.logger",
+        "description": "src.static_analysis.process_results.logger",
+        "peekOfCode": "def setup_logger(name, log_file, level=logging.DEBUG):\n    \"\"\"Function to setup a logger\"\"\"\n    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\n    console_handler = logging.StreamHandler()\n    handler = logging.FileHandler(log_file)        \n    console_handler.setFormatter(formatter)\n    handler.setFormatter(formatter)\n    logger = logging.getLogger(name)\n    logger.setLevel(level)\n    logger.addHandler(handler)",
+        "detail": "src.static_analysis.process_results.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.logger",
+        "description": "src.static_analysis.process_results.logger",
+        "peekOfCode": "logger = setup_logger('AnalyzerLogger', 'analyzer.log')",
+        "detail": "src.static_analysis.process_results.logger",
         "documentation": {}
     },
     {
@@ -2011,7 +2144,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.diagrams.swimlane",
         "description": "src.static_analysis.diagrams.swimlane",
-        "peekOfCode": "def process_json_data(json_file, entry_point):\n    plantuml = []\n    print(BASE_DIR)\n    print(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    program_name = data[\"Program\"]\n    plantuml.append(f\"title {program_name}\")\n    plantuml.append(\"!theme materia\")\n    system = \"\" #data[\"Program\"].get(\"system\", \"\")",
+        "peekOfCode": "def process_json_data(json_file, entry_point):\n    plantuml = []\n    logger.debug(BASE_DIR)\n    logger.debug(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    plantuml.append(\"scale 1.5\")\n    program_name = data.get(\"ProgramId\")\n    plantuml.append(f\"title {program_name}\")\n    plantuml.append(\"!theme materia\")",
         "detail": "src.static_analysis.diagrams.swimlane",
         "documentation": {}
     },
@@ -2020,7 +2153,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.diagrams.swimlane",
         "description": "src.static_analysis.diagrams.swimlane",
-        "peekOfCode": "def process_statement(data, statement, lane, expanded = True):\n    plantuml=[]\n    if is_condition(statement):\n        plantuml.append(f\"  if ({statement[\"methodName\"]}) then (true)\")\n        for st in statement[\"TrueStatements\"]:\n                plantuml.append(f\"|{lane}|\")            \n                plantuml.extend(process_statement(data, st, lane))\n        if statement[\"FalseStatements\"]:\n            plantuml.append(\"else (false)\")\n            for st in statement[\"FalseStatements\"]:",
+        "peekOfCode": "def process_statement(data, statement, lane, expanded = True):\n    plantuml=[]\n    plantuml.append(f'|{lane}|')\n    if is_condition(statement):\n        plantuml.append(f'  if ({statement.get(\"methodName\")}) then (true)')\n        for st in statement.get('TrueStatements'):\n            plantuml.extend(process_statement(data, st, lane))\n        if statement.get(\"FalseStatements\"):\n            plantuml.append(\"else (false)\")\n            for st in statement.get(\"FalseStatements\"):",
         "detail": "src.static_analysis.diagrams.swimlane",
         "documentation": {}
     },
@@ -2029,7 +2162,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.diagrams.swimlane",
         "description": "src.static_analysis.diagrams.swimlane",
-        "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flows\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))\n    else:\n        print(\"Node '00000-MAIN' not found.\")\n    return None\ndef is_condition(statement):\n    return statement[\"type\"] == \"StatementType.CONDITION\"",
+        "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))\n    else:\n        logger.info(f\"Node '{flow_name}' not found.\")\n    return None\ndef is_condition(statement):\n    return statement.get(\"type\") == \"StatementType.CONDITION\"",
         "detail": "src.static_analysis.diagrams.swimlane",
         "documentation": {}
     },
@@ -2038,7 +2171,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.diagrams.swimlane",
         "description": "src.static_analysis.diagrams.swimlane",
-        "peekOfCode": "def is_condition(statement):\n    return statement[\"type\"] == \"StatementType.CONDITION\"\ndef is_internal_call(statement):\n    return statement[\"type\"] == \"StatementType.CALL\"    \ndef is_external_call(statement):\n    return statement[\"type\"] == \"StatementType.CICS\"    \nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\process_results\\\\DOGEMAIN.json\")\n    # print(json_path)\n    # with open(json_path) as f:",
+        "peekOfCode": "def is_condition(statement):\n    return statement.get(\"type\") == \"StatementType.CONDITION\"\ndef is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False\nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\cobol_parser\\\\output\\\\DOGEMAIN.json\")\n    # print(json_path)\n    # with open(json_path) as f:",
         "detail": "src.static_analysis.diagrams.swimlane",
         "documentation": {}
     },
@@ -2047,7 +2180,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.diagrams.swimlane",
         "description": "src.static_analysis.diagrams.swimlane",
-        "peekOfCode": "def is_internal_call(statement):\n    return statement[\"type\"] == \"StatementType.CALL\"    \ndef is_external_call(statement):\n    return statement[\"type\"] == \"StatementType.CICS\"    \nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\process_results\\\\DOGEMAIN.json\")\n    # print(json_path)\n    # with open(json_path) as f:\n    #     data = json.load(f)\n    process_json_data(json_path, '00000-MAIN')      ",
+        "peekOfCode": "def is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False\nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\cobol_parser\\\\output\\\\DOGEMAIN.json\")\n    # print(json_path)\n    # with open(json_path) as f:\n    #     data = json.load(f)\n    process_json_data(json_path, '00000-MAIN')      ",
         "detail": "src.static_analysis.diagrams.swimlane",
         "documentation": {}
     },
@@ -2056,7 +2189,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.diagrams.swimlane",
         "description": "src.static_analysis.diagrams.swimlane",
-        "peekOfCode": "def is_external_call(statement):\n    return statement[\"type\"] == \"StatementType.CICS\"    \nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\process_results\\\\DOGEMAIN.json\")\n    # print(json_path)\n    # with open(json_path) as f:\n    #     data = json.load(f)\n    process_json_data(json_path, '00000-MAIN')      \n    print(\"Analysis Completed!\")",
+        "peekOfCode": "def is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False\nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\cobol_parser\\\\output\\\\DOGEMAIN.json\")\n    # print(json_path)\n    # with open(json_path) as f:\n    #     data = json.load(f)\n    process_json_data(json_path, '00000-MAIN')      \n    print(\"Analysis Completed!\")",
         "detail": "src.static_analysis.diagrams.swimlane",
         "documentation": {}
     },
@@ -2065,8 +2198,134 @@
         "kind": 5,
         "importPath": "src.static_analysis.diagrams.swimlane",
         "description": "src.static_analysis.diagrams.swimlane",
-        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file, entry_point):\n    plantuml = []\n    print(BASE_DIR)\n    print(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    program_name = data[\"Program\"]\n    plantuml.append(f\"title {program_name}\")\n    plantuml.append(\"!theme materia\")",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file, entry_point):\n    plantuml = []\n    logger.debug(BASE_DIR)\n    logger.debug(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    plantuml.append(\"scale 1.5\")\n    program_name = data.get(\"ProgramId\")\n    plantuml.append(f\"title {program_name}\")",
         "detail": "src.static_analysis.diagrams.swimlane",
+        "documentation": {}
+    },
+    {
+        "label": "setup_logger",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.logger",
+        "description": "src.static_analysis.diagrams.logger",
+        "peekOfCode": "def setup_logger(name, log_file, level=logging.DEBUG):\n    \"\"\"Function to setup a logger\"\"\"\n    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\n    console_handler = logging.StreamHandler()\n    handler = logging.FileHandler(log_file)        \n    console_handler.setFormatter(formatter)\n    handler.setFormatter(formatter)\n    logger = logging.getLogger(name)\n    logger.setLevel(level)\n    logger.addHandler(handler)",
+        "detail": "src.static_analysis.diagrams.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.static_analysis.diagrams.logger",
+        "description": "src.static_analysis.diagrams.logger",
+        "peekOfCode": "logger = setup_logger('DiagramsLogger', 'diagrans.log')",
+        "detail": "src.static_analysis.diagrams.logger",
+        "documentation": {}
+    },
+    {
+        "label": "process_json_data",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.sequence",
+        "description": "src.static_analysis.diagrams.sequence",
+        "peekOfCode": "def process_json_data(json_file, entry_point):\n    plantuml = []\n    logger.debug(BASE_DIR)\n    logger.debug(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    # plantuml.append(\"scale 1.5\")\n    program_name = data.get(\"ProgramId\")\n    plantuml.append(f\"title {program_name}\")\n    plantuml.append(\"!theme materia\")",
+        "detail": "src.static_analysis.diagrams.sequence",
+        "documentation": {}
+    },
+    {
+        "label": "process_statement",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.sequence",
+        "description": "src.static_analysis.diagrams.sequence",
+        "peekOfCode": "def process_statement(data, statement, flow_name):\n    plantuml = []\n    if is_condition(statement):\n        plantuml.append(f'alt \"{statement.get(\"methodName\")}\"')\n        if statement.get('TrueStatements'):\n            for st in statement.get('TrueStatements'):\n                plantuml.extend(process_statement(data, st, flow_name ))\n                # plantuml.append(f'\"{flow_name}\" -> \"{st.get(\"methodName\")}\": \"{st.get(\"methodName\")}\"')\n            if statement.get('FalseStatements'):                \n                plantuml.append(\"else\")",
+        "detail": "src.static_analysis.diagrams.sequence",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "src.static_analysis.diagrams.sequence",
+        "description": "src.static_analysis.diagrams.sequence",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file, entry_point):\n    plantuml = []\n    logger.debug(BASE_DIR)\n    logger.debug(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    # plantuml.append(\"scale 1.5\")\n    program_name = data.get(\"ProgramId\")\n    plantuml.append(f\"title {program_name}\")",
+        "detail": "src.static_analysis.diagrams.sequence",
+        "documentation": {}
+    },
+    {
+        "label": "get_flow",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.parse_json",
+        "description": "src.static_analysis.diagrams.parse_json",
+        "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n    else:\n        logger.info(f\"Node '{flow_name}' not found.\")\n    return None\ndef is_condition(statement):\n    return statement.get(\"type\") == \"StatementType.CONDITION\"\ndef is_assignment(statement):",
+        "detail": "src.static_analysis.diagrams.parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_condition",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.parse_json",
+        "description": "src.static_analysis.diagrams.parse_json",
+        "peekOfCode": "def is_condition(statement):\n    return statement.get(\"type\") == \"StatementType.CONDITION\"\ndef is_assignment(statement):\n    return statement.get(\"type\") == \"StatementType.ASSIGN\"\ndef is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
+        "detail": "src.static_analysis.diagrams.parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_assignment",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.parse_json",
+        "description": "src.static_analysis.diagrams.parse_json",
+        "peekOfCode": "def is_assignment(statement):\n    return statement.get(\"type\") == \"StatementType.ASSIGN\"\ndef is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
+        "detail": "src.static_analysis.diagrams.parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_internal_call",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.parse_json",
+        "description": "src.static_analysis.diagrams.parse_json",
+        "peekOfCode": "def is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
+        "detail": "src.static_analysis.diagrams.parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_external_call",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.parse_json",
+        "description": "src.static_analysis.diagrams.parse_json",
+        "peekOfCode": "def is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
+        "detail": "src.static_analysis.diagrams.parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "create_output_dir",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.gen_diagram",
+        "description": "src.static_analysis.diagrams.gen_diagram",
+        "peekOfCode": "def create_output_dir(output_dir=\"output\"):\n    \"\"\" Δημιουργεί τον φάκελο εξόδου αν δεν υπάρχει \"\"\"\n    os.makedirs(output_dir, exist_ok=True)\n    return output_dir\ndef save_diagram_to_file(static_analysis, file_path, output_dir=\"output\"):\n    \"\"\" Αποθηκεύει τα αποτελέσματα της ανάλυσης σε JSON αρχείο \"\"\"\n    logger.info(f\"Saving file {file_path}...\")\n    file_name = os.path.basename(file_path)\n    file_name_without_ext = os.path.splitext(file_name)[0]\n    output_file = os.path.join(output_dir, f\"{file_name_without_ext}.json\")",
+        "detail": "src.static_analysis.diagrams.gen_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "save_diagram_to_file",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.gen_diagram",
+        "description": "src.static_analysis.diagrams.gen_diagram",
+        "peekOfCode": "def save_diagram_to_file(static_analysis, file_path, output_dir=\"output\"):\n    \"\"\" Αποθηκεύει τα αποτελέσματα της ανάλυσης σε JSON αρχείο \"\"\"\n    logger.info(f\"Saving file {file_path}...\")\n    file_name = os.path.basename(file_path)\n    file_name_without_ext = os.path.splitext(file_name)[0]\n    output_file = os.path.join(output_dir, f\"{file_name_without_ext}.json\")\n    json_output = static_analysis.to_json()\n    with open(output_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(json_output)\n    print(f\"Ανάλυση αποθηκεύτηκε στο: {output_file}\")",
+        "detail": "src.static_analysis.diagrams.gen_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "process_files",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.gen_diagram",
+        "description": "src.static_analysis.diagrams.gen_diagram",
+        "peekOfCode": "def process_files(file_pattern):\n    \"\"\"\n    Βρίσκει και επεξεργάζεται αρχεία COBOL με βάση το file_pattern.\n    :param file_pattern: Το όνομα αρχείου ή wildcard (π.χ. \"*.cbl\").\n    \"\"\"\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    pattern = os.path.join(script_dir, file_pattern)\n    files = glob.glob(pattern)\n    if not files:\n        print(f\"Δεν βρέθηκαν αρχεία που να ταιριάζουν με το μοτίβο: {file_pattern}\")",
+        "detail": "src.static_analysis.diagrams.gen_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.gen_diagram",
+        "description": "src.static_analysis.diagrams.gen_diagram",
+        "peekOfCode": "def main():\n    \"\"\"\n    Κεντρικός έλεγχος για την εκτέλεση του parser, λαμβάνοντας δύο arguments:\n    - json_file: Το όνομα του αρχείου JSON προς επεξεργασία.\n    - entry_point: Το entry point για την επεξεργασία.\n    \"\"\"\n    parser = argparse.ArgumentParser(description=\"Static Analysis Sequence Diagram generator\")\n    # Ορισμός των arguments από τη γραμμή εντολών\n    parser.add_argument(\"json_file\", help=\"Όνομα αρχείου JSON προς επεξεργασία\")\n    parser.add_argument(\"entry_point\", help=\"Το entry point για την επεξεργασία\")",
+        "detail": "src.static_analysis.diagrams.gen_diagram",
         "documentation": {}
     },
     {

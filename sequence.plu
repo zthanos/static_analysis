@@ -1,0 +1,27 @@
+@startuml
+title DOGESEND
+!theme materia
+alt "IF EIBCALEN>ZERO"
+"DOGE-MAIN" -> "DOGE-MAIN": "Assign value to DOGECOMMS-AREA"
+end
+alt "IF EIBCALENEQUALTOZERO"
+"DOGE-MAIN" -> "DOGE-MAIN": "Assign value to WTO-MESSAGE"
+"DOGE-MAIN" -> "DOGE-WTO" : Execute "DOGE-WTO"
+"DOGE-WTO" -> CICS : Execute "WRITE" 
+"DOGE-WTO" -> "DOGE-WTO": "Assign value to WTO-MESSAGE"
+"DOGE-MAIN" -> CICS : Execute "SEND" 
+else
+alt "IF EIBAIDEQUALTODFHPF3"
+"DOGE-MAIN" -> CICS : Execute "XCTL" 
+else
+alt "IF EIBAIDEQUALTODFHENTER"
+"DOGE-MAIN" -> "RECEIVE-INPUT" : Execute "RECEIVE-INPUT"
+"RECEIVE-INPUT" -> CICS : Execute "RECEIVE" 
+"DOGE-MAIN" -> "PARSE-INPUT" : Execute "PARSE-INPUT"
+alt "IF OPTIONIEQUALTO'T' OR"
+end
+end
+end
+end
+"DOGE-MAIN" -> CICS : Execute "RETURN" 
+@enduml
