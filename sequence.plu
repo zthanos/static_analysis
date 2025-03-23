@@ -1,21 +1,27 @@
 @startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml
 title DOGESEND
 !theme materia
+Application_Component(DOGE_MAIN, "DOGE-MAIN")
 alt "IF EIBCALEN>ZERO"
 "DOGE-MAIN" -> "DOGE-MAIN": "Assign value to DOGECOMMS-AREA"
 end
 alt "IF EIBCALENEQUALTOZERO"
 "DOGE-MAIN" -> "DOGE-MAIN": "Assign value to WTO-MESSAGE"
 "DOGE-MAIN" -> "DOGE-WTO" : Execute "DOGE-WTO"
+WRITE
 "DOGE-WTO" -> CICS : Execute "WRITE" 
 "DOGE-WTO" -> "DOGE-WTO": "Assign value to WTO-MESSAGE"
+SEND
 "DOGE-MAIN" -> CICS : Execute "SEND" 
 else
 alt "IF EIBAIDEQUALTODFHPF3"
+XCTL
 "DOGE-MAIN" -> CICS : Execute "XCTL" 
 else
 alt "IF EIBAIDEQUALTODFHENTER"
 "DOGE-MAIN" -> "RECEIVE-INPUT" : Execute "RECEIVE-INPUT"
+RECEIVE
 "RECEIVE-INPUT" -> CICS : Execute "RECEIVE" 
 "DOGE-MAIN" -> "PARSE-INPUT" : Execute "PARSE-INPUT"
 alt "IF OPTIONIEQUALTO'T' OR"
@@ -23,5 +29,6 @@ end
 end
 end
 end
+RETURN
 "DOGE-MAIN" -> CICS : Execute "RETURN" 
 @enduml

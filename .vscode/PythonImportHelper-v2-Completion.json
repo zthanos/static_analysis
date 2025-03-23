@@ -112,6 +112,23 @@
         "documentation": {}
     },
     {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "typing",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "typing",
+        "description": "typing",
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -590,6 +607,14 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
         "label": "Cobol85Lexer",
         "importPath": "grammars.Cobol85Lexer",
         "description": "grammars.Cobol85Lexer",
@@ -919,6 +944,80 @@
         "description": "static_analysis.process_results",
         "isExtraImport": true,
         "detail": "static_analysis.process_results",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.statement",
+        "description": "models.statement",
+        "isExtraImport": true,
+        "detail": "models.statement",
+        "documentation": {}
+    },
+    {
+        "label": "networkx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "networkx",
+        "description": "networkx",
+        "detail": "networkx",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "TreeNode",
+        "importPath": "tree_node",
+        "description": "tree_node",
+        "isExtraImport": true,
+        "detail": "tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "get_flow",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_condition",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_assignment",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_internal_call",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
+        "documentation": {}
+    },
+    {
+        "label": "is_external_call",
+        "importPath": "parse_json",
+        "description": "parse_json",
+        "isExtraImport": true,
+        "detail": "parse_json",
         "documentation": {}
     },
     {
@@ -1568,7 +1667,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_procedure_division",
         "description": "src.static_analysis.cobol_parser.parse_procedure_division",
-        "peekOfCode": "def visit_statement_context(ctx, flow):\n    \"\"\"\n    Καλεί τον parser για statements και προσθέτει το αποτέλεσμα στη ροή.\n    \"\"\"\n    statement = parse_statements.parse_statement(ctx)\n    if statement is not None:\n        flow.addSentence(statement)",
+        "peekOfCode": "def visit_statement_context(ctx, flow):\n    \"\"\"\n    Καλεί τον parser για statements και προσθέτει το αποτέλεσμα στη ροή.\n    \"\"\"\n    statement = parse_statements.parse_statement(ctx)\n    print(statement)\n    if statement is not None:\n        flow.addSentence(statement)",
         "detail": "src.static_analysis.cobol_parser.parse_procedure_division",
         "documentation": {}
     },
@@ -1586,7 +1685,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_if_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα IF statement. \"\"\"\n    # logger.info(\"-------visitIfStatementContext-----------\")\n    conditional_statement = ConditionalStatement(methodName=f\"IF {context_info.get_child_concatenated_text(ctx, 1)}\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IfThenContext):\n            visit_if_then_context(child, conditional_statement)\n        elif isinstance(child, Cobol85Parser.IfElseContext):\n            visit_if_else_context(child, conditional_statement)\n    return conditional_statement",
+        "peekOfCode": "def visit_if_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα IF statement. \"\"\"\n    # logger.info(\"-------visitIfStatementContext-----------\")\n    t = ctx.getChild(1)\n    if isinstance(t, Cobol85Parser.CombinableConditionContext):\n        b =  visit_combinable_condition_context(t)\n    elif isinstance(t, Cobol85Parser.ConditionContext):\n        b = visit_condition_context(t)\n        methodName = \" \".join(clause.methodName for clause in b.conditionClauses) if b.conditionClauses else t.getText()\n    # conditional_statement = ConditionalStatement(methodName=f\"IF {context_info.get_child_concatenated_text(ctx, 1)}\")",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1609,11 +1708,20 @@
         "documentation": {}
     },
     {
+        "label": "visit_condition_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία συνθήκη. \"\"\"\n    # logger.info(\"-------visitConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.CombinableConditionContext):\n            return visit_combinable_condition_context(child)\n        elif isinstance(child, Cobol85Parser.SimpleConditionContext):\n            return visit_simple_condition_context(child)\n    return None\ndef visit_combinable_condition_context(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
         "label": "visit_combinable_condition_context",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_combinable_condition_context(ctx):\n    \"\"\" Επεξεργάζεται συνδυασμένες συνθήκες (AND, OR). \"\"\"\n    # logger.info(\"-------visitCombinableConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.SimpleConditionContext):\n            return visit_simple_condition_context(child)\n    return None\ndef visit_simple_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία απλή συνθήκη (π.χ. X > 5). \"\"\"\n    # logger.info(\"-------visitSimpleConditionContext-----------\")",
+        "peekOfCode": "def visit_combinable_condition_context(ctx):\n    \"\"\" Επεξεργάζεται συνδυασμένες συνθήκες (AND, OR). \"\"\"\n    # logger.info(\"-------visitCombinableConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.SimpleConditionContext):\n            return visit_simple_condition_context(child)\n        if isinstance(child, Cobol85Parser.RelationConditionContext):\n            return visit_relation_condition_context(child)\n    return None\ndef visit_simple_condition_context(ctx):",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1703,7 +1811,25 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            # command_name, params = visit_exec_cics_command_context(child)\n            # logger.info(f\"----------------------------______{child.getText()}_______--------------------\")\n            # logger.info(params)\n            # logger.info(\"----------------------------_________________________________________--------------------\")            ",
+        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            return  visit_exec_cics_command_context(child)\n        elif isinstance(child, Cobol85Parser.ExecCommandListItemContext):\n            call_statement = visit_exec_command_list_item_context(child)\n            return call_statement\ndef visit_exec_command_list_item_context(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_exec_command_list_item_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_exec_command_list_item_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS command list item. \"\"\"\n    call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            return call_statement\n    return call_statement   \ndef visit_list_of_exec_cics_commands_context(ctx):\n    \"\"\" Επεξεργάζεται μία λίστα από EXEC CICS commands. \"\"\"",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_list_of_exec_cics_commands_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_list_of_exec_cics_commands_context(ctx):\n    \"\"\" Επεξεργάζεται μία λίστα από EXEC CICS commands. \"\"\"\n    # logger.info(\"-------visitListOfExecCicsCommandsContext-----------\")\n    call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            # logger.debug(f\"command: {call_statement.methodName}\")\n            # logger.debug(f\"params: {call_statement.statements}\")\n            return call_statement",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1840,6 +1966,15 @@
         "description": "src.static_analysis.cobol_parser.parse_working_storage",
         "peekOfCode": "def convert_cobol_to_json(variables):\n    \"\"\"\n    Μετατρέπει COBOL variables σε δομή JSON με nested records.\n    \"\"\"\n    json_structure = []\n    record_stack = []  # Stack για nested structures\n    for var in variables:\n        json_entry = {\n            \"name\": var[\"Name\"] if var[\"Name\"] != \"FILLER\" else f\"unused_{id(var)}\",\n            \"level\": int(var[\"Level\"]),",
         "detail": "src.static_analysis.cobol_parser.parse_working_storage",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "kind": 6,
+        "importPath": "src.static_analysis.process_results.models.statement",
+        "description": "src.static_analysis.process_results.models.statement",
+        "peekOfCode": "class Statement:\n    id: str\n    methodName: str\n    parentId: int\n    level: int\n    rate: int\n    type: int\n    previousStatementId: str = None\n    nextStatementId: str = None",
+        "detail": "src.static_analysis.process_results.models.statement",
         "documentation": {}
     },
     {
@@ -2063,7 +2198,16 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    rate = evaluate_paragraph(json_data, flow['Statements'])\n    return rate\ndef evaluate_paragraph(json_data, paragraph):",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "add_statement",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)\n        #     node.add_child(nested_node)\n    elif statement['type'] == 'StatementType.CONDITION':\n        for nested_statement in statement['TrueStatements']:\n            kindof = 'True Path'",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2072,7 +2216,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    rate = evaluate_paragraph(json_data, flow['Statements'])\n    return rate\ndef evaluate_paragraph(json_data, paragraph):\n    if not paragraph:\n        return 0\n    for statement in paragraph:\n        rate=0",
+        "peekOfCode": "def evaluate(json_data, entry_point):\n    data = []\n    flow = get_flow(json_data, entry_point)\n    root = TreeNode(entry_point)\n    for statement in flow['Statements']:\n        current_node = add_statement(root, statement)\n        # current_node = TreeNode(statement.get('methodName'))\n        # if statement['type'] == 'StatementType.CALL':\n        #     for nested_statement in statement['Statements']:\n        #         nested_node = TreeNode(nested_statement.get('methodName'))",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2081,7 +2225,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def evaluate_paragraph(json_data, paragraph):\n    if not paragraph:\n        return 0\n    for statement in paragraph:\n        rate=0\n        true_path=0\n        false_path=0\n        match statement['type']:\n            case 'StatementType.CONDITION': \n                true_path, false_path = process_condition(json_data, statement)",
+        "peekOfCode": "def evaluate_paragraph(json_data, paragraph, parent_id=None, level = 0, next_id=None):\n    if not paragraph:\n        return []\n    statements = []\n    # previous_id =parent_id\n    for idx, statement in enumerate(paragraph):\n        previous_id = paragraph[idx - 1].get('id') if idx > 0 else parent_id\n        next_id = paragraph[idx + 1].get('id') if idx + 1 < len(paragraph) else next_id\n        match statement['type']:\n            case 'StatementType.CONDITION': ",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2090,7 +2234,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_call(json_data, statement):\n    is_internal_call = statement['internal']  == True\n    rate = 40 if is_internal_call  == True else 50\n    return rate\ndef process_condition(json_data, statement):\n    true_rate = 0\n    false_rate = 0\n    if statement['TrueStatements']:\n        true_rate = evaluate_paragraph(json_data, statement['TrueStatements'])\n    if statement['FalseStatements']: ",
+        "peekOfCode": "def process_call(json_data, statement, parent_id, level, next_id):\n    statements = []\n    previous_id =parent_id    \n    is_internal_call = statement.get('internal')  == True\n    statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = INTERNAL_CALL_RATE,  type=ST_CALL, previousStatementId=previous_id, nextStatementId=next_id))    \n    nested_statements = statement.get('Statements')\n    for idx, st in enumerate(nested_statements):\n        id =  str(uuid.uuid4())\n        next__internal_id = nested_statements[idx + 1].get('id') if idx + 1 < len(nested_statements) else next_id        \n        statements.append(Statement(id=id, methodName=st.get('methodName'),  parentId=parent_id, level=level + 1, rate = EXTERNAL_CALL_RATE,  type=ST_CALL, previousStatementId=previous_id, nextStatementId=next__internal_id))",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2099,7 +2243,25 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_condition(json_data, statement):\n    true_rate = 0\n    false_rate = 0\n    if statement['TrueStatements']:\n        true_rate = evaluate_paragraph(json_data, statement['TrueStatements'])\n    if statement['FalseStatements']: \n        false_rate = evaluate_paragraph(json_data, statement['FalseStatements'])\n    print(f\"{statement['methodName']} true_score: {true_rate} false_score: {false_rate}\")\n    return true_rate, false_rate\ndef get_flow(data, flow_name):",
+        "peekOfCode": "def process_condition(json_data, statement, parent_id, level, next_id):\n    statements = []\n    previous_id =parent_id      \n    statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = ASSINGMENT_RATE,  type=ST_CONDITION, previousStatementId=previous_id))\n    if statement['TrueStatements']:\n        statements.extend(evaluate_paragraph(json_data, statement['TrueStatements'], statement.get('id'), level + 1, next_id))\n    if statement['FalseStatements']: \n        statements.extend(evaluate_paragraph(json_data, statement['FalseStatements'], statement.get('id'), level + 1, next_id))\n    return statements\ndef apply_rating(sorted_data):",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "apply_rating",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def apply_rating(sorted_data):\n    for data in sorted_data:\n        if data.level > 1:\n            parent_statement = next((item for item in sorted_data if item.id == data.parentId), None)\n            if parent_statement:\n                data.rate += parent_statement.rate\n    return sorted_data\n    # for data in sorted_data:\n    #     logger.info(f\"{data.methodName}:{data.rate}\")     \ndef generate_critical_paths(entry_point_id, evaluated_data):           ",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "generate_critical_paths",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def generate_critical_paths(entry_point_id, evaluated_data):           \n    use_cases = []\n    critical_path = []\n    findid = next((item for item in evaluated_data if item.id == entry_point_id), 0)\n    logger.info(critical_path)\ndef get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2113,11 +2275,101 @@
         "documentation": {}
     },
     {
+        "label": "EXTERNAL_CALL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "EXTERNAL_CALL_RATE = 1.0\nINTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "INTERNAL_CALL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "INTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "CONDITIONAL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "CONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "ASSINGMENT_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "ASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "OTHER_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "OTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "ST_ASSIGN",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "ST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "ST_CALL",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "ST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "ST_CONDITION",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "ST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "ST_EXTERNAL",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "ST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "ST_OTHER",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "ST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
         "label": "BASE_DIR",
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef evaluate(json_data, entry_point):\n    struct = []\n    flow = get_flow(json_data, entry_point)\n    rate = evaluate_paragraph(json_data, flow['Statements'])\n    return rate",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2137,6 +2389,105 @@
         "description": "src.static_analysis.process_results.logger",
         "peekOfCode": "logger = setup_logger('AnalyzerLogger', 'analyzer.log')",
         "detail": "src.static_analysis.process_results.logger",
+        "documentation": {}
+    },
+    {
+        "label": "G",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.test",
+        "description": "src.static_analysis.process_results.test",
+        "peekOfCode": "G = nx.Graph()\nG.add_edge(1, 2)\nG.add_edge(1, 3)\nG.add_edge(1, 5)\nG.add_edge(2, 3)\nG.add_edge(3, 4)\nG.add_edge(4, 5)\n# explicitly set positions\npos = {1: (0, 0), 2: (-1, 0.3), 3: (2, 0.17), 4: (4, 0.255), 5: (5, 0.03)}\noptions = {",
+        "detail": "src.static_analysis.process_results.test",
+        "documentation": {}
+    },
+    {
+        "label": "pos",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.test",
+        "description": "src.static_analysis.process_results.test",
+        "peekOfCode": "pos = {1: (0, 0), 2: (-1, 0.3), 3: (2, 0.17), 4: (4, 0.255), 5: (5, 0.03)}\noptions = {\n    \"font_size\": 36,\n    \"node_size\": 3000,\n    \"node_color\": \"white\",\n    \"edgecolors\": \"black\",\n    \"linewidths\": 5,\n    \"width\": 5,\n}\nnx.draw_networkx(G, pos, **options)",
+        "detail": "src.static_analysis.process_results.test",
+        "documentation": {}
+    },
+    {
+        "label": "options",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.test",
+        "description": "src.static_analysis.process_results.test",
+        "peekOfCode": "options = {\n    \"font_size\": 36,\n    \"node_size\": 3000,\n    \"node_color\": \"white\",\n    \"edgecolors\": \"black\",\n    \"linewidths\": 5,\n    \"width\": 5,\n}\nnx.draw_networkx(G, pos, **options)\n# Set margins for the axes so that nodes aren't clipped",
+        "detail": "src.static_analysis.process_results.test",
+        "documentation": {}
+    },
+    {
+        "label": "ax",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.test",
+        "description": "src.static_analysis.process_results.test",
+        "peekOfCode": "ax = plt.gca()\nax.margins(0.20)\nplt.axis(\"off\")\nplt.show()\npaths = list(nx.all_simple_paths(G, source=1, target=5))\nfor path in paths:\n    print(\" -> \".join(map(str, path)))",
+        "detail": "src.static_analysis.process_results.test",
+        "documentation": {}
+    },
+    {
+        "label": "paths",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.test",
+        "description": "src.static_analysis.process_results.test",
+        "peekOfCode": "paths = list(nx.all_simple_paths(G, source=1, target=5))\nfor path in paths:\n    print(\" -> \".join(map(str, path)))",
+        "detail": "src.static_analysis.process_results.test",
+        "documentation": {}
+    },
+    {
+        "label": "TreeNode",
+        "kind": 6,
+        "importPath": "src.static_analysis.process_results.tree_node",
+        "description": "src.static_analysis.process_results.tree_node",
+        "peekOfCode": "class TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')\n            match self.type:\n                case 'StatementType.CALL':\n                    self.weight = EXTERNAL_CALL_RATE if data.get('internal') == False else INTERNAL_CALL_RATE",
+        "detail": "src.static_analysis.process_results.tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "EXTERNAL_CALL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.tree_node",
+        "description": "src.static_analysis.process_results.tree_node",
+        "peekOfCode": "EXTERNAL_CALL_RATE = 1.0\nINTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')",
+        "detail": "src.static_analysis.process_results.tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "INTERNAL_CALL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.tree_node",
+        "description": "src.static_analysis.process_results.tree_node",
+        "peekOfCode": "INTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')",
+        "detail": "src.static_analysis.process_results.tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "CONDITIONAL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.tree_node",
+        "description": "src.static_analysis.process_results.tree_node",
+        "peekOfCode": "CONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')",
+        "detail": "src.static_analysis.process_results.tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "ASSINGMENT_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.tree_node",
+        "description": "src.static_analysis.process_results.tree_node",
+        "peekOfCode": "ASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')\n            match self.type:",
+        "detail": "src.static_analysis.process_results.tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "OTHER_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.tree_node",
+        "description": "src.static_analysis.process_results.tree_node",
+        "peekOfCode": "OTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')\n            match self.type:\n                case 'StatementType.CALL':",
+        "detail": "src.static_analysis.process_results.tree_node",
         "documentation": {}
     },
     {
@@ -2326,6 +2677,177 @@
         "description": "src.static_analysis.diagrams.gen_diagram",
         "peekOfCode": "def main():\n    \"\"\"\n    Κεντρικός έλεγχος για την εκτέλεση του parser, λαμβάνοντας δύο arguments:\n    - json_file: Το όνομα του αρχείου JSON προς επεξεργασία.\n    - entry_point: Το entry point για την επεξεργασία.\n    \"\"\"\n    parser = argparse.ArgumentParser(description=\"Static Analysis Sequence Diagram generator\")\n    # Ορισμός των arguments από τη γραμμή εντολών\n    parser.add_argument(\"json_file\", help=\"Όνομα αρχείου JSON προς επεξεργασία\")\n    parser.add_argument(\"entry_point\", help=\"Το entry point για την επεξεργασία\")",
         "detail": "src.static_analysis.diagrams.gen_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "process_json_data",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def process_json_data(json_file, entry_point):\n    plantuml = []\n    #Import Archimate puml\n    plantuml.append('!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml')\n    logger.debug(BASE_DIR)\n    logger.debug(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    # plantuml.append(\"scale 1.5\")\n    program_name = data.get(\"ProgramId\")",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "process_statement",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def process_statement(data, statement, flow_name):\n    plantuml = []\n    if is_condition(statement):\n        # plantuml.append(f'alt \"{statement.get(\"methodName\")}\"')\n        if statement.get('TrueStatements'):\n            for st in statement.get('TrueStatements'):\n                plantuml.extend(process_statement(data, st, flow_name ))\n                # plantuml.append(f'\"{flow_name}\" -> \"{st.get(\"methodName\")}\": \"{st.get(\"methodName\")}\"')\n            # if statement.get('FalseStatements'):                \n            #     plantuml.append(\"else\")",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_name",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def sanitize_name(name):\n    return name.replace('-','_').replace('(', '').replace(')', '').replace(\"'\", '')\ndef add_component(name):\n    return f'Application_Component({sanitize_name(name)}, \"{name}\")'\ndef add_function(name):\n    return f'Application_Function({sanitize_name(name)}, \"{name}\")'\ndef add_interface(name):\n    return f'Application_Interface({sanitize_name(name)}, \"{name}\")'\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "add_component",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def add_component(name):\n    return f'Application_Component({sanitize_name(name)}, \"{name}\")'\ndef add_function(name):\n    return f'Application_Function({sanitize_name(name)}, \"{name}\")'\ndef add_interface(name):\n    return f'Application_Interface({sanitize_name(name)}, \"{name}\")'\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef flow(from_item, to_item, direction):\n    return relationship('Flow', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "add_function",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def add_function(name):\n    return f'Application_Function({sanitize_name(name)}, \"{name}\")'\ndef add_interface(name):\n    return f'Application_Interface({sanitize_name(name)}, \"{name}\")'\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef flow(from_item, to_item, direction):\n    return relationship('Flow', from_item, to_item, direction)\ndef serving(from_item, to_item, direction):\n    return relationship('Serving', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "add_interface",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def add_interface(name):\n    return f'Application_Interface({sanitize_name(name)}, \"{name}\")'\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef flow(from_item, to_item, direction):\n    return relationship('Flow', from_item, to_item, direction)\ndef serving(from_item, to_item, direction):\n    return relationship('Serving', from_item, to_item, direction)\ndef access(from_item, to_item, direction):\n    return relationship('Access', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "realization",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef flow(from_item, to_item, direction):\n    return relationship('Flow', from_item, to_item, direction)\ndef serving(from_item, to_item, direction):\n    return relationship('Serving', from_item, to_item, direction)\ndef access(from_item, to_item, direction):\n    return relationship('Access', from_item, to_item, direction)\ndef aggregation(from_item, to_item, direction):\n    return relationship('Aggregation', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "flow",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def flow(from_item, to_item, direction):\n    return relationship('Flow', from_item, to_item, direction)\ndef serving(from_item, to_item, direction):\n    return relationship('Serving', from_item, to_item, direction)\ndef access(from_item, to_item, direction):\n    return relationship('Access', from_item, to_item, direction)\ndef aggregation(from_item, to_item, direction):\n    return relationship('Aggregation', from_item, to_item, direction)\ndef assignment(from_item, to_item, direction):\n    return relationship('Assignment', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "serving",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def serving(from_item, to_item, direction):\n    return relationship('Serving', from_item, to_item, direction)\ndef access(from_item, to_item, direction):\n    return relationship('Access', from_item, to_item, direction)\ndef aggregation(from_item, to_item, direction):\n    return relationship('Aggregation', from_item, to_item, direction)\ndef assignment(from_item, to_item, direction):\n    return relationship('Assignment', from_item, to_item, direction)\ndef association(from_item, to_item, direction):\n    return relationship('Association', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "access",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def access(from_item, to_item, direction):\n    return relationship('Access', from_item, to_item, direction)\ndef aggregation(from_item, to_item, direction):\n    return relationship('Aggregation', from_item, to_item, direction)\ndef assignment(from_item, to_item, direction):\n    return relationship('Assignment', from_item, to_item, direction)\ndef association(from_item, to_item, direction):\n    return relationship('Association', from_item, to_item, direction)\ndef composition(from_item, to_item, direction):\n    return relationship('Composition', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "aggregation",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def aggregation(from_item, to_item, direction):\n    return relationship('Aggregation', from_item, to_item, direction)\ndef assignment(from_item, to_item, direction):\n    return relationship('Assignment', from_item, to_item, direction)\ndef association(from_item, to_item, direction):\n    return relationship('Association', from_item, to_item, direction)\ndef composition(from_item, to_item, direction):\n    return relationship('Composition', from_item, to_item, direction)\ndef influence(from_item, to_item, direction):\n    return relationship('Influence', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "assignment",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def assignment(from_item, to_item, direction):\n    return relationship('Assignment', from_item, to_item, direction)\ndef association(from_item, to_item, direction):\n    return relationship('Association', from_item, to_item, direction)\ndef composition(from_item, to_item, direction):\n    return relationship('Composition', from_item, to_item, direction)\ndef influence(from_item, to_item, direction):\n    return relationship('Influence', from_item, to_item, direction)\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "association",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def association(from_item, to_item, direction):\n    return relationship('Association', from_item, to_item, direction)\ndef composition(from_item, to_item, direction):\n    return relationship('Composition', from_item, to_item, direction)\ndef influence(from_item, to_item, direction):\n    return relationship('Influence', from_item, to_item, direction)\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef triggering(from_item, to_item, direction):\n    return relationship('Triggering', from_item, to_item, direction)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "composition",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def composition(from_item, to_item, direction):\n    return relationship('Composition', from_item, to_item, direction)\ndef influence(from_item, to_item, direction):\n    return relationship('Influence', from_item, to_item, direction)\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef triggering(from_item, to_item, direction):\n    return relationship('Triggering', from_item, to_item, direction)\ndef relationship(relationship, from_item, to_item, direction):\n    match direction:",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "influence",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def influence(from_item, to_item, direction):\n    return relationship('Influence', from_item, to_item, direction)\ndef realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef triggering(from_item, to_item, direction):\n    return relationship('Triggering', from_item, to_item, direction)\ndef relationship(relationship, from_item, to_item, direction):\n    match direction:\n        case 'u': return f'Rel_{relationship}_Up({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'd': return f'Rel_{relationship}_Down({sanitize_name(from_item)}, {sanitize_name(to_item)})'",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "realization",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def realization(from_item, to_item, direction):\n    return relationship('Realization', from_item, to_item, direction)\ndef triggering(from_item, to_item, direction):\n    return relationship('Triggering', from_item, to_item, direction)\ndef relationship(relationship, from_item, to_item, direction):\n    match direction:\n        case 'u': return f'Rel_{relationship}_Up({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'd': return f'Rel_{relationship}_Down({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'l': return f'Rel_{relationship}_Left({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'r': return f'Rel_{relationship}_Right({sanitize_name(from_item)}, {sanitize_name(to_item)})'",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "triggering",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def triggering(from_item, to_item, direction):\n    return relationship('Triggering', from_item, to_item, direction)\ndef relationship(relationship, from_item, to_item, direction):\n    match direction:\n        case 'u': return f'Rel_{relationship}_Up({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'd': return f'Rel_{relationship}_Down({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'l': return f'Rel_{relationship}_Left({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'r': return f'Rel_{relationship}_Right({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n# def save(diagram, file_path, output_dir=\"output\"):\n#     \"\"\" Αποθηκεύει τα αποτελέσματα της ανάλυσης σε JSON αρχείο \"\"\"",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "kind": 2,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "def relationship(relationship, from_item, to_item, direction):\n    match direction:\n        case 'u': return f'Rel_{relationship}_Up({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'd': return f'Rel_{relationship}_Down({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'l': return f'Rel_{relationship}_Left({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n        case 'r': return f'Rel_{relationship}_Right({sanitize_name(from_item)}, {sanitize_name(to_item)})'\n# def save(diagram, file_path, output_dir=\"output\"):\n#     \"\"\" Αποθηκεύει τα αποτελέσματα της ανάλυσης σε JSON αρχείο \"\"\"\n#     logger.info(f\"Saving file {file_path}...\")\n#     file_name = os.path.basename(file_path)",
+        "detail": "src.static_analysis.diagrams.archi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "src.static_analysis.diagrams.archi",
+        "description": "src.static_analysis.diagrams.archi",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file, entry_point):\n    plantuml = []\n    #Import Archimate puml\n    plantuml.append('!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml')\n    logger.debug(BASE_DIR)\n    logger.debug(\"Current Working Directory:\", os.getcwd())\n    with open(json_file) as f:\n        data = json.load(f)\n    # plantuml.append(\"scale 1.5\")",
+        "detail": "src.static_analysis.diagrams.archi",
         "documentation": {}
     },
     {

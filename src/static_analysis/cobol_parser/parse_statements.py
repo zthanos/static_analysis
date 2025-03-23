@@ -6,6 +6,8 @@ from models.AssignStatement import AssignStatement
 from models.ConditionClause import ConditionClause
 from models.ConditionalStatement import ConditionalStatement
 from models.CallStatement import CallStatement, CallCicsStatement
+import typing
+
 
 
 def parse_statement(ctx):
@@ -37,7 +39,15 @@ def parse_statement(ctx):
 def visit_if_statement_context(ctx):
     """ Επεξεργάζεται ένα IF statement. """
     # logger.info("-------visitIfStatementContext-----------")
-    conditional_statement = ConditionalStatement(methodName=f"IF {context_info.get_child_concatenated_text(ctx, 1)}")
+    t = ctx.getChild(1)
+    if isinstance(t, Cobol85Parser.CombinableConditionContext):
+        b =  visit_combinable_condition_context(t)
+    elif isinstance(t, Cobol85Parser.ConditionContext):
+        b = visit_condition_context(t)
+        
+        methodName = " ".join(clause.methodName for clause in b.conditionClauses) if b.conditionClauses else t.getText()
+    # conditional_statement = ConditionalStatement(methodName=f"IF {context_info.get_child_concatenated_text(ctx, 1)}")
+    conditional_statement = ConditionalStatement(methodName=methodName)
 
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.IfThenContext):
@@ -77,7 +87,17 @@ def visit_if_else_context(ctx, conditional_statement):
 # ----------------------------------------------------
 # Conditions
 # ----------------------------------------------------
+def visit_condition_context(ctx):
+    """ Επεξεργάζεται μία συνθήκη. """
+    # logger.info("-------visitConditionContext-----------")
 
+    for child in context_info.get_children(ctx):
+        if isinstance(child, Cobol85Parser.CombinableConditionContext):
+            return visit_combinable_condition_context(child)
+        elif isinstance(child, Cobol85Parser.SimpleConditionContext):
+            return visit_simple_condition_context(child)
+
+    return None
 def visit_combinable_condition_context(ctx):
     """ Επεξεργάζεται συνδυασμένες συνθήκες (AND, OR). """
     # logger.info("-------visitCombinableConditionContext-----------")
@@ -85,6 +105,8 @@ def visit_combinable_condition_context(ctx):
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.SimpleConditionContext):
             return visit_simple_condition_context(child)
+        if isinstance(child, Cobol85Parser.RelationConditionContext):
+            return visit_relation_condition_context(child)
 
     return None
 
@@ -197,17 +219,37 @@ def visit_exec_cics_statement_context(ctx):
 
     for child in context_info.get_children(ctx):
         if isinstance(child, Cobol85Parser.ExecCicsCommandContext):
-            call_statement = visit_exec_cics_command_context(child)
-            # command_name, params = visit_exec_cics_command_context(child)
-            # logger.info(f"----------------------------______{child.getText()}_______--------------------")
-            # logger.info(params)
-            # logger.info("----------------------------_________________________________________--------------------")            
-            # call_statement.methodName = command_name
-            # call_statement.Statements.extend(params)
-
+            return  visit_exec_cics_command_context(child)
+        elif isinstance(child, Cobol85Parser.ExecCommandListItemContext):
+            call_statement = visit_exec_command_list_item_context(child)
             return call_statement
 
 
+
+def visit_exec_command_list_item_context(ctx):
+    """ Επεξεργάζεται ένα EXEC CICS command list item. """
+    call_statement = CallStatement(False)
+
+    for child in context_info.get_children(ctx):
+        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):
+            call_statement = visit_exec_cics_command_context(child)
+            return call_statement
+
+    return call_statement   
+
+def visit_list_of_exec_cics_commands_context(ctx):
+    """ Επεξεργάζεται μία λίστα από EXEC CICS commands. """
+    # logger.info("-------visitListOfExecCicsCommandsContext-----------")
+    call_statement = CallStatement(False)
+
+    for child in context_info.get_children(ctx):
+        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):
+            call_statement = visit_exec_cics_command_context(child)
+            # logger.debug(f"command: {call_statement.methodName}")
+            # logger.debug(f"params: {call_statement.statements}")
+            return call_statement
+
+    return call_statement
 def visit_exec_cics_command_context(ctx):
     """ Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. """
     # context_info.print_class_name(ctx)

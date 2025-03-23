@@ -1,0 +1,24 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml
+Application_Component(DOGESEND, "DOGESEND")
+Application_Interface(DOGE_MAIN, "DOGE-MAIN")
+Rel_Serving_Up(DOGESEND, DOGE_MAIN)
+Application_Function(DOGE_WTO, "DOGE-WTO")
+Group(SEND, "SEND"){
+Application_Function(SEND, "SEND")
+Application_Function(MAPDOGESN1, "MAP('DOGESN1')")
+Application_Function(MAPSETDOGESN, "MAPSET('DOGESN')")
+Application_Function(ERASE, "ERASE")
+}
+Group(XCTL, "XCTL"){
+Application_Function(XCTL, "XCTL")
+Application_Function(PROGRAMDOGEQUIT, "PROGRAM('DOGEQUIT')")
+}
+Application_Function(RECEIVE_INPUT, "RECEIVE-INPUT")
+Application_Function(PARSE_INPUT, "PARSE-INPUT")
+Group(RETURN, "RETURN"){
+Application_Function(RETURN, "RETURN")
+Application_Function(TRANSIDDSND, "TRANSID('DSND')")
+Application_Function(COMMAREADOGECOMMS_AREA, "COMMAREA(DOGECOMMS-AREA)")
+}
+@enduml

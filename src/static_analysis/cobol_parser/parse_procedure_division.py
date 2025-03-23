@@ -76,6 +76,6 @@ def visit_statement_context(ctx, flow):
     Καλεί τον parser για statements και προσθέτει το αποτέλεσμα στη ροή.
     """
     statement = parse_statements.parse_statement(ctx)
-
+    print(statement)
     if statement is not None:
         flow.addSentence(statement)
