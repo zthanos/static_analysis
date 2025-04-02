@@ -1,5 +1,4 @@
 from logger import logger
-import logging
 from tree_node import TreeNode
 from itertools import product
 
@@ -61,91 +60,11 @@ class MyTree:
             branch.append(node.methodName)
         return branch
                     
-    # def define_posible_paths(self, level=0, node = None):
-    #     paths = []
 
-    #     children = node.children if node else self.root.children
-    #     for p in children:
-    #         if p.type=="StatementType.CONDITION":
-    #             condition = p.children[0]
-    #             paths.append(True)
-    #             for c in condition.children:
-    #                 paths.append(self.define_posible_paths(level+1, c))
-    #     return paths
     
     def define_possible_paths(self):
         pos_path = self.root.get_flat_conditions_structure()
-        
-        return self.generate_all_combinations(pos_path)
-
-    def retrieve_path(self, condition_branching, level=0, node=None, condition_index=0):
-        path = []
-        
-        if node is None:
-            node = self.root
-        
-        # Add current node's method name
-        path.append(node.methodName)
-        
-        # Base case: leaf node
-        if not node.children:
-            return path
-        
-        current_condition_index = condition_index
-        
-        for child in node.children:
-            if getattr(child, 'type', None) == "StatementType.CONDITION":
-                # Check if we have branching info for this condition
-                if level < len(condition_branching) and current_condition_index < len(condition_branching[level]):
-                    decision = condition_branching[level][current_condition_index]
-                    current_condition_index += 1
-                    
-                    path.append(f"{child.methodName}({decision})")
-                    
-                    # Find matching path child (True/False Path)
-                    path_found = False
-                    for grandchild in child.children:
-                        if ((decision and "True Path" in grandchild.methodName) or
-                            (not decision and "False Path" in grandchild.methodName)):
-                            path.extend(self.retrieve_path(
-                                condition_branching,
-                                level + 1,  # Increment level for conditions
-                                grandchild,
-                                0  # Reset condition index for new level
-                            ))
-                            path_found = True
-                            break
-                    
-                    if not path_found and child.children:
-                        # If no explicit True/False path, take first child
-                        path.extend(self.retrieve_path(
-                            condition_branching,
-                            level + 1,
-                            child.children[0],
-                            0
-                        ))
-                else:
-                    # If no branching info, add condition and process all children
-                    path.append(child.methodName)
-                    for grandchild in child.children:
-                        path.extend(self.retrieve_path(
-                            condition_branching,
-                            level + 1,
-                            grandchild,
-                            0
-                        ))
-            else:
-                # For non-condition nodes, process all children at same level
-                path.append(child.methodName)
-                for grandchild in child.children:
-                    path.extend(self.retrieve_path(
-                        condition_branching,
-                        level,  # Maintain same level
-                        grandchild,
-                        current_condition_index  # Maintain condition index
-                    ))
-        
-        return path
+        return self.generate_all_flat_combinations(pos_path)
 
     def print_paths(self, condition_branching, node  = None):
         if node is None:
@@ -226,24 +145,15 @@ class MyTree:
         return unique_paths    
     
     def get_unique_paths_with_conditions(self):
-        # all_combinations = self.define_possible_paths()
-        # logger.info(all_combinations)
         path_map = {}
         
-        a = self.root.get_flat_conditions_structure()
-        combs = self.generate_all_flat_combinations(a)
-        
-        # for flat_combo in combs:
-        #     path = self.retrieve_path_flat(flat_combo)
-        #     logger.info(" -> ".join(path))
-        
+        combs = self.define_possible_paths()
         
         for combo in combs:
             path = self.retrieve_path_flat(combo)
-            # path = self.retrieve_path(combo)
             path_str = " -> ".join(path)
-            logger.info(path_str)
-        #   # Only store the first condition combination that leads to this path
+           
+            # Only store the first condition combination that leads to this path
             if path_str not in path_map:
                 path_map[path_str] = {
                     'condition': combo,
@@ -253,9 +163,7 @@ class MyTree:
         # Extract the unique paths with their representative conditions
         unique_results = list(path_map.values())
         
-        # Sort by some meaningful order (e.g., most True values first)
-        # unique_results.sort(key=lambda x: sum(sum(level) for level in x['condition']), reverse=True)
-        
+       
         return unique_results    
     
     def retrieve_path_flat(self, condition_sequence, node=None, condition_index=0):
