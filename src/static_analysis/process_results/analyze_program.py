@@ -1,14 +1,10 @@
-import sys
 import os
 import json
-import uuid
 from logger import logger 
-from models.statement import Statement
-import networkx as nx
-import matplotlib.pyplot as plt
+
+import re
 from tree_node import TreeNode
-
-
+from tree import MyTree
 
 EXTERNAL_CALL_RATE = 1.0
 INTERNAL_CALL_RATE = 0.5
@@ -22,9 +18,6 @@ ST_CONDITION = 3
 ST_EXTERNAL = 4
 ST_OTHER = 5
 
-         
-    
-
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 def process_json_data(json_file):
@@ -32,7 +25,7 @@ def process_json_data(json_file):
         data = json.load(f)
     return data
 
-def add_statement(data, statement, kindof=None):
+def add_statement_old(data, statement, kindof=None):
     node = TreeNode(statement, kindof)
     if statement['type'] == 'StatementType.CALL':
         node.methodName = node.methodName + " " + " ".join([nested_statement['methodName'] for nested_statement in statement['Statements']])
@@ -51,166 +44,93 @@ def add_statement(data, statement, kindof=None):
             node.add_child(nested_node)
     return node
 
+def add_statement(statement, kindof=None):
+    new_node = TreeNode(statement, kindof)
+
+    if statement['type'] == 'StatementType.CALL':
+        nested_method_names = " ".join(
+            nested_statement['methodName']
+            for nested_statement in statement.get('Statements', [])
+        )
+        if nested_method_names:
+            new_node.methodName += " " + nested_method_names
+
+    if statement['type'] == 'StatementType.CONDITION':
+        # True Path Node
+        true_path_node = TreeNode("True Path", kindof="False Path")
+        previous_node = true_path_node
+        for nested_statement in statement.get('TrueStatements', []):
+            child_node = add_statement(nested_statement)
+            previous_node.add_child(child_node)
+
+        # False Path Node
+        false_path_node = TreeNode("False Path", kindof="False Path")
+        previous_node = false_path_node
+        for nested_statement in statement.get('FalseStatements', []):
+            child_node = add_statement(nested_statement)
+            previous_node.add_child(child_node)
+
+        # Προσθέτω τα True/False paths στο condition
+        if true_path_node.children:
+            new_node.add_child(true_path_node)
+        if false_path_node.children:
+            new_node.add_child(false_path_node)
+
+    return new_node
+
+
 def evaluate(json_data, entry_point):
-    data = []
     flow = get_flow(json_data, entry_point)
-    root = TreeNode(entry_point)
+    root = TreeNode(entry_point, kindof='Entry Point')
+    tree = MyTree()
+    tree.add_root(root)
+    
+    previous_node = root
     for statement in flow['Statements']:
-        current_node = add_statement(root, statement)
-
-        # current_node = TreeNode(statement.get('methodName'))
-        # if statement['type'] == 'StatementType.CALL':
-        #     for nested_statement in statement['Statements']:
-        #         nested_node = TreeNode(nested_statement.get('methodName'))
-        #         current_node.add_child(nested_node)
-        # elif statement['type'] == 'StatementType.CONDITION':
-        #     for nested_statement in statement['TrueStatements']:
-        #         nested_node = TreeNode(nested_statement.get('methodName'))
-        #         current_node.add_child(nested_node)
-        #     for nested_statement in statement['FalseStatements']:
-        #         nested_node = TreeNode(nested_statement.get('methodName'))
-        #         current_node.add_child(nested_node)
-        root.add_child(current_node)
-    
-    tree_data = root.print_tree()
-    for node in tree_data:
-        logger.info(node)
-    return
-    data = evaluate_paragraph(json_data, flow['Statements'])
-    sorted_data = sorted(data, key=lambda x: x.level, reverse=True)
-    evaluated_data = apply_rating(sorted_data)
-    generate_critical_paths(flow['Statements'][0].get('id'), evaluated_data)
-    
-    GG = nx.DiGraph()
-    for sd in sorted_data:
-        # logger.info(sd)
-        if  sd.parentId and sd.previousStatementId:
-            previous_name = ([item for item in sorted_data if item.id == sd.previousStatementId])[0]
-            GG.add_edge(sd.previousStatementId, sd.id)
-            # logger.info(f'G.add_edge({sd.previousStatementId}, {sd.id})')
-            logger.info(f' {previous_name.level} : {previous_name.methodName} - {sd.level} :{sd.methodName}')
-            # logger.info(f'G.add_edge({sd.previousStatementId}, {sd.id}) {previous_name.level} : {previous_name.methodName} - {sd.level} :{sd.methodName}')
-        # elif sd.parentId:
-        #     previous_name = [item.methodName for item in sorted_data if item.id == sd.previousStatementId]
-        #     GG.add_edge(sd.previousStatementId, sd.id)
-        #     logger.info(f'G.add_edge({sd.previousStatementId}, {sd.id}) {previous_name} - {sd.methodName}')
-            
+        child_node = add_statement(statement)
+        previous_node.add_child(child_node)
+    tree.print_tree()
+    possible_paths = tree.get_unique_paths_with_conditions();
+    for possible_path in possible_paths:
+        logger.info(possible_path['condition'])
+        logger.info(possible_path['path'])
         
-    return
+    # tree.print_paths()
     
-    G = nx.DiGraph()
-    for s in data:
-        logger.info(s)
-        if s.nextStatementId:
-            G.add_edge(s.id, s.nextStatementId)
-            logger.info(f'G.add_edge({s.id}, {s.nextStatementId})')
-        else:
-            for item in [x for x in data if x.previousStatementId == s.id]:
-                G.add_edge(s.id, item.id)
-                logger.info(f'G.add_edge({s.id}, {item.id})')
-
     
-    # **Δημιουργία διάταξης κόμβων**
-    pos = nx.spring_layout(G)  # Αυτό θα φτιάξει μια ωραία διάταξη
-
-    # **Σχεδίαση του Graph**
-    plt.figure(figsize=(12, 8))  # Ορίζει το μέγεθος της εικόνας
-
-    options = {
-        "with_labels": True,  # Δείχνει τα labels (ids των statements)
-        "node_size": 3000,
-        "node_color": "lightblue",
-        "edge_color": "black",
-        "linewidths": 2,
-        "width": 2,
-        "font_size": 10
-    }
-
-    nx.draw(G, pos, **options)  # Σχεδιάζει το γράφημα
-
-    # Προσθήκη Labels
-    labels = {s.id: s.methodName for s in data}
-    nx.draw_networkx_labels(G, pos, labels, font_size=10)
-
-    # Εμφάνιση του Γραφήματος
-    plt.show()
-    paths = list(nx.all_simple_paths(G, source=1, target=5))
-    # for path in paths:
-    #     print(" -> ".join(map(str, path)))    
     
-    # entry_node = data[0].id  # Το πρώτο statement είναι το entry point
-    # leaf_nodes = [s.id for s in data if s.nextStatementId is None]  # Βρίσκουμε τα τερματικά statements
-            
-    # for leaf in leaf_nodes:
-    #     paths = list(nx.all_simple_paths(G, source=entry_node, target=leaf))
-    #     for path in paths:
-    #         logger.info(" -> ".join(map(str, path)))
-
-    return data
     
-def evaluate_paragraph(json_data, paragraph, parent_id=None, level = 0, next_id=None):
-    if not paragraph:
-        return []
-    statements = []
-    # previous_id =parent_id
-    for idx, statement in enumerate(paragraph):
-        previous_id = paragraph[idx - 1].get('id') if idx > 0 else parent_id
-        next_id = paragraph[idx + 1].get('id') if idx + 1 < len(paragraph) else next_id
-        match statement['type']:
-            case 'StatementType.CONDITION': 
-                statements.extend(process_condition(json_data, statement, parent_id, level, next_id))
-            case 'StatementType.CALL': 
-                statements.extend(process_call(json_data, statement, parent_id, level, next_id))
-            case 'StatementType.ASSIGN': 
-                statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = ASSINGMENT_RATE,  type=ST_ASSIGN, previousStatementId=previous_id, nextStatementId=next_id))
-            case 'StatementType.OTHER': 
-                statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = OTHER_RATE,  type=ST_OTHER, previousStatementId=previous_id, nextStatementId=next_id))
-        previous_id = statement.get('id')
-    return statements
+# Παίρνεις όλα τα paths
+    # all_paths = root.get_all_paths()
 
-    
-def process_call(json_data, statement, parent_id, level, next_id):
-    statements = []
-    previous_id =parent_id    
-    is_internal_call = statement.get('internal')  == True
-    statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = INTERNAL_CALL_RATE,  type=ST_CALL, previousStatementId=previous_id, nextStatementId=next_id))    
-    nested_statements = statement.get('Statements')
-    for idx, st in enumerate(nested_statements):
-        id =  str(uuid.uuid4())
-        next__internal_id = nested_statements[idx + 1].get('id') if idx + 1 < len(nested_statements) else next_id        
-        statements.append(Statement(id=id, methodName=st.get('methodName'),  parentId=parent_id, level=level + 1, rate = EXTERNAL_CALL_RATE,  type=ST_CALL, previousStatementId=previous_id, nextStatementId=next__internal_id))
-        previous_id = st.get('id')
-    return statements                
-
-
-def process_condition(json_data, statement, parent_id, level, next_id):
-    statements = []
-    previous_id =parent_id      
-    statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = ASSINGMENT_RATE,  type=ST_CONDITION, previousStatementId=previous_id))
-    
-    if statement['TrueStatements']:
-        statements.extend(evaluate_paragraph(json_data, statement['TrueStatements'], statement.get('id'), level + 1, next_id))
-    if statement['FalseStatements']: 
-        statements.extend(evaluate_paragraph(json_data, statement['FalseStatements'], statement.get('id'), level + 1, next_id))
-    return statements
-    
-def apply_rating(sorted_data):
-    for data in sorted_data:
-        if data.level > 1:
-            parent_statement = next((item for item in sorted_data if item.id == data.parentId), None)
-            if parent_statement:
-                data.rate += parent_statement.rate
-    return sorted_data
-    # for data in sorted_data:
-    #     logger.info(f"{data.methodName}:{data.rate}")     
+    # # Τα εμφανίζεις καθαρά και ωραία:
+    # for idx, path in enumerate(all_paths, 1):
+    #     logger.info(f"Use Case {idx}:")
+    #     logger.info("  ".join(path))
+    #     logger.info("-" * 50)    
+    # return
+    # for statement in flow['Statements']:
+    #     current_node = add_statement(tree.root, statement)
+    #     tree.add_child(current_node)
+    # tree.print_tree()
+    # tree.print_paths()
         
-def generate_critical_paths(entry_point_id, evaluated_data):           
-    use_cases = []
-    critical_path = []
-    findid = next((item for item in evaluated_data if item.id == entry_point_id), 0)
+        # root.add_child(current_node)
+    # a = root.paths()
+    # logger.info(a)
+    # all_paths = root.dfs_paths()
+    # for extracted_path in all_paths:
+    #     logger.info(extracted_path)
+    # paths_as_strings = [''.join(path) for path in all_paths]
     
-    logger.info(critical_path)
-        
+    # logger.info(paths_as_strings)    
+    
+    # tree_data = root.print_tree()
+    # for node in tree_data:
+    #     logger.info(node)
+    
+
+
     
 def get_flow(data, flow_name):
     main_node = next((node for node in data.get("Flow", []) if node.get("Name") == flow_name), None)
@@ -233,3 +153,14 @@ if __name__ == "__main__":
 
         
     
+def is_condition(statement):
+    return statement.get("type") == "StatementType.CONDITION"
+
+def is_assignment(statement):
+    return statement.get("type") == "StatementType.ASSIGN"
+
+def is_internal_call(statement):
+    return statement.get('type') == "StatementType.CALL" and statement.get("internal") == True
+
+def is_external_call(statement):
+    return statement.get('type') == "StatementType.CALL" and statement.get("internal") == False    

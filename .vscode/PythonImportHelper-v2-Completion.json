@@ -615,6 +615,22 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
         "label": "Cobol85Lexer",
         "importPath": "grammars.Cobol85Lexer",
         "description": "grammars.Cobol85Lexer",
@@ -947,11 +963,27 @@
         "documentation": {}
     },
     {
-        "label": "Statement",
-        "importPath": "models.statement",
-        "description": "models.statement",
+        "label": "TreeNode",
+        "importPath": "tree_node",
+        "description": "tree_node",
         "isExtraImport": true,
-        "detail": "models.statement",
+        "detail": "tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "TreeNode",
+        "importPath": "tree_node",
+        "description": "tree_node",
+        "isExtraImport": true,
+        "detail": "tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "MyTree",
+        "importPath": "tree",
+        "description": "tree",
+        "isExtraImport": true,
+        "detail": "tree",
         "documentation": {}
     },
     {
@@ -973,11 +1005,11 @@
         "documentation": {}
     },
     {
-        "label": "TreeNode",
-        "importPath": "tree_node",
-        "description": "tree_node",
+        "label": "product",
+        "importPath": "itertools",
+        "description": "itertools",
         "isExtraImport": true,
-        "detail": "tree_node",
+        "detail": "itertools",
         "documentation": {}
     },
     {
@@ -2198,7 +2230,16 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "add_statement_old",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)\n        #     node.add_child(nested_node)\n    elif statement['type'] == 'StatementType.CONDITION':\n        for nested_statement in statement['TrueStatements']:\n            kindof = 'True Path'",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2207,7 +2248,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)\n        #     node.add_child(nested_node)\n    elif statement['type'] == 'StatementType.CONDITION':\n        for nested_statement in statement['TrueStatements']:\n            kindof = 'True Path'",
+        "peekOfCode": "def add_statement(statement, kindof=None):\n    new_node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        nested_method_names = \" \".join(\n            nested_statement['methodName']\n            for nested_statement in statement.get('Statements', [])\n        )\n        if nested_method_names:\n            new_node.methodName += \" \" + nested_method_names\n    if statement['type'] == 'StatementType.CONDITION':",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2216,52 +2257,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def evaluate(json_data, entry_point):\n    data = []\n    flow = get_flow(json_data, entry_point)\n    root = TreeNode(entry_point)\n    for statement in flow['Statements']:\n        current_node = add_statement(root, statement)\n        # current_node = TreeNode(statement.get('methodName'))\n        # if statement['type'] == 'StatementType.CALL':\n        #     for nested_statement in statement['Statements']:\n        #         nested_node = TreeNode(nested_statement.get('methodName'))",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "evaluate_paragraph",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def evaluate_paragraph(json_data, paragraph, parent_id=None, level = 0, next_id=None):\n    if not paragraph:\n        return []\n    statements = []\n    # previous_id =parent_id\n    for idx, statement in enumerate(paragraph):\n        previous_id = paragraph[idx - 1].get('id') if idx > 0 else parent_id\n        next_id = paragraph[idx + 1].get('id') if idx + 1 < len(paragraph) else next_id\n        match statement['type']:\n            case 'StatementType.CONDITION': ",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "process_call",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_call(json_data, statement, parent_id, level, next_id):\n    statements = []\n    previous_id =parent_id    \n    is_internal_call = statement.get('internal')  == True\n    statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = INTERNAL_CALL_RATE,  type=ST_CALL, previousStatementId=previous_id, nextStatementId=next_id))    \n    nested_statements = statement.get('Statements')\n    for idx, st in enumerate(nested_statements):\n        id =  str(uuid.uuid4())\n        next__internal_id = nested_statements[idx + 1].get('id') if idx + 1 < len(nested_statements) else next_id        \n        statements.append(Statement(id=id, methodName=st.get('methodName'),  parentId=parent_id, level=level + 1, rate = EXTERNAL_CALL_RATE,  type=ST_CALL, previousStatementId=previous_id, nextStatementId=next__internal_id))",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "process_condition",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_condition(json_data, statement, parent_id, level, next_id):\n    statements = []\n    previous_id =parent_id      \n    statements.append(Statement(id=statement.get('id'), methodName=statement.get('methodName'),  parentId= parent_id, level=level, rate = ASSINGMENT_RATE,  type=ST_CONDITION, previousStatementId=previous_id))\n    if statement['TrueStatements']:\n        statements.extend(evaluate_paragraph(json_data, statement['TrueStatements'], statement.get('id'), level + 1, next_id))\n    if statement['FalseStatements']: \n        statements.extend(evaluate_paragraph(json_data, statement['FalseStatements'], statement.get('id'), level + 1, next_id))\n    return statements\ndef apply_rating(sorted_data):",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "apply_rating",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def apply_rating(sorted_data):\n    for data in sorted_data:\n        if data.level > 1:\n            parent_statement = next((item for item in sorted_data if item.id == data.parentId), None)\n            if parent_statement:\n                data.rate += parent_statement.rate\n    return sorted_data\n    # for data in sorted_data:\n    #     logger.info(f\"{data.methodName}:{data.rate}\")     \ndef generate_critical_paths(entry_point_id, evaluated_data):           ",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "generate_critical_paths",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def generate_critical_paths(entry_point_id, evaluated_data):           \n    use_cases = []\n    critical_path = []\n    findid = next((item for item in evaluated_data if item.id == entry_point_id), 0)\n    logger.info(critical_path)\ndef get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))",
+        "peekOfCode": "def evaluate(json_data, entry_point):\n    flow = get_flow(json_data, entry_point)\n    root = TreeNode(entry_point, kindof='Entry Point')\n    tree = MyTree()\n    tree.add_root(root)\n    previous_node = root\n    for statement in flow['Statements']:\n        child_node = add_statement(statement)\n        previous_node.add_child(child_node)\n    tree.print_tree()",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2271,6 +2267,42 @@
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
         "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))\n    else:\n        logger.info(f\"Node '{flow_name}' not found.\")\n    return None\nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\cobol_parser\\\\output\\\\DOGEMAIN.json\")",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "is_condition",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def is_condition(statement):\n    return statement.get(\"type\") == \"StatementType.CONDITION\"\ndef is_assignment(statement):\n    return statement.get(\"type\") == \"StatementType.ASSIGN\"\ndef is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "is_assignment",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def is_assignment(statement):\n    return statement.get(\"type\") == \"StatementType.ASSIGN\"\ndef is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "is_internal_call",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "is_external_call",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2333,7 +2365,7 @@
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):",
+        "peekOfCode": "ST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2342,7 +2374,7 @@
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)",
+        "peekOfCode": "ST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2351,7 +2383,7 @@
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':",
+        "peekOfCode": "ST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2360,7 +2392,7 @@
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])",
+        "peekOfCode": "ST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2369,7 +2401,7 @@
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2488,6 +2520,15 @@
         "description": "src.static_analysis.process_results.tree_node",
         "peekOfCode": "OTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')\n            match self.type:\n                case 'StatementType.CALL':",
         "detail": "src.static_analysis.process_results.tree_node",
+        "documentation": {}
+    },
+    {
+        "label": "MyTree",
+        "kind": 6,
+        "importPath": "src.static_analysis.process_results.tree",
+        "description": "src.static_analysis.process_results.tree",
+        "peekOfCode": "class MyTree:\n    def __init__(self):\n        self.root=None\n    def add_root(self, data, kindof=None):\n        if isinstance(data, TreeNode):\n            self.root = data\n            return self.root\n        if self.root is None:\n            self.root = TreeNode(data, kindof)\n            return self.root",
+        "detail": "src.static_analysis.process_results.tree",
         "documentation": {}
     },
     {
