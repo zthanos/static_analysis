@@ -623,14 +623,6 @@
         "documentation": {}
     },
     {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
         "label": "Cobol85Lexer",
         "importPath": "grammars.Cobol85Lexer",
         "description": "grammars.Cobol85Lexer",
@@ -984,6 +976,22 @@
         "description": "tree",
         "isExtraImport": true,
         "detail": "tree",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "constants",
+        "description": "constants",
+        "isExtraImport": true,
+        "detail": "constants",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "constants",
+        "description": "constants",
+        "isExtraImport": true,
+        "detail": "constants",
         "documentation": {}
     },
     {
@@ -2230,16 +2238,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "add_statement_old",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:\n        #     nested_node = add_statement(node, nested_statement, kindof)\n        #     node.add_child(nested_node)\n    elif statement['type'] == 'StatementType.CONDITION':\n        for nested_statement in statement['TrueStatements']:\n            kindof = 'True Path'",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(statement, kindof=None):\n    new_node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        nested_method_names = \" \".join(\n            nested_statement['methodName']\n            for nested_statement in statement.get('Statements', [])",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2262,6 +2261,15 @@
         "documentation": {}
     },
     {
+        "label": "analyze_document",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def analyze_document(json_data):\n    raw = []\n    for flow in json_data.get(\"Flow\", []):\n        flow_name = flow.get(\"Name\")\n        if flow_name:\n            logger.info(f\"Evaluating flow: {flow_name}\")\n            paths = evaluate(json_data, flow_name)\n            raw.append({'EntryPoint': flow_name, 'Paths': paths})\n    return raw\ndef get_flow(data, flow_name):",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
         "label": "get_flow",
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
@@ -2271,137 +2279,11 @@
         "documentation": {}
     },
     {
-        "label": "is_condition",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def is_condition(statement):\n    return statement.get(\"type\") == \"StatementType.CONDITION\"\ndef is_assignment(statement):\n    return statement.get(\"type\") == \"StatementType.ASSIGN\"\ndef is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "is_assignment",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def is_assignment(statement):\n    return statement.get(\"type\") == \"StatementType.ASSIGN\"\ndef is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "is_internal_call",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def is_internal_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == True\ndef is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "is_external_call",
-        "kind": 2,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def is_external_call(statement):\n    return statement.get('type') == \"StatementType.CALL\" and statement.get(\"internal\") == False",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "EXTERNAL_CALL_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "EXTERNAL_CALL_RATE = 1.0\nINTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "INTERNAL_CALL_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "INTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "CONDITIONAL_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "CONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "ASSINGMENT_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "OTHER_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "OTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "ST_ASSIGN",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "ST_CALL",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "ST_CONDITION",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "ST_EXTERNAL",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_EXTERNAL = 4\nST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
-        "label": "ST_OTHER",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.analyze_program",
-        "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "ST_OTHER = 5\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])",
-        "detail": "src.static_analysis.process_results.analyze_program",
-        "documentation": {}
-    },
-    {
         "label": "BASE_DIR",
         "kind": 5,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement_old(data, statement, kindof=None):\n    node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        node.methodName = node.methodName + \" \" + \" \".join([nested_statement['methodName'] for nested_statement in statement['Statements']])\n        # for nested_statement in statement['Statements']:",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(statement, kindof=None):\n    new_node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        nested_method_names = \" \".join(\n            nested_statement['methodName']",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2478,57 +2360,102 @@
         "documentation": {}
     },
     {
-        "label": "EXTERNAL_CALL_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.tree_node",
-        "description": "src.static_analysis.process_results.tree_node",
-        "peekOfCode": "EXTERNAL_CALL_RATE = 1.0\nINTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')",
-        "detail": "src.static_analysis.process_results.tree_node",
-        "documentation": {}
-    },
-    {
-        "label": "INTERNAL_CALL_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.tree_node",
-        "description": "src.static_analysis.process_results.tree_node",
-        "peekOfCode": "INTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')",
-        "detail": "src.static_analysis.process_results.tree_node",
-        "documentation": {}
-    },
-    {
-        "label": "CONDITIONAL_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.tree_node",
-        "description": "src.static_analysis.process_results.tree_node",
-        "peekOfCode": "CONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')",
-        "detail": "src.static_analysis.process_results.tree_node",
-        "documentation": {}
-    },
-    {
-        "label": "ASSINGMENT_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.tree_node",
-        "description": "src.static_analysis.process_results.tree_node",
-        "peekOfCode": "ASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')\n            match self.type:",
-        "detail": "src.static_analysis.process_results.tree_node",
-        "documentation": {}
-    },
-    {
-        "label": "OTHER_RATE",
-        "kind": 5,
-        "importPath": "src.static_analysis.process_results.tree_node",
-        "description": "src.static_analysis.process_results.tree_node",
-        "peekOfCode": "OTHER_RATE = 0.2\nclass TreeNode:\n    def __init__(self, data, kindof=None):\n        self.children = []\n        if isinstance(data, dict) and data.get('methodName') is not None:\n            self.methodName = data.get('methodName')\n            self.id = data.get('id')\n            self.type = data.get('type')\n            match self.type:\n                case 'StatementType.CALL':",
-        "detail": "src.static_analysis.process_results.tree_node",
-        "documentation": {}
-    },
-    {
         "label": "MyTree",
         "kind": 6,
         "importPath": "src.static_analysis.process_results.tree",
         "description": "src.static_analysis.process_results.tree",
         "peekOfCode": "class MyTree:\n    def __init__(self):\n        self.root=None\n    def add_root(self, data, kindof=None):\n        if isinstance(data, TreeNode):\n            self.root = data\n            return self.root\n        if self.root is None:\n            self.root = TreeNode(data, kindof)\n            return self.root",
         "detail": "src.static_analysis.process_results.tree",
+        "documentation": {}
+    },
+    {
+        "label": "EXTERNAL_CALL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "EXTERNAL_CALL_RATE = 1.0\nINTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "INTERNAL_CALL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "INTERNAL_CALL_RATE = 0.5\nCONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "CONDITIONAL_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "CONDITIONAL_RATE = 0.4\nASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ASSINGMENT_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "ASSINGMENT_RATE = 0.3\nOTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "OTHER_RATE",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "OTHER_RATE = 0.2\nST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ST_ASSIGN",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "ST_ASSIGN = 1\nST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ST_CALL",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "ST_CALL = 2\nST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ST_CONDITION",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "ST_CONDITION = 3\nST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ST_EXTERNAL",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "ST_EXTERNAL = 4\nST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ST_OTHER",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.constants",
+        "description": "src.static_analysis.process_results.constants",
+        "peekOfCode": "ST_OTHER = 5",
+        "detail": "src.static_analysis.process_results.constants",
         "documentation": {}
     },
     {
