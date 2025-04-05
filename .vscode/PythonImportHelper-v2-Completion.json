@@ -2610,7 +2610,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.markdown",
         "description": "src.static_analysis.process_results.markdown",
-        "peekOfCode": "def add_header(label, level=1):\n    return f'{\"#\" * level} {label}'\ndef add_bold(label):\n    return f'**{label}**'\ndef add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):",
+        "peekOfCode": "def add_header(label, level=1):\n    return f'{\"#\" * level} {label}'\ndef add_bold(label):\n    return f'**{label}**'\ndef add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef sanitize_anchor(text):",
         "detail": "src.static_analysis.process_results.markdown",
         "documentation": {}
     },
@@ -2619,7 +2619,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.markdown",
         "description": "src.static_analysis.process_results.markdown",
-        "peekOfCode": "def add_bold(label):\n    return f'**{label}**'\ndef add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}",
+        "peekOfCode": "def add_bold(label):\n    return f'**{label}**'\ndef add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef sanitize_anchor(text):\n    return text.lower().replace(\" \", \"-\").replace(\"_\", \"-\").replace(\".\", \"\")\ndef extract_calls(data):",
         "detail": "src.static_analysis.process_results.markdown",
         "documentation": {}
     },
@@ -2628,7 +2628,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.markdown",
         "description": "src.static_analysis.process_results.markdown",
-        "peekOfCode": "def add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']",
+        "peekOfCode": "def add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef sanitize_anchor(text):\n    return text.lower().replace(\" \", \"-\").replace(\"_\", \"-\").replace(\".\", \"\")\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}",
         "detail": "src.static_analysis.process_results.markdown",
         "documentation": {}
     },
@@ -2637,7 +2637,16 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.markdown",
         "description": "src.static_analysis.process_results.markdown",
-        "peekOfCode": "def add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']\n        entry_points[entry_point] = set()\n        external_systems[entry_point] = set()\n        for path in flow['AnalyzedPaths']:",
+        "peekOfCode": "def add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef sanitize_anchor(text):\n    return text.lower().replace(\" \", \"-\").replace(\"_\", \"-\").replace(\".\", \"\")\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']\n        entry_points[entry_point] = set()",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_anchor",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def sanitize_anchor(text):\n    return text.lower().replace(\" \", \"-\").replace(\"_\", \"-\").replace(\".\", \"\")\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']\n        entry_points[entry_point] = set()\n        external_systems[entry_point] = set()\n        for path in flow['AnalyzedPaths']:",
         "detail": "src.static_analysis.process_results.markdown",
         "documentation": {}
     },

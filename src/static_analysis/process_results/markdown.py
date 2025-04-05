@@ -22,11 +22,27 @@ def generate_document(data):
     doc.append(f'{add_bold("Language")}: COBOL\n')
     doc.append(add_separator())
     
+    toc = []
+    toc.append(add_header("Table of Contents", level=1))
+
+    for flow in data.get('flow', []):
+        entrypoint = flow.get("EntryPoint")
+        sanitized_anchor = sanitize_anchor(entrypoint)
+        toc.append(f'- [{entrypoint}](#{sanitized_anchor})')
+        for index, analyzed in enumerate(flow.get('AnalyzedPaths', [])):
+            toc.append(f'  - [Use case {index + 1} (Weight: {analyzed.get("TotalWeight")})](#{sanitized_anchor}-use-case-{index + 1})')
+
+    doc.extend(toc)
+    doc.append(add_separator())
+    
+    
     entry_points, external_systems = extract_calls(data)
     
     # Generate diagrams for each entry point
     for flow in data.get('flow', []):
         entrypoint = flow.get("EntryPoint")
+        anchor = sanitize_anchor(entrypoint)
+        doc.append(f'<a name="{anchor}"></a>')
         doc.append(add_header(entrypoint, level=2))
         # Add entry point description
         doc.append(f'{add_bold("Description")}: Main entry point for {entrypoint} functionality')
@@ -47,7 +63,10 @@ def generate_document(data):
         doc.append(add_header("Analyzed Paths", level=3))
         for index, analyzed in enumerate(flow.get('AnalyzedPaths', [])):
             doc.append(add_separator())
+            usecase_anchor = f"{anchor}-use-case-{index + 1}"
+            doc.append(f'<a name="{usecase_anchor}"></a>')
             doc.append(f'{add_bold("Use case")} (Weight: {analyzed.get("TotalWeight")})')
+            
             
             # Add business rules
             if analyzed.get("BusinessRules"):
@@ -158,6 +177,10 @@ def add_code(lines, language=''):
     return code
 def add_diagram_svg(diagram_path):
     return f'![Diagram]({diagram_path})'
+
+def sanitize_anchor(text):
+    return text.lower().replace(" ", "-").replace("_", "-").replace(".", "")
+
 
 def extract_calls(data):
     entry_points = {}
