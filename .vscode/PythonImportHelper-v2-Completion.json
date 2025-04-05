@@ -201,6 +201,30 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
@@ -500,6 +524,22 @@
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
         "documentation": {}
     },
     {
@@ -1018,6 +1058,14 @@
         "description": "itertools",
         "isExtraImport": true,
         "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "PlantUML",
+        "importPath": "plantuml",
+        "description": "plantuml",
+        "isExtraImport": true,
+        "detail": "plantuml",
         "documentation": {}
     },
     {
@@ -2256,7 +2304,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def evaluate(json_data, entry_point):\n    flow = get_flow(json_data, entry_point)\n    root = TreeNode(entry_point, kindof='Entry Point')\n    tree = MyTree()\n    tree.add_root(root)\n    previous_node = root\n    for statement in flow['Statements']:\n        child_node = add_statement(statement)\n        previous_node.add_child(child_node)\n    tree.print_tree()",
+        "peekOfCode": "def evaluate(document, json_data, entry_point):\n    flow = get_flow(json_data, entry_point)\n    root = TreeNode(entry_point, kindof='Entry Point')\n    tree = MyTree()\n    tree.add_root(root)\n    previous_node = root\n    for statement in flow['Statements']:\n        child_node = add_statement(statement)\n        previous_node.add_child(child_node)\n    tree.print_tree()",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2265,7 +2313,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def analyze_document(json_data):\n    raw = []\n    for flow in json_data.get(\"Flow\", []):\n        flow_name = flow.get(\"Name\")\n        if flow_name:\n            logger.info(f\"Evaluating flow: {flow_name}\")\n            paths = evaluate(json_data, flow_name)\n            raw.append({'EntryPoint': flow_name, 'Paths': paths})\n    return raw\ndef get_flow(data, flow_name):",
+        "peekOfCode": "def analyze_document(document, json_data):\n    entry_points_map=[]\n    raw = []\n    program = json_data.get('ProgramId')\n    for flow in json_data.get(\"Flow\", []):\n        flow_name = flow.get(\"Name\")    \n        entry_points_map.append(flow_name)\n    for flow in json_data.get(\"Flow\", []):\n        flow_name = flow.get(\"Name\")\n        if flow_name:",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2274,7 +2322,34 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))\n    else:\n        logger.info(f\"Node '{flow_name}' not found.\")\n    return None\nif __name__ == \"__main__\":\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\\\cobol_parser\\\\output\\\\DOGEMAIN.json\")",
+        "peekOfCode": "def get_flow(data, flow_name):\n    main_node = next((node for node in data.get(\"Flow\", []) if node.get(\"Name\") == flow_name), None)\n    if main_node:\n        return main_node\n        # print(json.dumps(main_node, indent=4))\n    else:\n        logger.info(f\"Node '{flow_name}' not found.\")\n    return None\n# Sample path node for type hinting\nStep = Dict[str, Any]",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_paths",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def analyze_paths(entry_point_name: str, paths: List[Path], entry_points_map) -> Dict[str, Any]:\n    \"\"\"\n    For a given entry point, analyze its paths and extract:\n    - Total weight\n    - Business rules (conditions)\n    - Steps (excluding conditions and True/False paths)\n    - Internal entry point calls\n    \"\"\"\n    analyzed_paths = []\n    for path in paths:",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "process_files",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def process_files(file_pattern):\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    pattern = os.path.join(script_dir, file_pattern)\n    files = glob.glob(pattern)\n    if not files:\n        print(f\"Δεν βρέθηκαν αρχεία που να ταιριάζουν με το μοτίβο: {file_pattern}\")\n        return\n    for file_path in files:\n        process_json_file(file_path)\ndef process_json_file(file_path):",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "process_json_file",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "def process_json_file(file_path):\n    with open(file_path) as f:\n        json_data = json.load(f)\n    file_name = os.path.basename(file_path)\n    file_name_without_ext = os.path.splitext(file_name)[0]\n    output_dir = os.path.join(os.getcwd(), \"output\")\n    os.makedirs(output_dir, exist_ok=True)\n    output_file = os.path.join(output_dir, f\"Analyzed_{file_name_without_ext}.json\")\n    logger.info(f\"Επεξεργασία αρχείου: {file_path}\")\n    json_output = analyze_document(file_name_without_ext, json_data)",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2284,6 +2359,24 @@
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
         "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef add_statement(statement, kindof=None):\n    new_node = TreeNode(statement, kindof)\n    if statement['type'] == 'StatementType.CALL':\n        nested_method_names = \" \".join(\n            nested_statement['methodName']",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "Step",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "Step = Dict[str, Any]\nPath = List[Step]\ndef analyze_paths(entry_point_name: str, paths: List[Path], entry_points_map) -> Dict[str, Any]:\n    \"\"\"\n    For a given entry point, analyze its paths and extract:\n    - Total weight\n    - Business rules (conditions)\n    - Steps (excluding conditions and True/False paths)\n    - Internal entry point calls\n    \"\"\"",
+        "detail": "src.static_analysis.process_results.analyze_program",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.analyze_program",
+        "description": "src.static_analysis.process_results.analyze_program",
+        "peekOfCode": "Path = List[Step]\ndef analyze_paths(entry_point_name: str, paths: List[Path], entry_points_map) -> Dict[str, Any]:\n    \"\"\"\n    For a given entry point, analyze its paths and extract:\n    - Total weight\n    - Business rules (conditions)\n    - Steps (excluding conditions and True/False paths)\n    - Internal entry point calls\n    \"\"\"\n    analyzed_paths = []",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2456,6 +2549,213 @@
         "description": "src.static_analysis.process_results.constants",
         "peekOfCode": "ST_OTHER = 5",
         "detail": "src.static_analysis.process_results.constants",
+        "documentation": {}
+    },
+    {
+        "label": "process_json_data",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    output_dir = os.path.join(os.getcwd(), \"output\")\n    os.makedirs(output_dir, exist_ok=True)\n    doc = []\n    program = data.get(\"program\")\n    doc.append(add_header(program))",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "generate_document",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def generate_document(data):\n    output_dir = os.path.join(os.getcwd(), \"output\")\n    os.makedirs(output_dir, exist_ok=True)\n    doc = []\n    program = data.get(\"program\")\n    doc.append(add_header(program))\n    doc.append(add_separator())\n    doc.append(f'{add_bold(\"File\")}: {data.get(\"document\")}.cbl')\n    doc.append(f'{add_bold(\"Program\")}: {program}')\n    doc.append(f'{add_bold(\"Language\")}: COBOL')",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "process_external_systems",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def process_external_systems(external_systems):\n    cics_commands = []\n    programs = []\n    for cmd in external_systems:\n        if cmd.startswith('XCTL PROGRAM'):\n            # Extract program name from XCTL commands\n            program = cmd.split(\"'\")[1]\n            programs.append(program)\n        elif any(cmd.startswith(prefix) for prefix in ['RETURN', 'SEND', 'RECEIVE', 'STARTBR', 'READ', 'ENDBR', 'RESETBR']):\n            cics_commands.append(cmd.split(' ')[0])",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "generate_diagram",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def generate_diagram(program, entrypoint, internals, externals):\n    output_dir = os.path.join(os.getcwd(), \"output\")\n    os.makedirs(output_dir, exist_ok=True)\n    plantuml_code = []\n    plantuml_code.append('@startuml')\n    plantuml_code.append('!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml')\n    # Main program component\n    plantuml_code.append(f'Application_Component({sanitize_name(program)}, \"{program}\")')\n    # Entry point function\n    plantuml_code.append(f'Application_Function({sanitize_name(entrypoint)}, \"{entrypoint}\")')",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_name",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def sanitize_name(element_name):\n    return element_name.replace(\" \", \"_\").replace(\"-\", \"_\").replace(\".\", \"_\") \\\n                      .replace(\"(\", \"\").replace(\")\", \"\").replace(\",\", \"\") \\\n                      .replace(\"'\", \"\").replace('\"', \"\").replace(\"=\", \"\")\ndef add_separator():\n    return '---'\ndef add_header(label, level=1):\n    return f'{\"#\" * level} {label}'\ndef add_bold(label):\n    return f'**{label}**'",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "add_separator",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def add_separator():\n    return '---'\ndef add_header(label, level=1):\n    return f'{\"#\" * level} {label}'\ndef add_bold(label):\n    return f'**{label}**'\ndef add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "add_header",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def add_header(label, level=1):\n    return f'{\"#\" * level} {label}'\ndef add_bold(label):\n    return f'**{label}**'\ndef add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "add_bold",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def add_bold(label):\n    return f'**{label}**'\ndef add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "add_code",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def add_code(lines, language=''):\n    code = [f'```{language}'] + lines + ['```']\n    return code\ndef add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "add_diagram_svg",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def add_diagram_svg(diagram_path):\n    return f'![Diagram]({diagram_path})'\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']\n        entry_points[entry_point] = set()\n        external_systems[entry_point] = set()\n        for path in flow['AnalyzedPaths']:",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "extract_calls",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "def extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']\n        entry_points[entry_point] = set()\n        external_systems[entry_point] = set()\n        for path in flow['AnalyzedPaths']:\n            entry_points[entry_point].update(path['CallsToEntryPoints'])\n            external_systems[entry_point].update(path['CallsToExternalSystem'])",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.markdown",
+        "description": "src.static_analysis.process_results.markdown",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    output_dir = os.path.join(os.getcwd(), \"output\")\n    os.makedirs(output_dir, exist_ok=True)\n    doc = []\n    program = data.get(\"program\")",
+        "detail": "src.static_analysis.process_results.markdown",
+        "documentation": {}
+    },
+    {
+        "label": "SwimLanePallette",
+        "kind": 6,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "class SwimLanePallette:\n    \"\"\"Class to hold the colors for the swimlane diagram.\"\"\"\n    # Define colors as class attributes\n    SKY_BLUE = \"#3498DB\"\n    SUNSET_RED = \"#E74C3C\"\n    GOLDEN_YELLOW = \"#F1C40F\"\n    EMERALD_GREEN = \"#2ECC71\"\nEXTERNAL_CALL=\"|External|\"\nOTHER_COBOL_PROGRAMS=\"|Other COBOL Programs|\"\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "process_json_data",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    entry_points, external_systems = extract_calls(data)\n    for flow in flows:\n        plantuml_code = []",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "generate_document",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def generate_document(data):\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    entry_points, external_systems = extract_calls(data)\n    for flow in flows:\n        plantuml_code = []\n        sl_diagram = []\n        plantuml_code.append('@startuml')\n        plantuml_code.append('!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml')\n        system_group_elements = []",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "process_external_systems",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def process_external_systems(external_systems):\n    cics = []\n    programs = []\n    for cmd in external_systems:\n        splitted = cmd.split(' ')\n        if len(splitted) > 1:\n            if splitted[0] == 'XCTL':\n                programs.append(splitted[1])\n            else:\n                cics.append(f'{splitted[0]}')",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "generate_diagram",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def generate_diagram(program, entrypoint, internals, externals):\n    plantuml_code=  []\n    plantuml_code.append('@startuml')\n    plantuml_code.append('!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml')\n    plantuml_code.append(add_archimete_element(program, 'Component'))\n    plantuml_code.append(add_archimete_element(entrypoint, 'Component'))\n    for internal in internals:\n        plantuml_code.append(add_archimete_element(internal, 'Function'))\n        plantuml_code.append(add_archimete_relation(entrypoint, internal, 'Accesses'))\n    # for external in externals:",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_name",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def sanitize_name(element_name):\n    return element_name.replace(\" \", \"_\").replace(\"-\", \"_\").replace(\".\", \"_\").replace(\"(\", \"\").replace(\")\", \"\").replace(\",\", \"\").replace(\"'\", \"\").replace('\"', \"\")\ndef add_archimete_element(element, type):\n    return f'Application_{type}({sanitize_name(element)}, \"{element}\")'\ndef add_archimete_relation(from_element, to_element, type, direction=''):\n    return f'Rel_{type}({sanitize_name(from_element)}, {sanitize_name(to_element)})'  \ndef add_archimate_group(group_name, elements, description=''):\n    doc = []      \n    group_name = sanitize_name(group_name)\n    doc.append(f'Group({group_name}, \"{description}\") {{')",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "add_archimete_element",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def add_archimete_element(element, type):\n    return f'Application_{type}({sanitize_name(element)}, \"{element}\")'\ndef add_archimete_relation(from_element, to_element, type, direction=''):\n    return f'Rel_{type}({sanitize_name(from_element)}, {sanitize_name(to_element)})'  \ndef add_archimate_group(group_name, elements, description=''):\n    doc = []      \n    group_name = sanitize_name(group_name)\n    doc.append(f'Group({group_name}, \"{description}\") {{')\n    doc.extend(elements)    \n    doc.append('}')    ",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "add_archimete_relation",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def add_archimete_relation(from_element, to_element, type, direction=''):\n    return f'Rel_{type}({sanitize_name(from_element)}, {sanitize_name(to_element)})'  \ndef add_archimate_group(group_name, elements, description=''):\n    doc = []      \n    group_name = sanitize_name(group_name)\n    doc.append(f'Group({group_name}, \"{description}\") {{')\n    doc.extend(elements)    \n    doc.append('}')    \n    return doc\ndef extract_calls(data):",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "add_archimate_group",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def add_archimate_group(group_name, elements, description=''):\n    doc = []      \n    group_name = sanitize_name(group_name)\n    doc.append(f'Group({group_name}, \"{description}\") {{')\n    doc.extend(elements)    \n    doc.append('}')    \n    return doc\ndef extract_calls(data):\n    entry_points = {}\n    external_systems = {}",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "extract_calls",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "def extract_calls(data):\n    entry_points = {}\n    external_systems = {}\n    for flow in data['flow']:\n        entry_point = flow['EntryPoint']\n        entry_points[entry_point] = set()\n        external_systems[entry_point] = set()\n        for path in flow['AnalyzedPaths']:\n            entry_points[entry_point].update(path['CallsToEntryPoints'])\n            external_systems[entry_point].update(path['CallsToExternalSystem'])",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.archimate_diagram",
+        "description": "src.static_analysis.process_results.archimate_diagram",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    entry_points, external_systems = extract_calls(data)\n    for flow in flows:",
+        "detail": "src.static_analysis.process_results.archimate_diagram",
         "documentation": {}
     },
     {

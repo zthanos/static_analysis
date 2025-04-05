@@ -8,9 +8,9 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,            
-            "python": "${command:python.interpreterPath}",
+            "python": "${workspaceFolder}\\devenv\\Scripts\\python.exe",
             "args": [
-                "Samples\\DOGEM*"
+                "..\\cobol_parser\\output\\*.json"
             ]
         }
     ]

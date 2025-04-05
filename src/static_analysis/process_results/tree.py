@@ -151,20 +151,26 @@ class MyTree:
         
         for combo in combs:
             path = self.retrieve_path_flat(combo)
-            path_str = " -> ".join(path)
+
+            # Δημιουργία key για path_str από περιγραφή + condition    
+            path_key = tuple(
+                (step['Description'], step.get('ConditionValue')) for step in path
+            )            
            
-            # Only store the first condition combination that leads to this path
-            if path_str not in path_map:
-                path_map[path_str] = {
+    # Αν το path δεν έχει ήδη καταχωρηθεί, πρόσθεσέ το
+            if path_key not in path_map:
+                path_map[path_key] = {
                     'condition': combo,
                     'path': path
                 }
-        
+            
         # Extract the unique paths with their representative conditions
         unique_results = list(path_map.values())
-        
-       
         return unique_results    
+
+    def extract_node_info(self, node, decision=None):
+        isExternal = node.kindof == 'External call'
+        return {'Description': node.methodName, 'Type': node.type, 'Weight': node.weight, 'ConditionValue': decision, 'External': isExternal, 'ExternalSystem':'CICS'}
     
     def retrieve_path_flat(self, condition_sequence, node=None, condition_index=0):
         path = []
@@ -173,7 +179,8 @@ class MyTree:
             node = self.root
 
         # Προσθέτουμε το τρέχον node
-        path.append(node.methodName)
+        path.append(self.extract_node_info(node))
+        # path.append(node.methodName)
 
         for child in node.children:
             if getattr(child, 'type', None) == "StatementType.CONDITION":
@@ -181,8 +188,9 @@ class MyTree:
                     decision = condition_sequence[condition_index]
                     condition_index += 1
 
-                    path.append(f"{child.methodName}({decision})")
-
+                    # path.append(f"{child.methodName}({decision})")
+                    path.append(self.extract_node_info(child, decision))
+                    
                     # Εύρεση True/False Path
                     for branch in child.children:
                         if decision and "True Path" in branch.methodName:
@@ -193,12 +201,16 @@ class MyTree:
                             break
                 else:
                     # Δεν υπάρχει άλλη πληροφορία από το sequence
-                    path.append(child.methodName)
+                    # path.append(child.methodName)
+                    path.append(self.extract_node_info(child))
+                    
                     for branch in child.children:
                         path.extend(self.retrieve_path_flat(condition_sequence, branch, condition_index))
             else:
                 # Κανονικό statement: επεξεργασία κανονική
-                path.append(child.methodName)
+                # path.append(child.methodName)
+                path.append(self.extract_node_info(child))                                    
+                
                 for grandchild in child.children:
                     path.extend(self.retrieve_path_flat(condition_sequence, grandchild, condition_index))
 

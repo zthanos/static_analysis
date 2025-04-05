@@ -1,10 +1,11 @@
+import argparse
+import glob
 import os
 import json
 from logger import logger
-
+from typing import List, Dict, Any
 from tree_node import TreeNode
 from tree import MyTree
-
 from constants import *
 
 
@@ -49,7 +50,7 @@ def add_statement(statement, kindof=None):
     return new_node
 
 
-def evaluate(json_data, entry_point):
+def evaluate(document, json_data, entry_point):
     flow = get_flow(json_data, entry_point)
     root = TreeNode(entry_point, kindof='Entry Point')
     tree = MyTree()
@@ -67,15 +68,23 @@ def evaluate(json_data, entry_point):
     return [path['path'] for path in possible_paths]
 
     # tree.print_paths()
-def analyze_document(json_data):
+def analyze_document(document, json_data):
+    entry_points_map=[]
     raw = []
+    program = json_data.get('ProgramId')
+    for flow in json_data.get("Flow", []):
+        flow_name = flow.get("Name")    
+        entry_points_map.append(flow_name)
+    
     for flow in json_data.get("Flow", []):
         flow_name = flow.get("Name")
+        
         if flow_name:
             logger.info(f"Evaluating flow: {flow_name}")
-            paths = evaluate(json_data, flow_name)
-            raw.append({'EntryPoint': flow_name, 'Paths': paths})
-    return raw
+            paths = evaluate(document, json_data, flow_name)
+            raw.append(analyze_paths(flow_name, paths, entry_points_map))
+        
+    return {"document": document, "program": program, "flow": raw }
     
 
 def get_flow(data, flow_name):
@@ -88,13 +97,108 @@ def get_flow(data, flow_name):
     return None
 
 
+
+
+# Sample path node for type hinting
+Step = Dict[str, Any]
+Path = List[Step]
+
+
+def analyze_paths(entry_point_name: str, paths: List[Path], entry_points_map) -> Dict[str, Any]:
+    """
+    For a given entry point, analyze its paths and extract:
+    - Total weight
+    - Business rules (conditions)
+    - Steps (excluding conditions and True/False paths)
+    - Internal entry point calls
+    """
+    analyzed_paths = []
+
+    for path in paths:
+        total_weight = 0.0
+        business_rules = []
+        steps = []
+        internal_calls = set()
+        external_calls = set()
+
+        for step in path:
+            description = step["Description"]
+            step_type = step["Type"]
+            weight = step.get("Weight", 0.0)
+            condition_value = step.get("ConditionValue")
+
+            total_weight += weight
+
+            if step_type == "StatementType.CONDITION":
+                business_rules.append(f"{description} = {condition_value}")
+            elif "True Path" in description or "False Path" in description:
+                continue
+            else:
+                steps.append(description)
+                # Detect if this step calls another entry point
+                if description in entry_points_map:
+                    internal_calls.add(description)
+                else:
+                    if step.get('External', False):
+                        external_system = step.get('External', '')
+                        external_calls.add(description)
+
+        analyzed_paths.append({
+            "TotalWeight": round(total_weight, 2),
+            "BusinessRules": business_rules,
+            "Steps": steps,
+            "CallsToEntryPoints": sorted(list(internal_calls)),
+            "CallsToExternalSystem": sorted(list(external_calls))
+        })
+
+    return {
+        "EntryPoint": entry_point_name,
+        "AnalyzedPaths": analyzed_paths
+    }
+
+
+def process_files(file_pattern):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    pattern = os.path.join(script_dir, file_pattern)
+    
+    files = glob.glob(pattern)
+    if not files:
+        print(f"Δεν βρέθηκαν αρχεία που να ταιριάζουν με το μοτίβο: {file_pattern}")
+        return
+
+    for file_path in files:
+        process_json_file(file_path)
+    
+def process_json_file(file_path):
+    with open(file_path) as f:
+        json_data = json.load(f)
+    file_name = os.path.basename(file_path)
+    file_name_without_ext = os.path.splitext(file_name)[0]
+    output_dir = os.path.join(os.getcwd(), "output")
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, f"Analyzed_{file_name_without_ext}.json")
+    
+    logger.info(f"Επεξεργασία αρχείου: {file_path}")
+    
+    json_output = analyze_document(file_name_without_ext, json_data)
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(json_output, f, ensure_ascii=False, indent=4)
+
+    print(f"Ανάλυση αποθηκεύτηκε στο: {output_file}")    
+
+
+
+    
 if __name__ == "__main__":
-    json_path = os.path.join(os.path.dirname(__file__),  "..\\cobol_parser\\output\\DOGEMAIN.json")
-    data = process_json_data(json_path)
-    # data = evaluate(data, 'DOGE-WTO')
-    res = analyze_document(data)
-    for r in res:
-        logger.info(r)
+    parser = argparse.ArgumentParser(description="Static Analysis. JSON analyzer")
+    # Ορισμός argument για το όνομα αρχείου ή wildcard pattern
+    parser.add_argument("file_pattern", help="Όνομα αρχείου json ή wildcard pattern (π.χ. '*.json')")
+    try:
+        args = parser.parse_args()
+        process_files(args.file_pattern)
+    except Exception as e:
+        logger.error(f"Σφάλμα κατά την εκτέλεση: {e}")    
     print("Analysis Completed!")
 
 

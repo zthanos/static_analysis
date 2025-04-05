@@ -1,0 +1,950 @@
+{
+    "document": "DOGEDEET",
+    "program": "DOGEDEET",
+    "flow": [
+        {
+            "EntryPoint": "DOGE-MAIN",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 6.9,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = True",
+                        "EIBCALEN EQUAL TO ZERO = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to DOGECOMMS-AREA",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-WTO"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 9.6,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = True",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to DOGECOMMS-AREA",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "Assign value to DIRECTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-WTO"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 10.5,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = True",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to DOGECOMMS-AREA",
+                        "Assign value to WTO-MESSAGE",
+                        "Assign value to DIRECTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 10.3,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = True",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to DOGECOMMS-AREA",
+                        "XCTL PROGRAM('DOGEQUIT')",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "XCTL PROGRAM('DOGEQUIT')"
+                    ]
+                },
+                {
+                    "TotalWeight": 12.5,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = True",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = False",
+                        "EIBAID EQUAL TO DFHPF6 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to DOGECOMMS-AREA",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "XCTL PROGRAM('DOGETRAN')",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-WTO"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "XCTL PROGRAM('DOGETRAN')"
+                    ]
+                },
+                {
+                    "TotalWeight": 14.1,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = True",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = False",
+                        "EIBAID EQUAL TO DFHPF6 = False",
+                        "EIBAID EQUAL TO DFHENTER = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to DOGECOMMS-AREA",
+                        "RECEIVE-KEY",
+                        "PARSE-KEY",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "PARSE-KEY",
+                        "RECEIVE-KEY"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 11.1,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = True",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = False",
+                        "EIBAID EQUAL TO DFHPF6 = False",
+                        "EIBAID EQUAL TO DFHENTER = False"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to DOGECOMMS-AREA",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ]
+                },
+                {
+                    "TotalWeight": 5.6,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = False",
+                        "EIBCALEN EQUAL TO ZERO = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-WTO"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 8.3,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = False",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "Assign value to DIRECTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-WTO"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 9.2,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = False",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to WTO-MESSAGE",
+                        "Assign value to DIRECTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 9.0,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = False",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "XCTL PROGRAM('DOGEQUIT')",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "XCTL PROGRAM('DOGEQUIT')"
+                    ]
+                },
+                {
+                    "TotalWeight": 11.2,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = False",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = False",
+                        "EIBAID EQUAL TO DFHPF6 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "XCTL PROGRAM('DOGETRAN')",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "DOGE-WTO"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "XCTL PROGRAM('DOGETRAN')"
+                    ]
+                },
+                {
+                    "TotalWeight": 12.8,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = False",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = False",
+                        "EIBAID EQUAL TO DFHPF6 = False",
+                        "EIBAID EQUAL TO DFHENTER = True"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "RECEIVE-KEY",
+                        "PARSE-KEY",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN",
+                        "PARSE-KEY",
+                        "RECEIVE-KEY"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)",
+                        "SEND MAP('DOGEDT1') MAPSET('DOGEDT') ERASE"
+                    ]
+                },
+                {
+                    "TotalWeight": 9.8,
+                    "BusinessRules": [
+                        "EIBCALEN > ZERO = False",
+                        "EIBCALEN EQUAL TO ZERO = False",
+                        "EIBAID EQUAL TO DFHPF8 = False",
+                        "EIBAID EQUAL TO DFHPF7 = False",
+                        "EIBAID EQUAL TO DFHPF3 = False",
+                        "EIBAID EQUAL TO DFHPF6 = False",
+                        "EIBAID EQUAL TO DFHENTER = False"
+                    ],
+                    "Steps": [
+                        "DOGE-MAIN",
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-MAIN"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RETURN TRANSID('DEET') COMMAREA(DOGECOMMS-AREA)"
+                    ]
+                }
+            ]
+        },
+        {
+            "EntryPoint": "DOGE-EXIT",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 1.5,
+                    "BusinessRules": [],
+                    "Steps": [
+                        "DOGE-EXIT",
+                        "GOBACK"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-EXIT"
+                    ],
+                    "CallsToExternalSystem": []
+                }
+            ]
+        },
+        {
+            "EntryPoint": "DOGE-WTO",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 2.3,
+                    "BusinessRules": [],
+                    "Steps": [
+                        "DOGE-WTO",
+                        "WRITE OPERATOR TEXT(WTO-MESSAGE)",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-WTO"
+                    ],
+                    "CallsToExternalSystem": [
+                        "WRITE OPERATOR TEXT(WTO-MESSAGE)"
+                    ]
+                }
+            ]
+        },
+        {
+            "EntryPoint": "DOGE-START-BROWSE",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 5.7,
+                    "BusinessRules": [
+                        "RESPONSE-CODE IS EQUAL TO DFHRESP(NOTFND) = True",
+                        "RECORD-ID IS EQUAL TO 0000000001 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-START-BROWSE",
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-START-BROWSE"
+                    ],
+                    "CallsToExternalSystem": [
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)"
+                    ]
+                },
+                {
+                    "TotalWeight": 4.4,
+                    "BusinessRules": [
+                        "RESPONSE-CODE IS EQUAL TO DFHRESP(NOTFND) = True",
+                        "RECORD-ID IS EQUAL TO 0000000001 = False"
+                    ],
+                    "Steps": [
+                        "DOGE-START-BROWSE",
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-START-BROWSE"
+                    ],
+                    "CallsToExternalSystem": [
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)"
+                    ]
+                },
+                {
+                    "TotalWeight": 5.7,
+                    "BusinessRules": [
+                        "RESPONSE-CODE IS EQUAL TO DFHRESP(NOTFND) = False",
+                        "RECORD-ID IS EQUAL TO 0000000001 = True"
+                    ],
+                    "Steps": [
+                        "DOGE-START-BROWSE",
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-START-BROWSE"
+                    ],
+                    "CallsToExternalSystem": [
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)"
+                    ]
+                },
+                {
+                    "TotalWeight": 4.4,
+                    "BusinessRules": [
+                        "RESPONSE-CODE IS EQUAL TO DFHRESP(NOTFND) = False",
+                        "RECORD-ID IS EQUAL TO 0000000001 = False"
+                    ],
+                    "Steps": [
+                        "DOGE-START-BROWSE",
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-START-BROWSE"
+                    ],
+                    "CallsToExternalSystem": [
+                        "STARTBR FILE('DOGEVSAM') RIDFLD(RECORD-ID) EQUAL RESP(RESPONSE-CODE)"
+                    ]
+                }
+            ]
+        },
+        {
+            "EntryPoint": "DOGE-SHOW-TRANSACTION",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 9.9,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = True",
+                        "RECORD-ID EQUAL TO 0000000002 = True",
+                        "WE-GOT-IT = True"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "Assign value to FOUND-RECORD",
+                        "CONVERT-DATE",
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "Assign value to DLABEL",
+                        "Assign value to DADDRESS",
+                        "FILL-SCREEN-DATA",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "CONVERT-DATE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "FILL-SCREEN-DATA"
+                    ],
+                    "CallsToExternalSystem": [
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)"
+                    ]
+                },
+                {
+                    "TotalWeight": 8.7,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = True",
+                        "RECORD-ID EQUAL TO 0000000002 = True",
+                        "WE-GOT-IT = False"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to KEY-ID",
+                        "Assign value to ERRORO",
+                        "Assign value to KEYH",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION"
+                    ],
+                    "CallsToExternalSystem": [
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)"
+                    ]
+                },
+                {
+                    "TotalWeight": 8.6,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = True",
+                        "RECORD-ID EQUAL TO 0000000002 = False",
+                        "WE-GOT-IT = True"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "CONVERT-DATE",
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "Assign value to DLABEL",
+                        "Assign value to DADDRESS",
+                        "FILL-SCREEN-DATA",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "CONVERT-DATE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "FILL-SCREEN-DATA"
+                    ],
+                    "CallsToExternalSystem": [
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)"
+                    ]
+                },
+                {
+                    "TotalWeight": 7.4,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = True",
+                        "RECORD-ID EQUAL TO 0000000002 = False",
+                        "WE-GOT-IT = False"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "Assign value to KEY-ID",
+                        "Assign value to ERRORO",
+                        "Assign value to KEYH",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION"
+                    ],
+                    "CallsToExternalSystem": [
+                        "READPREV FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)"
+                    ]
+                },
+                {
+                    "TotalWeight": 11.3,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = False",
+                        "WE-GOT-ITANDFORWARD = True",
+                        "RECORD-ID EQUAL TO 0000000002 = True",
+                        "WE-GOT-IT = True"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "Assign value to FOUND-RECORD",
+                        "CONVERT-DATE",
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "Assign value to DLABEL",
+                        "Assign value to DADDRESS",
+                        "FILL-SCREEN-DATA",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "CONVERT-DATE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "FILL-SCREEN-DATA"
+                    ],
+                    "CallsToExternalSystem": [
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)"
+                    ]
+                },
+                {
+                    "TotalWeight": 10.1,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = False",
+                        "WE-GOT-ITANDFORWARD = True",
+                        "RECORD-ID EQUAL TO 0000000002 = True",
+                        "WE-GOT-IT = False"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "Assign value to FOUND-RECORD",
+                        "Assign value to KEY-ID",
+                        "Assign value to ERRORO",
+                        "Assign value to KEYH",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION"
+                    ],
+                    "CallsToExternalSystem": [
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)"
+                    ]
+                },
+                {
+                    "TotalWeight": 10.4,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = False",
+                        "WE-GOT-ITANDFORWARD = False",
+                        "WE-GOT-IT = True",
+                        "RECORD-ID EQUAL TO 0000000002 = False",
+                        "WE-GOT-IT = True"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)",
+                        "CONVERT-DATE",
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "Assign value to DLABEL",
+                        "Assign value to DADDRESS",
+                        "FILL-SCREEN-DATA",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "CONVERT-DATE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "FILL-SCREEN-DATA"
+                    ],
+                    "CallsToExternalSystem": [
+                        "READNEXT FILE('DOGEVSAM') RIDFLD(RECORD-ID) INTO(TRANSACTION)"
+                    ]
+                },
+                {
+                    "TotalWeight": 7.2,
+                    "BusinessRules": [
+                        "WE-GOT-ITANDBACKWARD = False",
+                        "WE-GOT-ITANDFORWARD = False",
+                        "WE-GOT-IT = False",
+                        "RECORD-ID EQUAL TO 0000000002 = False",
+                        "WE-GOT-IT = False"
+                    ],
+                    "Steps": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "Assign value to KEY-ID",
+                        "Assign value to ERRORO",
+                        "Assign value to KEYH",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION"
+                    ],
+                    "CallsToExternalSystem": []
+                }
+            ]
+        },
+        {
+            "EntryPoint": "FILL-SCREEN-DATA",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 4.5,
+                    "BusinessRules": [
+                        "TAMT-SIGN-NEGATIVE = True"
+                    ],
+                    "Steps": [
+                        "FILL-SCREEN-DATA",
+                        "Assign value to KEYO",
+                        "Assign value to DATEO",
+                        "Assign value to FROMO",
+                        "Assign value to CREDITO",
+                        "Assign value to LABELO",
+                        "Assign value to ADDRESSO",
+                        "Assign value to AMOUNTO"
+                    ],
+                    "CallsToEntryPoints": [
+                        "FILL-SCREEN-DATA"
+                    ],
+                    "CallsToExternalSystem": []
+                },
+                {
+                    "TotalWeight": 2.9,
+                    "BusinessRules": [
+                        "TAMT-SIGN-NEGATIVE = False"
+                    ],
+                    "Steps": [
+                        "FILL-SCREEN-DATA",
+                        "Assign value to KEYO",
+                        "Assign value to DATEO",
+                        "Assign value to LABELO",
+                        "Assign value to ADDRESSO",
+                        "Assign value to AMOUNTO"
+                    ],
+                    "CallsToEntryPoints": [
+                        "FILL-SCREEN-DATA"
+                    ],
+                    "CallsToExternalSystem": []
+                }
+            ]
+        },
+        {
+            "EntryPoint": "CONVERT-AMOUNT-TO-DISPLAY",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 4.5,
+                    "BusinessRules": [
+                        "TAMT-SIGN-NEGATIVE = True"
+                    ],
+                    "Steps": [
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "Assign value to RECENT-COLOR",
+                        "Assign value to THE-AMOUNT-INTEGER",
+                        "Assign value to THE-AMOUNT-DECIMAL",
+                        "Assign value to DTYPE",
+                        "Assign value to RECENT-COLOR",
+                        "Assign value to DAMOUNT",
+                        "Assign value to DSIGN"
+                    ],
+                    "CallsToEntryPoints": [
+                        "CONVERT-AMOUNT-TO-DISPLAY"
+                    ],
+                    "CallsToExternalSystem": []
+                },
+                {
+                    "TotalWeight": 3.2,
+                    "BusinessRules": [
+                        "TAMT-SIGN-NEGATIVE = False"
+                    ],
+                    "Steps": [
+                        "CONVERT-AMOUNT-TO-DISPLAY",
+                        "Assign value to RECENT-COLOR",
+                        "Assign value to THE-AMOUNT-INTEGER",
+                        "Assign value to THE-AMOUNT-DECIMAL",
+                        "Assign value to DTYPE",
+                        "Assign value to DAMOUNT",
+                        "Assign value to DSIGN"
+                    ],
+                    "CallsToEntryPoints": [
+                        "CONVERT-AMOUNT-TO-DISPLAY"
+                    ],
+                    "CallsToExternalSystem": []
+                }
+            ]
+        },
+        {
+            "EntryPoint": "CONVERT-DATE",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 3.3,
+                    "BusinessRules": [],
+                    "Steps": [
+                        "CONVERT-DATE",
+                        "Assign value to TEMP-DATE",
+                        "FORMATTIME ABSTIME(TEMP-DATE) DATESEP('/') MMDDYYYY(FDATE)",
+                        "FORMATTIME ABSTIME(TEMP-DATE) TIMESEP(':') TIME(FTIME)"
+                    ],
+                    "CallsToEntryPoints": [
+                        "CONVERT-DATE"
+                    ],
+                    "CallsToExternalSystem": [
+                        "FORMATTIME ABSTIME(TEMP-DATE) DATESEP('/') MMDDYYYY(FDATE)",
+                        "FORMATTIME ABSTIME(TEMP-DATE) TIMESEP(':') TIME(FTIME)"
+                    ]
+                }
+            ]
+        },
+        {
+            "EntryPoint": "RECEIVE-KEY",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 2.0,
+                    "BusinessRules": [],
+                    "Steps": [
+                        "RECEIVE-KEY",
+                        "RECEIVE MAP('DOGEDT1') MAPSET('DOGEDT') INTO(DOGEDT1I) ASIS"
+                    ],
+                    "CallsToEntryPoints": [
+                        "RECEIVE-KEY"
+                    ],
+                    "CallsToExternalSystem": [
+                        "RECEIVE MAP('DOGEDT1') MAPSET('DOGEDT') INTO(DOGEDT1I) ASIS"
+                    ]
+                }
+            ]
+        },
+        {
+            "EntryPoint": "PARSE-KEY",
+            "AnalyzedPaths": [
+                {
+                    "TotalWeight": 7.1,
+                    "BusinessRules": [
+                        "OPTIONI EQUAL TO 'T' = True"
+                    ],
+                    "Steps": [
+                        "PARSE-KEY",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "XCTL PROGRAM('DOGETRAN')",
+                        "DOGE-WTO",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "Assign value to WTO-MESSAGE",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-WTO",
+                        "PARSE-KEY"
+                    ],
+                    "CallsToExternalSystem": [
+                        "XCTL PROGRAM('DOGETRAN')"
+                    ]
+                },
+                {
+                    "TotalWeight": 8.8,
+                    "BusinessRules": [
+                        "OPTIONI EQUAL TO 'T' = False",
+                        "OPTIONI EQUAL TO 'W' = True"
+                    ],
+                    "Steps": [
+                        "PARSE-KEY",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "Assign value to DOGECOMMS-AREA",
+                        "XCTL PROGRAM('DOGECOIN') COMMAREA(DOGECOMMS-AREA)",
+                        "DOGE-WTO",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "Assign value to WTO-MESSAGE",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-WTO",
+                        "PARSE-KEY"
+                    ],
+                    "CallsToExternalSystem": [
+                        "XCTL PROGRAM('DOGECOIN') COMMAREA(DOGECOMMS-AREA)"
+                    ]
+                },
+                {
+                    "TotalWeight": 9.9,
+                    "BusinessRules": [
+                        "OPTIONI EQUAL TO 'T' = False",
+                        "OPTIONI EQUAL TO 'W' = False",
+                        "OPTIONI EQUAL TO 'S' = True"
+                    ],
+                    "Steps": [
+                        "PARSE-KEY",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "XCTL PROGRAM('DOGESEND')",
+                        "DOGE-WTO",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "Assign value to WTO-MESSAGE",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-WTO",
+                        "PARSE-KEY"
+                    ],
+                    "CallsToExternalSystem": [
+                        "XCTL PROGRAM('DOGESEND')"
+                    ]
+                },
+                {
+                    "TotalWeight": 8.7,
+                    "BusinessRules": [
+                        "OPTIONI EQUAL TO 'T' = False",
+                        "OPTIONI EQUAL TO 'W' = False",
+                        "OPTIONI EQUAL TO 'S' = False"
+                    ],
+                    "Steps": [
+                        "PARSE-KEY",
+                        "Assign value to RECORD-ID",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "Assign value to WTO-MESSAGE",
+                        "DOGE-WTO",
+                        "DOGE-START-BROWSE",
+                        "DOGE-SHOW-TRANSACTION",
+                        "Assign value to WTO-MESSAGE",
+                        "Assign value to WTO-MESSAGE"
+                    ],
+                    "CallsToEntryPoints": [
+                        "DOGE-SHOW-TRANSACTION",
+                        "DOGE-START-BROWSE",
+                        "DOGE-WTO",
+                        "PARSE-KEY"
+                    ],
+                    "CallsToExternalSystem": []
+                }
+            ]
+        }
+    ]
+}
