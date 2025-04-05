@@ -1,3 +1,5 @@
+import argparse
+import glob
 import os
 import json
 from logger import logger 
@@ -15,10 +17,9 @@ def generate_document(data):
     doc = []
     program = data.get("program")
     doc.append(add_header(program))
-    doc.append(add_separator())
-    doc.append(f'{add_bold("File")}: {data.get("document")}.cbl')
-    doc.append(f'{add_bold("Program")}: {program}')
-    doc.append(f'{add_bold("Language")}: COBOL')
+    doc.append(f'{add_bold("File")}: {data.get("document")}.cbl\n')
+    doc.append(f'{add_bold("Program")}: {program}\n')
+    doc.append(f'{add_bold("Language")}: COBOL\n')
     doc.append(add_separator())
     
     entry_points, external_systems = extract_calls(data)
@@ -27,8 +28,6 @@ def generate_document(data):
     for flow in data.get('flow', []):
         entrypoint = flow.get("EntryPoint")
         doc.append(add_header(entrypoint, level=2))
-        doc.append(add_separator())
-        
         # Add entry point description
         doc.append(f'{add_bold("Description")}: Main entry point for {entrypoint} functionality')
         
@@ -52,11 +51,11 @@ def generate_document(data):
             
             # Add business rules
             if analyzed.get("BusinessRules"):
-                doc.append('\n' + add_bold("Business Rules:"))
+                doc.append('\n' + add_header("Business Rules:", level=2))
                 doc.extend(add_code(analyzed["BusinessRules"]))
             
             # Add steps
-            doc.append('\n' + add_bold("Execution Path:"))
+            doc.append('\n' + add_header("Execution Path", level=2))
             doc.append(add_diagram_svg(f"svg/{program}_sl_diagram_{entrypoint}_{index}.svg"))
         
         doc.append('\n')
@@ -180,172 +179,32 @@ def extract_calls(data):
     
     return entry_points, external_systems
 
+def process_files(file_pattern):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    pattern = os.path.join(script_dir, file_pattern)
+    
+    files = glob.glob(pattern)
+    if not files:
+        print(f"Δεν βρέθηκαν αρχεία που να ταιριάζουν με το μοτίβο: {file_pattern}")
+        return
+
+    for file_path in files:
+        data = process_json_data(file_path)
+        generate_document(data)
+
 if __name__ == "__main__":
-    json_path = os.path.join(os.path.dirname(__file__),  "..\..\..\output\\Analyzed_DOGETRAN.json")
-    # json_path = os.path.join(BASE_DIR, "output", "Analyzed_DOGEMAIN.json")
-    data = process_json_data(json_path)
-    generate_document(data)
+    # json_path = os.path.join(os.path.dirname(__file__),  "..\..\..\output\\Analyzed_DOGETRAN.json")
+    # # json_path = os.path.join(BASE_DIR, "output", "Analyzed_DOGEMAIN.json")
+    # data = process_json_data(json_path)
+    # generate_document(data)
+    # print("Analysis Completed!")
+
+    parser = argparse.ArgumentParser(description="Static Analysis. Report Generator")
+    # Ορισμός argument για το όνομα αρχείου ή wildcard pattern
+    parser.add_argument("file_pattern", help="Όνομα αρχείου json ή wildcard pattern (π.χ. '*.json')")
+    try:
+        args = parser.parse_args()
+        process_files(args.file_pattern)
+    except Exception as e:
+        logger.error(f"Σφάλμα κατά την εκτέλεση: {e}")    
     print("Analysis Completed!")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ###++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# import os
-# import json
-# from logger import logger 
-
-
-# BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-# def process_json_data(json_file):
-#     with open(json_file) as f:
-#         data = json.load(f)
-#     return data
-# def generate_document(data):
-#     doc = []
-#     program = data.get("program")
-#     doc.append(add_header(program))
-#     doc.append(add_separator())
-#     doc.append(f'{add_bold("File")}: {data.get("program")}')
-#     doc.append(f'{add_bold("Language")}: COBOL')
-#     doc.append(add_separator())
-#     flows = data.get('flow', [])
-#     entry_points, external_systems = extract_calls(data)
-#     for flow in flows:
-#         entrypoint = flow.get("EntryPoint")
-#         doc.append(f'{add_bold("Entry-Point")}: {entrypoint}')
-#         section_entry_points = entry_points[entrypoint]    
-#         section_external_systems = external_systems[entrypoint]    
-#         a = generate_diagram(program, entrypoint, section_entry_points, section_external_systems)    
-#         for analyzed in flow.get('AnalyzedPaths', []):
-#             weight = analyzed.get('TotalWeight')
-#             doc.append(f'{add_bold("Use case")} \t Weight: {weight}')
-#             br = analyzed.get('BusinessRules',[])
-#             doc.extend(add_code(br))
-#             call_to_systems, call_to_programs = process_external_systems(section_external_systems)
-#             system_group_elements = []
-#             program_group_elements = []
-#             for system in call_to_systems:
-#                 system_group_elements.append(add_archimete_element(system, 'Component'))
-#             for p in call_to_programs:
-#                 program_group_elements.append(add_archimete_element(p, 'Component'))       
-#             system_group = add_archimate_group('CICS', system_group_elements, 'CICS Systems')  
-#             program_group = add_archimate_group('Programs', program_group_elements, 'Other COBOL Programs')    
-               
-#             doc.extend('')
-
-
-# def process_external_systems(external_systems):
-#     cics = []
-#     programs = []
-    
-#     for cmd in external_systems:
-#         splitted = cmd.split(' ')
-#         if len(splitted) > 1:
-#             if splitted[0] == 'XCTL':
-#                 programs.append(splitted[1])
-#             else:
-#                 cics.append('{splitted[0]}')
-#     return cics, programs
-# def generate_diagram(program, entrypoint, internals, externals):
-#     plantuml_code=  []
-#     plantuml_code.append('@startuml')
-#     plantuml_code.append('!includeurl https://raw.githubusercontent.com/plantuml-stdlib/Archimate-PlantUML/master/Archimate.puml')
-#     plantuml_code.append(add_archimete_element(program, 'Component'))
-#     plantuml_code.append(add_archimete_element(entrypoint, 'Component'))
-    
-#     for internal in internals:
-#         plantuml_code.append(add_archimete_element(internal, 'Function'))
-#         plantuml_code.append(add_archimete_relation(entrypoint, internal, 'Accesses'))
-        
-#     # for external in externals:
-#     #     plantuml_code.append(f'[{entrypoint}] --> [{external}]')
-#     plantuml_code.append('@enduml')
-#     return plantuml_code
-        
-# def sanitize_name(element_name):
-#     return element_name.replace(" ", "_").replace("-", "_").replace(".", "_").replace("(", "").replace(")", "").replace(",", "").replace("'", "").replace('"', "")
-        
-# def add_archimete_element(element, type):
-#     return f'Application_{type}({sanitize_name(element)}, "{element}")'
-
-# def add_archimete_relation(from_element, to_element, type, direction=''):
-#     return f'Rel_{type}({sanitize_name(from_element)}, {sanitize_name(to_element)})'  
-
-# def add_archimate_group(group_name, elements, description=''):
-#     doc = []      
-#     group_name = sanitize_name(group_name)
-#     doc.append(f'Group({group_name}, "{description}") {{')
-#     doc.extend(elements)    
-#     doc.append('}')    
-#     return doc
-
-
-# def add_separator():
-#     return('---')
-# def add_header(label, level=1):
-#     tag = '#'*level
-#     return f'{tag} {label}'
-# def add_bold(label):
-#     return f'**{label}**'
-# def add_code(lines, language=''):
-#     result = []
-#     result.append(f'```{language}')
-#     for line in lines:
-#         result.append(line)
-#     result.append('```')
-#     return result
-
-# def extract_calls(data):
-#     entry_points = {}
-#     external_systems = {}
-    
-#     for flow in data['flow']:
-#         entry_point = flow['EntryPoint']
-#         entry_points[entry_point] = set()
-#         external_systems[entry_point] = set()
-        
-#         for path in flow['AnalyzedPaths']:
-#             entry_points[entry_point].update(path['CallsToEntryPoints'])
-#             external_systems[entry_point].update(path['CallsToExternalSystem'])
-    
-#     # Convert sets to sorted lists
-#     for ep in entry_points:
-#         entry_points[ep] = sorted(entry_points[ep])
-#         external_systems[ep] = sorted(external_systems[ep])
-    
-#     return entry_points, external_systems
-
-
-
-
-# if __name__ == "__main__":
-#     json_path = os.path.join(os.path.dirname(__file__),  "..\..\..\output\\Analyzed_DOGEMAIN.json")
-#     data = process_json_data(json_path)
-#     generate_document(data)
-
-#     print("Analysis Completed!")     

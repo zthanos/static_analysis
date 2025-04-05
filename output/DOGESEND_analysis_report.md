@@ -1,11 +1,12 @@
 # DOGESEND
----
 **File**: DOGESEND.cbl
+
 **Program**: DOGESEND
+
 **Language**: COBOL
+
 ---
 ## DOGE-MAIN
----
 **Description**: Main entry point for DOGE-MAIN functionality
 
 **Internal Calls**:
@@ -25,30 +26,30 @@
 ---
 **Use case** (Weight: 6.9)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = True
 EIBCALEN EQUAL TO ZERO = True
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_0.svg)
 ---
 **Use case** (Weight: 7.5)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = True
 EIBCALEN EQUAL TO ZERO = False
 EIBAID EQUAL TO DFHPF3 = True
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_1.svg)
 ---
 **Use case** (Weight: 8.9)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = True
 EIBCALEN EQUAL TO ZERO = False
@@ -56,12 +57,12 @@ EIBAID EQUAL TO DFHPF3 = False
 EIBAID EQUAL TO DFHENTER = True
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_2.svg)
 ---
 **Use case** (Weight: 6.9)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = True
 EIBCALEN EQUAL TO ZERO = False
@@ -69,35 +70,35 @@ EIBAID EQUAL TO DFHPF3 = False
 EIBAID EQUAL TO DFHENTER = False
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_3.svg)
 ---
 **Use case** (Weight: 5.6)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = False
 EIBCALEN EQUAL TO ZERO = True
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_4.svg)
 ---
 **Use case** (Weight: 6.2)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = False
 EIBCALEN EQUAL TO ZERO = False
 EIBAID EQUAL TO DFHPF3 = True
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_5.svg)
 ---
 **Use case** (Weight: 7.6)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = False
 EIBCALEN EQUAL TO ZERO = False
@@ -105,12 +106,12 @@ EIBAID EQUAL TO DFHPF3 = False
 EIBAID EQUAL TO DFHENTER = True
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_6.svg)
 ---
 **Use case** (Weight: 5.6)
 
-**Business Rules:**
+## Business Rules:
 ```
 EIBCALEN > ZERO = False
 EIBCALEN EQUAL TO ZERO = False
@@ -118,12 +119,11 @@ EIBAID EQUAL TO DFHPF3 = False
 EIBAID EQUAL TO DFHENTER = False
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-MAIN_7.svg)
 
 
 ## DOGE-WTO
----
 **Description**: Main entry point for DOGE-WTO functionality
 
 **Internal Calls**:
@@ -138,12 +138,11 @@ EIBAID EQUAL TO DFHENTER = False
 ---
 **Use case** (Weight: 2.3)
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_DOGE-WTO_0.svg)
 
 
 ## RECEIVE-INPUT
----
 **Description**: Main entry point for RECEIVE-INPUT functionality
 
 **Internal Calls**:
@@ -158,12 +157,11 @@ EIBAID EQUAL TO DFHENTER = False
 ---
 **Use case** (Weight: 2.0)
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_RECEIVE-INPUT_0.svg)
 
 
 ## PARSE-INPUT
----
 **Description**: Main entry point for PARSE-INPUT functionality
 
 **Internal Calls**:
@@ -177,21 +175,21 @@ EIBAID EQUAL TO DFHENTER = False
 ---
 **Use case** (Weight: 1.4)
 
-**Business Rules:**
+## Business Rules:
 ```
 OPTIONI EQUAL TO 'T' = True
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_PARSE-INPUT_0.svg)
 ---
 **Use case** (Weight: 1.4)
 
-**Business Rules:**
+## Business Rules:
 ```
 OPTIONI EQUAL TO 'T' = False
 ```
 
-**Execution Path:**
+## Execution Path
 ![Diagram](svg/DOGESEND_sl_diagram_PARSE-INPUT_1.svg)
 
