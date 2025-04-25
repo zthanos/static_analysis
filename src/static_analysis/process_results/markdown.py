@@ -21,7 +21,7 @@ def generate_document(data):
     doc.append(f'{add_bold("Program")}: {program}\n')
     doc.append(f'{add_bold("Language")}: COBOL\n')
     doc.append(add_separator())
-    
+    doc.append('\newpage')
     toc = []
     toc.append(add_header("Table of Contents", level=1))
 
