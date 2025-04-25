@@ -737,6 +737,15 @@ class Cobol85Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by Cobol85Parser#standaloneFileDescriptor.
+    def enterStandaloneFileDescriptor(self, ctx:Cobol85Parser.StandaloneFileDescriptorContext):
+        pass
+
+    # Exit a parse tree produced by Cobol85Parser#standaloneFileDescriptor.
+    def exitStandaloneFileDescriptor(self, ctx:Cobol85Parser.StandaloneFileDescriptorContext):
+        pass
+
+
     # Enter a parse tree produced by Cobol85Parser#fileDescriptionEntry.
     def enterFileDescriptionEntry(self, ctx:Cobol85Parser.FileDescriptionEntryContext):
         pass

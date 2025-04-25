@@ -414,6 +414,11 @@ class Cobol85Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by Cobol85Parser#standaloneFileDescriptor.
+    def visitStandaloneFileDescriptor(self, ctx:Cobol85Parser.StandaloneFileDescriptorContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by Cobol85Parser#fileDescriptionEntry.
     def visitFileDescriptionEntry(self, ctx:Cobol85Parser.FileDescriptionEntryContext):
         return self.visitChildren(ctx)

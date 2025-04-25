@@ -477,6 +477,7 @@ dataDivisionBody
 
 dataDivisionSection
     : fileSection
+    | standaloneFileDescriptor
     | dataBaseSection
     | workingStorageSection
     | linkageSection
@@ -491,6 +492,11 @@ dataDivisionSection
 
 fileSection
     : FILE SECTION DOT_FS fileDescriptionEntry*
+    ;
+
+
+standaloneFileDescriptor
+    : fileDescriptionEntry+             
     ;
 
 fileDescriptionEntry

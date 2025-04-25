@@ -10,7 +10,7 @@
             "justMyCode": true,            
             "python": "${workspaceFolder}\\devenv\\Scripts\\python.exe",
             "args": [
-                "..\\cobol_parser\\output\\DOGEMAIN.json"
+                "Samples\\added.cbl"
             ]
         }
     ]
