@@ -14,7 +14,7 @@
       *///////////////////////////////////////////////////////////////
        IDENTIFICATION DIVISION.
        PROGRAM-ID.   DOGEDEET.
-       AUTHOR. SOLDIER OF FORTRAN.
+       AUTHOR. SOLDIER OF. FORTRAN.
        INSTALLATION. DOGE BANK.
        DATE-WRITTEN. 08/30/20.
        SECURITY. CONFIDENTIAL.

@@ -61,11 +61,16 @@ programIdParagraph
     ;
 
 IDENTIFICATIONLINE
-    : (AUTHOR | INSTALLATION | DATE_WRITTEN | DATE_COMPILED | SECURITY | REMARKS) DOT_FS ( (~[\r\n.])+ DOT_FS )?
+    : (AUTHOR | INSTALLATION | DATE_WRITTEN | DATE_COMPILED | SECURITY | REMARKS)
+      DOT_FS                  // match keyword + period
+      (~[\r\n])+             // capture entire line content, including dots
+      DOT_FS                  // closing period + separator
     ;
 
 AUTHORLINE
-    : AUTHOR DOT_FS ( (~[\r\n.])+ DOT_FS )?
+    : AUTHOR DOT_FS           // match keyword + period
+      (~[\r\n])+             // match one or more chars except newline (allows '.')
+      DOT_FS                   // match closing period + separator
     ;
 
 INSTALLATIONLINE
