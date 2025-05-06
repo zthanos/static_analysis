@@ -663,6 +663,14 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
         "label": "Cobol85Lexer",
         "importPath": "grammars.Cobol85Lexer",
         "description": "grammars.Cobol85Lexer",
@@ -1066,6 +1074,15 @@
         "description": "plantuml",
         "isExtraImport": true,
         "detail": "plantuml",
+        "documentation": {}
+    },
+    {
+        "label": "xml.etree.ElementTree",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "xml.etree.ElementTree",
+        "description": "xml.etree.ElementTree",
+        "detail": "xml.etree.ElementTree",
         "documentation": {}
     },
     {
@@ -2774,6 +2791,114 @@
         "description": "src.static_analysis.process_results.archimate_diagram",
         "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\ndef process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    entry_points, external_systems = extract_calls(data)\n    for flow in flows:",
         "detail": "src.static_analysis.process_results.archimate_diagram",
+        "documentation": {}
+    },
+    {
+        "label": "process_json_data",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    root, elements, relationships, organizations = init_model()\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    methods_index = []\n    relations_index = []",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "generate_document",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def generate_document(data):\n    root, elements, relationships, organizations = init_model()\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    methods_index = []\n    relations_index = []\n    application_elements = []\n    relationships_elements = []\n    comp_id = add_element(elements, 'ApplicationComponent', program)\n    for flow in flows:",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "process_external_systems",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def process_external_systems(external_systems):\n    cics = []\n    programs = []\n    for cmd in external_systems:\n        splitted = cmd.split(' ')\n        if len(splitted) > 1:\n            if splitted[0] == 'XCTL':\n                programs.append(splitted[1])\n            else:\n                cics.append(f'{splitted[0]}')",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "init_model",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def init_model(name='(new model)', identifier=None):\n    ns, xsi, schema_location = _register_namespaces()\n    root = ET.Element(\n        ET.QName(ns, 'model'),\n        {\n            'identifier': identifier or _gen_id(),\n            ET.QName(xsi, 'schemaLocation'): schema_location\n        }\n    )\n    name_el = ET.SubElement(root, ET.QName(ns, 'name'), {'xml:lang': 'en'})",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "add_element",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def add_element(elements_el, xsi_type, name, identifier=None):\n    ns = str(elements_el.tag).split('}')[0].strip('{')\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    eid = identifier or _gen_id()\n    el = ET.SubElement(\n        elements_el,\n        ET.QName(ns, 'element'),\n        {\n            'identifier': eid,\n            ET.QName(xsi, 'type'): xsi_type",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "add_relationship",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def add_relationship(relationships_el, xsi_type, source_id, target_id, identifier=None):\n    ns = str(relationships_el.tag).split('}')[0].strip('{')\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    rid = identifier or _gen_id()\n    ET.SubElement(\n        relationships_el,\n        ET.QName(ns, 'relationship'),\n        {\n            'identifier': rid,\n            'source': source_id,",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "add_organization",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def add_organization(organizations_el, label, identifier_refs):\n    ns = str(organizations_el.tag).split('}')[0].strip('{')\n    item_el = ET.SubElement(organizations_el, ET.QName(ns, 'item'))\n    # <label>\n    label_el = ET.SubElement(item_el, ET.QName(ns, 'label'), {'xml:lang': 'en'})\n    label_el.text = label\n    # nested <item identifierRef=\"...\" />\n    for ref in identifier_refs:\n        ET.SubElement(item_el, ET.QName(ns, 'item'), {'identifierRef': ref})\n    return item_el",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "to_string",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def to_string(root):\n    _indent(root)\n    return ET.tostring(root, encoding='utf-8', xml_declaration=True).decode('utf-8')\ndef validate_models(models_output):\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\..\\..\\output\\open_group\", models_output)\n    # Load XSD\n    with open('models/archimate3_Model.xsd', 'rb') as f:\n        schema_root = etree.XML(f.read())\n    schema = etree.XMLSchema(schema_root)\n    # Load XML",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "validate_models",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def validate_models(models_output):\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\..\\..\\output\\open_group\", models_output)\n    # Load XSD\n    with open('models/archimate3_Model.xsd', 'rb') as f:\n        schema_root = etree.XML(f.read())\n    schema = etree.XMLSchema(schema_root)\n    # Load XML\n    xml_doc = etree.parse('path/to/your.xml')\n    # Validate\n    if schema.validate(xml_doc):",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "validate_views",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def validate_views(models_output):\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\..\\..\\output\\open_group\", models_output)\n    # Load XSD\n    with open('models/archimate3_View.xsd', 'rb') as f:\n        schema_root = etree.XML(f.read())\n    schema = etree.XMLSchema(schema_root)\n    # Load XML\n    xml_doc = etree.parse('path/to/your.xml')\n    # Validate\n    if schema.validate(xml_doc):",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "validate_diagram",
+        "kind": 2,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "def validate_diagram(models_output):\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\..\\..\\output\\open_group\", models_output)\n    # Load XSD\n    with open('models/archimate3_Diagram.xsd', 'rb') as f:\n        schema_root = etree.XML(f.read())\n    schema = etree.XMLSchema(schema_root)\n    # Load XML\n    xml_doc = etree.parse('path/to/your.xml')\n    # Validate\n    if schema.validate(xml_doc):",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\n# Namespaces/constants\ndef _register_namespaces():\n    ns = 'http://www.opengroup.org/xsd/archimate/3.0/'\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    schema_location = (\n        'http://www.opengroup.org/xsd/archimate/3.0/ '\n        'http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd'\n    )\n    ET.register_namespace('', ns)",
+        "detail": "src.static_analysis.process_results.og_export",
         "documentation": {}
     },
     {
