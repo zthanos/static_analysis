@@ -3,6 +3,7 @@ import glob
 import os
 
 from logger import logger
+from custom_error_listener import CustomErrorListener
 from antlr4 import FileStream, CommonTokenStream
 from grammars.Cobol85Lexer import Cobol85Lexer
 from grammars.Cobol85Parser import Cobol85Parser
@@ -10,6 +11,8 @@ from parse_procedure_division import parse_procedure_division_section
 from parse_identification_division import parse_identification_division_section
 from parse_working_storage import parse_working_storage_section
 from parse_linkage import parse_linkage_section
+import pickle
+import base64
 
 
 def process_files(file_pattern):
@@ -38,10 +41,28 @@ def process_cobol_file(file_path, output_dir="output"):
     token_stream = CommonTokenStream(lexer)
     parser = Cobol85Parser(token_stream)
     
-    # error_listener = CustomErrorListener()
-    # parser.removeErrorListeners()  # Αφαιρεί τον default listener
-    # parser.addErrorListener(error_listener)    
+    error_listener = CustomErrorListener()
+    parser.removeErrorListeners()  # Αφαιρεί τον default listener
+    parser.addErrorListener(error_listener)    
     tree = parser.startRule()
+    # Persist tree for caching
+
+    cache_dir = os.path.join(output_dir, "cache")
+    os.makedirs(cache_dir, exist_ok=True)
+    cache_file = os.path.join(
+        cache_dir, os.path.splitext(os.path.basename(file_path))[0] + ".tree"
+    )
+    
+    if error_listener.errors:
+        for error in error_listener.get_errors():
+            logger.error(error)        
+    try:
+        with open(cache_file, "wb") as f:
+            pickled_tree = pickle.dumps(tree)
+            encoded_tree = base64.b64encode(pickled_tree)
+            f.write(encoded_tree)
+    except Exception as e:
+        logger.error(f"Failed to cache parse tree: {e}")
     if tree:
         program_unit = tree.compilationUnit().programUnit(0)
         identification_division = program_unit.identificationDivision()
@@ -53,9 +74,7 @@ def process_cobol_file(file_path, output_dir="output"):
         procedure = program_unit.procedureDivision()
         static_analysis = parse_procedure_division_section(procedure, static_analysis)
         logger.debug(static_analysis)    
-        # if error_listener.errors:
-        #     for error in error_listener.get_errors():
-        #         logger.error(error)    
+
         if static_analysis:
             save_analysis_to_file(static_analysis, file_path, output_dir)                
         return

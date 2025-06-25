@@ -48,6 +48,22 @@
         "documentation": {}
     },
     {
+        "label": "asdict",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
         "label": "dataclass",
         "importPath": "dataclasses",
         "description": "dataclasses",
@@ -64,7 +80,15 @@
         "documentation": {}
     },
     {
-        "label": "asdict",
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
         "importPath": "dataclasses",
         "description": "dataclasses",
         "isExtraImport": true,
@@ -73,6 +97,46 @@
     },
     {
         "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
         "importPath": "dataclasses",
         "description": "dataclasses",
         "isExtraImport": true,
@@ -193,6 +257,86 @@
         "documentation": {}
     },
     {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -274,6 +418,174 @@
         "documentation": {}
     },
     {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "importPath": "models.Statement",
+        "description": "models.Statement",
+        "isExtraImport": true,
+        "detail": "models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "auto",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Flow",
+        "importPath": "models.Flow",
+        "description": "models.Flow",
+        "isExtraImport": true,
+        "detail": "models.Flow",
+        "documentation": {}
+    },
+    {
+        "label": "Flow",
+        "importPath": "models.Flow",
+        "description": "models.Flow",
+        "isExtraImport": true,
+        "detail": "models.Flow",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "StatementType",
+        "importPath": "models.StatementType",
+        "description": "models.StatementType",
+        "isExtraImport": true,
+        "detail": "models.StatementType",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionClause",
+        "importPath": "models.ConditionClause",
+        "description": "models.ConditionClause",
+        "isExtraImport": true,
+        "detail": "models.ConditionClause",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionClause",
+        "importPath": "models.ConditionClause",
+        "description": "models.ConditionClause",
+        "isExtraImport": true,
+        "detail": "models.ConditionClause",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionClause",
+        "importPath": "models.ConditionClause",
+        "description": "models.ConditionClause",
+        "isExtraImport": true,
+        "detail": "models.ConditionClause",
+        "documentation": {}
+    },
+    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
@@ -283,86 +595,6 @@
         "documentation": {}
     },
     {
-        "label": "StatementType",
-        "importPath": "models.StatementType",
-        "description": "models.StatementType",
-        "isExtraImport": true,
-        "detail": "models.StatementType",
-        "documentation": {}
-    },
-    {
-        "label": "StatementType",
-        "importPath": "models.StatementType",
-        "description": "models.StatementType",
-        "isExtraImport": true,
-        "detail": "models.StatementType",
-        "documentation": {}
-    },
-    {
-        "label": "StatementType",
-        "importPath": "models.StatementType",
-        "description": "models.StatementType",
-        "isExtraImport": true,
-        "detail": "models.StatementType",
-        "documentation": {}
-    },
-    {
-        "label": "StatementType",
-        "importPath": "models.StatementType",
-        "description": "models.StatementType",
-        "isExtraImport": true,
-        "detail": "models.StatementType",
-        "documentation": {}
-    },
-    {
-        "label": "Enum",
-        "importPath": "enum",
-        "description": "enum",
-        "isExtraImport": true,
-        "detail": "enum",
-        "documentation": {}
-    },
-    {
-        "label": "Enum",
-        "importPath": "enum",
-        "description": "enum",
-        "isExtraImport": true,
-        "detail": "enum",
-        "documentation": {}
-    },
-    {
-        "label": "Flow",
-        "importPath": "models.Flow",
-        "description": "models.Flow",
-        "isExtraImport": true,
-        "detail": "models.Flow",
-        "documentation": {}
-    },
-    {
-        "label": "Flow",
-        "importPath": "models.Flow",
-        "description": "models.Flow",
-        "isExtraImport": true,
-        "detail": "models.Flow",
-        "documentation": {}
-    },
-    {
-        "label": "ConditionClause",
-        "importPath": "models.ConditionClause",
-        "description": "models.ConditionClause",
-        "isExtraImport": true,
-        "detail": "models.ConditionClause",
-        "documentation": {}
-    },
-    {
-        "label": "ConditionClause",
-        "importPath": "models.ConditionClause",
-        "description": "models.ConditionClause",
-        "isExtraImport": true,
-        "detail": "models.ConditionClause",
-        "documentation": {}
-    },
-    {
         "label": "*",
         "importPath": "antlr4",
         "description": "antlr4",
@@ -452,6 +684,14 @@
     },
     {
         "label": "CommonTokenStream",
+        "importPath": "antlr4",
+        "description": "antlr4",
+        "isExtraImport": true,
+        "detail": "antlr4",
+        "documentation": {}
+    },
+    {
+        "label": "*",
         "importPath": "antlr4",
         "description": "antlr4",
         "isExtraImport": true,
@@ -500,303 +740,164 @@
         "documentation": {}
     },
     {
-        "label": "argparse",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "glob",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "glob",
-        "description": "glob",
-        "detail": "glob",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "importPath": "logger",
-        "description": "logger",
-        "isExtraImport": true,
-        "detail": "logger",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Lexer",
-        "importPath": "grammars.Cobol85Lexer",
-        "description": "grammars.Cobol85Lexer",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Lexer",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Lexer",
-        "importPath": "grammars.Cobol85Lexer",
-        "description": "grammars.Cobol85Lexer",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Lexer",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
-        "documentation": {}
-    },
-    {
-        "label": "Cobol85Parser",
-        "importPath": "grammars.Cobol85Parser",
-        "description": "grammars.Cobol85Parser",
-        "isExtraImport": true,
-        "detail": "grammars.Cobol85Parser",
-        "documentation": {}
-    },
-    {
-        "label": "parse_procedure_division_section",
-        "importPath": "parse_procedure_division",
-        "description": "parse_procedure_division",
-        "isExtraImport": true,
-        "detail": "parse_procedure_division",
-        "documentation": {}
-    },
-    {
-        "label": "parse_procedure_division",
-        "importPath": "parse_procedure_division",
-        "description": "parse_procedure_division",
-        "isExtraImport": true,
-        "detail": "parse_procedure_division",
-        "documentation": {}
-    },
-    {
-        "label": "parse_identification_division_section",
-        "importPath": "parse_identification_division",
-        "description": "parse_identification_division",
-        "isExtraImport": true,
-        "detail": "parse_identification_division",
-        "documentation": {}
-    },
-    {
-        "label": "parse_identification_division",
-        "importPath": "parse_identification_division",
-        "description": "parse_identification_division",
-        "isExtraImport": true,
-        "detail": "parse_identification_division",
-        "documentation": {}
-    },
-    {
-        "label": "parse_working_storage_section",
-        "importPath": "parse_working_storage",
-        "description": "parse_working_storage",
-        "isExtraImport": true,
-        "detail": "parse_working_storage",
-        "documentation": {}
-    },
-    {
-        "label": "parse_linkage_section",
-        "importPath": "parse_linkage",
-        "description": "parse_linkage",
-        "isExtraImport": true,
-        "detail": "parse_linkage",
-        "documentation": {}
-    },
-    {
         "label": "logging",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "logging",
         "description": "logging",
         "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "logger",
+        "description": "logger",
+        "isExtraImport": true,
+        "detail": "logger",
         "documentation": {}
     },
     {
@@ -814,6 +915,127 @@
         "description": "antlr4.error.ErrorListener",
         "isExtraImport": true,
         "detail": "antlr4.error.ErrorListener",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Lexer",
+        "importPath": "grammars.Cobol85Lexer",
+        "description": "grammars.Cobol85Lexer",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Lexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Lexer",
+        "importPath": "grammars.Cobol85Lexer",
+        "description": "grammars.Cobol85Lexer",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Lexer",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "Cobol85Parser",
+        "importPath": "grammars.Cobol85Parser",
+        "description": "grammars.Cobol85Parser",
+        "isExtraImport": true,
+        "detail": "grammars.Cobol85Parser",
+        "documentation": {}
+    },
+    {
+        "label": "parse_identification_division",
+        "importPath": "parse_identification_division",
+        "description": "parse_identification_division",
+        "isExtraImport": true,
+        "detail": "parse_identification_division",
+        "documentation": {}
+    },
+    {
+        "label": "parse_identification_division_section",
+        "importPath": "parse_identification_division",
+        "description": "parse_identification_division",
+        "isExtraImport": true,
+        "detail": "parse_identification_division",
+        "documentation": {}
+    },
+    {
+        "label": "parse_procedure_division",
+        "importPath": "parse_procedure_division",
+        "description": "parse_procedure_division",
+        "isExtraImport": true,
+        "detail": "parse_procedure_division",
+        "documentation": {}
+    },
+    {
+        "label": "parse_procedure_division_section",
+        "importPath": "parse_procedure_division",
+        "description": "parse_procedure_division",
+        "isExtraImport": true,
+        "detail": "parse_procedure_division",
         "documentation": {}
     },
     {
@@ -883,6 +1105,22 @@
         "documentation": {}
     },
     {
+        "label": "AssignStatement",
+        "importPath": "models.AssignStatement",
+        "description": "models.AssignStatement",
+        "isExtraImport": true,
+        "detail": "models.AssignStatement",
+        "documentation": {}
+    },
+    {
+        "label": "ConditionalStatement",
+        "importPath": "models.ConditionalStatement",
+        "description": "models.ConditionalStatement",
+        "isExtraImport": true,
+        "detail": "models.ConditionalStatement",
+        "documentation": {}
+    },
+    {
         "label": "ConditionalStatement",
         "importPath": "models.ConditionalStatement",
         "description": "models.ConditionalStatement",
@@ -904,6 +1142,130 @@
         "description": "models.CallStatement",
         "isExtraImport": true,
         "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "CallStatement",
+        "importPath": "models.CallStatement",
+        "description": "models.CallStatement",
+        "isExtraImport": true,
+        "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "CallCicsStatement",
+        "importPath": "models.CallStatement",
+        "description": "models.CallStatement",
+        "isExtraImport": true,
+        "detail": "models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "IOStatement",
+        "importPath": "models.IOStatement",
+        "description": "models.IOStatement",
+        "isExtraImport": true,
+        "detail": "models.IOStatement",
+        "documentation": {}
+    },
+    {
+        "label": "DataOperationStatement",
+        "importPath": "models.DataOperationStatement",
+        "description": "models.DataOperationStatement",
+        "isExtraImport": true,
+        "detail": "models.DataOperationStatement",
+        "documentation": {}
+    },
+    {
+        "label": "InvocationStatement",
+        "importPath": "models.InvocationStatement",
+        "description": "models.InvocationStatement",
+        "isExtraImport": true,
+        "detail": "models.InvocationStatement",
+        "documentation": {}
+    },
+    {
+        "label": "LoopStatement",
+        "importPath": "models.LoopStatement",
+        "description": "models.LoopStatement",
+        "isExtraImport": true,
+        "detail": "models.LoopStatement",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "CustomErrorListener",
+        "importPath": "custom_error_listener",
+        "description": "custom_error_listener",
+        "isExtraImport": true,
+        "detail": "custom_error_listener",
+        "documentation": {}
+    },
+    {
+        "label": "parse_working_storage_section",
+        "importPath": "parse_working_storage",
+        "description": "parse_working_storage",
+        "isExtraImport": true,
+        "detail": "parse_working_storage",
+        "documentation": {}
+    },
+    {
+        "label": "parse_linkage_section",
+        "importPath": "parse_linkage",
+        "description": "parse_linkage",
+        "isExtraImport": true,
+        "detail": "parse_linkage",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "YourLexer",
+        "importPath": "YourLexer",
+        "description": "YourLexer",
+        "isExtraImport": true,
+        "detail": "YourLexer",
+        "documentation": {}
+    },
+    {
+        "label": "YourParser",
+        "importPath": "YourParser",
+        "description": "YourParser",
+        "isExtraImport": true,
+        "detail": "YourParser",
         "documentation": {}
     },
     {
@@ -1043,6 +1405,15 @@
         "documentation": {}
     },
     {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "networkx",
         "kind": 6,
         "isExtraImport": true,
@@ -1066,6 +1437,14 @@
         "description": "itertools",
         "isExtraImport": true,
         "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "lru_cache",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
         "documentation": {}
     },
     {
@@ -1192,20 +1571,11 @@
         "documentation": {}
     },
     {
-        "label": "Statement",
-        "kind": 6,
-        "importPath": "src.static_analysis.cobol_parser.models.Statement",
-        "description": "src.static_analysis.cobol_parser.models.Statement",
-        "peekOfCode": "class Statement:\n    \"\"\"Base class for all COBOL statements.\"\"\"\n    id: str = field(default_factory=lambda: str(uuid.uuid4()))\n    internal: bool = True\n    type: StatementType = StatementType.OTHER\n    methodName: str = \"\"\n    def to_json(self):\n        return {\n            \"id\": self.id,\n            \"type\": self.type.name,",
-        "detail": "src.static_analysis.cobol_parser.models.Statement",
-        "documentation": {}
-    },
-    {
         "label": "StatementType",
         "kind": 6,
         "importPath": "src.static_analysis.cobol_parser.models.StatementType",
         "description": "src.static_analysis.cobol_parser.models.StatementType",
-        "peekOfCode": "class StatementType(Enum):\n    ASSIGN = \"ASSIGN\"\n    CALL = \"CALL\"\n    CONDITION = \"CONDITION\"\n    CICS = \"CICS\"\n    OTHER = \"OTHER\"",
+        "peekOfCode": "class StatementType(Enum):\n    ASSIGNMENT      = auto()\n    INVOCATION      = auto()\n    CONDITION       = auto()\n    CICS            = auto()\n    IO              = auto()\n    CONTROL_TRANSFER= auto()\n    DATA_OPERATION  = auto()\n    LOOP            = auto()\n    OTHER           = auto()",
         "detail": "src.static_analysis.cobol_parser.models.StatementType",
         "documentation": {}
     },
@@ -1223,7 +1593,7 @@
         "kind": 6,
         "importPath": "src.static_analysis.cobol_parser.models.AssignStatement",
         "description": "src.static_analysis.cobol_parser.models.AssignStatement",
-        "peekOfCode": "class AssignStatement(Statement):\n    \"\"\"Represents a COBOL MOVE statement.\"\"\"\n    AssignFrom: str = \"\"\n    AssignTo: str = \"\"\n    def __post_init__(self):\n        self.type = StatementType.ASSIGN\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the assignment operation in string format.\"\"\"\n        return f\"{self.AssignFrom} = {self.AssignTo}\"",
+        "peekOfCode": "class AssignStatement(Statement):\n    \"\"\"Represents a COBOL MOVE statement.\"\"\"\n    AssignFrom: str = \"\"\n    AssignTo: str = \"\"\n    def __post_init__(self):\n        self.type = StatementType.ASSIGNMENT\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the assignment operation in string format.\"\"\"\n        return f\"{self.AssignFrom} = {self.AssignTo}\"",
         "detail": "src.static_analysis.cobol_parser.models.AssignStatement",
         "documentation": {}
     },
@@ -1241,7 +1611,7 @@
         "kind": 6,
         "importPath": "src.static_analysis.cobol_parser.models.CallStatement",
         "description": "src.static_analysis.cobol_parser.models.CallStatement",
-        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    internal: bool = True\n    def __post_init__(self):\n        self.type = StatementType.CALL\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.internal else \"Call\"",
+        "peekOfCode": "class CallStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    internal: bool = True\n    def __post_init__(self):\n        self.type = StatementType.INVOCATION\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.internal else \"Call\"",
         "detail": "src.static_analysis.cobol_parser.models.CallStatement",
         "documentation": {}
     },
@@ -1252,6 +1622,51 @@
         "description": "src.static_analysis.cobol_parser.models.CallStatement",
         "peekOfCode": "class CallCicsStatement(Statement):\n    \"\"\"Represents a COBOL EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    def __post_init__(self):\n        self.type = StatementType.CICS\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the full EXEC CICS command.\"\"\"\n        params = \" \".join(statement.raw for statement in self.Statements)\n        return f\"EXEC CICS {self.methodName} {params}\"",
         "detail": "src.static_analysis.cobol_parser.models.CallStatement",
+        "documentation": {}
+    },
+    {
+        "label": "IOStatement",
+        "kind": 6,
+        "importPath": "src.static_analysis.cobol_parser.models.IOStatement",
+        "description": "src.static_analysis.cobol_parser.models.IOStatement",
+        "peekOfCode": "class IOStatement(Statement):\n    \"\"\"\n    Generic class for all COBOL I/O statements:\n      - ACCEPT, DISPLAY\n      - READ, WRITE\n      - OPEN, CLOSE, START, etc.\n    \"\"\"\n    # τί είδους I/O (π.χ. 'ACCEPT', 'READ', 'WRITE', ...)\n    io_keyword: str = \"\"\n    # το όνομα αρχείου ή μεταβλητής-στόχου (π.χ. fileName, identifier)",
+        "detail": "src.static_analysis.cobol_parser.models.IOStatement",
+        "documentation": {}
+    },
+    {
+        "label": "Statement",
+        "kind": 6,
+        "importPath": "src.static_analysis.cobol_parser.models.Statement",
+        "description": "src.static_analysis.cobol_parser.models.Statement",
+        "peekOfCode": "class Statement:\n    \"\"\"Base class for all COBOL statements.\"\"\"\n    id: str = field(default_factory=lambda: str(uuid.uuid4()))\n    internal: bool = True\n    type: StatementType = StatementType.OTHER\n    methodName: str = \"\"\n    def to_json(self):\n        return {\n            \"id\": self.id,\n            \"type\": self.type.name,",
+        "detail": "src.static_analysis.cobol_parser.models.Statement",
+        "documentation": {}
+    },
+    {
+        "label": "DataOperationStatement",
+        "kind": 6,
+        "importPath": "src.static_analysis.cobol_parser.models.DataOperationStatement",
+        "description": "src.static_analysis.cobol_parser.models.DataOperationStatement",
+        "peekOfCode": "class DataOperationStatement(Statement):\n    \"\"\"\n    Represents a data-operation statement, όπως:\n      - SORT file ON KEY ...\n      - INSPECT var TALLYING ...\n      - INITIALIZE var1 var2 REPLACING ...\n      - MERGE file USING ... GIVING ...\n    \"\"\"\n    operation: str=\"\"  # π.χ. \"SORT\", \"INSPECT\", \"INITIALIZE\", \"MERGE\"\n    arguments: List[str] = field(default_factory=list)",
+        "detail": "src.static_analysis.cobol_parser.models.DataOperationStatement",
+        "documentation": {}
+    },
+    {
+        "label": "InvocationStatement",
+        "kind": 6,
+        "importPath": "src.static_analysis.cobol_parser.models.InvocationStatement",
+        "description": "src.static_analysis.cobol_parser.models.InvocationStatement",
+        "peekOfCode": "class InvocationStatement(Statement):\n    \"\"\"Represents a COBOL PERFORM, CALL, or EXEC CICS statement.\"\"\"\n    Statements: List[\"Statement\"] = field(default_factory=list)  # Υποστηρίζει sub-statements για CICS\n    internal: bool = True\n    def __post_init__(self):\n        self.type = StatementType.INVOCATION\n    @property\n    def raw(self) -> str:\n        \"\"\"Returns the raw execution string.\"\"\"\n        call_type = \"Perform\" if self.internal else \"Call\"",
+        "detail": "src.static_analysis.cobol_parser.models.InvocationStatement",
+        "documentation": {}
+    },
+    {
+        "label": "LoopStatement",
+        "kind": 6,
+        "importPath": "src.static_analysis.cobol_parser.models.LoopStatement",
+        "description": "src.static_analysis.cobol_parser.models.LoopStatement",
+        "peekOfCode": "class LoopStatement(Statement):\n    \"\"\"Represents a COBOL Loop statement.\"\"\"\n    condition: str = \"\"  # Condition for the loop, if applicable\n    times: int = 0  # Number of times to loop, if applicable\n    Statements: List[\"Statement\"] = field(default_factory=list)  \n    internal: bool = True\n    def __post_init__(self):\n        self.type = StatementType.LOOP\n    @property\n    def raw(self) -> str:",
+        "detail": "src.static_analysis.cobol_parser.models.LoopStatement",
         "documentation": {}
     },
     {
@@ -1363,51 +1778,6 @@
         "documentation": {}
     },
     {
-        "label": "process_files",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
-        "description": "src.static_analysis.cobol_parser.cobol_parser",
-        "peekOfCode": "def process_files(file_pattern):\n    \"\"\"\n    Βρίσκει και επεξεργάζεται αρχεία COBOL με βάση το file_pattern.\n    :param file_pattern: Το όνομα αρχείου ή wildcard (π.χ. \"*.cbl\").\n    \"\"\"\n    # files = glob.glob(file_pattern) if not os.path.isfile(file_pattern) else [file_pattern]\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    pattern = os.path.join(script_dir, file_pattern)\n    files = glob.glob(pattern)\n    if not files:",
-        "detail": "src.static_analysis.cobol_parser.cobol_parser",
-        "documentation": {}
-    },
-    {
-        "label": "process_cobol_file",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
-        "description": "src.static_analysis.cobol_parser.cobol_parser",
-        "peekOfCode": "def process_cobol_file(file_path, output_dir=\"output\"):\n    \"\"\" Κύρια συνάρτηση που εκτελεί όλη τη διαδικασία ανάλυσης \"\"\"\n    logger.info(f\"Processing file {file_path}...\")\n    input_stream = FileStream(file_path, encoding=\"utf-8\")\n    lexer = Cobol85Lexer(input_stream)\n    token_stream = CommonTokenStream(lexer)\n    parser = Cobol85Parser(token_stream)\n    # error_listener = CustomErrorListener()\n    # parser.removeErrorListeners()  # Αφαιρεί τον default listener\n    # parser.addErrorListener(error_listener)    ",
-        "detail": "src.static_analysis.cobol_parser.cobol_parser",
-        "documentation": {}
-    },
-    {
-        "label": "save_analysis_to_file",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
-        "description": "src.static_analysis.cobol_parser.cobol_parser",
-        "peekOfCode": "def save_analysis_to_file(static_analysis, file_path, output_dir=\"output\"):\n    \"\"\" Αποθηκεύει τα αποτελέσματα της ανάλυσης σε JSON αρχείο \"\"\"\n    logger.info(f\"Saving file {file_path}...\")\n    file_name = os.path.basename(file_path)\n    file_name_without_ext = os.path.splitext(file_name)[0]\n    output_file = os.path.join(output_dir, f\"{file_name_without_ext}.json\")\n    json_output = static_analysis.to_json()\n    with open(output_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(json_output)\n    print(f\"Ανάλυση αποθηκεύτηκε στο: {output_file}\")",
-        "detail": "src.static_analysis.cobol_parser.cobol_parser",
-        "documentation": {}
-    },
-    {
-        "label": "find_section",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
-        "description": "src.static_analysis.cobol_parser.cobol_parser",
-        "peekOfCode": "def find_section(section_class, ctx):\n    \"\"\"\n    Αναζητά αναδρομικά το WorkingStorageSection σε ένα υποδέντρο του parse tree.\n    \"\"\"\n    if ctx is None:\n        return None\n    # Αν ο κόμβος είναι ήδη WorkingStorageSection, επιστρέφουμε\n    if isinstance(ctx, section_class):\n        return ctx\n    # Αναζητάμε αναδρομικά σε όλους τους υποκόμβους",
-        "detail": "src.static_analysis.cobol_parser.cobol_parser",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
-        "description": "src.static_analysis.cobol_parser.cobol_parser",
-        "peekOfCode": "def main():\n    \"\"\"\n    Ο κεντρικός έλεγχος για την εκτέλεση του parser, λαμβάνοντας input από το χρήστη.\n    \"\"\"\n    parser = argparse.ArgumentParser(description=\"COBOL Static Analysis Parser\")\n    # Ορισμός argument για το όνομα αρχείου ή wildcard pattern\n    parser.add_argument(\"file_pattern\", help=\"Όνομα αρχείου COBOL ή wildcard pattern (π.χ. '*.cbl')\")\n    try:\n        args = parser.parse_args()\n        process_files(args.file_pattern)",
-        "detail": "src.static_analysis.cobol_parser.cobol_parser",
-        "documentation": {}
-    },
-    {
         "label": "setup_logger",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.logger",
@@ -1430,7 +1800,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.context_info",
         "description": "src.static_analysis.cobol_parser.context_info",
-        "peekOfCode": "def get_children(ctx) -> List:\n    \"\"\"\n    Επιστρέφει μια λίστα με όλα τα παιδικά nodes ενός context.\n    :param ctx: Το αντικείμενο context.\n    :return: Λίστα από child nodes.\n    \"\"\"\n    return list(ctx.getChildren())\ndef print_child(ctx) -> None:\n    \"\"\"\n    Εκτυπώνει το text του δεδομένου context.",
+        "peekOfCode": "def get_children(ctx) -> List:\n    \"\"\"\n    Επιστρέφει μια λίστα με όλα τα παιδικά nodes ενός context.\n    :param ctx: Το αντικείμενο context.\n    :return: Λίστα από child nodes.\n    \"\"\"\n    if ctx is None:\n        return []\n    return list(ctx.getChildren())\ndef print_child(ctx) -> None:",
         "detail": "src.static_analysis.cobol_parser.context_info",
         "documentation": {}
     },
@@ -1718,7 +2088,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_procedure_division",
         "description": "src.static_analysis.cobol_parser.parse_procedure_division",
-        "peekOfCode": "def parse_procedure_division_section(ctx, static_analysis):\n    \"\"\"\n    Επισκέπτεται το PROCEDURE DIVISION και αναλύει το περιεχόμενο του.\n    \"\"\"\n    logger.info(\"-------visit_procedure_division-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ProcedureDivisionBodyContext):\n            logger.info(\"===================================================\")\n            visit_procedure_division_body(child, static_analysis)\n    logger.info(\"-------End of ProcedureDivision-----------\")",
+        "peekOfCode": "def parse_procedure_division_section(ctx, static_analysis):\n    \"\"\"\n    Επισκέπτεται το PROCEDURE DIVISION και αναλύει το περιεχόμενο του.\n    \"\"\"\n    logger.info(\"-------visit_procedure_division-----------\")\n    paragraphs = [paragraph.paragraphName().getText() for paragraph in ctx.procedureDivisionBody().paragraphs().paragraph()]\n    for paragraph in ctx.procedureDivisionBody().paragraphs().paragraph():\n        static_analysis = visit_paragraphs_context(paragraph, static_analysis)\n    # for child in context_info.get_children(ctx):\n    #     if isinstance(child, Cobol85Parser.ProcedureDivisionBodyContext):",
         "detail": "src.static_analysis.cobol_parser.parse_procedure_division",
         "documentation": {}
     },
@@ -1736,7 +2106,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_procedure_division",
         "description": "src.static_analysis.cobol_parser.parse_procedure_division",
-        "peekOfCode": "def visit_paragraphs_context(ctx, static_analysis):\n    \"\"\"\n    Επισκέπτεται τις παραγράφους μέσα στο PROCEDURE DIVISION.\n    \"\"\"\n    # logger.info(\"-------visit_paragraphs_context-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ParagraphContext):\n            visit_paragraph_context(child, static_analysis)\ndef visit_paragraph_context(ctx, static_analysis):\n    \"\"\"",
+        "peekOfCode": "def visit_paragraphs_context(ctx, static_analysis):\n    \"\"\"\n    Επισκέπτεται τις παραγράφους μέσα στο PROCEDURE DIVISION.\n    \"\"\"\n    # logger.info(\"-------visit_paragraphs_context-----------\")\n    flow = Flow()\n    flow.Name = ctx.paragraphName().getText() if ctx.paragraphName() else \"Unnamed Paragraph\"\n    for sentence in ctx.sentence():\n       for st in sentence.statement():\n            parsed = parse_statements.parse_statement(st)",
         "detail": "src.static_analysis.cobol_parser.parse_procedure_division",
         "documentation": {}
     },
@@ -1781,115 +2151,79 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def parse_statement(ctx):\n    \"\"\"\n    Επισκέπτεται ένα Statement node και επιστρέφει το αντίστοιχο statement object.\n    \"\"\"\n    # logger.info(\"-------visitStatementContext-----------\")\n    statement_map = {\n        Cobol85Parser.MoveStatementContext: visit_move_statement_context,\n        Cobol85Parser.PerformStatementContext: visit_perform_statement_context,\n        Cobol85Parser.GobackStatementContext: visit_goback_statement_context,\n        Cobol85Parser.IfStatementContext: visit_if_statement_context,",
+        "peekOfCode": "def parse_statement(ctx):\n    \"\"\"\n    Επισκέπτεται ένα Statement node και επιστρέφει το αντίστοιχο statement object.\n    \"\"\"\n    statement_map = {\n        # Cobol85Parser.MoveStatementContext: visit_move_statement_context,\n        Cobol85Parser.MoveStatementContext: process_assigment_statement,\n        Cobol85Parser.PerformStatementContext: process_perform_statement,\n        Cobol85Parser.GobackStatementContext: process_goback_statement,\n        Cobol85Parser.IfStatementContext: process_conditional_statement,",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_if_statement_context",
+        "label": "process_assigment_statement",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_if_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα IF statement. \"\"\"\n    # logger.info(\"-------visitIfStatementContext-----------\")\n    t = ctx.getChild(1)\n    if isinstance(t, Cobol85Parser.CombinableConditionContext):\n        b =  visit_combinable_condition_context(t)\n    elif isinstance(t, Cobol85Parser.ConditionContext):\n        b = visit_condition_context(t)\n        methodName = \" \".join(clause.methodName for clause in b.conditionClauses) if b.conditionClauses else t.getText()\n    # conditional_statement = ConditionalStatement(methodName=f\"IF {context_info.get_child_concatenated_text(ctx, 1)}\")",
+        "peekOfCode": "def process_assigment_statement(assignment_statement):\n    \"\"\"\n    Επεξεργάζεται μια assignment statement και επιστρέφει το αντίστοιχο AssignStatement.\n    \"\"\"\n    if assignment_statement:\n        assign_from = assignment_statement.moveToStatement().moveToSendingArea().getText()\n        assigns = [identifier.getText() for identifier in assignment_statement.moveToStatement().identifier()]\n        assign_to = ','.join(assigns)\n        # assignment_statement.moveToStatement().moveToSendingArea().getText()\n        return AssignStatement(AssignFrom=assign_from, AssignTo=assign_to)",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_if_then_context",
+        "label": "process_relationSignCondition",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_if_then_context(ctx, conditional_statement):\n    \"\"\" Επεξεργάζεται το THEN μέρος του IF. \"\"\"\n    # logger.info(\"-------visitIfThenContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.CombinableConditionContext):\n            condition = visit_combinable_condition_context(child)\n            if condition:\n                conditional_statement.addClause(condition)\n        elif isinstance(child, Cobol85Parser.StatementContext):\n            statement = parse_statement(child)",
+        "peekOfCode": "def process_relationSignCondition(relation_sign_condition):\n    \"\"\"\n    Επεξεργάζεται μια relationSignCondition και επιστρέφει το αντίστοιχο ConditionClause.\n    \"\"\"\n    if relation_sign_condition.SIGN():\n        sign = relation_sign_condition.SIGN().getText()\n        return ConditionClause(sign=sign)\n    return None\ndef process_relationCondition(relation_condition):\n    \"\"\"",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_if_else_context",
+        "label": "process_relationCondition",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_if_else_context(ctx, conditional_statement):\n    \"\"\" Επεξεργάζεται το ELSE μέρος του IF. \"\"\"\n    # logger.info(\"-------visitIfElseContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.StatementContext):\n            statement = parse_statement(child)\n            if statement:\n                conditional_statement.addFalseStatement(statement)\n# ----------------------------------------------------\n# Conditions",
+        "peekOfCode": "def process_relationCondition(relation_condition):\n    \"\"\"\n    Επεξεργάζεται μια relationCondition και επιστρέφει το αντίστοιχο ConditionClause.\n    \"\"\"\n    if relation_condition.relationArithmeticComparison():\n        cond = relation_condition.relationArithmeticComparison().getText()\n        s2 = relation_condition.relationCombinedComparison()\n        s3 = relation_condition.relationSignCondition()\n        return ConditionClause(condition=cond, combined=s2.getText() if s2 else \"\", sign=s3.getText() if s3 else \"\")\n    return None",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_condition_context",
+        "label": "process_simple_condition",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία συνθήκη. \"\"\"\n    # logger.info(\"-------visitConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.CombinableConditionContext):\n            return visit_combinable_condition_context(child)\n        elif isinstance(child, Cobol85Parser.SimpleConditionContext):\n            return visit_simple_condition_context(child)\n    return None\ndef visit_combinable_condition_context(ctx):",
+        "peekOfCode": "def process_simple_condition(simple_condition):\n    \"\"\"\n    Επεξεργάζεται μια απλή συνθήκη και επιστρέφει το αντίστοιχο ConditionClause.\n    \"\"\"\n    if simple_condition.relationCondition():\n        relation = simple_condition.relationCondition()\n        # cond = relation.relationArithmeticComparison().getText()\n        # s2 = relation.relationCombinedComparison()\n        operator = relation.relationArithmeticComparison().relationalOperator().getText()\n        left = relation.relationArithmeticComparison().arithmeticExpression()[0].getText() if relation.relationArithmeticComparison().arithmeticExpression() else \"\"",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_combinable_condition_context",
+        "label": "process_perform_until_condition",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_combinable_condition_context(ctx):\n    \"\"\" Επεξεργάζεται συνδυασμένες συνθήκες (AND, OR). \"\"\"\n    # logger.info(\"-------visitCombinableConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.SimpleConditionContext):\n            return visit_simple_condition_context(child)\n        if isinstance(child, Cobol85Parser.RelationConditionContext):\n            return visit_relation_condition_context(child)\n    return None\ndef visit_simple_condition_context(ctx):",
+        "peekOfCode": "def process_perform_until_condition(perform_until_condition):\n    \"\"\"\n    Επεξεργάζεται μια PERFORM UNTIL condition και επιστρέφει το αντίστοιχο ConditionClause.\n    \"\"\"\n    if perform_until_condition.combinableCondition():\n        combinable = perform_until_condition.combinableCondition()\n        if combinable.simpleCondition():\n            simple = combinable.simpleCondition()\n            return process_simple_condition(simple)\n        elif combinable.andOrCondition():",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_simple_condition_context",
+        "label": "process_perform_inline_statement",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_simple_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία απλή συνθήκη (π.χ. X > 5). \"\"\"\n    # logger.info(\"-------visitSimpleConditionContext-----------\")\n    conditional_statement = ConditionalStatement(methodName=\"IF\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.RelationConditionContext):\n            clause = visit_relation_condition_context(child)\n            if clause:\n                conditional_statement.addClause(clause)\n    return conditional_statement",
+        "peekOfCode": "def process_perform_inline_statement(inline_statement):\n    \"\"\"\n    Επεξεργάζεται ένα PERFORM inline statement και επιστρέφει τα statements που περιέχει.\n    \"\"\"\n    statements = []\n    for statement in inline_statement.statement():\n        parsed_statement = parse_statement(statement)\n        if parsed_statement:\n            statements.append(parsed_statement)\n    perform_type = inline_statement.performType()",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_relation_condition_context",
+        "label": "process_goback_statement",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_relation_condition_context(ctx):\n    \"\"\" Επεξεργάζεται συνθήκες σύγκρισης (π.χ. X = Y). \"\"\"\n    # logger.info(\"-------visitRelationConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.RelationArithmeticComparisonContext):\n            return visit_relation_arithmetic_comparison_context(child)\ndef visit_relation_arithmetic_comparison_context(ctx):\n    \"\"\" Επεξεργάζεται αριθμητικές συγκρίσεις (π.χ. A > B). \"\"\"\n    # logger.info(\"-------visitRelationArithmeticComparisonContext-----------\")\n    return ConditionClause(",
+        "peekOfCode": "def process_goback_statement(ctx):\n    \"\"\" Επεξεργάζεται ένα GOBACK statement και επιστρέφει ένα CallStatement. \"\"\"\n    return InvocationStatement(methodName=\"GOBACK\")\ndef process_perform_statement(ctx):\n    if ctx.performInlineStatement():\n        return process_perform_inline_statement(ctx.performInlineStatement())    \n    elif ctx.performProcedureStatement():\n        method_name = ctx.performProcedureStatement().procedureName()[0].getText()\n        return InvocationStatement(methodName=f\"PERFORM {method_name}\")\n    else:",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_relation_arithmetic_comparison_context",
+        "label": "process_perform_statement",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_relation_arithmetic_comparison_context(ctx):\n    \"\"\" Επεξεργάζεται αριθμητικές συγκρίσεις (π.χ. A > B). \"\"\"\n    # logger.info(\"-------visitRelationArithmeticComparisonContext-----------\")\n    return ConditionClause(\n        Left=context_info.get_child_text(ctx, 0),\n        Operator=context_info.get_child_concatenated_text(ctx, 1),\n        Right=context_info.get_child_text(ctx, 2)\n    )\n# ----------------------------------------------------\n# MOVE Statements",
-        "detail": "src.static_analysis.cobol_parser.parse_statements",
-        "documentation": {}
-    },
-    {
-        "label": "visit_move_statement_context",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.parse_statements",
-        "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_move_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα MOVE statement και επιστρέφει ένα AssignStatement. \"\"\"\n    # logger.info(\"-------visitMoveStatementContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.MoveToStatementContext):\n            move_sentence = visit_move_to_statement_context(child)\n            assignFrom = move_sentence.AssignFrom\n            assignTo = move_sentence.AssignTo\n            return AssignStatement(methodName=f\"Assign value to {assignTo}\", AssignFrom=assignFrom, AssignTo=assignTo)\n    return None",
-        "detail": "src.static_analysis.cobol_parser.parse_statements",
-        "documentation": {}
-    },
-    {
-        "label": "visit_move_to_statement_context",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.parse_statements",
-        "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_move_to_statement_context(ctx):\n    \"\"\" Επεξεργάζεται το MOVE TO μέρος ενός statement. \"\"\"\n    assignFrom = None\n    assignTo = None\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IdentifierContext):\n            assignTo = visit_identifier_context(child)\n        elif isinstance(child, Cobol85Parser.MoveToSendingAreaContext):\n            assignFrom = visit_move_to_sending_area_context(child)\n    if assignFrom and assignTo:",
-        "detail": "src.static_analysis.cobol_parser.parse_statements",
-        "documentation": {}
-    },
-    {
-        "label": "visit_identifier_context",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.parse_statements",
-        "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_identifier_context(ctx):\n    \"\"\" Επιστρέφει το text του identifier. \"\"\"\n    return ctx.getChild(0).getText() if ctx.getChildCount() > 0 else \"\"\ndef visit_move_to_sending_area_context(ctx):\n    \"\"\" Επιστρέφει το text του sending area. \"\"\"\n    return ctx.getChild(0).getText() if ctx.getChildCount() > 0 else \"\"\n# ----------------------------------------------------\n# PERFORM Statements\n# ----------------------------------------------------\ndef visit_perform_statement_context(ctx):",
-        "detail": "src.static_analysis.cobol_parser.parse_statements",
-        "documentation": {}
-    },
-    {
-        "label": "visit_move_to_sending_area_context",
-        "kind": 2,
-        "importPath": "src.static_analysis.cobol_parser.parse_statements",
-        "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_move_to_sending_area_context(ctx):\n    \"\"\" Επιστρέφει το text του sending area. \"\"\"\n    return ctx.getChild(0).getText() if ctx.getChildCount() > 0 else \"\"\n# ----------------------------------------------------\n# PERFORM Statements\n# ----------------------------------------------------\ndef visit_perform_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα PERFORM statement. \"\"\"\n    # logger.info(\"-------visitPerformStatementContext-----------\")\n    for child in context_info.get_children(ctx):",
+        "peekOfCode": "def process_perform_statement(ctx):\n    if ctx.performInlineStatement():\n        return process_perform_inline_statement(ctx.performInlineStatement())    \n    elif ctx.performProcedureStatement():\n        method_name = ctx.performProcedureStatement().procedureName()[0].getText()\n        return InvocationStatement(methodName=f\"PERFORM {method_name}\")\n    else:\n        logger.warning(\"PERFORM statement does not contain a valid performInlineStatement or performProcedureStatement, cannot parse.\")\n    return None\ndef visit_perform_statement_context(ctx):",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1898,16 +2232,25 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_perform_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα PERFORM statement. \"\"\"\n    # logger.info(\"-------visitPerformStatementContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.PerformProcedureStatementContext):\n            return visit_perform_procedure_statement_context(child)\n    return None\ndef visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())",
+        "peekOfCode": "def visit_perform_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα PERFORM statement και επιστρέφει ένα CallStatement. \"\"\"\n    if ctx.performInlineStatement():\n        return process_perform_inline_statement(ctx.performInlineStatement())\n        # inline_statement = ctx.performInlineStatement()\n        # statements = inline_statement.statement()\n        # statments = []\n        # for statement in statements:\n        #     parsed_statement = parse_statement(statement)\n        #     if parsed_statement:",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_perform_procedure_statement_context",
+        "label": "visit_move_statement_context",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())\n# ----------------------------------------------------\n# EXEC CICS Statements\n# ----------------------------------------------------\ndef visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):",
+        "peekOfCode": "def visit_move_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα MOVE statement και επιστρέφει ένα AssignStatement. \"\"\"\n    assign_from = None\n    assign_to = None\n    moveToStatement = ctx.moveToStatement()\n    if moveToStatement:\n        assign_from = [item.getText() for item in moveToStatement.identifier()]\n        assign_to = moveToStatement.moveToSendingArea().getText()\n    else:\n        logger.warning(\"MOVE statement does not contain a moveToStatement, cannot parse assignment.\")",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_invocation_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_invocation_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα CALL statement. \"\"\"\n    method_name = ctx.getChild(1).getText() if ctx.getChildCount() > 1 else \"\"\n    return CallStatement(methodName=f\"CALL {method_name}\")\ndef visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement(methodName=\"EXEC CICS\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            command_name = child.getChild(0).getText()",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -1916,43 +2259,115 @@
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            return  visit_exec_cics_command_context(child)\n        elif isinstance(child, Cobol85Parser.ExecCommandListItemContext):\n            call_statement = visit_exec_command_list_item_context(child)\n            return call_statement\ndef visit_exec_command_list_item_context(ctx):",
+        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    call_statement = CallCicsStatement(methodName=\"EXEC CICS\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            command_name = child.getChild(0).getText()\n            call_statement.addStatement(Statement(methodName=command_name))\n    return call_statement\ndef process_sort_statement(ctx):\n    \"\"\" Επεξεργάζεται ένα SORT statement. \"\"\"",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_exec_command_list_item_context",
+        "label": "process_sort_statement",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_exec_command_list_item_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS command list item. \"\"\"\n    call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            return call_statement\n    return call_statement   \ndef visit_list_of_exec_cics_commands_context(ctx):\n    \"\"\" Επεξεργάζεται μία λίστα από EXEC CICS commands. \"\"\"",
+        "peekOfCode": "def process_sort_statement(ctx):\n    \"\"\" Επεξεργάζεται ένα SORT statement. \"\"\"\n    operation = ctx.SORT().getText()\n    arguments = [ctx.fileName().getText()]\n    parameters = {}\n    extra = {}\n    sort_statement = DataOperationStatement(methodName=\"SORT\")\n    onKeyClause = ctx.sortOnKeyClause()\n    if onKeyClause:\n        for child in onKeyClause:",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_list_of_exec_cics_commands_context",
+        "label": "process_conditions",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_list_of_exec_cics_commands_context(ctx):\n    \"\"\" Επεξεργάζεται μία λίστα από EXEC CICS commands. \"\"\"\n    # logger.info(\"-------visitListOfExecCicsCommandsContext-----------\")\n    call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            # logger.debug(f\"command: {call_statement.methodName}\")\n            # logger.debug(f\"params: {call_statement.statements}\")\n            return call_statement",
+        "peekOfCode": "def process_conditions(ctx):\n    if ctx.combinableCondition():\n        combinible = ctx.combinableCondition()\n        if combinible.simpleCondition():\n           return process_simple_condition(combinible.simpleCondition())\n        elif combinible.andOrCondition():\n            and_or = combinible.andOrCondition()\n            # Process AND/OR conditions if needed\n            return ConditionClause(condition=and_or.getText())    \n        else:",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_exec_cics_command_context",
+        "label": "process_subtract",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_exec_cics_command_context(ctx):\n    \"\"\" Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. \"\"\"\n    # context_info.print_class_name(ctx)\n    children = context_info.get_children(ctx)\n    if not children:\n        return \"\", []\n    call_statement = CallStatement(internal=False)    \n    command_name = children[0].getText()\n    logger.debug(f\"command Name: {children[0].getText()}\")\n    call_statement.methodName = children[0].getText()",
+        "peekOfCode": "def process_subtract(ctx):           \n    if ctx.subtractFromGivingStatement():\n        from_giving = ctx.subtractFromGivingStatement()\n        subtract = ','.join(x.getText() for x in from_giving.subtractGiving())\n        subFrom = from_giving.subtractMinuendGiving().getText()\n        giving = ','.join(x.getText() for x in from_giving.subtractSubtrahend())\n        return AssignStatement(AssignFrom=f'{subFrom} - {subtract}', AssignTo=giving)\n    elif ctx.subtractCorrespondingStatement():\n        from_corresponding = ctx.subtractCorrespondingStatement()  \n        logger.warning(f\"{ctx.subtractCorrespondingStatement().getText()} not processed.\")",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
     {
-        "label": "visit_goback_statement_context",
+        "label": "process_conditional_statement",
         "kind": 2,
         "importPath": "src.static_analysis.cobol_parser.parse_statements",
         "description": "src.static_analysis.cobol_parser.parse_statements",
-        "peekOfCode": "def visit_goback_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα GOBACK statement. \"\"\"\n    return CallStatement(methodName=\"GOBACK\")",
+        "peekOfCode": "def process_conditional_statement(ctx):\n    cond = process_conditions(ctx.condition())\n    condition = ConditionalStatement(methodName=\"IF\", conditionClauses=cond)\n    if ctx.ifThen() and ctx.ifThen().statement():\n        then_clause = ctx.ifThen().statement()\n        if then_clause:\n            for st in then_clause:\n                try:\n                    statement_to_add = parse_statement(st)\n                    condition.addTrueStatement(parse_statement(st))",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_if_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_if_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα IF statement. \"\"\"\n    conditional_statement = ConditionalStatement(methodName=\"IF\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IfThenContext):\n            visit_if_then_context(child, conditional_statement)\n        elif isinstance(child, Cobol85Parser.IfElseContext):\n            visit_if_else_context(child, conditional_statement)\n    return conditional_statement\ndef visit_if_then_context(ctx, conditional_statement):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_if_then_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_if_then_context(ctx, conditional_statement):\n    \"\"\" Επεξεργάζεται το THEN μέρος του IF. \"\"\"\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.StatementContext):\n            statement = parse_statement(child)\n            if statement:\n                conditional_statement.addTrueStatement(statement)\ndef visit_if_else_context(ctx, conditional_statement):\n    \"\"\" Επεξεργάζεται το ELSE μέρος του IF. \"\"\"\n    for child in context_info.get_children(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_if_else_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_if_else_context(ctx, conditional_statement):\n    \"\"\" Επεξεργάζεται το ELSE μέρος του IF. \"\"\"\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.StatementContext):\n            statement = parse_statement(child)\n            if statement:\n                conditional_statement.addFalseStatement(statement)\n# ----------------------------------------------------\n# Control-Transfer Statements\n# ----------------------------------------------------",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_control_transfer_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_control_transfer_statement_context(ctx):\n    \"\"\" Επεξεργάζεται τα GO TO, EXIT, GOBACK statements. \"\"\"\n    command_name = ctx.getChild(0).getText().upper()\n    return CallStatement(methodName=command_name)\n# ----------------------------------------------------\n# I/O Statements\n# ----------------------------------------------------\ndef process_io_statement(ctx):\n    \"\"\" Επεξεργάζεται τα I/O statements (ACCEPT, DISPLAY, READ, WRITE). \"\"\"\n    operation = ctx.getChild(0).getText().upper()",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "process_io_statement",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def process_io_statement(ctx):\n    \"\"\" Επεξεργάζεται τα I/O statements (ACCEPT, DISPLAY, READ, WRITE). \"\"\"\n    operation = ctx.getChild(0).getText().upper()\n    target = ctx.getChild(1).getText() if ctx.getChildCount() > 1 else \"\"\n    return IOStatement(io_keyword=operation, target=target)\n# ----------------------------------------------------\n# Data-Operation Statements\n# ----------------------------------------------------\ndef visit_data_operation_statement_context(ctx):\n    \"\"\" Επεξεργάζεται τα Data-Operation statements (INITIALIZE, INSPECT). \"\"\"",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_data_operation_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_data_operation_statement_context(ctx):\n    \"\"\" Επεξεργάζεται τα Data-Operation statements (INITIALIZE, INSPECT). \"\"\"\n    operation = ctx.getChild(0).getText().upper()\n    target = ctx.getChild(1).getText() if ctx.getChildCount() > 1 else \"\"\n    return DataOperationStatement(methodName=f\"{operation} {target}\")\n# ----------------------------------------------------\n# Resource-Management Statements\n# ----------------------------------------------------\ndef visit_resource_management_statement_context(ctx):\n    \"\"\" Επεξεργάζεται τα Resource-Management statements (OPEN, CLOSE). \"\"\"",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_resource_management_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_resource_management_statement_context(ctx):\n    \"\"\" Επεξεργάζεται τα Resource-Management statements (OPEN, CLOSE). \"\"\"\n    operation = ctx.getChild(0).getText().upper()\n    target = ctx.getChild(1).getText() if ctx.getChildCount() > 1 else \"\"\n    return Statement(methodName=f\"{operation} {target}\")\n# ----------------------------------------------------\n# Identifier Helper\n# ----------------------------------------------------\ndef visit_identifier_context(ctx):\n    \"\"\" Επιστρέφει το text του identifier. \"\"\"",
+        "detail": "src.static_analysis.cobol_parser.parse_statements",
+        "documentation": {}
+    },
+    {
+        "label": "visit_identifier_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements",
+        "description": "src.static_analysis.cobol_parser.parse_statements",
+        "peekOfCode": "def visit_identifier_context(ctx):\n    \"\"\" Επιστρέφει το text του identifier. \"\"\"\n    return ctx.getText()",
         "detail": "src.static_analysis.cobol_parser.parse_statements",
         "documentation": {}
     },
@@ -2071,6 +2486,321 @@
         "description": "src.static_analysis.cobol_parser.parse_working_storage",
         "peekOfCode": "def convert_cobol_to_json(variables):\n    \"\"\"\n    Μετατρέπει COBOL variables σε δομή JSON με nested records.\n    \"\"\"\n    json_structure = []\n    record_stack = []  # Stack για nested structures\n    for var in variables:\n        json_entry = {\n            \"name\": var[\"Name\"] if var[\"Name\"] != \"FILLER\" else f\"unused_{id(var)}\",\n            \"level\": int(var[\"Level\"]),",
         "detail": "src.static_analysis.cobol_parser.parse_working_storage",
+        "documentation": {}
+    },
+    {
+        "label": "parse_statement",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def parse_statement(ctx):\n    \"\"\"\n    Επισκέπτεται ένα Statement node και επιστρέφει το αντίστοιχο statement object.\n    \"\"\"\n    # logger.info(\"-------visitStatementContext-----------\")\n    statement_map = {\n        Cobol85Parser.MoveStatementContext: visit_move_statement_context,\n        Cobol85Parser.PerformStatementContext: visit_perform_statement_context,\n        Cobol85Parser.GobackStatementContext: visit_goback_statement_context,\n        Cobol85Parser.IfStatementContext: visit_if_statement_context,",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_sort_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_sort_statement_context(ctx):\n    keys = []\n    onKeyClause = ctx.sortOnKayClause()\n    for child in context_info.get_children(onKeyClause):\n        if isinstance(child, Cobol85Parser.SortKeyContext):\n            keys.append(visit_sort_key_context(child))\n    return keys\ndef visit_sort_key_context(ctx):\n    \"\"\" Επισκέπτεται ένα SortKeyContext και επιστρέφει το αντίστοιχο statement object. \"\"\"\n    # logger.info(\"-------visitSortKeyContext-----------\")",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_sort_key_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_sort_key_context(ctx):\n    \"\"\" Επισκέπτεται ένα SortKeyContext και επιστρέφει το αντίστοιχο statement object. \"\"\"\n    # logger.info(\"-------visitSortKeyContext-----------\")\n    sort_key = Statement()\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IdentifierContext):\n            sort_key = visit_identifier_context(child)\n        elif isinstance(child, Cobol85Parser.SortOrderContext):\n            sort_key = child.getText()\n    return sort_key",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_if_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_if_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα IF statement. \"\"\"\n    # logger.info(\"-------visitIfStatementContext-----------\")\n    t = ctx.getChild(1)\n    if isinstance(t, Cobol85Parser.CombinableConditionContext):\n        b =  visit_combinable_condition_context(t)\n    elif isinstance(t, Cobol85Parser.ConditionContext):\n        b = visit_condition_context(t)\n        methodName = \" \".join(clause.methodName for clause in b.conditionClauses) if b.conditionClauses else t.getText()\n    # conditional_statement = ConditionalStatement(methodName=f\"IF {context_info.get_child_concatenated_text(ctx, 1)}\")",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_if_then_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_if_then_context(ctx, conditional_statement):\n    \"\"\" Επεξεργάζεται το THEN μέρος του IF. \"\"\"\n    # logger.info(\"-------visitIfThenContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.CombinableConditionContext):\n            condition = visit_combinable_condition_context(child)\n            if condition:\n                conditional_statement.addClause(condition)\n        elif isinstance(child, Cobol85Parser.StatementContext):\n            statement = parse_statement(child)",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_if_else_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_if_else_context(ctx, conditional_statement):\n    \"\"\" Επεξεργάζεται το ELSE μέρος του IF. \"\"\"\n    # logger.info(\"-------visitIfElseContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.StatementContext):\n            statement = parse_statement(child)\n            if statement:\n                conditional_statement.addFalseStatement(statement)\n# ----------------------------------------------------\n# Conditions",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_condition_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία συνθήκη. \"\"\"\n    # logger.info(\"-------visitConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.CombinableConditionContext):\n            return visit_combinable_condition_context(child)\n        elif isinstance(child, Cobol85Parser.SimpleConditionContext):\n            return visit_simple_condition_context(child)\n    return None\ndef visit_combinable_condition_context(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_combinable_condition_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_combinable_condition_context(ctx):\n    \"\"\" Επεξεργάζεται συνδυασμένες συνθήκες (AND, OR). \"\"\"\n    # logger.info(\"-------visitCombinableConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.SimpleConditionContext):\n            return visit_simple_condition_context(child)\n        if isinstance(child, Cobol85Parser.RelationConditionContext):\n            return visit_relation_condition_context(child)\n    return None\ndef visit_simple_condition_context(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_simple_condition_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_simple_condition_context(ctx):\n    \"\"\" Επεξεργάζεται μία απλή συνθήκη (π.χ. X > 5). \"\"\"\n    # logger.info(\"-------visitSimpleConditionContext-----------\")\n    conditional_statement = ConditionalStatement(methodName=\"IF\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.RelationConditionContext):\n            clause = visit_relation_condition_context(child)\n            if clause:\n                conditional_statement.addClause(clause)\n    return conditional_statement",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_relation_condition_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_relation_condition_context(ctx):\n    \"\"\" Επεξεργάζεται συνθήκες σύγκρισης (π.χ. X = Y). \"\"\"\n    # logger.info(\"-------visitRelationConditionContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.RelationArithmeticComparisonContext):\n            return visit_relation_arithmetic_comparison_context(child)\ndef visit_relation_arithmetic_comparison_context(ctx):\n    \"\"\" Επεξεργάζεται αριθμητικές συγκρίσεις (π.χ. A > B). \"\"\"\n    # logger.info(\"-------visitRelationArithmeticComparisonContext-----------\")\n    return ConditionClause(",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_relation_arithmetic_comparison_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_relation_arithmetic_comparison_context(ctx):\n    \"\"\" Επεξεργάζεται αριθμητικές συγκρίσεις (π.χ. A > B). \"\"\"\n    # logger.info(\"-------visitRelationArithmeticComparisonContext-----------\")\n    return ConditionClause(\n        Left=context_info.get_child_text(ctx, 0),\n        Operator=context_info.get_child_concatenated_text(ctx, 1),\n        Right=context_info.get_child_text(ctx, 2)\n    )\n# ----------------------------------------------------\n# MOVE Statements",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_move_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_move_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα MOVE statement και επιστρέφει ένα AssignStatement. \"\"\"\n    # logger.info(\"-------visitMoveStatementContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.MoveToStatementContext):\n            move_sentence = visit_move_to_statement_context(child)\n            assignFrom = move_sentence.AssignFrom\n            assignTo = move_sentence.AssignTo\n            return AssignStatement(methodName=f\"Assign value to {assignTo}\", AssignFrom=assignFrom, AssignTo=assignTo)\n    return None",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_move_to_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_move_to_statement_context(ctx):\n    \"\"\" Επεξεργάζεται το MOVE TO μέρος ενός statement. \"\"\"\n    assignFrom = None\n    assignTo = None\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.IdentifierContext):\n            assignTo = visit_identifier_context(child)\n        elif isinstance(child, Cobol85Parser.MoveToSendingAreaContext):\n            assignFrom = visit_move_to_sending_area_context(child)\n    if assignFrom and assignTo:",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_identifier_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_identifier_context(ctx):\n    \"\"\" Επιστρέφει το text του identifier. \"\"\"\n    return ctx.getChild(0).getText() if ctx.getChildCount() > 0 else \"\"\ndef visit_move_to_sending_area_context(ctx):\n    \"\"\" Επιστρέφει το text του sending area. \"\"\"\n    return ctx.getChild(0).getText() if ctx.getChildCount() > 0 else \"\"\n# ----------------------------------------------------\n# PERFORM Statements\n# ----------------------------------------------------\ndef visit_perform_statement_context(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_move_to_sending_area_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_move_to_sending_area_context(ctx):\n    \"\"\" Επιστρέφει το text του sending area. \"\"\"\n    return ctx.getChild(0).getText() if ctx.getChildCount() > 0 else \"\"\n# ----------------------------------------------------\n# PERFORM Statements\n# ----------------------------------------------------\ndef visit_perform_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα PERFORM statement. \"\"\"\n    # logger.info(\"-------visitPerformStatementContext-----------\")\n    for child in context_info.get_children(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_perform_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_perform_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα PERFORM statement. \"\"\"\n    # logger.info(\"-------visitPerformStatementContext-----------\")\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.PerformProcedureStatementContext):\n            return visit_perform_procedure_statement_context(child)\n    return None\ndef visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_perform_procedure_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_perform_procedure_statement_context(ctx):\n    \"\"\" Επιστρέφει την διαδικασία που εκτελείται στο PERFORM. \"\"\"\n    return CallStatement(methodName=ctx.getText())\n# ----------------------------------------------------\n# EXEC CICS Statements\n# ----------------------------------------------------\ndef visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_exec_cics_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_exec_cics_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS statement. \"\"\"\n    # call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            return  visit_exec_cics_command_context(child)\n        elif isinstance(child, Cobol85Parser.ExecCommandListItemContext):\n            call_statement = visit_exec_command_list_item_context(child)\n            return call_statement\ndef visit_exec_command_list_item_context(ctx):",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_exec_command_list_item_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_exec_command_list_item_context(ctx):\n    \"\"\" Επεξεργάζεται ένα EXEC CICS command list item. \"\"\"\n    call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            return call_statement\n    return call_statement   \ndef visit_list_of_exec_cics_commands_context(ctx):\n    \"\"\" Επεξεργάζεται μία λίστα από EXEC CICS commands. \"\"\"",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_list_of_exec_cics_commands_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_list_of_exec_cics_commands_context(ctx):\n    \"\"\" Επεξεργάζεται μία λίστα από EXEC CICS commands. \"\"\"\n    # logger.info(\"-------visitListOfExecCicsCommandsContext-----------\")\n    call_statement = CallStatement(False)\n    for child in context_info.get_children(ctx):\n        if isinstance(child, Cobol85Parser.ExecCicsCommandContext):\n            call_statement = visit_exec_cics_command_context(child)\n            # logger.debug(f\"command: {call_statement.methodName}\")\n            # logger.debug(f\"params: {call_statement.statements}\")\n            return call_statement",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_exec_cics_command_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_exec_cics_command_context(ctx):\n    \"\"\" Επεξεργάζεται τις εντολές μέσα σε ένα EXEC CICS statement. \"\"\"\n    # context_info.print_class_name(ctx)\n    children = context_info.get_children(ctx)\n    if not children:\n        return \"\", []\n    call_statement = CallStatement(internal=False)    \n    command_name = children[0].getText()\n    logger.debug(f\"command Name: {children[0].getText()}\")\n    call_statement.methodName = children[0].getText()",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "visit_goback_statement_context",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.parse_statements copy",
+        "description": "src.static_analysis.cobol_parser.parse_statements copy",
+        "peekOfCode": "def visit_goback_statement_context(ctx):\n    \"\"\" Επεξεργάζεται ένα GOBACK statement. \"\"\"\n    return CallStatement(methodName=\"GOBACK\")",
+        "detail": "src.static_analysis.cobol_parser.parse_statements copy",
+        "documentation": {}
+    },
+    {
+        "label": "process_files",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
+        "description": "src.static_analysis.cobol_parser.cobol_parser",
+        "peekOfCode": "def process_files(file_pattern):\n    \"\"\"\n    Βρίσκει και επεξεργάζεται αρχεία COBOL με βάση το file_pattern.\n    :param file_pattern: Το όνομα αρχείου ή wildcard (π.χ. \"*.cbl\").\n    \"\"\"\n    # files = glob.glob(file_pattern) if not os.path.isfile(file_pattern) else [file_pattern]\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    pattern = os.path.join(script_dir, file_pattern)\n    files = glob.glob(pattern)\n    if not files:",
+        "detail": "src.static_analysis.cobol_parser.cobol_parser",
+        "documentation": {}
+    },
+    {
+        "label": "process_cobol_file",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
+        "description": "src.static_analysis.cobol_parser.cobol_parser",
+        "peekOfCode": "def process_cobol_file(file_path, output_dir=\"output\"):\n    \"\"\" Κύρια συνάρτηση που εκτελεί όλη τη διαδικασία ανάλυσης \"\"\"\n    logger.info(f\"Processing file {file_path}...\")\n    input_stream = FileStream(file_path, encoding=\"utf-8\")\n    lexer = Cobol85Lexer(input_stream)\n    token_stream = CommonTokenStream(lexer)\n    parser = Cobol85Parser(token_stream)\n    error_listener = CustomErrorListener()\n    parser.removeErrorListeners()  # Αφαιρεί τον default listener\n    parser.addErrorListener(error_listener)    ",
+        "detail": "src.static_analysis.cobol_parser.cobol_parser",
+        "documentation": {}
+    },
+    {
+        "label": "save_analysis_to_file",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
+        "description": "src.static_analysis.cobol_parser.cobol_parser",
+        "peekOfCode": "def save_analysis_to_file(static_analysis, file_path, output_dir=\"output\"):\n    \"\"\" Αποθηκεύει τα αποτελέσματα της ανάλυσης σε JSON αρχείο \"\"\"\n    logger.info(f\"Saving file {file_path}...\")\n    file_name = os.path.basename(file_path)\n    file_name_without_ext = os.path.splitext(file_name)[0]\n    output_file = os.path.join(output_dir, f\"{file_name_without_ext}.json\")\n    json_output = static_analysis.to_json()\n    with open(output_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(json_output)\n    print(f\"Ανάλυση αποθηκεύτηκε στο: {output_file}\")",
+        "detail": "src.static_analysis.cobol_parser.cobol_parser",
+        "documentation": {}
+    },
+    {
+        "label": "find_section",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
+        "description": "src.static_analysis.cobol_parser.cobol_parser",
+        "peekOfCode": "def find_section(section_class, ctx):\n    \"\"\"\n    Αναζητά αναδρομικά το WorkingStorageSection σε ένα υποδέντρο του parse tree.\n    \"\"\"\n    if ctx is None:\n        return None\n    # Αν ο κόμβος είναι ήδη WorkingStorageSection, επιστρέφουμε\n    if isinstance(ctx, section_class):\n        return ctx\n    # Αναζητάμε αναδρομικά σε όλους τους υποκόμβους",
+        "detail": "src.static_analysis.cobol_parser.cobol_parser",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.cobol_parser",
+        "description": "src.static_analysis.cobol_parser.cobol_parser",
+        "peekOfCode": "def main():\n    \"\"\"\n    Ο κεντρικός έλεγχος για την εκτέλεση του parser, λαμβάνοντας input από το χρήστη.\n    \"\"\"\n    parser = argparse.ArgumentParser(description=\"COBOL Static Analysis Parser\")\n    # Ορισμός argument για το όνομα αρχείου ή wildcard pattern\n    parser.add_argument(\"file_pattern\", help=\"Όνομα αρχείου COBOL ή wildcard pattern (π.χ. '*.cbl')\")\n    try:\n        args = parser.parse_args()\n        process_files(args.file_pattern)",
+        "detail": "src.static_analysis.cobol_parser.cobol_parser",
+        "documentation": {}
+    },
+    {
+        "label": "SerializableNode",
+        "kind": 6,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "class SerializableNode:\n    def __init__(self, symbol=None, rule_index=None, children=None):\n        self.symbol = symbol\n        self.rule_index = rule_index\n        self.children = children if children is not None else []\n    def __repr__(self):\n        return f\"SerializableNode(symbol={self.symbol}, rule_index={self.rule_index}, children={[child.rule_index if not isinstance(child, TerminalNode) else str(child.symbol) for child in self.children]})\"\nclass SerializableTerminalNode:\n    def __init__(self, symbol):\n        self.symbol = symbol",
+        "detail": "src.static_analysis.cobol_parser.caching",
+        "documentation": {}
+    },
+    {
+        "label": "SerializableTerminalNode",
+        "kind": 6,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "class SerializableTerminalNode:\n    def __init__(self, symbol):\n        self.symbol = symbol\n    def __repr__(self):\n        return f\"SerializableTerminalNode(symbol={self.symbol})\"\ndef serialize_tree(tree):\n    if isinstance(tree, TerminalNode):\n        return SerializableTerminalNode(tree.symbol)\n    else:\n        serializable_node = SerializableNode(symbol=tree.symbol, rule_index=tree.getRuleIndex())",
+        "detail": "src.static_analysis.cobol_parser.caching",
+        "documentation": {}
+    },
+    {
+        "label": "serialize_tree",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "def serialize_tree(tree):\n    if isinstance(tree, TerminalNode):\n        return SerializableTerminalNode(tree.symbol)\n    else:\n        serializable_node = SerializableNode(symbol=tree.symbol, rule_index=tree.getRuleIndex())\n        for child in tree.getChildren():\n            serializable_node.children.append(serialize_tree(child))\n        return serializable_node\ndef deserialize_tree(serializable_tree, rule_names):\n    if isinstance(serializable_tree, SerializableTerminalNode):",
+        "detail": "src.static_analysis.cobol_parser.caching",
+        "documentation": {}
+    },
+    {
+        "label": "deserialize_tree",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "def deserialize_tree(serializable_tree, rule_names):\n    if isinstance(serializable_tree, SerializableTerminalNode):\n        return TerminalNode(serializable_tree.symbol)\n    else:\n        node = ParserRuleContext(parent=None, invokingState=-1) # Dummy parent and state\n        node.ruleIndex = serializable_tree.rule_index\n        node.children = [deserialize_tree(child, rule_names) for child in serializable_tree.children]\n        for child in node.children:\n            child.parentCtx = node\n        return node",
+        "detail": "src.static_analysis.cobol_parser.caching",
+        "documentation": {}
+    },
+    {
+        "label": "parse_and_persist_serializable_tree",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "def parse_and_persist_serializable_tree(input_text, output_filename=\"serializable_parse_tree.pkl\", parser_class=YourParser, lexer_class=YourLexer):\n    input_stream = InputStream(input_text)\n    lexer = lexer_class(input_stream)\n    token_stream = CommonTokenStream(lexer)\n    parser = parser_class(token_stream)\n    tree = parser.startRule()\n    serializable_tree = serialize_tree(tree)\n    try:\n        with open(output_filename, \"wb\") as f:\n            pickle.dump((serializable_tree, parser.ruleNames), f)",
+        "detail": "src.static_analysis.cobol_parser.caching",
+        "documentation": {}
+    },
+    {
+        "label": "load_persisted_serializable_tree",
+        "kind": 2,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "def load_persisted_serializable_tree(filename=\"serializable_parse_tree.pkl\", parser_class=YourParser, lexer_class=YourLexer):\n    try:\n        with open(filename, \"rb\") as f:\n            serializable_tree, rule_names = pickle.load(f)\n        loaded_tree = deserialize_tree(serializable_tree, rule_names)\n        # You might need to re-establish the token stream and parser\n        # if your visitor relies on them.\n        # input_stream = InputStream(\"dummy\") # You might need a dummy input\n        # lexer = lexer_class(input_stream)\n        # token_stream = CommonTokenStream(lexer)",
+        "detail": "src.static_analysis.cobol_parser.caching",
+        "documentation": {}
+    },
+    {
+        "label": "input_code",
+        "kind": 5,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "input_code = \"your input code here\"\noriginal_tree = parse_and_persist_serializable_tree(input_code)\nif original_tree:\n    loaded_tree, rule_names = load_persisted_serializable_tree()\n    if loaded_tree:\n        print(f\"Type of loaded tree: {type(loaded_tree)}\")\n        # You can now use 'loaded_tree' with your visitor\n        # visitor = YourVisitor()\n        # walker = ParseTreeWalker()\n        # walker.walk(visitor, loaded_tree)",
+        "detail": "src.static_analysis.cobol_parser.caching",
+        "documentation": {}
+    },
+    {
+        "label": "original_tree",
+        "kind": 5,
+        "importPath": "src.static_analysis.cobol_parser.caching",
+        "description": "src.static_analysis.cobol_parser.caching",
+        "peekOfCode": "original_tree = parse_and_persist_serializable_tree(input_code)\nif original_tree:\n    loaded_tree, rule_names = load_persisted_serializable_tree()\n    if loaded_tree:\n        print(f\"Type of loaded tree: {type(loaded_tree)}\")\n        # You can now use 'loaded_tree' with your visitor\n        # visitor = YourVisitor()\n        # walker = ParseTreeWalker()\n        # walker.walk(visitor, loaded_tree)",
+        "detail": "src.static_analysis.cobol_parser.caching",
         "documentation": {}
     },
     {
@@ -2321,7 +3051,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.analyze_program",
         "description": "src.static_analysis.process_results.analyze_program",
-        "peekOfCode": "def evaluate(document, json_data, entry_point):\n    flow = get_flow(json_data, entry_point)\n    root = TreeNode(entry_point, kindof='Entry Point')\n    tree = MyTree()\n    tree.add_root(root)\n    previous_node = root\n    for statement in flow['Statements']:\n        child_node = add_statement(statement)\n        previous_node.add_child(child_node)\n    tree.print_tree()",
+        "peekOfCode": "def evaluate(document, json_data, entry_point):\n    start_time = time.time()\n    flow = get_flow(json_data, entry_point)\n    root = TreeNode(entry_point, kindof='Entry Point')\n    tree = MyTree()\n    tree.add_root(root)\n    previous_node = root\n    for statement in flow['Statements']:\n        child_node = add_statement(statement)\n        previous_node.add_child(child_node)",
         "detail": "src.static_analysis.process_results.analyze_program",
         "documentation": {}
     },
@@ -2474,7 +3204,7 @@
         "kind": 6,
         "importPath": "src.static_analysis.process_results.tree",
         "description": "src.static_analysis.process_results.tree",
-        "peekOfCode": "class MyTree:\n    def __init__(self):\n        self.root=None\n    def add_root(self, data, kindof=None):\n        if isinstance(data, TreeNode):\n            self.root = data\n            return self.root\n        if self.root is None:\n            self.root = TreeNode(data, kindof)\n            return self.root",
+        "peekOfCode": "class MyTree:\n    def __init__(self):\n        self.root = None\n        self._node_cache = {}  # Cache for node lookups\n    def add_root(self, data, kindof=None):\n        if isinstance(data, TreeNode):\n            self.root = data\n            return self.root\n        if self.root is None:\n            self.root = TreeNode(data, kindof)",
         "detail": "src.static_analysis.process_results.tree",
         "documentation": {}
     },
@@ -2798,7 +3528,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.og_export",
         "description": "src.static_analysis.process_results.og_export",
-        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    root, elements, relationships, organizations = init_model()\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    methods_index = []\n    relations_index = []",
+        "peekOfCode": "def process_json_data(json_file):\n    with open(json_file) as f:\n        data = json.load(f)\n    return data\ndef generate_document(data):\n    root, elements, relationships, organizations = init_model()\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    application_elements = []\n    relationships_elements = []",
         "detail": "src.static_analysis.process_results.og_export",
         "documentation": {}
     },
@@ -2807,7 +3537,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.og_export",
         "description": "src.static_analysis.process_results.og_export",
-        "peekOfCode": "def generate_document(data):\n    root, elements, relationships, organizations = init_model()\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    methods_index = []\n    relations_index = []\n    application_elements = []\n    relationships_elements = []\n    comp_id = add_element(elements, 'ApplicationComponent', program)\n    for flow in flows:",
+        "peekOfCode": "def generate_document(data):\n    root, elements, relationships, organizations = init_model()\n    program = data.get(\"program\")\n    flows = data.get('flow', [])\n    application_elements = []\n    relationships_elements = []\n    comp_id = add_element(elements, 'ApplicationComponent', program)\n    for flow in flows:\n        entrypoint = flow.get(\"EntryPoint\")\n        # Components",
         "detail": "src.static_analysis.process_results.og_export",
         "documentation": {}
     },
@@ -2834,7 +3564,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.og_export",
         "description": "src.static_analysis.process_results.og_export",
-        "peekOfCode": "def add_element(elements_el, xsi_type, name, identifier=None):\n    ns = str(elements_el.tag).split('}')[0].strip('{')\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    eid = identifier or _gen_id()\n    el = ET.SubElement(\n        elements_el,\n        ET.QName(ns, 'element'),\n        {\n            'identifier': eid,\n            ET.QName(xsi, 'type'): xsi_type",
+        "peekOfCode": "def add_element(elements_el, xsi_type, name):\n    ns = str(elements_el.tag).split('}')[0].strip('{')\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    eid = next((i['id'] for i in ELEMENTS_REGISTRY if name in i['element']), None)\n    if not eid:    \n        eid = _gen_id()\n        ELEMENTS_REGISTRY.append({'id': eid, 'element':name})\n    el = ET.SubElement(\n        elements_el,\n        ET.QName(ns, 'element'),",
         "detail": "src.static_analysis.process_results.og_export",
         "documentation": {}
     },
@@ -2843,7 +3573,7 @@
         "kind": 2,
         "importPath": "src.static_analysis.process_results.og_export",
         "description": "src.static_analysis.process_results.og_export",
-        "peekOfCode": "def add_relationship(relationships_el, xsi_type, source_id, target_id, identifier=None):\n    ns = str(relationships_el.tag).split('}')[0].strip('{')\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    rid = identifier or _gen_id()\n    ET.SubElement(\n        relationships_el,\n        ET.QName(ns, 'relationship'),\n        {\n            'identifier': rid,\n            'source': source_id,",
+        "peekOfCode": "def add_relationship(relationships_el, xsi_type, source_id, target_id):\n    ns = str(relationships_el.tag).split('}')[0].strip('{')\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    rel = f'{source_id} -> {target_id}'\n    rid = next((i['id'] for i in RELATIONSHIP_REGISTRY if rel in i['relationship']), None)\n    if not rid:    \n        rid = _gen_id()\n        RELATIONSHIP_REGISTRY.append({'id': rid, 'relationship': rel})\n    ET.SubElement(\n        relationships_el,",
         "detail": "src.static_analysis.process_results.og_export",
         "documentation": {}
     },
@@ -2889,6 +3619,24 @@
         "importPath": "src.static_analysis.process_results.og_export",
         "description": "src.static_analysis.process_results.og_export",
         "peekOfCode": "def validate_diagram(models_output):\n    json_path = os.path.join(os.path.dirname(__file__),  \"..\\..\\..\\output\\open_group\", models_output)\n    # Load XSD\n    with open('models/archimate3_Diagram.xsd', 'rb') as f:\n        schema_root = etree.XML(f.read())\n    schema = etree.XMLSchema(schema_root)\n    # Load XML\n    xml_doc = etree.parse('path/to/your.xml')\n    # Validate\n    if schema.validate(xml_doc):",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "ELEMENTS_REGISTRY",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "ELEMENTS_REGISTRY = []\nRELATIONSHIP_REGISTRY = []\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\n# Namespaces/constants\ndef _register_namespaces():\n    ns = 'http://www.opengroup.org/xsd/archimate/3.0/'\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    schema_location = (\n        'http://www.opengroup.org/xsd/archimate/3.0/ '\n        'http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd'",
+        "detail": "src.static_analysis.process_results.og_export",
+        "documentation": {}
+    },
+    {
+        "label": "RELATIONSHIP_REGISTRY",
+        "kind": 5,
+        "importPath": "src.static_analysis.process_results.og_export",
+        "description": "src.static_analysis.process_results.og_export",
+        "peekOfCode": "RELATIONSHIP_REGISTRY = []\nBASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), \"../..\"))\n# Namespaces/constants\ndef _register_namespaces():\n    ns = 'http://www.opengroup.org/xsd/archimate/3.0/'\n    xsi = 'http://www.w3.org/2001/XMLSchema-instance'\n    schema_location = (\n        'http://www.opengroup.org/xsd/archimate/3.0/ '\n        'http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd'\n    )",
         "detail": "src.static_analysis.process_results.og_export",
         "documentation": {}
     },

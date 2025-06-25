@@ -7,6 +7,7 @@ from typing import List, Dict, Any
 from tree_node import TreeNode
 from tree import MyTree
 from constants import *
+import time
 
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
@@ -51,6 +52,7 @@ def add_statement(statement, kindof=None):
 
 
 def evaluate(document, json_data, entry_point):
+    start_time = time.time()
     flow = get_flow(json_data, entry_point)
     root = TreeNode(entry_point, kindof='Entry Point')
     tree = MyTree()
@@ -61,10 +63,17 @@ def evaluate(document, json_data, entry_point):
         child_node = add_statement(statement)
         previous_node.add_child(child_node)
     tree.print_tree()
-    possible_paths = tree.get_unique_paths_with_conditions();
-    for possible_path in possible_paths:
-        logger.debug(possible_path['condition'])
-        logger.debug(possible_path['path'])
+    possible_paths = tree.get_unique_paths_with_conditions()
+    # for possible_path in possible_paths:
+    #     logger.debug(possible_path['condition'])
+    #     logger.debug(possible_path['path'])
+    
+    end_time = time.time()
+    total_seconds = end_time - start_time
+    logger.info(f"Start Time: {start_time}")
+    logger.info(f"End Time: {end_time}")
+    logger.info(f"Total Seconds: {total_seconds}")
+
     return [path['path'] for path in possible_paths]
 
     # tree.print_paths()

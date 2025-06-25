@@ -203,7 +203,7 @@ def extract_calls(data):
 
 
 if __name__ == "__main__":
-    json_path = os.path.join(os.path.dirname(__file__),  "..\..\..\output\Analyzed_DOGETRAN.json")
+    json_path = os.path.join(os.path.dirname(__file__),  "..\\..\\..\\output\\Analyzed_DOGETRAN.json")
     data = process_json_data(json_path)
     generate_document(data)
 

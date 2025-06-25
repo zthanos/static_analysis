@@ -10,7 +10,7 @@ class CallStatement(Statement):
     internal: bool = True
     
     def __post_init__(self):
-        self.type = StatementType.CALL
+        self.type = StatementType.INVOCATION
 
     @property
     def raw(self) -> str:

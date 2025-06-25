@@ -5,7 +5,8 @@ from logger import logger
 import xml.etree.ElementTree as ET
 import uuid
 
-
+ELEMENTS_REGISTRY = []
+RELATIONSHIP_REGISTRY = []
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 # Namespaces/constants
 def _register_namespaces():
@@ -29,8 +30,6 @@ def generate_document(data):
     
     program = data.get("program")
     flows = data.get('flow', [])
-    methods_index = []
-    relations_index = []
     
     application_elements = []
     relationships_elements = []
@@ -46,29 +45,15 @@ def generate_document(data):
         rel1 = add_relationship(relationships, 'Composition', comp_id, entrypoint_id)
         relationships_elements.append(rel1)
         
-        for index, analyzed in enumerate(flow.get('AnalyzedPaths', [])):
+        for analyzed in flow.get('AnalyzedPaths', []):
             call_to_systems, call_to_programs = process_external_systems(analyzed.get('CallsToExternalSystem', []))
             for item in call_to_programs:
-                element_id = next((i for i in methods_index if item in i), None)
-                if not element_id:
-                    element_id = add_element(elements, 'ApplicationComponent', item)
-                    methods_index.append({'id': element_id, 'element':item})
-                relation = f'{entrypoint_id} -> {element_id}'
-                if relation not in relations_index:
-                    rel = add_relationship(relationships, 'Triggering', comp_id, element_id)
-                    relations_index.append(f'{entrypoint_id} -> {element_id}')
-                    relationships_elements.append(rel)
+                element_id = add_element(elements, 'ApplicationComponent', item)
+                rel = add_relationship(relationships, 'Triggering', comp_id, element_id)
 
             for item in call_to_systems:         
-                element_id = next((i['id'] for i in methods_index if item in i['element']), None)
-                if not element_id:                      
-                    element_id = add_element(elements, 'ApplicationComponent', item)
-                    methods_index.append({'id': element_id, 'element':item})
-                relation = f'{entrypoint_id} -> {element_id}'
-                if relation not in relations_index:                    
-                    rel = add_relationship(relationships, 'Triggering', entrypoint_id, element_id)          
-                    relations_index.append(f'{entrypoint_id} -> {element_id}')
-                    relationships_elements.append(rel)                     
+                element_id = add_element(elements, 'ApplicationComponent', item)
+                rel = add_relationship(relationships, 'Triggering', entrypoint_id, element_id)          
     
     # Organizations
     add_organization(organizations, 'Application', application_elements)
@@ -114,10 +99,15 @@ def init_model(name='(new model)', identifier=None):
     return root, elements_el, relationships_el, organizations_el
 
 # Add an element to the model
-def add_element(elements_el, xsi_type, name, identifier=None):
+def add_element(elements_el, xsi_type, name):
     ns = str(elements_el.tag).split('}')[0].strip('{')
     xsi = 'http://www.w3.org/2001/XMLSchema-instance'
-    eid = identifier or _gen_id()
+    
+    eid = next((i['id'] for i in ELEMENTS_REGISTRY if name in i['element']), None)
+    if not eid:    
+        eid = _gen_id()
+        ELEMENTS_REGISTRY.append({'id': eid, 'element':name})
+
     el = ET.SubElement(
         elements_el,
         ET.QName(ns, 'element'),
@@ -131,10 +121,17 @@ def add_element(elements_el, xsi_type, name, identifier=None):
     return eid
 
 # Add a relationship to the model
-def add_relationship(relationships_el, xsi_type, source_id, target_id, identifier=None):
+def add_relationship(relationships_el, xsi_type, source_id, target_id):
     ns = str(relationships_el.tag).split('}')[0].strip('{')
     xsi = 'http://www.w3.org/2001/XMLSchema-instance'
-    rid = identifier or _gen_id()
+    
+    rel = f'{source_id} -> {target_id}'
+    rid = next((i['id'] for i in RELATIONSHIP_REGISTRY if rel in i['relationship']), None)
+
+    if not rid:    
+        rid = _gen_id()
+        RELATIONSHIP_REGISTRY.append({'id': rid, 'relationship': rel})
+
     ET.SubElement(
         relationships_el,
         ET.QName(ns, 'relationship'),

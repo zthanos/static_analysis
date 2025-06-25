@@ -10,7 +10,7 @@ class AssignStatement(Statement):
     AssignTo: str = ""
 
     def __post_init__(self):
-        self.type = StatementType.ASSIGN
+        self.type = StatementType.ASSIGNMENT
 
 
     @property

@@ -10,11 +10,14 @@ def parse_procedure_division_section(ctx, static_analysis):
     Επισκέπτεται το PROCEDURE DIVISION και αναλύει το περιεχόμενο του.
     """
     logger.info("-------visit_procedure_division-----------")
-
-    for child in context_info.get_children(ctx):
-        if isinstance(child, Cobol85Parser.ProcedureDivisionBodyContext):
-            logger.info("===================================================")
-            visit_procedure_division_body(child, static_analysis)
+    paragraphs = [paragraph.paragraphName().getText() for paragraph in ctx.procedureDivisionBody().paragraphs().paragraph()]
+    
+    for paragraph in ctx.procedureDivisionBody().paragraphs().paragraph():
+        static_analysis = visit_paragraphs_context(paragraph, static_analysis)
+    # for child in context_info.get_children(ctx):
+    #     if isinstance(child, Cobol85Parser.ProcedureDivisionBodyContext):
+    #         logger.info("===================================================")
+    #         visit_procedure_division_body(child, static_analysis)
 
     logger.info("-------End of ProcedureDivision-----------")
     return static_analysis
@@ -34,10 +37,20 @@ def visit_paragraphs_context(ctx, static_analysis):
     Επισκέπτεται τις παραγράφους μέσα στο PROCEDURE DIVISION.
     """
     # logger.info("-------visit_paragraphs_context-----------")
-
-    for child in context_info.get_children(ctx):
-        if isinstance(child, Cobol85Parser.ParagraphContext):
-            visit_paragraph_context(child, static_analysis)
+    flow = Flow()
+    flow.Name = ctx.paragraphName().getText() if ctx.paragraphName() else "Unnamed Paragraph"
+      
+    for sentence in ctx.sentence():
+       for st in sentence.statement():
+            parsed = parse_statements.parse_statement(st)
+            if parsed is not None:
+                flow.addSentence(parsed)
+            logger.info(f"Sentence: {st.getText()}")
+    static_analysis.addFlow(flow)
+    return static_analysis
+    # for child in context_info.get_children(ctx):
+    #     if isinstance(child, Cobol85Parser.ParagraphContext):
+    #         visit_paragraph_context(child, static_analysis)
 
 def visit_paragraph_context(ctx, static_analysis):
     """

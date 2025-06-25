@@ -10,7 +10,7 @@
             "justMyCode": true,            
             "python": "${workspaceFolder}\\devenv\\Scripts\\python.exe",
             "args": [
-                "Samples\\added.cbl"
+                "Samples\\fullversion.cbl"
             ]
         }
     ]

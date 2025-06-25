@@ -82,7 +82,10 @@
       *
            IF EIBCALEN > ZERO THEN
                MOVE DFHCOMMAREA TO DOGECOMMS-AREA.
-
+           SORT SORT-FILE
+               ON ASCENDING KEY RECORD-1 RECORD-2
+               INPUT PROCEDURE DOGE THRU DOGE-EXIT
+               OUTPUT PROCRDURE OUT-DOGE THROU OUT-DOGE-EXIT.
            IF EIBCALEN EQUAL TO ZERO
               MOVE 'Displaying Empty Details.' TO WTO-MESSAGE
               PERFORM DOGE-WTO

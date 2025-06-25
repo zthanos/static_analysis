@@ -1,0 +1,1901 @@
+{
+    "ProgramId": "DOGECOIN",
+    "Author": "SOLDIER OF FORTRAN",
+    "Installation": "DOGE BANK",
+    "DateWritten": "08/30/20",
+    "Compiled": null,
+    "Security": null,
+    "Flow": [
+        {
+            "Name": "00000-MAIN",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "de5b1e67-89ff-4b6c-9f03-8cc1179250f6",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": {
+                        "Left": "EIBCALEN",
+                        "Operator": ">",
+                        "Right": "ZERO"
+                    },
+                    "TrueStatements": [
+                        {
+                            "id": "e70de351-56fe-4b0d-87c7-5dacdba56588",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "DFHCOMMAREA",
+                            "AssignTo": "DOGECOMMS-AREA"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "id": "42bdd9d8-7723-4a26-b4b8-02a0d234578e",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": {
+                        "Left": "EIBCALEN",
+                        "Operator": "EQUALTO",
+                        "Right": "ZERO"
+                    },
+                    "TrueStatements": [
+                        {
+                            "id": "56cfb6ef-7de1-46cc-a88e-487765177dab",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "'STARTING DOGE CICS.'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "id": "75b383bb-16cb-4103-b270-cbc72b43c805",
+                            "internal": true,
+                            "type": "StatementType.INVOCATION",
+                            "methodName": "PERFORM DOGE-WTO",
+                            "Statements": []
+                        },
+                        {
+                            "id": "40af9624-d2e5-4934-a514-89f312b4eccf",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "'DISPLAYING DOGE.'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "id": "396df43e-4693-445d-a204-781c282a5891",
+                            "internal": true,
+                            "type": "StatementType.INVOCATION",
+                            "methodName": "PERFORM DOGE-WTO",
+                            "Statements": []
+                        },
+                        {
+                            "id": "3d0b5c0c-0d0b-4345-90a6-fa47dd6665f5",
+                            "internal": true,
+                            "type": "StatementType.CICS",
+                            "methodName": "EXEC CICS",
+                            "Statements": [
+                                {
+                                    "id": "f6f7b8a4-ec96-4325-9bd3-b5b2b03881ce",
+                                    "internal": true,
+                                    "type": "StatementType.OTHER",
+                                    "methodName": "SEND"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "id": "e5469352-e142-4445-84a3-ee6beaafc314",
+                            "internal": true,
+                            "type": "StatementType.CONDITION",
+                            "methodName": "IF",
+                            "conditionClauses": {
+                                "Left": "EIBAID",
+                                "Operator": "EQUALTO",
+                                "Right": "DFHPF3"
+                            },
+                            "TrueStatements": [
+                                {
+                                    "id": "e1fbf6e1-b340-4eed-a3dd-4a8ae34e100a",
+                                    "internal": true,
+                                    "type": "StatementType.CICS",
+                                    "methodName": "EXEC CICS",
+                                    "Statements": [
+                                        {
+                                            "id": "dba317c8-122d-427a-b9fb-42703fae0e15",
+                                            "internal": true,
+                                            "type": "StatementType.OTHER",
+                                            "methodName": "XCTL"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "id": "4ff02639-2f88-4ef9-96c6-e317600a5813",
+                                    "internal": true,
+                                    "type": "StatementType.CONDITION",
+                                    "methodName": "IF",
+                                    "conditionClauses": {
+                                        "Left": "EIBAID",
+                                        "Operator": "EQUALTO",
+                                        "Right": "DFHPF5"
+                                    },
+                                    "TrueStatements": [
+                                        {
+                                            "id": "5c2ec612-4102-4840-ac23-b857810e9f4d",
+                                            "internal": true,
+                                            "type": "StatementType.INVOCATION",
+                                            "methodName": "PERFORM DOGE-MAIN-SCREEN",
+                                            "Statements": []
+                                        }
+                                    ],
+                                    "FalseStatements": [
+                                        {
+                                            "id": "2ea0fa0b-4f71-4953-b2ea-5d850c1d2810",
+                                            "internal": true,
+                                            "type": "StatementType.CONDITION",
+                                            "methodName": "IF",
+                                            "conditionClauses": null,
+                                            "TrueStatements": [
+                                                {
+                                                    "id": "c665bfd0-8bb5-410e-9428-d12dae9ed6a2",
+                                                    "internal": true,
+                                                    "type": "StatementType.ASSIGNMENT",
+                                                    "methodName": "",
+                                                    "AssignFrom": "'T'",
+                                                    "AssignTo": "DOGECOMMS-AREA"
+                                                },
+                                                {
+                                                    "id": "cdf79945-dd4a-4bff-bb45-30909d1398fb",
+                                                    "internal": true,
+                                                    "type": "StatementType.INVOCATION",
+                                                    "methodName": "PERFORM DOGE-MAIN-SCREEN",
+                                                    "Statements": []
+                                                }
+                                            ],
+                                            "FalseStatements": [
+                                                {
+                                                    "id": "e3c73a61-2e05-4cc8-bf4c-bbe94b50f1a5",
+                                                    "internal": true,
+                                                    "type": "StatementType.CONDITION",
+                                                    "methodName": "IF",
+                                                    "conditionClauses": {
+                                                        "Left": "EIBAID",
+                                                        "Operator": "EQUALTO",
+                                                        "Right": "DFHENTER"
+                                                    },
+                                                    "TrueStatements": [
+                                                        {
+                                                            "id": "aa9667e5-a82a-49ec-b10d-44d535faf2a4",
+                                                            "internal": true,
+                                                            "type": "StatementType.INVOCATION",
+                                                            "methodName": "PERFORM RECEIVE-OPTION",
+                                                            "Statements": []
+                                                        },
+                                                        {
+                                                            "id": "91371e79-02cb-4995-8a36-577a53963cc4",
+                                                            "internal": true,
+                                                            "type": "StatementType.INVOCATION",
+                                                            "methodName": "PERFORM PARSE-OPTION",
+                                                            "Statements": []
+                                                        }
+                                                    ],
+                                                    "FalseStatements": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "a3da0f1b-71ef-4129-8bc9-f05cc4c97c9a",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "e7be5f49-07b9-4145-9c54-fe44f1327348",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "RETURN"
+                        }
+                    ]
+                },
+                {
+                    "id": "d5c632d7-0269-4165-8519-58695722fa86",
+                    "internal": true,
+                    "type": "StatementType.DATA_OPERATION",
+                    "methodName": "",
+                    "operation": "SORT",
+                    "arguments": [
+                        "SORT-FILE"
+                    ],
+                    "parameters": {
+                        "ASCENDING": [
+                            "RECORD-ID1",
+                            "RECORD-ID2"
+                        ]
+                    },
+                    "extra": {
+                        "INPUT PROCEDURE": [
+                            "100-INITIALIZE",
+                            "200-PROCESS-DATA"
+                        ],
+                        "OUTPUT PROCEDURE": [
+                            "300-PROCESS-DATA",
+                            "400-TRANSFER-CONTROL"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "Name": "100-INITIALIZE",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "6a0b8d7b-1dc0-42d9-a220-fab234b0a9c9",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Initialization start\"",
+                    "options": {}
+                },
+                {
+                    "id": "5a2227b1-bac7-4805-afcb-d8e7cb8115c3",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM 110-SETUP",
+                    "Statements": []
+                },
+                {
+                    "id": "2f20de74-aefd-4f8a-93f4-c52c621cea9b",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Initialization complete\"",
+                    "options": {}
+                }
+            ]
+        },
+        {
+            "Name": "110-SETUP",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "0f6daafb-a1f0-4e4d-ad8d-5c6955578731",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Setting up variables\"",
+                    "options": {}
+                },
+                {
+                    "id": "ee118aa0-a9b6-4e6a-be92-099e2a498086",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "100",
+                    "AssignTo": "WS-VAR1"
+                },
+                {
+                    "id": "4aae5e8b-e69d-4f99-9f13-c66af9c35a0f",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "200",
+                    "AssignTo": "WS-VAR2"
+                },
+                {
+                    "id": "4c215d18-8bdc-4ee9-8327-e4bcad429664",
+                    "internal": true,
+                    "type": "StatementType.DATA_OPERATION",
+                    "methodName": "INITIALIZE SAMPLE-RECORD",
+                    "operation": "",
+                    "arguments": [],
+                    "parameters": {},
+                    "extra": null
+                },
+                {
+                    "id": "dbb935b0-cc1e-4af4-9613-269ed5814a0c",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "1",
+                    "AssignTo": "RECORD-IDOFSAMPLE-RECORD"
+                },
+                {
+                    "id": "65e8e7e5-a3af-4659-b195-0a3c05ac6593",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "RECORD-DATAOFSAMPLE-RECORD"
+                }
+            ]
+        },
+        {
+            "Name": "120-VALIDATE",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "69f8f448-8050-4224-9bf4-852bdb4d1a88",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Validating variables\"",
+                    "options": {}
+                },
+                {
+                    "id": "9cf9a069-b65f-4ca1-a095-9ccb0a7c889d",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": {
+                        "Left": "WS-VAR1",
+                        "Operator": "ISNOTEQUALTO",
+                        "Right": "100"
+                    },
+                    "TrueStatements": [
+                        {
+                            "id": "599ecb17-1e01-46df-9f0c-9fb49e8d9ecf",
+                            "internal": true,
+                            "type": "StatementType.IO",
+                            "methodName": "",
+                            "io_keyword": "DISPLAY",
+                            "target": "\"Error in initialization - WS-VAR1\"",
+                            "options": {}
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "id": "c44459d6-d351-45c3-aa32-98054738667f",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": {
+                        "Left": "WS-VAR2",
+                        "Operator": "ISNOTEQUALTO",
+                        "Right": "200"
+                    },
+                    "TrueStatements": [
+                        {
+                            "id": "c7a02d36-581f-489c-8a80-a82b30653009",
+                            "internal": true,
+                            "type": "StatementType.IO",
+                            "methodName": "",
+                            "io_keyword": "DISPLAY",
+                            "target": "\"Error in initialization - WS-VAR2\"",
+                            "options": {}
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "id": "63c65de6-0761-4493-8323-aeda1c9c0d0a",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": {
+                        "Left": "WS-STATUS",
+                        "Operator": "=",
+                        "Right": "\"READY\""
+                    },
+                    "TrueStatements": [
+                        {
+                            "id": "3b1ae7d5-d22f-4263-afd9-b036cea89be5",
+                            "internal": true,
+                            "type": "StatementType.IO",
+                            "methodName": "",
+                            "io_keyword": "DISPLAY",
+                            "target": "\"Initialization successful\"",
+                            "options": {}
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "id": "fbe0531b-6823-4886-95c4-32f7fa195c77",
+                            "internal": true,
+                            "type": "StatementType.IO",
+                            "methodName": "",
+                            "io_keyword": "DISPLAY",
+                            "target": "\"Initialization failed\"",
+                            "options": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "200-PROCESS-DATA",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "0324ff95-1d60-49e1-b378-af4f0e40291e",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Processing data\"",
+                    "options": {}
+                },
+                {
+                    "id": "cd6c8b13-2a80-4d50-9ae3-e2bedc6e7166",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM 210-CALCULATE-RESULT",
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "210-CALCULATE-RESULT",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "84fd9d94-42c0-4352-bbd6-449f99aba6a2",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Calculated Result: \"",
+                    "options": {}
+                }
+            ]
+        },
+        {
+            "Name": "220-SAVE-RESULT",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "bdb092a4-1689-4176-9c4d-0dacad61dfa9",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Saving result\"",
+                    "options": {}
+                },
+                {
+                    "id": "f4e5b470-29b5-42ed-a7f3-d25c52e38f15",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "WS-VAR1",
+                    "AssignTo": "WS-VAR2"
+                },
+                {
+                    "id": "d8642c7f-6fa1-438e-82f8-ca3c7f113d2c",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "WS-NAME",
+                    "AssignTo": "RECORD-DATAOFSAMPLE-RECORD"
+                },
+                {
+                    "id": "072f37ec-a0cc-49d1-b276-08fe31a04e42",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "WRITE",
+                    "target": "SAMPLE-RECORD",
+                    "options": {}
+                },
+                {
+                    "id": "257cb306-ffbf-4719-bce3-3f03f1c8c6cc",
+                    "internal": true,
+                    "type": "StatementType.DATA_OPERATION",
+                    "methodName": "INSPECT WS-NAME",
+                    "operation": "",
+                    "arguments": [],
+                    "parameters": {},
+                    "extra": null
+                }
+            ]
+        },
+        {
+            "Name": "300-LOOP-EXAMPLE",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "3e418765-bceb-4be2-92f2-c7dc337d55d5",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM 310-INCREMENT",
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "310-INCREMENT",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "863839a2-29fc-4d66-af8b-9b73c6941049",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Counter: \"",
+                    "options": {}
+                }
+            ]
+        },
+        {
+            "Name": "400-TRANSFER-CONTROL",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "d789ebc5-9ef4-4aca-9f31-48bcaf2dbe95",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Testing control transfer\"",
+                    "options": {}
+                },
+                {
+                    "id": "6a1a1644-789c-41a1-9b50-61e93836e6a4",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "GO",
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "500-ERROR-HANDLING",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "d11f7f9a-5bd7-4cfd-8037-243580719b12",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Error occurred, exiting program\"",
+                    "options": {}
+                },
+                {
+                    "id": "e4cc7b01-b111-448a-b113-3afc7df98bc5",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "EXIT",
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "600-FILE-OPERATIONS",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "bbc6cf52-7cb0-414b-9a0e-cb3aae129433",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Starting file operations\"",
+                    "options": {}
+                },
+                {
+                    "id": "0484059f-5f9f-41b0-b542-c61c8408387b",
+                    "internal": true,
+                    "type": "StatementType.OTHER",
+                    "methodName": "OPEN INPUTSAMPLE-FILE"
+                },
+                {
+                    "id": "514cfa5e-e260-4e48-b585-2462adfcb560",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": null,
+                    "TrueStatements": [
+                        {
+                            "id": "241e7a7d-4e2a-4a8b-ae93-0e6e58491eaa",
+                            "internal": true,
+                            "type": "StatementType.IO",
+                            "methodName": "",
+                            "io_keyword": "DISPLAY",
+                            "target": "\"ERROR: File SAMPLE-FILE was not opened.\"",
+                            "options": {}
+                        },
+                        {
+                            "id": "839969a4-45fc-4d5e-9ec3-c85395e9b368",
+                            "internal": true,
+                            "type": "StatementType.INVOCATION",
+                            "methodName": "GO",
+                            "Statements": []
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "id": "56422fa4-6829-4642-9035-6e1e533f0673",
+                    "internal": true,
+                    "type": "StatementType.LOOP",
+                    "methodName": "",
+                    "condition": {
+                        "Left": "WS-EOF-FLAG",
+                        "Operator": "=",
+                        "Right": "'Y'"
+                    },
+                    "times": 0,
+                    "Statements": [
+                        {
+                            "id": "ac625b27-9d36-4046-a3f9-70b98ae542bc",
+                            "internal": true,
+                            "type": "StatementType.IO",
+                            "methodName": "",
+                            "io_keyword": "READ",
+                            "target": "SAMPLE-FILE",
+                            "options": {}
+                        }
+                    ]
+                },
+                {
+                    "id": "9d7ac5ed-c285-4786-b317-a16366f29744",
+                    "internal": true,
+                    "type": "StatementType.OTHER",
+                    "methodName": "CLOSE SAMPLE-FILE"
+                },
+                {
+                    "id": "733b692b-3701-4ee6-9282-4e4d18094220",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": null,
+                    "TrueStatements": [
+                        {
+                            "id": "283df17a-2695-460c-ae40-c629a90551a3",
+                            "internal": true,
+                            "type": "StatementType.IO",
+                            "methodName": "",
+                            "io_keyword": "DISPLAY",
+                            "target": "\"ERROR: File SAMPLE-FILE was not closed.\"",
+                            "options": {}
+                        },
+                        {
+                            "id": "b83ddd1b-9d35-439d-9239-8063afa436e8",
+                            "internal": true,
+                            "type": "StatementType.INVOCATION",
+                            "methodName": "GO",
+                            "Statements": []
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "id": "cc23c65c-0e33-4dc2-8694-cfab585ec06a",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "GO",
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "700-TRANSACTION-OPERATIONS",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "8118f365-453c-4495-8ae5-f8bfb1a28421",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Starting transaction operations\"",
+                    "options": {}
+                },
+                {
+                    "id": "3c94833d-55a7-4b00-a3c4-15904a7a3783",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "8e38f7c1-079d-4e62-ac84-fa986d07d40c",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "SEND"
+                        }
+                    ]
+                },
+                {
+                    "id": "b18b8673-af23-4f01-9a64-b711f9beeedf",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "4faeded5-a88e-4d27-a1ff-d1aa19026148",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "XCTL"
+                        }
+                    ]
+                },
+                {
+                    "id": "b861a83e-b3ce-4a0a-8632-e511a10b2cef",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Returned from CICS transaction\"",
+                    "options": {}
+                }
+            ]
+        },
+        {
+            "Name": "800-FINALIZE",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "f3f9d468-b1c2-42e5-983c-243acd5a862c",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Finalizing program\"",
+                    "options": {}
+                },
+                {
+                    "id": "88f444b4-e852-492d-9a5e-d95c98bc9522",
+                    "internal": true,
+                    "type": "StatementType.IO",
+                    "methodName": "",
+                    "io_keyword": "DISPLAY",
+                    "target": "\"Program completed successfully\"",
+                    "options": {}
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-EXIT",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "8146d85d-6bea-4a2e-8847-fb38ceefe944",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "GOBACK",
+                    "Statements": []
+                }
+            ]
+        },
+        {
+            "Name": "RECEIVE-OPTION",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "0e7acb0d-1b97-41c6-bba5-64c629111f42",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "'Getting Input from User.'",
+                    "AssignTo": "WTO-MESSAGE"
+                },
+                {
+                    "id": "b6052440-98ce-4588-a9c2-9698db3c9436",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM DOGE-WTO",
+                    "Statements": []
+                },
+                {
+                    "id": "21b97215-28be-4d33-a807-d160a3a4718a",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "169759c5-dc0f-477a-aef4-ecab8e20ad06",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "RECEIVE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "PARSE-OPTION",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "1714678e-9b53-451e-9b2e-4bcf0e70fb46",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": {
+                        "Left": "OPTIONI",
+                        "Operator": "EQUALTO",
+                        "Right": "'T'"
+                    },
+                    "TrueStatements": [
+                        {
+                            "id": "c020b39a-098a-4c2f-a0fb-be9da4283d24",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "'Opening Transaction History'",
+                            "AssignTo": "WTO-MESSAGE"
+                        },
+                        {
+                            "id": "a998bb8c-f0a2-4bd8-b88a-4da192a86009",
+                            "internal": true,
+                            "type": "StatementType.INVOCATION",
+                            "methodName": "PERFORM DOGE-WTO",
+                            "Statements": []
+                        },
+                        {
+                            "id": "3084ad25-df75-4703-b585-e0d9939bda0c",
+                            "internal": true,
+                            "type": "StatementType.CICS",
+                            "methodName": "EXEC CICS",
+                            "Statements": [
+                                {
+                                    "id": "acd796ee-a441-40f6-b344-3835c729edfd",
+                                    "internal": true,
+                                    "type": "StatementType.OTHER",
+                                    "methodName": "XCTL"
+                                }
+                            ]
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "id": "2e2f1aec-1c71-4898-8977-a422593f2c37",
+                            "internal": true,
+                            "type": "StatementType.CONDITION",
+                            "methodName": "IF",
+                            "conditionClauses": {
+                                "Left": "OPTIONI",
+                                "Operator": "EQUALTO",
+                                "Right": "'W'"
+                            },
+                            "TrueStatements": [
+                                {
+                                    "id": "0cfc9740-a9aa-4d95-84c8-220e34ac57c4",
+                                    "internal": true,
+                                    "type": "StatementType.ASSIGNMENT",
+                                    "methodName": "",
+                                    "AssignFrom": "'Opening Main Menu'",
+                                    "AssignTo": "WTO-MESSAGE"
+                                },
+                                {
+                                    "id": "4550e645-6a1c-4acf-844b-0063555c395a",
+                                    "internal": true,
+                                    "type": "StatementType.INVOCATION",
+                                    "methodName": "PERFORM DOGE-WTO",
+                                    "Statements": []
+                                },
+                                {
+                                    "id": "6a0fa7bf-8066-4b8e-b4ad-e85137477644",
+                                    "internal": true,
+                                    "type": "StatementType.CICS",
+                                    "methodName": "EXEC CICS",
+                                    "Statements": [
+                                        {
+                                            "id": "522f3c59-9ddf-4606-bc05-e23e99f575a9",
+                                            "internal": true,
+                                            "type": "StatementType.OTHER",
+                                            "methodName": "XCTL"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "FalseStatements": [
+                                {
+                                    "id": "135257ed-96c6-45b7-9316-4c55ce262e98",
+                                    "internal": true,
+                                    "type": "StatementType.CONDITION",
+                                    "methodName": "IF",
+                                    "conditionClauses": {
+                                        "Left": "OPTIONI",
+                                        "Operator": "EQUALTO",
+                                        "Right": "'D'"
+                                    },
+                                    "TrueStatements": [
+                                        {
+                                            "id": "95fabdfd-8550-45a6-b0b0-d4711b9510fe",
+                                            "internal": true,
+                                            "type": "StatementType.ASSIGNMENT",
+                                            "methodName": "",
+                                            "AssignFrom": "'Opening Transaction Details'",
+                                            "AssignTo": "WTO-MESSAGE"
+                                        },
+                                        {
+                                            "id": "c5f25a14-dcdd-4d72-9251-bd41cc60ac96",
+                                            "internal": true,
+                                            "type": "StatementType.INVOCATION",
+                                            "methodName": "PERFORM DOGE-WTO",
+                                            "Statements": []
+                                        },
+                                        {
+                                            "id": "7b70bfb7-e3f7-4572-9d97-3dfcd65a543c",
+                                            "internal": true,
+                                            "type": "StatementType.CICS",
+                                            "methodName": "EXEC CICS",
+                                            "Statements": [
+                                                {
+                                                    "id": "6cac96f5-1be1-4a51-9544-3ba41a63735c",
+                                                    "internal": true,
+                                                    "type": "StatementType.OTHER",
+                                                    "methodName": "XCTL"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "FalseStatements": [
+                                        {
+                                            "id": "2a100012-0a66-48db-873f-2c32be00b1fa",
+                                            "internal": true,
+                                            "type": "StatementType.CONDITION",
+                                            "methodName": "IF",
+                                            "conditionClauses": {
+                                                "Left": "OPTIONI",
+                                                "Operator": "EQUALTO",
+                                                "Right": "'S'"
+                                            },
+                                            "TrueStatements": [
+                                                {
+                                                    "id": "4ed9af2d-25bd-45eb-9a72-cb0899e2f9e8",
+                                                    "internal": true,
+                                                    "type": "StatementType.ASSIGNMENT",
+                                                    "methodName": "",
+                                                    "AssignFrom": "'Opening Such Send'",
+                                                    "AssignTo": "WTO-MESSAGE"
+                                                },
+                                                {
+                                                    "id": "569f7a38-ec4c-4c44-bab4-15b5db2bd9f4",
+                                                    "internal": true,
+                                                    "type": "StatementType.INVOCATION",
+                                                    "methodName": "PERFORM DOGE-WTO",
+                                                    "Statements": []
+                                                },
+                                                {
+                                                    "id": "0e85f7cb-8457-48a3-ad8d-b2a6207b5077",
+                                                    "internal": true,
+                                                    "type": "StatementType.CICS",
+                                                    "methodName": "EXEC CICS",
+                                                    "Statements": [
+                                                        {
+                                                            "id": "ef802029-af7c-4233-9c18-35af53d6f76e",
+                                                            "internal": true,
+                                                            "type": "StatementType.OTHER",
+                                                            "methodName": "XCTL"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "FalseStatements": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "28b20db7-52b2-4152-b170-e02c78ce420e",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-MAIN-SCREEN",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "bf65ec03-08a9-45ee-b08e-0e62fc5a047a",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "'Sending Doge CICS Main Screen.'",
+                    "AssignTo": "WTO-MESSAGE"
+                },
+                {
+                    "id": "f2658f98-5c2c-4cec-be3f-23ee8c590389",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM DOGE-WTO",
+                    "Statements": []
+                },
+                {
+                    "id": "67feeb78-eaf8-45d5-8691-2c9809008e5a",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "a46f5d9e-667f-4997-b328-5ba886143f01",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "STARTBR"
+                        }
+                    ]
+                },
+                {
+                    "id": "984d65ab-1aaf-4a76-85f4-b559efaff916",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "1b83ce29-1746-4573-b8b3-e2423b8121aa",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "READPREV"
+                        }
+                    ]
+                },
+                {
+                    "id": "7a4f8bfc-233f-44e6-acd4-9d657c6c3a97",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "acb512b5-c788-47da-839a-e67408f61c00",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "READPREV"
+                        }
+                    ]
+                },
+                {
+                    "id": "e472ab7f-29b6-4ab4-a65b-679c446f3534",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM CONVERT-DATE",
+                    "Statements": []
+                },
+                {
+                    "id": "e98b3e10-8a7c-4791-87c0-80191b0ef4aa",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "TLABEL",
+                    "AssignTo": "DLABEL"
+                },
+                {
+                    "id": "67fc76f9-3468-4f58-92cf-683b31327cb0",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM CONVERT-AMOUNT-TO-DISPLAY",
+                    "Statements": []
+                },
+                {
+                    "id": "8d448c5f-4205-40f7-990c-e80b76d09b87",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "RECENT-COLOR",
+                    "AssignTo": "RECNT2C"
+                },
+                {
+                    "id": "f29be58d-189d-4695-b3de-a493f69640b8",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "DISPLAY-TRAN",
+                    "AssignTo": "RECNT2O"
+                },
+                {
+                    "id": "9b4c3462-cdde-4339-9c3b-c2c05061b83b",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "1602df33-04a9-4274-892b-e33d349f5a41",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "READPREV"
+                        }
+                    ]
+                },
+                {
+                    "id": "cd94ebb6-958e-452c-920d-36a2722c2220",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM CONVERT-DATE",
+                    "Statements": []
+                },
+                {
+                    "id": "ae5a059f-3f9d-4464-9edb-d754e141b26e",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "TLABEL",
+                    "AssignTo": "DLABEL"
+                },
+                {
+                    "id": "ad0b088e-91c7-4282-b988-97c0da2efd59",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM CONVERT-AMOUNT-TO-DISPLAY",
+                    "Statements": []
+                },
+                {
+                    "id": "ac267daa-a27a-4c83-9683-33d481764513",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "RECENT-COLOR",
+                    "AssignTo": "RECNT1C"
+                },
+                {
+                    "id": "f120796a-593a-4aff-bb88-49521516569b",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": {
+                        "Left": "TDATE",
+                        "Operator": "=",
+                        "Right": "0000000002"
+                    },
+                    "TrueStatements": [
+                        {
+                            "id": "7553191a-bb02-4921-a3a2-cca8d629d303",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "RECNT2O",
+                            "AssignTo": "RECNT1O"
+                        },
+                        {
+                            "id": "198c62b7-76b7-467b-a91e-30a8c4573972",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "SPACES",
+                            "AssignTo": "RECNT1O"
+                        }
+                    ],
+                    "FalseStatements": [
+                        {
+                            "id": "ed7bb9a5-263c-4c4a-ba0b-fdf308da4efa",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "DISPLAY-TRAN",
+                            "AssignTo": "RECNT1O"
+                        }
+                    ]
+                },
+                {
+                    "id": "811d0479-a528-4c48-a4f3-9829c25cd7e8",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "0000000001",
+                    "AssignTo": "START-RECORD-ID"
+                },
+                {
+                    "id": "a69f06b3-cd59-4aab-ac74-5f12c6f6e482",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "78b254ae-e315-4e1e-932a-9d7f93cecb45",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "RESETBR"
+                        }
+                    ]
+                },
+                {
+                    "id": "2aaf0dad-96c1-429d-a6cb-85a3f026ea20",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "bddd0790-bee8-4f9d-8cb3-6d4fab80a9e3",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "READNEXT"
+                        }
+                    ]
+                },
+                {
+                    "id": "0f33f3d6-d6e3-4a4c-9e33-3cd749eac68d",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM CONVERT-AMOUNT-TO-DISPLAY",
+                    "Statements": []
+                },
+                {
+                    "id": "2988b988-c184-4068-ad87-352f3ef0c737",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "AVAILABLE-AMOUNT"
+                },
+                {
+                    "id": "069c0196-a425-4f21-80f5-b9f8e6ce92fb",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "AVAILO"
+                },
+                {
+                    "id": "1414cdb5-bc66-4609-854e-f8651bbefc2f",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "d815a65f-a7e7-421c-b30a-e35828e257d0",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "READNEXT"
+                        }
+                    ]
+                },
+                {
+                    "id": "6e052ab3-6f93-4c9d-bec4-b4a540623817",
+                    "internal": true,
+                    "type": "StatementType.INVOCATION",
+                    "methodName": "PERFORM CONVERT-AMOUNT-TO-DISPLAY",
+                    "Statements": []
+                },
+                {
+                    "id": "736fcecc-b5aa-4692-a7fa-cf82025dd5b2",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "PENDNGO"
+                },
+                {
+                    "id": "9cabbe24-a18f-4a1d-8dbd-a0bc3af91d0f",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "TOTALO"
+                },
+                {
+                    "id": "35ac7faf-8aaf-4423-b0f9-1dfac18feead",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "2955bbdd-c1be-46b2-be91-77f0eb48af39",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "ENDBR"
+                        }
+                    ]
+                },
+                {
+                    "id": "a29d28da-85da-4b26-b202-1cb571fb3a7c",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "0b2db7c9-5a42-4847-89b6-e87c709b2b7a",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "SEND"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "CONVERT-AMOUNT-TO-DISPLAY",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "0a52e69c-6fac-4886-b643-7c07fd92420d",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "DFHGREEN",
+                    "AssignTo": "RECENT-COLOR"
+                },
+                {
+                    "id": "0cbcf396-09b3-44fb-80f9-2a023ff79cce",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "TAMT-INTEGER-PART",
+                    "AssignTo": "THE-AMOUNT-INTEGER"
+                },
+                {
+                    "id": "24d304d1-7d69-4191-907b-d0d627a70201",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "TAMT-DECIMAL-PART",
+                    "AssignTo": "THE-AMOUNT-DECIMAL"
+                },
+                {
+                    "id": "4e2d388a-72c1-4db8-b9cc-46fbe082296b",
+                    "internal": true,
+                    "type": "StatementType.CONDITION",
+                    "methodName": "IF",
+                    "conditionClauses": null,
+                    "TrueStatements": [
+                        {
+                            "id": "37329f40-40fe-473f-9343-9bdc987ccd4a",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "DFHRED",
+                            "AssignTo": "RECENT-COLOR"
+                        },
+                        {
+                            "id": "fb2bde24-b8e8-48c9-ae28-165522227a99",
+                            "internal": true,
+                            "type": "StatementType.ASSIGNMENT",
+                            "methodName": "",
+                            "AssignFrom": "ZERO - THE-AMOUNT",
+                            "AssignTo": "THE-AMOUNT"
+                        }
+                    ],
+                    "FalseStatements": []
+                },
+                {
+                    "id": "f4f5325f-0545-426f-aebe-d304d626aa83",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "THE-AMOUNT",
+                    "AssignTo": "DAMOUNT"
+                },
+                {
+                    "id": "76e530cf-8863-42cd-8701-527543195eb7",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "TAMT-SIGN",
+                    "AssignTo": "DSIGN"
+                }
+            ]
+        },
+        {
+            "Name": "CONVERT-DATE",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "afec1aef-4ebe-46f2-adf3-96ab8319d5e4",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "NUM-DATE",
+                    "AssignTo": "TEMP-DATE"
+                },
+                {
+                    "id": "2754f385-9afa-435c-aa3f-8d9b8b14e8f0",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "f832b126-f194-4028-9a25-fd2303952abe",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "FORMATTIME"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DOGE-WTO",
+            "Input": {},
+            "Output": {},
+            "Statements": [
+                {
+                    "id": "3102f50c-399d-4f52-927e-a1beafd3823f",
+                    "internal": true,
+                    "type": "StatementType.CICS",
+                    "methodName": "EXEC CICS",
+                    "Statements": [
+                        {
+                            "id": "166e8c14-ea55-4be7-8b3d-7c11d9c0f35a",
+                            "internal": true,
+                            "type": "StatementType.OTHER",
+                            "methodName": "WRITE"
+                        }
+                    ]
+                },
+                {
+                    "id": "c98d6de2-3141-4129-af0e-d2ae4baa4c78",
+                    "internal": true,
+                    "type": "StatementType.ASSIGNMENT",
+                    "methodName": "",
+                    "AssignFrom": "SPACES",
+                    "AssignTo": "WTO-MESSAGE"
+                }
+            ]
+        }
+    ],
+    "DataStructures": [
+        {
+            "Level": "77",
+            "Name": "RC",
+            "PIC": "S9(4)",
+            "VALUE": "+0",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "77",
+            "Name": "SYSOUT-TOKEN",
+            "PIC": "X(8)",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "DOGEMSG",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DOGEID",
+            "PIC": "X(10)B",
+            "VALUE": "'DOGECICS99'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "ADDRSS",
+            "PIC": "X(34)B",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "AMOUNT",
+            "PIC": "Z(02),Z(03),Z(02)9.9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "DOGEMSG-LEN",
+            "PIC": "99",
+            "VALUE": "61",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "TRANSACTION",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TDATE",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "NUM-DATE",
+            "PIC": "9(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": "TDATE",
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TADDRSS",
+            "PIC": "X(34)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TLABEL",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "TAMOUNT",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "TAMT-SIGN",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": [
+                {
+                    "Level": "88",
+                    "Name": "TAMT-SIGN-POSITIVE",
+                    "VALUE": "'+'"
+                },
+                {
+                    "Level": "88",
+                    "Name": "TAMT-SIGN-NEGATIVE",
+                    "VALUE": "'-'"
+                }
+            ]
+        },
+        {
+            "Level": "10",
+            "Name": "TAMT-INTEGER-PART",
+            "PIC": "X(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "TAMT-DEC-POINT",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "10",
+            "Name": "TAMT-DECIMAL-PART",
+            "PIC": "X(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "THE-AMOUNT",
+            "PIC": "S9(8)V9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "FILLER",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": "THE-AMOUNT",
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "THE-AMOUNT-INTEGER",
+            "PIC": "X(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "THE-AMOUNT-DECIMAL",
+            "PIC": "S9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "AVAILABLE-AMOUNT",
+            "PIC": "S9(8)V9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "RECENT-COLOR",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "DISPLAY-TRAN",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DDATE",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DLABEL",
+            "PIC": "X(10)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DSIGN",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DAMOUNT",
+            "PIC": "Z(02),Z(03),Z(02)9.9(8)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DTYPE",
+            "PIC": "XXXX",
+            "VALUE": "'DOGE'",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "TEMP-DATE",
+            "PIC": "9(15)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "DOGEMSG-LEN",
+            "PIC": "99",
+            "VALUE": "61",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "START-RECORD-ID",
+            "PIC": "9(10)",
+            "VALUE": "9999999999",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "SINCE-EPOCH",
+            "PIC": "S9(15)",
+            "VALUE": "+2208988800000",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "RESPONSE-CODE",
+            "PIC": "S9(4)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "RESPONSE-CODE2",
+            "PIC": "S9(4)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "DOGECOMMS-AREA",
+            "PIC": null,
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "05",
+            "Name": "DOGE-FLAG",
+            "PIC": "X",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": [
+                {
+                    "Level": "88",
+                    "Name": "SUCH-DOGE",
+                    "VALUE": "'D'"
+                },
+                {
+                    "Level": "88",
+                    "Name": "WOW-MENU",
+                    "VALUE": "'W'"
+                },
+                {
+                    "Level": "88",
+                    "Name": "SUCH-SEND",
+                    "VALUE": "'S'"
+                },
+                {
+                    "Level": "88",
+                    "Name": "SUCH-HISTORY",
+                    "VALUE": "'T'"
+                }
+            ]
+        },
+        {
+            "Level": "05",
+            "Name": "FILLER",
+            "PIC": "X(9)",
+            "VALUE": null,
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        },
+        {
+            "Level": "01",
+            "Name": "WTO-MESSAGE",
+            "PIC": "X(38)",
+            "VALUE": "SPACES",
+            "OCCURS": null,
+            "REDEFINES": null,
+            "CONDITIONS": []
+        }
+    ]
+}

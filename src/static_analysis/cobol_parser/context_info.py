@@ -8,6 +8,8 @@ def get_children(ctx) -> List:
     :param ctx: Το αντικείμενο context.
     :return: Λίστα από child nodes.
     """
+    if ctx is None:
+        return []
     return list(ctx.getChildren())
 
 def print_child(ctx) -> None:
